@@ -6,11 +6,11 @@ import { ReplayProvider } from "./replay";
 import { ROOT } from "../lib/paths";
 
 export * from "./types";
-export const DEFAULT_MODEL = "gemini-3.6-flash";
+export const DEFAULT_MODEL = "gemini-3.1-flash-lite";
 
 /** Gemini API prices, USD per 1M tokens. Recorded per run for the cost metric. */
 export const PRICES: Record<string, { in: number; out: number }> = {
-  "gemini-3.6-flash": { in: 0.3, out: 2.5 },
+  "gemini-3.1-flash-lite": { in: 0.3, out: 2.5 },
   "gemini-3.5-flash": { in: 0.3, out: 2.5 },
   "gemini-flash-latest": { in: 0.3, out: 2.5 },
   "gemini-3.1-pro-preview": { in: 1.25, out: 10 },

@@ -1,947 +1,756 @@
 {
+  "generatedAt": "2026-08-29T09:26:51.030Z",
   "metrics": null,
   "cases": [
     {
-      "caseId": "case-12",
+      "id": "case-01",
+      "patient": "M. Dlamini",
       "referralType": "elective_caesarean",
-      "patient": "J. Sibanda",
-      "packText": "ANC CARD  --  J. Sibanda,  31y     PID 1188-05\nMzilikazi Clinic\n\nLMP 14/12/2025\nGA 30+2   (recorded at visit 24/08/26)\nEDD 31/10/2026\nG3 P2     -- 2019 SVD term ; 2023 LSCS term\n\nHb 11.7 (20/08/26)     Blood gp O pos\nHIV neg (20/12/25)     RPR neg (20/12/25)\nBP 126/82 (24/08/26)   120/78 (10/08/26)\n\nAllergies: none known\nMeds: ferrous sulphate, folic acid, calcium, aspirin 75mg\n\nReason: elective LSCS booking, previous caesarean (2023)\nReferred by: Sr T. Ndlovu, Mzilikazi Clinic, 24/08/2026\nTo: Central Hospital -- Theatre list\n",
+      "referralLabel": "Elective caesarean booking",
+      "receivingFacility": "Regional Hospital — Obstetrics",
+      "status": "gaps",
+      "statusLine": "1 gap outstanding",
       "mode": "fresh",
-      "model": "gemini-3.6-flash",
-      "extraction": {
-        "pack": {
-          "patientId": {
-            "value": "1188-05",
-            "absent": false,
-            "provenance": {
-              "quote": "1188-05",
-              "line": 1
-            }
-          },
-          "ageYears": {
-            "value": 31,
-            "absent": false,
-            "provenance": {
-              "quote": "31y",
-              "line": 1
-            }
-          },
-          "lmp": {
-            "value": "2025-12-14",
-            "absent": false,
-            "provenance": {
-              "quote": "14/12/2025",
-              "line": 4
-            }
-          },
-          "edd": {
-            "value": "2026-10-31",
-            "absent": false,
-            "provenance": {
-              "quote": "31/10/2026",
-              "line": 6
-            }
-          },
-          "gestationalAge": {
-            "value": {
-              "weeks": 30,
-              "days": 2,
-              "assessedOn": "2026-08-24",
-              "provenance": {
-                "quote": "GA 30+2   (recorded at visit 24/08/26)",
-                "line": 5
-              }
-            },
-            "absent": false,
-            "provenance": {
-              "quote": "GA 30+2   (recorded at visit 24/08/26)",
-              "line": 5
-            }
-          },
-          "gravidity": {
-            "value": 3,
-            "absent": false,
-            "provenance": {
-              "quote": "G3",
-              "line": 7
-            }
-          },
-          "parity": {
-            "value": 2,
-            "absent": false,
-            "provenance": {
-              "quote": "P2",
-              "line": 7
-            }
-          },
-          "bloodGroup": {
-            "value": "O",
-            "absent": false,
-            "provenance": {
-              "quote": "Blood gp O pos",
-              "line": 9
-            }
-          },
-          "rhesus": {
-            "value": "positive",
-            "absent": false,
-            "provenance": {
-              "quote": "Blood gp O pos",
-              "line": 9
-            }
-          },
-          "haemoglobin": {
-            "value": 11.7,
-            "date": "2026-08-20",
-            "absent": false,
-            "provenance": {
-              "quote": "Hb 11.7 (20/08/26)",
-              "line": 9
-            }
-          },
-          "hivScreen": {
-            "status": "negative",
-            "date": "2025-12-20",
-            "provenance": {
-              "quote": "HIV neg (20/12/25)",
-              "line": 10
-            }
-          },
-          "syphilisScreen": {
-            "status": "negative",
-            "date": "2025-12-20",
-            "provenance": {
-              "quote": "RPR neg (20/12/25)",
-              "line": 10
-            }
-          },
-          "bloodPressure": {
-            "readings": [
-              {
-                "systolic": 126,
-                "diastolic": 82,
-                "date": "2026-08-24",
-                "provenance": {
-                  "quote": "126/82 (24/08/26)",
-                  "line": 11
-                }
-              },
-              {
-                "systolic": 120,
-                "diastolic": 78,
-                "date": "2026-08-10",
-                "provenance": {
-                  "quote": "120/78 (10/08/26)",
-                  "line": 11
-                }
-              }
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "BP 126/82 (24/08/26)   120/78 (10/08/26)",
-              "line": 11
-            }
-          },
-          "urineProtein": {
-            "value": null,
-            "absent": true,
-            "provenance": null,
-            "absentReason": "not_found"
-          },
-          "previousObstetricHistory": {
-            "entries": [
-              {
-                "summary": "2019 SVD term",
-                "outcome": "term_birth",
-                "gestationWeeks": null,
-                "year": 2019,
-                "provenance": {
-                  "quote": "2019 SVD term",
-                  "line": 7
-                }
-              },
-              {
-                "summary": "2023 LSCS term",
-                "outcome": "term_birth",
-                "gestationWeeks": null,
-                "year": 2023,
-                "provenance": {
-                  "quote": "2023 LSCS term",
-                  "line": 7
-                }
-              }
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "2019 SVD term ; 2023 LSCS term",
-              "line": 7
-            }
-          },
-          "medications": {
-            "value": [
-              "ferrous sulphate",
-              "folic acid",
-              "calcium",
-              "aspirin 75mg"
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "ferrous sulphate, folic acid, calcium, aspirin 75mg",
-              "line": 14
-            }
-          },
-          "allergies": {
-            "value": "none known",
-            "absent": false,
-            "provenance": {
-              "quote": "none known",
-              "line": 13
-            }
-          },
-          "reasonForReferral": {
-            "value": "elective LSCS booking, previous caesarean (2023)",
-            "absent": false,
-            "provenance": {
-              "quote": "elective LSCS booking, previous caesarean (2023)",
-              "line": 16
-            }
-          },
-          "referringFacility": {
-            "value": "Mzilikazi Clinic",
-            "absent": false,
-            "provenance": {
-              "quote": "Mzilikazi Clinic",
-              "line": 17
-            }
-          },
-          "referringClinician": {
-            "value": "Sr T. Ndlovu",
-            "absent": false,
-            "provenance": {
-              "quote": "Sr T. Ndlovu",
-              "line": 17
-            }
-          },
-          "referralDate": {
-            "value": "2026-08-24",
-            "absent": false,
-            "provenance": {
-              "quote": "24/08/2026",
-              "line": 17
-            }
-          },
-          "receivingFacility": {
-            "value": "Central Hospital",
-            "absent": false,
-            "provenance": {
-              "quote": "Central Hospital",
-              "line": 18
-            }
-          },
-          "receivingDepartment": {
-            "value": "Theatre list",
-            "absent": false,
-            "provenance": {
-              "quote": "Theatre list",
-              "line": 18
-            }
-          },
-          "antiD": {
-            "value": null,
-            "absent": true,
-            "provenance": null,
-            "absentReason": "not_found"
-          }
-        },
-        "raw": {
-          "patientId": {
-            "value": "1188-05",
-            "absent": false,
-            "provenance": {
-              "quote": "1188-05",
-              "line": 1
-            }
-          },
-          "ageYears": {
-            "value": 31,
-            "absent": false,
-            "provenance": {
-              "quote": "31y",
-              "line": 1
-            }
-          },
-          "lmp": {
-            "value": "2025-12-14",
-            "absent": false,
-            "provenance": {
-              "quote": "14/12/2025",
-              "line": 4
-            }
-          },
-          "edd": {
-            "value": "2026-10-31",
-            "absent": false,
-            "provenance": {
-              "quote": "31/10/2026",
-              "line": 6
-            }
-          },
-          "gestationalAge": {
-            "value": {
-              "weeks": 30,
-              "days": 2,
-              "assessedOn": "2026-08-24",
-              "provenance": {
-                "quote": "GA 30+2   (recorded at visit 24/08/26)",
-                "line": 5
-              }
-            },
-            "absent": false,
-            "provenance": {
-              "quote": "GA 30+2   (recorded at visit 24/08/26)",
-              "line": 5
-            }
-          },
-          "gravidity": {
-            "value": 3,
-            "absent": false,
-            "provenance": {
-              "quote": "G3",
-              "line": 7
-            }
-          },
-          "parity": {
-            "value": 2,
-            "absent": false,
-            "provenance": {
-              "quote": "P2",
-              "line": 7
-            }
-          },
-          "bloodGroup": {
-            "value": "O",
-            "absent": false,
-            "provenance": {
-              "quote": "Blood gp O pos",
-              "line": 9
-            }
-          },
-          "rhesus": {
-            "value": "positive",
-            "absent": false,
-            "provenance": {
-              "quote": "Blood gp O pos",
-              "line": 9
-            }
-          },
-          "haemoglobin": {
-            "value": 11.7,
-            "date": "2026-08-20",
-            "absent": false,
-            "provenance": {
-              "quote": "Hb 11.7 (20/08/26)",
-              "line": 9
-            }
-          },
-          "hivScreen": {
-            "status": "negative",
-            "date": "2025-12-20",
-            "provenance": {
-              "quote": "HIV neg (20/12/25)",
-              "line": 10
-            }
-          },
-          "syphilisScreen": {
-            "status": "negative",
-            "date": "2025-12-20",
-            "provenance": {
-              "quote": "RPR neg (20/12/25)",
-              "line": 10
-            }
-          },
-          "bloodPressure": {
-            "readings": [
-              {
-                "systolic": 126,
-                "diastolic": 82,
-                "date": "2026-08-24",
-                "provenance": {
-                  "quote": "126/82 (24/08/26)",
-                  "line": 11
-                }
-              },
-              {
-                "systolic": 120,
-                "diastolic": 78,
-                "date": "2026-08-10",
-                "provenance": {
-                  "quote": "120/78 (10/08/26)",
-                  "line": 11
-                }
-              }
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "BP 126/82 (24/08/26)   120/78 (10/08/26)",
-              "line": 11
-            }
-          },
-          "urineProtein": {
-            "value": null,
-            "absent": true,
-            "provenance": null,
-            "absentReason": "not_found"
-          },
-          "previousObstetricHistory": {
-            "entries": [
-              {
-                "summary": "2019 SVD term",
-                "outcome": "term_birth",
-                "gestationWeeks": null,
-                "year": 2019,
-                "provenance": {
-                  "quote": "2019 SVD term",
-                  "line": 7
-                }
-              },
-              {
-                "summary": "2023 LSCS term",
-                "outcome": "term_birth",
-                "gestationWeeks": null,
-                "year": 2023,
-                "provenance": {
-                  "quote": "2023 LSCS term",
-                  "line": 7
-                }
-              }
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "2019 SVD term ; 2023 LSCS term",
-              "line": 7
-            }
-          },
-          "medications": {
-            "value": [
-              "ferrous sulphate",
-              "folic acid",
-              "calcium",
-              "aspirin 75mg"
-            ],
-            "absent": false,
-            "provenance": {
-              "quote": "ferrous sulphate, folic acid, calcium, aspirin 75mg",
-              "line": 14
-            }
-          },
-          "allergies": {
-            "value": "none known",
-            "absent": false,
-            "provenance": {
-              "quote": "none known",
-              "line": 13
-            }
-          },
-          "reasonForReferral": {
-            "value": "elective LSCS booking, previous caesarean (2023)",
-            "absent": false,
-            "provenance": {
-              "quote": "elective LSCS booking, previous caesarean (2023)",
-              "line": 16
-            }
-          },
-          "referringFacility": {
-            "value": "Mzilikazi Clinic",
-            "absent": false,
-            "provenance": {
-              "quote": "Mzilikazi Clinic",
-              "line": 17
-            }
-          },
-          "referringClinician": {
-            "value": "Sr T. Ndlovu",
-            "absent": false,
-            "provenance": {
-              "quote": "Sr T. Ndlovu",
-              "line": 17
-            }
-          },
-          "referralDate": {
-            "value": "2026-08-24",
-            "absent": false,
-            "provenance": {
-              "quote": "24/08/2026",
-              "line": 17
-            }
-          },
-          "receivingFacility": {
-            "value": "Central Hospital",
-            "absent": false,
-            "provenance": {
-              "quote": "Central Hospital",
-              "line": 18
-            }
-          },
-          "receivingDepartment": {
-            "value": "Theatre list",
-            "absent": false,
-            "provenance": {
-              "quote": "Theatre list",
-              "line": 18
-            }
-          },
-          "antiD": {
-            "value": null,
-            "absent": true,
-            "provenance": null,
-            "absentReason": "not_found"
-          }
-        },
-        "attempts": [
-          {
-            "attempt": 1,
-            "ok": true,
-            "schemaValid": true,
-            "semanticIssues": [],
-            "rawText": "{\n  \"patientId\": {\n    \"value\": \"1188-05\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"1188-05\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 31,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"31y\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2025-12-14\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"14/12/2025\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-10-31\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"31/10/2026\",\n      \"line\": 6\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 30,\n      \"days\": 2,\n      \"assessedOn\": \"2026-08-24\",\n      \"provenance\": {\n        \"quote\": \"GA 30+2   (recorded at visit 24/08/26)\",\n        \"line\": 5\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 30+2   (recorded at visit 24/08/26)\",\n      \"line\": 5\n    }\n  },\n  \"gravidity\": {\n    \"value\": 3,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G3\",\n      \"line\": 7\n    }\n  },\n  \"parity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P2\",\n      \"line\": 7\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"O\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 9\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 9\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 11.7,\n    \"date\": \"2026-08-20\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 11.7 (20/08/26)\",\n      \"line\": 9\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2025-12-20\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (20/12/25)\",\n      \"line\": 10\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2025-12-20\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (20/12/25)\",\n      \"line\": 10\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 126,\n        \"diastolic\": 82,\n        \"date\": \"2026-08-24\",\n        \"provenance\": {\n          \"quote\": \"126/82 (24/08/26)\",\n          \"line\": 11\n        }\n      },\n      {\n        \"systolic\": 120,\n        \"diastolic\": 78,\n        \"date\": \"2026-08-10\",\n        \"provenance\": {\n          \"quote\": \"120/78 (10/08/26)\",\n          \"line\": 11\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 126/82 (24/08/26)   120/78 (10/08/26)\",\n      \"line\": 11\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2019 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2019,\n        \"provenance\": {\n          \"quote\": \"2019 SVD term\",\n          \"line\": 7\n        }\n      },\n      {\n        \"summary\": \"2023 LSCS term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2023,\n        \"provenance\": {\n          \"quote\": \"2023 LSCS term\",\n          \"line\": 7\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"2019 SVD term ; 2023 LSCS term\",\n      \"line\": 7\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"ferrous sulphate\",\n      \"folic acid\",\n      \"calcium\",\n      \"aspirin 75mg\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"ferrous sulphate, folic acid, calcium, aspirin 75mg\",\n      \"line\": 14\n    }\n  },\n  \"allergies\": {\n    \"value\": \"none known\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"none known\",\n      \"line\": 13\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"elective LSCS booking, previous caesarean (2023)\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"elective LSCS booking, previous caesarean (2023)\",\n      \"line\": 16\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Mzilikazi Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Mzilikazi Clinic\",\n      \"line\": 17\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr T. Ndlovu\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr T. Ndlovu\",\n      \"line\": 17\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-24\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"24/08/2026\",\n      \"line\": 17\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"Central Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Central Hospital\",\n      \"line\": 18\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Theatre list\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Theatre list\",\n      \"line\": 18\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
-            "stopReason": "STOP",
-            "usage": {
-              "inputTokens": 832,
-              "outputTokens": 6145,
-              "cacheReadTokens": 0
-            }
-          }
-        ],
-        "mode": "fresh"
-      },
-      "checks": {
-        "requirements": {
-          "findings": [],
-          "all": [
-            {
-              "field": "patientId",
-              "label": "Patient identifier",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.patientId",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "1188-05",
-                "line": 1
-              }
-            },
-            {
-              "field": "ageYears",
-              "label": "Age",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.ageYears",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "31y",
-                "line": 1
-              }
-            },
-            {
-              "field": "lmp",
-              "label": "Last menstrual period",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.lmp",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "14/12/2025",
-                "line": 4
-              }
-            },
-            {
-              "field": "gestationalAge",
-              "label": "Gestational age",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.gestationalAge",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "GA 30+2   (recorded at visit 24/08/26)",
-                "line": 5
-              }
-            },
-            {
-              "field": "edd",
-              "label": "Estimated delivery date",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.edd",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "31/10/2026",
-                "line": 6
-              }
-            },
-            {
-              "field": "gravidity",
-              "label": "Gravidity",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.gravidity",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "G3",
-                "line": 7
-              }
-            },
-            {
-              "field": "parity",
-              "label": "Parity",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.parity",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "P2",
-                "line": 7
-              }
-            },
-            {
-              "field": "bloodGroup",
-              "label": "Blood group",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.bloodGroup",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Blood gp O pos",
-                "line": 9
-              }
-            },
-            {
-              "field": "rhesus",
-              "label": "Rhesus status",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.rhesus",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Blood gp O pos",
-                "line": 9
-              }
-            },
-            {
-              "field": "haemoglobin",
-              "label": "Haemoglobin",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.haemoglobin",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Hb 11.7 (20/08/26)",
-                "line": 9
-              }
-            },
-            {
-              "field": "hivScreen",
-              "label": "HIV screening status",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.hivScreen",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "HIV neg (20/12/25)",
-                "line": 10
-              }
-            },
-            {
-              "field": "syphilisScreen",
-              "label": "Syphilis screening status",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.syphilisScreen",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "RPR neg (20/12/25)",
-                "line": 10
-              }
-            },
-            {
-              "field": "previousObstetricHistory",
-              "label": "Previous obstetric history",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.previousObstetricHistory",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "2019 SVD term ; 2023 LSCS term",
-                "line": 7
-              }
-            },
-            {
-              "field": "reasonForReferral",
-              "label": "Reason for referral",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.reasonForReferral",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "elective LSCS booking, previous caesarean (2023)",
-                "line": 16
-              }
-            },
-            {
-              "field": "referringFacility",
-              "label": "Referring facility",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.referringFacility",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Mzilikazi Clinic",
-                "line": 17
-              }
-            },
-            {
-              "field": "referringClinician",
-              "label": "Referring clinician",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.referringClinician",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Sr T. Ndlovu",
-                "line": 17
-              }
-            },
-            {
-              "field": "referralDate",
-              "label": "Referral date",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.referralDate",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "24/08/2026",
-                "line": 17
-              }
-            },
-            {
-              "field": "receivingFacility",
-              "label": "Receiving facility",
-              "verdict": "present_current",
-              "rule": "requirements.elective_caesarean.receivingFacility",
-              "detail": "Present and within the recency limit.",
-              "provenance": {
-                "quote": "Central Hospital",
-                "line": 18
-              }
-            },
-            {
-              "field": "antiD",
-              "label": "Anti-D immunoglobulin record",
-              "verdict": "not_required",
-              "rule": "requirements.elective_caesarean.antiD",
-              "detail": "Conditional (Required when the rhesus status is recorded as negative.) — condition not met.",
-              "provenance": null
-            }
-          ]
-        },
-        "consistency": [
-          {
-            "rule": "consistency.ga_matches_lmp",
-            "field": "gestationalAge",
-            "statement": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
-            "values": [
-              {
-                "label": "Recorded gestational age",
-                "value": "30+2 weeks",
-                "provenance": {
-                  "quote": "GA 30+2   (recorded at visit 24/08/26)",
-                  "line": 5
-                },
-                "derived": false
-              },
-              {
-                "label": "Gestational age derived from LMP",
-                "value": "36+1 weeks on 24 Aug 2026",
-                "provenance": {
-                  "quote": "14/12/2025",
-                  "line": 4
-                },
-                "derived": true
-              }
-            ],
-            "detail": {
-              "lmp": "2025-12-14",
-              "assessed_on": "2026-08-24",
-              "derived_ga_days": 253,
-              "recorded_ga_days": 212,
-              "delta_days": 41,
-              "tolerance_days": 7,
-              "resolution": null
-            }
-          },
-          {
-            "rule": "consistency.edd_matches_lmp",
-            "field": "edd",
-            "statement": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
-            "values": [
-              {
-                "label": "Recorded estimated delivery date",
-                "value": "31 Oct 2026",
-                "provenance": {
-                  "quote": "31/10/2026",
-                  "line": 6
-                },
-                "derived": false
-              },
-              {
-                "label": "Estimated delivery date derived from LMP",
-                "value": "20 Sep 2026 (LMP + 280 days)",
-                "provenance": {
-                  "quote": "14/12/2025",
-                  "line": 4
-                },
-                "derived": true
-              }
-            ],
-            "detail": {
-              "lmp": "2025-12-14",
-              "derived_edd": "2026-09-20",
-              "recorded_edd": "2026-10-31",
-              "delta_days": 41,
-              "tolerance_days": 3,
-              "resolution": null
-            }
-          }
-        ],
-        "findings": [
-          {
-            "kind": "contradiction",
-            "field": "gestationalAge",
-            "plain": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
-            "rule": "consistency.ga_matches_lmp",
-            "provenance": {
-              "quote": "GA 30+2   (recorded at visit 24/08/26)",
-              "line": 5
-            },
-            "extraProvenance": [
-              {
-                "quote": "14/12/2025",
-                "line": 4
-              }
-            ],
-            "raw": "{\n  \"lmp\": \"2025-12-14\",\n  \"assessed_on\": \"2026-08-24\",\n  \"derived_ga_days\": 253,\n  \"recorded_ga_days\": 212,\n  \"delta_days\": 41,\n  \"tolerance_days\": 7,\n  \"resolution\": null\n}",
-            "evidenceFile": "results/trajectories/case-12.checks.md",
-            "note": "Both values are reported with their source. This tool does not decide which is correct."
-          },
-          {
-            "kind": "contradiction",
-            "field": "edd",
-            "plain": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
-            "rule": "consistency.edd_matches_lmp",
-            "provenance": {
-              "quote": "31/10/2026",
-              "line": 6
-            },
-            "extraProvenance": [
-              {
-                "quote": "14/12/2025",
-                "line": 4
-              }
-            ],
-            "raw": "{\n  \"lmp\": \"2025-12-14\",\n  \"derived_edd\": \"2026-09-20\",\n  \"recorded_edd\": \"2026-10-31\",\n  \"delta_days\": 41,\n  \"tolerance_days\": 3,\n  \"resolution\": null\n}",
-            "evidenceFile": "results/trajectories/case-12.checks.md",
-            "note": "Both values are reported with their source. This tool does not decide which is correct."
-          }
-        ]
-      },
+      "model": "gemini-3.1-flash-lite",
+      "ranAt": "2026-08-29T09:26:41.953Z",
+      "packLines": [
+        "ANC CARD  --  M. Dlamini,  29y     PID 4471-22",
+        "Ext 4 Clinic",
+        "",
+        "LMP 03/01/2026    EDD 10/10/2026    GA 31+4 (12/08/26)",
+        "G3 P2",
+        "",
+        "Obstetric hx:  2019 SVD term ;  2022 LSCS term",
+        "Hb 11.4  (04/08/26)",
+        "HIV neg (02/02/26)    RPR neg (02/02/26)    Rh D pos",
+        "Blood gp:",
+        "BP 118/76 (04/08/26)   116/74 (28/07/26)",
+        "",
+        "Allergies: nil known",
+        "Meds: ferrous sulphate, folic acid",
+        "",
+        "Reason: elective LSCS booking, prev CS x1 (2022)",
+        "Referred by: Sr N. Mokoena,  Ext 4 Clinic   12/08/26",
+        "To: Regional Hospital, Obstetrics"
+      ],
+      "flaggedLines": [
+        10
+      ],
+      "findings": [
+        {
+          "kind": "missing",
+          "field": "bloodGroup",
+          "plain": "Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it.",
+          "rule": "requirements.elective_caesarean.bloodGroup",
+          "sourceSpan": "Blood gp:",
+          "extraSpans": [],
+          "raw": "Blood group is mandatory for elective caesarean booking.",
+          "evidenceFile": "results/raw/extract/case-01/extract__attempt-1.json"
+        }
+      ],
       "summary": {
-        "summary": {
-          "headline": "Referral from Mzilikazi Clinic to Central Hospital for elective caesarean booking. The pack contains all required fields, but includes contradictory date entries.",
-          "summaryRows": [
-            {
-              "label": "Patient details",
-              "value": "Patient ID 1188-05, Age 31",
-              "state": "verified"
-            },
-            {
-              "label": "Referral details",
-              "value": "Referred by Sr T. Ndlovu from Mzilikazi Clinic to Central Hospital on 2026-08-24",
-              "state": "verified"
-            },
-            {
-              "label": "Reason for referral",
-              "value": "Elective LSCS booking, previous caesarean (2023)",
-              "state": "verified"
-            },
-            {
-              "label": "Obstetric history",
-              "value": "Gravida 3, Para 2 (2019 SVD term; 2023 LSCS term)",
-              "state": "verified"
-            },
-            {
-              "label": "Pregnancy dates",
-              "value": "LMP 2025-12-14, EDD 2026-10-31, Gestational age 30+2 (recorded 2026-08-24)",
-              "state": "verified"
-            },
-            {
-              "label": "Blood group and Rhesus",
-              "value": "Blood group O, Rhesus positive",
-              "state": "verified"
-            },
-            {
-              "label": "Screening results",
-              "value": "Haemoglobin 11.7 g/dL (2026-08-20), HIV screen negative (2025-12-20), Syphilis screen negative (2025-12-20)",
-              "state": "verified"
-            },
-            {
-              "label": "Clinical observations and medications",
-              "value": "Blood pressure 126/82 (2026-08-24) and 120/78 (2026-08-10); Medications: ferrous sulphate, folic acid, calcium, aspirin 75mg; Allergies: none known",
-              "state": "verified"
-            }
-          ],
-          "gapList": [],
-          "beforeYouSend": [
-            "Reconcile the recorded gestational age of 30+2 weeks on 24 Aug 2026 with the recorded LMP of 14 Dec 2025, which yields 36+1 weeks on 24 Aug 2026.",
-            "Reconcile the recorded estimated delivery date of 31 Oct 2026 with the recorded LMP of 14 Dec 2025, which yields an estimated delivery date of 20 Sep 2026."
-          ]
-        },
-        "attempts": [
+        "headline": "Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.",
+        "rows": [
           {
-            "attempt": 1,
-            "ok": true,
-            "schemaValid": true,
-            "clinicalLanguageIssues": [],
-            "rawText": "{\"headline\":\"Referral from Mzilikazi Clinic to Central Hospital for elective caesarean booking. The pack contains all required fields, but includes contradictory date entries.\",\"summaryRows\":[{\"label\":\"Patient details\",\"value\":\"Patient ID 1188-05, Age 31\",\"state\":\"verified\"},{\"label\":\"Referral details\",\"value\":\"Referred by Sr T. Ndlovu from Mzilikazi Clinic to Central Hospital on 2026-08-24\",\"state\":\"verified\"},{\"label\":\"Reason for referral\",\"value\":\"Elective LSCS booking, previous caesarean (2023)\",\"state\":\"verified\"},{\"label\":\"Obstetric history\",\"value\":\"Gravida 3, Para 2 (2019 SVD term; 2023 LSCS term)\",\"state\":\"verified\"},{\"label\":\"Pregnancy dates\",\"value\":\"LMP 2025-12-14, EDD 2026-10-31, Gestational age 30+2 (recorded 2026-08-24)\",\"state\":\"verified\"},{\"label\":\"Blood group and Rhesus\",\"value\":\"Blood group O, Rhesus positive\",\"state\":\"verified\"},{\"label\":\"Screening results\",\"value\":\"Haemoglobin 11.7 g/dL (2026-08-20), HIV screen negative (2025-12-20), Syphilis screen negative (2025-12-20)\",\"state\":\"verified\"},{\"label\":\"Clinical observations and medications\",\"value\":\"Blood pressure 126/82 (2026-08-24) and 120/78 (2026-08-10); Medications: ferrous sulphate, folic acid, calcium, aspirin 75mg; Allergies: none known\",\"state\":\"verified\"}],\"gapList\":[],\"beforeYouSend\":[\"Reconcile the recorded gestational age of 30+2 weeks on 24 Aug 2026 with the recorded LMP of 14 Dec 2025, which yields 36+1 weeks on 24 Aug 2026.\",\"Reconcile the recorded estimated delivery date of 31 Oct 2026 with the recorded LMP of 14 Dec 2025, which yields an estimated delivery date of 20 Sep 2026.\"]}",
-            "usage": {
-              "inputTokens": 1278,
-              "outputTokens": 3394,
-              "cacheReadTokens": 0
-            }
+            "label": "Patient ID",
+            "value": "4471-22",
+            "state": "verified"
+          },
+          {
+            "label": "Age",
+            "value": "29",
+            "state": "verified"
+          },
+          {
+            "label": "LMP",
+            "value": "2026-01-03",
+            "state": "verified"
+          },
+          {
+            "label": "Gestational Age",
+            "value": "31+4",
+            "state": "verified"
+          },
+          {
+            "label": "EDD",
+            "value": "2026-10-10",
+            "state": "verified"
+          },
+          {
+            "label": "Gravidity",
+            "value": "3",
+            "state": "verified"
+          },
+          {
+            "label": "Parity",
+            "value": "2",
+            "state": "verified"
+          },
+          {
+            "label": "Blood Group",
+            "value": "Outstanding",
+            "state": "outstanding"
+          },
+          {
+            "label": "Rhesus",
+            "value": "positive",
+            "state": "verified"
+          },
+          {
+            "label": "Haemoglobin",
+            "value": "11.4 g/dL (2026-08-04)",
+            "state": "verified"
+          },
+          {
+            "label": "HIV Screen",
+            "value": "negative (2026-02-02)",
+            "state": "verified"
+          },
+          {
+            "label": "Syphilis Screen",
+            "value": "negative (2026-02-02)",
+            "state": "verified"
+          },
+          {
+            "label": "Previous Obstetric History",
+            "value": "2019 SVD term; 2022 LSCS term",
+            "state": "verified"
+          },
+          {
+            "label": "Reason for Referral",
+            "value": "elective LSCS booking, prev CS x1 (2022)",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Facility",
+            "value": "Ext 4 Clinic",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Clinician",
+            "value": "Sr N. Mokoena",
+            "state": "verified"
+          },
+          {
+            "label": "Referral Date",
+            "value": "2026-08-12",
+            "state": "verified"
+          },
+          {
+            "label": "Receiving Facility",
+            "value": "Regional Hospital",
+            "state": "verified"
+          },
+          {
+            "label": "Anti-D",
+            "value": "Outstanding",
+            "state": "outstanding"
           }
         ],
-        "mode": "fresh"
-      },
-      "review": {
-        "state": "awaiting_review",
-        "clinician": null,
-        "decidedAt": null,
-        "note": null
+        "gapList": [
+          "Blood group is not recorded in the pack.",
+          "Anti-D record is not recorded in the pack."
+        ],
+        "beforeYouSend": [
+          "Record the patient's blood group.",
+          "Record the patient's Anti-D status."
+        ]
       },
       "stages": [
         {
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "startedAt": "2026-08-29T08:58:43.585Z",
-          "finishedAt": "2026-08-29T08:59:32.410Z"
+          "ms": 8233
         },
         {
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 22 field rules",
-          "startedAt": "2026-08-29T08:59:32.410Z",
-          "finishedAt": "2026-08-29T08:59:32.412Z"
+          "ms": 1
         },
         {
           "key": "contradictions",
           "label": "Looking for contradictions",
           "detail": "deterministic, 6 rules",
-          "startedAt": "2026-08-29T08:59:32.412Z",
-          "finishedAt": "2026-08-29T08:59:32.412Z"
+          "ms": 0
         },
         {
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "startedAt": "2026-08-29T08:59:32.412Z",
-          "finishedAt": "2026-08-29T08:59:53.129Z"
+          "ms": 2873
         }
       ],
-      "costUsd": 0.0245,
-      "ranAt": "2026-08-29T08:59:53.129Z"
+      "checkpoint": {
+        "state": "awaiting_review",
+        "safetyLine": "Nothing is finalised until a clinician approves. This tool checks documentation completeness only and makes no clinical assessment."
+      },
+      "extractionAttempts": 1,
+      "summaryAttempts": 1
+    },
+    {
+      "id": "case-08",
+      "patient": "N. Chirwa",
+      "referralType": "routine_ultrasound",
+      "referralLabel": "Routine ultrasound referral",
+      "receivingFacility": "Central Hospital — Radiology",
+      "status": "contradiction",
+      "statusLine": "1 contradiction found",
+      "mode": "fresh",
+      "model": "gemini-3.1-flash-lite",
+      "ranAt": "2026-08-29T09:26:51.018Z",
+      "packLines": [
+        "ANC CARD  --  N. Chirwa,  33     PID 7714",
+        "Area 25 Clinic",
+        "",
+        "LMP 12/03/2026   EDD 17/12/2026   GA 21+5 (11/08/26)",
+        "G4 P2",
+        "",
+        "Obstetric history:",
+        "  2017  SVD term",
+        "  2019  SVD term",
+        "  2023  SVD term",
+        "",
+        "Hb 11.6 (08/08/26)    Blood gp A pos",
+        "HIV neg (20/03/26)    RPR neg (20/03/26)",
+        "BP 114/72 (11/08/26)",
+        "",
+        "Allergies: nil",
+        "Meds: folic acid, ferrous sulphate",
+        "",
+        "Reason: growth scan",
+        "Referred by: Sr C. Mbewe, Area 25 Clinic, 11/08/2026",
+        "To: Central Hospital -- Radiology"
+      ],
+      "flaggedLines": [
+        5,
+        7
+      ],
+      "findings": [
+        {
+          "kind": "contradiction",
+          "field": "parity",
+          "plain": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+          "rule": "consistency.parity_matches_obstetric_history",
+          "sourceSpan": "P2",
+          "extraSpans": [
+            "Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term"
+          ],
+          "raw": "{\n  \"recorded_parity\": 2,\n  \"history_entries\": 3,\n  \"history_births_24w_plus\": 3,\n  \"history\": [\n    {\n      \"summary\": \"2017  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    },\n    {\n      \"summary\": \"2019  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    },\n    {\n      \"summary\": \"2023  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    }\n  ],\n  \"resolution\": null\n}",
+          "evidenceFile": "results/trajectories/case-08.checks.md",
+          "note": "Both values are reported with their source. This tool does not decide which is correct."
+        }
+      ],
+      "summary": {
+        "headline": "Referral for routine growth scan. The referral pack is incomplete.",
+        "rows": [
+          {
+            "label": "Patient ID",
+            "value": "7714",
+            "state": "verified"
+          },
+          {
+            "label": "Age",
+            "value": "33",
+            "state": "verified"
+          },
+          {
+            "label": "LMP",
+            "value": "2026-03-12",
+            "state": "verified"
+          },
+          {
+            "label": "Gestational Age",
+            "value": "21+5",
+            "state": "verified"
+          },
+          {
+            "label": "EDD",
+            "value": "2026-12-17",
+            "state": "verified"
+          },
+          {
+            "label": "Gravidity",
+            "value": "4",
+            "state": "verified"
+          },
+          {
+            "label": "Parity",
+            "value": "2 (recorded as P2, but obstetric history lists 3 previous births)",
+            "state": "verified"
+          },
+          {
+            "label": "Reason for Referral",
+            "value": "growth scan",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Facility",
+            "value": "Area 25 Clinic",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Clinician",
+            "value": "Sr C. Mbewe",
+            "state": "verified"
+          },
+          {
+            "label": "Referral Date",
+            "value": "2026-08-11",
+            "state": "verified"
+          },
+          {
+            "label": "Receiving Facility",
+            "value": "Central Hospital",
+            "state": "verified"
+          },
+          {
+            "label": "Blood Group",
+            "value": "A positive",
+            "state": "verified"
+          },
+          {
+            "label": "Urine Protein",
+            "value": "Outstanding",
+            "state": "outstanding"
+          },
+          {
+            "label": "Anti-D Record",
+            "value": "Outstanding",
+            "state": "outstanding"
+          }
+        ],
+        "gapList": [
+          "Urine protein result is missing.",
+          "Anti-D record is missing."
+        ],
+        "beforeYouSend": [
+          "Record the current urine protein result.",
+          "Document the patient's Anti-D status.",
+          "Clarify the discrepancy between the recorded parity of 2 and the obstetric history of 3 previous births."
+        ]
+      },
+      "stages": [
+        {
+          "key": "reading",
+          "label": "Reading the referral pack",
+          "detail": "model call, 1 attempt",
+          "ms": 6385
+        },
+        {
+          "key": "requirements",
+          "label": "Checking against facility requirements",
+          "detail": "deterministic, 14 field rules",
+          "ms": 1
+        },
+        {
+          "key": "contradictions",
+          "label": "Looking for contradictions",
+          "detail": "deterministic, 6 rules",
+          "ms": 0
+        },
+        {
+          "key": "summary",
+          "label": "Preparing the summary",
+          "detail": "model call, verified fields only, 1 attempt",
+          "ms": 2175
+        }
+      ],
+      "checkpoint": {
+        "state": "awaiting_review",
+        "safetyLine": "Nothing is finalised until a clinician approves. This tool checks documentation completeness only and makes no clinical assessment."
+      },
+      "extractionAttempts": 1,
+      "summaryAttempts": 1
+    },
+    {
+      "id": "case-09",
+      "patient": "B. Osei",
+      "referralType": "elective_caesarean",
+      "referralLabel": "Elective caesarean booking",
+      "receivingFacility": "Teaching Hospital — Theatre list",
+      "status": "ready",
+      "statusLine": "Ready for review",
+      "mode": "fresh",
+      "model": "gemini-3.1-flash-lite",
+      "ranAt": "2026-08-29T09:26:30.340Z",
+      "packLines": [
+        "ANC  --  B. Osei,  30     PID 9126",
+        "Madina Clinic",
+        "                                              // grp B+ , lab 12/12/25",
+        "LMP 28/11/2025    EDD 04/09/2026    GA 37+2 (16/08/26)",
+        "G2 P1    -- 2023 LSCS term",
+        "",
+        "Hb 11.9 (12/08/26)",
+        "HIV neg (08/12/25)    RPR neg (08/12/25)    Rh pos",
+        "BP 122/78 (16/08/26)",
+        "",
+        "Allergies: nil known",
+        "Meds: ferrous sulphate, folic acid, calcium",
+        "",
+        "Reason: elective LSCS booking, previous caesarean, maternal request",
+        "Referred by: Sr K. Mensah, Madina Clinic, 16/08/2026",
+        "To: Teaching Hospital -- Theatre list"
+      ],
+      "flaggedLines": [],
+      "findings": [],
+      "summary": {
+        "headline": "Referral for elective caesarean section. The referral pack is incomplete.",
+        "rows": [
+          {
+            "label": "Patient ID",
+            "value": "9126",
+            "state": "verified"
+          },
+          {
+            "label": "Age",
+            "value": "30",
+            "state": "verified"
+          },
+          {
+            "label": "LMP",
+            "value": "2025-11-28",
+            "state": "verified"
+          },
+          {
+            "label": "Gestational Age",
+            "value": "37+2",
+            "state": "verified"
+          },
+          {
+            "label": "EDD",
+            "value": "2026-09-04",
+            "state": "verified"
+          },
+          {
+            "label": "Gravidity",
+            "value": "2",
+            "state": "verified"
+          },
+          {
+            "label": "Parity",
+            "value": "1",
+            "state": "verified"
+          },
+          {
+            "label": "Blood Group",
+            "value": "B",
+            "state": "verified"
+          },
+          {
+            "label": "Rhesus",
+            "value": "positive",
+            "state": "verified"
+          },
+          {
+            "label": "Haemoglobin",
+            "value": "11.9 g/dL (2026-08-12)",
+            "state": "verified"
+          },
+          {
+            "label": "HIV Screen",
+            "value": "negative (2025-12-08)",
+            "state": "verified"
+          },
+          {
+            "label": "Syphilis Screen",
+            "value": "negative (2025-12-08)",
+            "state": "verified"
+          },
+          {
+            "label": "Previous Obstetric History",
+            "value": "2023 LSCS term",
+            "state": "verified"
+          },
+          {
+            "label": "Reason for Referral",
+            "value": "elective LSCS booking, previous caesarean, maternal request",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Facility",
+            "value": "Madina Clinic",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Clinician",
+            "value": "Sr K. Mensah",
+            "state": "verified"
+          },
+          {
+            "label": "Referral Date",
+            "value": "2026-08-16",
+            "state": "verified"
+          },
+          {
+            "label": "Receiving Facility",
+            "value": "Teaching Hospital",
+            "state": "verified"
+          },
+          {
+            "label": "Urine Protein",
+            "value": "Outstanding",
+            "state": "outstanding"
+          },
+          {
+            "label": "Anti-D Record",
+            "value": "Outstanding",
+            "state": "outstanding"
+          }
+        ],
+        "gapList": [
+          "The urine protein result is missing.",
+          "The Anti-D record is missing."
+        ],
+        "beforeYouSend": [
+          "Obtain and include the missing urine protein result.",
+          "Obtain and include the Anti-D record."
+        ]
+      },
+      "stages": [
+        {
+          "key": "reading",
+          "label": "Reading the referral pack",
+          "detail": "model call, 1 attempt",
+          "ms": 7138
+        },
+        {
+          "key": "requirements",
+          "label": "Checking against facility requirements",
+          "detail": "deterministic, 22 field rules",
+          "ms": 2
+        },
+        {
+          "key": "contradictions",
+          "label": "Looking for contradictions",
+          "detail": "deterministic, 6 rules",
+          "ms": 0
+        },
+        {
+          "key": "summary",
+          "label": "Preparing the summary",
+          "detail": "model call, verified fields only, 1 attempt",
+          "ms": 4190
+        }
+      ],
+      "checkpoint": {
+        "state": "awaiting_review",
+        "safetyLine": "Nothing is finalised until a clinician approves. This tool checks documentation completeness only and makes no clinical assessment."
+      },
+      "extractionAttempts": 1,
+      "summaryAttempts": 1
+    },
+    {
+      "id": "case-12",
+      "patient": "J. Sibanda",
+      "referralType": "elective_caesarean",
+      "referralLabel": "Elective caesarean booking",
+      "receivingFacility": "Central Hospital — Theatre list",
+      "status": "contradiction",
+      "statusLine": "2 contradictions found",
+      "mode": "fresh",
+      "model": "gemini-3.1-flash-lite",
+      "ranAt": "2026-08-29T09:26:00.991Z",
+      "packLines": [
+        "ANC CARD  --  J. Sibanda,  31y     PID 1188-05",
+        "Mzilikazi Clinic",
+        "",
+        "LMP 14/12/2025",
+        "GA 30+2   (recorded at visit 24/08/26)",
+        "EDD 31/10/2026",
+        "G3 P2     -- 2019 SVD term ; 2023 LSCS term",
+        "",
+        "Hb 11.7 (20/08/26)     Blood gp O pos",
+        "HIV neg (20/12/25)     RPR neg (20/12/25)",
+        "BP 126/82 (24/08/26)   120/78 (10/08/26)",
+        "",
+        "Allergies: none known",
+        "Meds: ferrous sulphate, folic acid, calcium, aspirin 75mg",
+        "",
+        "Reason: elective LSCS booking, previous caesarean (2023)",
+        "Referred by: Sr T. Ndlovu, Mzilikazi Clinic, 24/08/2026",
+        "To: Central Hospital -- Theatre list"
+      ],
+      "flaggedLines": [
+        4,
+        5,
+        6
+      ],
+      "findings": [
+        {
+          "kind": "contradiction",
+          "field": "gestationalAge",
+          "plain": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
+          "rule": "consistency.ga_matches_lmp",
+          "sourceSpan": "GA 30+2   (recorded at visit 24/08/26)",
+          "extraSpans": [
+            "14/12/2025"
+          ],
+          "raw": "{\n  \"lmp\": \"2025-12-14\",\n  \"assessed_on\": \"2026-08-24\",\n  \"derived_ga_days\": 253,\n  \"recorded_ga_days\": 212,\n  \"delta_days\": 41,\n  \"tolerance_days\": 7,\n  \"resolution\": null\n}",
+          "evidenceFile": "results/trajectories/case-12.checks.md",
+          "note": "Both values are reported with their source. This tool does not decide which is correct."
+        },
+        {
+          "kind": "contradiction",
+          "field": "edd",
+          "plain": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
+          "rule": "consistency.edd_matches_lmp",
+          "sourceSpan": "31/10/2026",
+          "extraSpans": [
+            "14/12/2025"
+          ],
+          "raw": "{\n  \"lmp\": \"2025-12-14\",\n  \"derived_edd\": \"2026-09-20\",\n  \"recorded_edd\": \"2026-10-31\",\n  \"delta_days\": 41,\n  \"tolerance_days\": 3,\n  \"resolution\": null\n}",
+          "evidenceFile": "results/trajectories/case-12.checks.md",
+          "note": "Both values are reported with their source. This tool does not decide which is correct."
+        }
+      ],
+      "summary": {
+        "headline": "Referral for elective caesarean booking. The referral pack is incomplete.",
+        "rows": [
+          {
+            "label": "Patient ID",
+            "value": "1188-05",
+            "state": "verified"
+          },
+          {
+            "label": "Age",
+            "value": "31",
+            "state": "verified"
+          },
+          {
+            "label": "LMP",
+            "value": "2025-12-14",
+            "state": "verified"
+          },
+          {
+            "label": "Gestational Age",
+            "value": "30+2 (recorded at visit 24/08/26)",
+            "state": "verified"
+          },
+          {
+            "label": "EDD",
+            "value": "2026-10-31",
+            "state": "verified"
+          },
+          {
+            "label": "Gravidity",
+            "value": "3",
+            "state": "verified"
+          },
+          {
+            "label": "Parity",
+            "value": "2",
+            "state": "verified"
+          },
+          {
+            "label": "Blood Group and Rhesus",
+            "value": "O positive",
+            "state": "verified"
+          },
+          {
+            "label": "Haemoglobin",
+            "value": "11.7 g/dL (2026-08-20)",
+            "state": "verified"
+          },
+          {
+            "label": "HIV Screen",
+            "value": "negative (2025-12-20)",
+            "state": "verified"
+          },
+          {
+            "label": "Syphilis Screen",
+            "value": "negative (2025-12-20)",
+            "state": "verified"
+          },
+          {
+            "label": "Previous Obstetric History",
+            "value": "2019 SVD term; 2023 LSCS term",
+            "state": "verified"
+          },
+          {
+            "label": "Reason for Referral",
+            "value": "elective LSCS booking, previous caesarean (2023)",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Facility",
+            "value": "Mzilikazi Clinic",
+            "state": "verified"
+          },
+          {
+            "label": "Referring Clinician",
+            "value": "Sr T. Ndlovu",
+            "state": "verified"
+          },
+          {
+            "label": "Referral Date",
+            "value": "2026-08-24",
+            "state": "verified"
+          },
+          {
+            "label": "Receiving Facility",
+            "value": "Central Hospital",
+            "state": "verified"
+          },
+          {
+            "label": "Urine Protein",
+            "value": "Outstanding",
+            "state": "outstanding"
+          },
+          {
+            "label": "Anti-D Record",
+            "value": "Outstanding",
+            "state": "outstanding"
+          }
+        ],
+        "gapList": [
+          "Urine protein result is missing.",
+          "Anti-D record is missing.",
+          "Gestational age is recorded as 30+2 weeks, but the LMP of 14 Dec 2025 indicates 36+1 weeks.",
+          "The EDD is recorded as 31 Oct 2026, but the LMP of 14 Dec 2025 indicates 20 Sep 2026."
+        ],
+        "beforeYouSend": [
+          "Clarify the discrepancy between the recorded gestational age/EDD and the LMP.",
+          "Obtain and include a current urine protein result.",
+          "Include the Anti-D record."
+        ]
+      },
+      "stages": [
+        {
+          "key": "reading",
+          "label": "Reading the referral pack",
+          "detail": "model call, 1 attempt",
+          "ms": 7660
+        },
+        {
+          "key": "requirements",
+          "label": "Checking against facility requirements",
+          "detail": "deterministic, 22 field rules",
+          "ms": 1
+        },
+        {
+          "key": "contradictions",
+          "label": "Looking for contradictions",
+          "detail": "deterministic, 6 rules",
+          "ms": 0
+        },
+        {
+          "key": "summary",
+          "label": "Preparing the summary",
+          "detail": "model call, verified fields only, 1 attempt",
+          "ms": 4422
+        }
+      ],
+      "checkpoint": {
+        "state": "awaiting_review",
+        "safetyLine": "Nothing is finalised until a clinician approves. This tool checks documentation completeness only and makes no clinical assessment."
+      },
+      "extractionAttempts": 1,
+      "summaryAttempts": 1
     }
   ],
-  "generatedAt": "2026-08-29T08:59:53.131Z"
+  "changelog": [],
+  "adjudicator": null,
+  "variance": null
 }

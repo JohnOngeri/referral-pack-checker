@@ -19,6 +19,15 @@ const SCHEMA_FOR: Record<string, unknown> = {
 
 const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
 
+/** Minimum gap between call starts, to stay under a free-tier RPM limit. */
+const MIN_CALL_GAP_MS = Number(process.env.RPC_MIN_CALL_GAP_MS ?? 4500);
+let lastCallAt = 0;
+async function pace(): Promise<void> {
+  const wait = lastCallAt + MIN_CALL_GAP_MS - Date.now();
+  if (wait > 0) await sleep(wait);
+  lastCallAt = Date.now();
+}
+
 /**
  * Fresh provider — every call hits the Gemini API and the exact request and raw
  * response are committed under results/raw/. Retries on 429/503 with backoff so a
@@ -38,6 +47,7 @@ export class FreshProvider implements ModelProvider {
     let lastErr: unknown;
     for (let attempt = 0; attempt < 6; attempt++) {
       try {
+        await pace();
         return await this.ai.models.generateContent({
           model: this.model,
           contents: contents as never,
