@@ -1,5 +1,5 @@
 # Trajectory — case-08 (routine_ultrasound)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.668Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.278Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -33,7 +33,7 @@ No model call. The extracted structure is compared field by field to the require
 ------------------------------------------------------------------------
 
 ## Stage 3 — Looking for contradictions (deterministic)
-  [consistency.parity_matches_obstetric_history] Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).
+  [consistency.parity_matches_obstetric_history] Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
      (recorded) Recorded parity: 2  [P2]
      (derived)  Births counted from obstetric history: 3  [Obstetric history:
   2017  SVD term
@@ -50,8 +50,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for routine growth scan. The referral pack is incomplete.
 Gap list:
-  - Urine protein result is missing.
-  - Anti-D record is missing.
+  - Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
 
 ------------------------------------------------------------------------
 

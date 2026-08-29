@@ -1,5 +1,5 @@
 # Trajectory — case-07 (hypertension_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.666Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.276Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -36,7 +36,7 @@ No model call. The extracted structure is compared field by field to the require
 ------------------------------------------------------------------------
 
 ## Stage 3 — Looking for contradictions (deterministic)
-  [consistency.no_future_dates] Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.
+  [consistency.no_future_dates] Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).
      (recorded) Haemoglobin sample: 18 Sep 2026  [Hb 8.9   sample date 18/09/2026]
      (recorded) Referral date: 18 Aug 2026  [18/08/2026]
      resolution: none — reported for the clinician to decide.
@@ -50,7 +50,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for hypertension in pregnancy review. The referral pack is incomplete.
 Gap list:
-  - The haemoglobin result is dated 18 September 2026, which is after the referral date of 18 August 2026.
+  - Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).
 
 ------------------------------------------------------------------------
 

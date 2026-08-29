@@ -694,7 +694,7 @@
       {
         "rule": "consistency.no_date_before_lmp",
         "field": "syphilisScreen",
-        "statement": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+        "statement": "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).",
         "values": [
           {
             "label": "Syphilis screen",
@@ -727,7 +727,7 @@
       {
         "kind": "contradiction",
         "field": "syphilisScreen",
-        "plain": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+        "plain": "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).",
         "rule": "consistency.no_date_before_lmp",
         "provenance": {
           "quote": "RPR neg (20/12/25)",
@@ -802,7 +802,7 @@
         {
           "label": "Syphilis Screen",
           "value": "negative (2025-12-20)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "Medications",
@@ -836,14 +836,10 @@
         }
       ],
       "gapList": [
-        "Urine protein result is outstanding.",
-        "Anti-D record is outstanding.",
-        "The syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026."
+        "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026)."
       ],
       "beforeYouSend": [
-        "Obtain and document the urine protein result.",
-        "Confirm and document the Anti-D status.",
-        "Verify the date of the syphilis screen relative to the last menstrual period."
+        "Reconcile the two values for the syphilis screening result and correct whichever entry is wrong."
       ]
     },
     "attempts": [
@@ -873,31 +869,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.673Z",
-      "finishedAt": "2026-08-29T09:39:43.674Z"
+      "startedAt": "2026-08-29T10:00:44.284Z",
+      "finishedAt": "2026-08-29T10:00:44.285Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.674Z",
-      "finishedAt": "2026-08-29T09:39:43.674Z"
+      "startedAt": "2026-08-29T10:00:44.285Z",
+      "finishedAt": "2026-08-29T10:00:44.286Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.674Z",
-      "finishedAt": "2026-08-29T09:39:43.674Z"
+      "startedAt": "2026-08-29T10:00:44.286Z",
+      "finishedAt": "2026-08-29T10:00:44.286Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.674Z",
-      "finishedAt": "2026-08-29T09:39:43.674Z"
+      "startedAt": "2026-08-29T10:00:44.286Z",
+      "finishedAt": "2026-08-29T10:00:44.286Z"
     }
   ],
   "costUsd": 0.0012,
-  "ranAt": "2026-08-29T09:39:43.674Z"
+  "ranAt": "2026-08-29T10:00:44.286Z"
 }

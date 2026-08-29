@@ -50,7 +50,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 10 of 10 seeded defects (recall 100%); 0 false flag(s), 0 on control packs; contradictions 6/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
-- **Cost per pack** (extraction + summary): $0.0000 (fresh mode, gemini-3.1-flash-lite).
+- **Cost per pack** (extraction + summary): $0.0014 (fresh mode, gemini-3.1-flash-lite).
 - **Evidence**: `results/reports/final.json`
 - **Decision**: shipped.
 

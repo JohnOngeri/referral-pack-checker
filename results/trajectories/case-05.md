@@ -1,5 +1,5 @@
 # Trajectory — case-05 (routine_ultrasound)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.662Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.272Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -38,7 +38,7 @@ No model call. The extracted structure is compared field by field to the require
 ------------------------------------------------------------------------
 
 ## Stage 3 — Looking for contradictions (deterministic)
-  [consistency.edd_matches_lmp] The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.
+  [consistency.edd_matches_lmp] The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
      (recorded) Recorded estimated delivery date: 12 Aug 2026  [EDD  12/08/2026]
      (derived)  Estimated delivery date derived from LMP: 27 Aug 2026 (LMP + 280 days)  [LMP  20/11/2025]
      resolution: none — reported for the clinician to decide.
@@ -52,8 +52,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for routine ultrasound for patient 5514. The referral pack is incomplete.
 Gap list:
-  - Urine protein result is missing.
-  - Anti-D record is missing.
+  - The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
 
 ------------------------------------------------------------------------
 

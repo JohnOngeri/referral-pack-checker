@@ -776,9 +776,7 @@
         }
       ],
       "gapList": [],
-      "beforeYouSend": [
-        "Ensure all verified clinical data is attached to the referral pack."
-      ]
+      "beforeYouSend": []
     },
     "attempts": [
       {
@@ -807,31 +805,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.671Z",
-      "finishedAt": "2026-08-29T09:39:43.672Z"
+      "startedAt": "2026-08-29T10:00:44.282Z",
+      "finishedAt": "2026-08-29T10:00:44.283Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.672Z",
-      "finishedAt": "2026-08-29T09:39:43.672Z"
+      "startedAt": "2026-08-29T10:00:44.283Z",
+      "finishedAt": "2026-08-29T10:00:44.283Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.672Z",
-      "finishedAt": "2026-08-29T09:39:43.672Z"
+      "startedAt": "2026-08-29T10:00:44.283Z",
+      "finishedAt": "2026-08-29T10:00:44.283Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.672Z",
-      "finishedAt": "2026-08-29T09:39:43.673Z"
+      "startedAt": "2026-08-29T10:00:44.283Z",
+      "finishedAt": "2026-08-29T10:00:44.284Z"
     }
   ],
   "costUsd": 0.0012,
-  "ranAt": "2026-08-29T09:39:43.673Z"
+  "ranAt": "2026-08-29T10:00:44.284Z"
 }

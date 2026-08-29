@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-29T09:39:43.688Z",
+  "generatedAt": "2026-08-29T10:00:44.301Z",
   "metrics": {
     "mode": "fresh",
     "model": "gemini-3.1-flash-lite",
-    "generatedAt": "2026-08-29T09:39:43.642Z",
+    "generatedAt": "2026-08-29T10:00:44.249Z",
     "headline": {
       "agentCaught": 10,
       "baselineCaught": 9,
@@ -16,7 +16,7 @@
       "falseFlags": 0,
       "falseFlagsOnControls": 0,
       "inventedValues": 0,
-      "costPerPackUsd": 0,
+      "costPerPackUsd": 0.0014,
       "contradictionsCaught": 6,
       "contradictionsSeeded": 6
     },
@@ -164,7 +164,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.651Z",
+      "ranAt": "2026-08-29T10:00:44.260Z",
       "packLines": [
         "ANC CARD  --  M. Dlamini,  29y     PID 4471-22",
         "Ext 4 Clinic",
@@ -296,16 +296,14 @@
           {
             "label": "Anti-D",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           }
         ],
         "gapList": [
-          "Blood group is not recorded in the pack.",
-          "Anti-D record is not recorded in the pack."
+          "Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it."
         ],
         "beforeYouSend": [
-          "Record the patient's blood group.",
-          "Record the patient's Anti-D status."
+          "Add the blood group from the antenatal record, or arrange it before the woman travels."
         ]
       },
       "stages": [
@@ -331,7 +329,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 2
         }
       ],
       "checkpoint": {
@@ -351,7 +349,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.655Z",
+      "ranAt": "2026-08-29T10:00:44.263Z",
       "packLines": [
         "Antenatal referral  --  Sithole PHC",
         "",
@@ -436,7 +434,7 @@
           {
             "label": "Haemoglobin",
             "value": "10.9 g/dL (2026-03-14)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "HIV Screen",
@@ -480,12 +478,10 @@
           }
         ],
         "gapList": [
-          "Haemoglobin was taken 158 days ago; this referral type needs a result from the last 56 days.",
-          "Anti-D record is outstanding."
+          "Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days."
         ],
         "beforeYouSend": [
-          "Obtain a current haemoglobin result.",
-          "Document the patient's Anti-D status."
+          "Repeat the haemoglobin and add the current result."
         ]
       },
       "stages": [
@@ -511,7 +507,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -531,7 +527,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.658Z",
+      "ranAt": "2026-08-29T10:00:44.267Z",
       "packLines": [
         "ANC  --  L. Adebayo,  24     PID 8830",
         "Ikeja Health Post",
@@ -658,10 +654,10 @@
           }
         ],
         "gapList": [
-          "Haemoglobin result is missing from the pack."
+          "Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it."
         ],
         "beforeYouSend": [
-          "Obtain and include a current haemoglobin result."
+          "Add the haemoglobin from the antenatal record, or arrange it before the woman travels."
         ]
       },
       "stages": [
@@ -707,7 +703,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.660Z",
+      "ranAt": "2026-08-29T10:00:44.269Z",
       "packLines": [
         "ANC CARD  --  R. Pillay,  31     PID 1902-14",
         "Chatsworth Clinic",
@@ -799,10 +795,7 @@
           }
         ],
         "gapList": [],
-        "beforeYouSend": [
-          "Ensure the patient is aware of the referral to the District Hospital for an anomaly scan.",
-          "Confirm that all relevant clinical notes are attached to the referral pack."
-        ]
+        "beforeYouSend": []
       },
       "stages": [
         {
@@ -847,7 +840,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.662Z",
+      "ranAt": "2026-08-29T10:00:44.272Z",
       "packLines": [
         "Kibera Clinic  --  antenatal referral",
         "",
@@ -876,7 +869,7 @@
         {
           "kind": "contradiction",
           "field": "edd",
-          "plain": "The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.",
+          "plain": "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.",
           "rule": "consistency.edd_matches_lmp",
           "sourceSpan": "EDD  12/08/2026",
           "extraSpans": [
@@ -908,7 +901,7 @@
           {
             "label": "EDD",
             "value": "2026-08-12",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "Gestational Age",
@@ -958,22 +951,19 @@
           {
             "label": "Urine Protein",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           },
           {
             "label": "Anti-D Record",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           }
         ],
         "gapList": [
-          "Urine protein result is missing.",
-          "Anti-D record is missing."
+          "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026."
         ],
         "beforeYouSend": [
-          "Clarify the discrepancy between the recorded EDD of 12 August 2026 and the date calculated from the LMP of 20 November 2025, which is 27 August 2026.",
-          "Obtain and document the current urine protein result.",
-          "Obtain and document the Anti-D record."
+          "Reconcile the two values for the estimated delivery date and correct whichever entry is wrong."
         ]
       },
       "stages": [
@@ -999,7 +989,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1019,7 +1009,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.664Z",
+      "ranAt": "2026-08-29T10:00:44.274Z",
       "packLines": [
         "ANC  --  S. Banda,  27     PID 3388",
         "Chelstone PHC",
@@ -1142,14 +1132,10 @@
           }
         ],
         "gapList": [
-          "The Anti-D immunoglobulin record is missing and is required because the patient is Rhesus negative.",
-          "The urine protein result is outstanding.",
-          "The previous obstetric history is outstanding."
+          "Anti-D immunoglobulin record is not in this pack. Mandatory here because: Required when the rhesus status is recorded as negative."
         ],
         "beforeYouSend": [
-          "Include the Anti-D immunoglobulin record.",
-          "Include the urine protein result.",
-          "Include the previous obstetric history."
+          "Add the anti-D immunoglobulin record — it is required for this pack."
         ]
       },
       "stages": [
@@ -1175,7 +1161,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1195,7 +1181,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.666Z",
+      "ranAt": "2026-08-29T10:00:44.276Z",
       "packLines": [
         "Ruaraka Clinic",
         "Antenatal referral -- hypertension",
@@ -1227,7 +1213,7 @@
         {
           "kind": "contradiction",
           "field": "haemoglobin",
-          "plain": "Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.",
+          "plain": "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).",
           "rule": "consistency.no_future_dates",
           "sourceSpan": "Hb 8.9   sample date 18/09/2026",
           "extraSpans": [
@@ -1284,7 +1270,7 @@
           {
             "label": "Haemoglobin",
             "value": "8.9 g/dL (2026-09-18)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "HIV Screen",
@@ -1328,11 +1314,10 @@
           }
         ],
         "gapList": [
-          "The haemoglobin result is dated 18 September 2026, which is after the referral date of 18 August 2026."
+          "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026)."
         ],
         "beforeYouSend": [
-          "Verify the haemoglobin sample date as it is currently recorded as occurring after the referral date.",
-          "Confirm the accuracy of the haemoglobin result date before sending the referral."
+          "Reconcile the two values for the haemoglobin and correct whichever entry is wrong."
         ]
       },
       "stages": [
@@ -1340,13 +1325,13 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",
@@ -1378,7 +1363,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.668Z",
+      "ranAt": "2026-08-29T10:00:44.278Z",
       "packLines": [
         "ANC CARD  --  N. Chirwa,  33     PID 7714",
         "Area 25 Clinic",
@@ -1410,7 +1395,7 @@
         {
           "kind": "contradiction",
           "field": "parity",
-          "plain": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+          "plain": "Recorded parity (2) does not match the obstetric history, which lists 3 previous births.",
           "rule": "consistency.parity_matches_obstetric_history",
           "sourceSpan": "P2",
           "extraSpans": [
@@ -1457,7 +1442,7 @@
           {
             "label": "Parity",
             "value": "2 (recorded as P2, but obstetric history lists 3 previous births)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "Reason for Referral",
@@ -1492,22 +1477,19 @@
           {
             "label": "Urine Protein",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           },
           {
             "label": "Anti-D Record",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           }
         ],
         "gapList": [
-          "Urine protein result is missing.",
-          "Anti-D record is missing."
+          "Recorded parity (2) does not match the obstetric history, which lists 3 previous births."
         ],
         "beforeYouSend": [
-          "Record the current urine protein result.",
-          "Document the patient's Anti-D status.",
-          "Clarify the discrepancy between the recorded parity of 2 and the obstetric history of 3 previous births."
+          "Reconcile the two values for the parity and correct whichever entry is wrong."
         ]
       },
       "stages": [
@@ -1521,7 +1503,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 14 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -1553,7 +1535,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.670Z",
+      "ranAt": "2026-08-29T10:00:44.281Z",
       "packLines": [
         "ANC  --  B. Osei,  30     PID 9126",
         "Madina Clinic",
@@ -1670,22 +1652,16 @@
           {
             "label": "Urine Protein",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           },
           {
             "label": "Anti-D Record",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           }
         ],
-        "gapList": [
-          "The urine protein result is missing.",
-          "The Anti-D record is missing."
-        ],
-        "beforeYouSend": [
-          "Obtain and include the missing urine protein result.",
-          "Obtain and include the Anti-D record."
-        ]
+        "gapList": [],
+        "beforeYouSend": []
       },
       "stages": [
         {
@@ -1710,7 +1686,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1730,7 +1706,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.673Z",
+      "ranAt": "2026-08-29T10:00:44.284Z",
       "packLines": [
         "Kisumu West Clinic  --  antenatal referral",
         "",
@@ -1845,9 +1821,7 @@
           }
         ],
         "gapList": [],
-        "beforeYouSend": [
-          "Ensure all verified clinical data is attached to the referral pack."
-        ]
+        "beforeYouSend": []
       },
       "stages": [
         {
@@ -1892,7 +1866,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.674Z",
+      "ranAt": "2026-08-29T10:00:44.286Z",
       "packLines": [
         "ANC  --  D. Mahlangu,  26     PID 2287",
         "Tembisa Clinic",
@@ -1920,7 +1894,7 @@
         {
           "kind": "contradiction",
           "field": "syphilisScreen",
-          "plain": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+          "plain": "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).",
           "rule": "consistency.no_date_before_lmp",
           "sourceSpan": "RPR neg (20/12/25)",
           "extraSpans": [
@@ -1987,7 +1961,7 @@
           {
             "label": "Syphilis Screen",
             "value": "negative (2025-12-20)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "Medications",
@@ -2021,14 +1995,10 @@
           }
         ],
         "gapList": [
-          "Urine protein result is outstanding.",
-          "Anti-D record is outstanding.",
-          "The syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026."
+          "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026)."
         ],
         "beforeYouSend": [
-          "Obtain and document the urine protein result.",
-          "Confirm and document the Anti-D status.",
-          "Verify the date of the syphilis screen relative to the last menstrual period."
+          "Reconcile the two values for the syphilis screening result and correct whichever entry is wrong."
         ]
       },
       "stages": [
@@ -2042,7 +2012,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",
@@ -2074,7 +2044,7 @@
       "statusLine": "2 contradictions found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T09:39:43.676Z",
+      "ranAt": "2026-08-29T10:00:44.288Z",
       "packLines": [
         "ANC CARD  --  J. Sibanda,  31y     PID 1188-05",
         "Mzilikazi Clinic",
@@ -2104,7 +2074,7 @@
         {
           "kind": "contradiction",
           "field": "gestationalAge",
-          "plain": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
+          "plain": "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.",
           "rule": "consistency.ga_matches_lmp",
           "sourceSpan": "GA 30+2   (recorded at visit 24/08/26)",
           "extraSpans": [
@@ -2117,7 +2087,7 @@
         {
           "kind": "contradiction",
           "field": "edd",
-          "plain": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
+          "plain": "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026.",
           "rule": "consistency.edd_matches_lmp",
           "sourceSpan": "EDD 31/10/2026",
           "extraSpans": [
@@ -2149,12 +2119,12 @@
           {
             "label": "Gestational Age",
             "value": "30+2 (recorded) vs 36+1 (calculated from LMP)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "EDD",
             "value": "2026-10-31 (recorded) vs 2026-09-20 (calculated from LMP)",
-            "state": "verified"
+            "state": "outstanding"
           },
           {
             "label": "Gravidity",
@@ -2224,23 +2194,21 @@
           {
             "label": "Urine Protein",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           },
           {
             "label": "Anti-D Record",
             "value": "Outstanding",
-            "state": "outstanding"
+            "state": "verified"
           }
         ],
         "gapList": [
-          "Urine protein result is missing.",
-          "Anti-D record is missing."
+          "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.",
+          "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026."
         ],
         "beforeYouSend": [
-          "Clarify the discrepancy between the recorded gestational age and the date calculated from the last menstrual period.",
-          "Clarify the discrepancy between the recorded estimated delivery date and the date calculated from the last menstrual period.",
-          "Include the missing urine protein result.",
-          "Include the missing Anti-D record."
+          "Reconcile the two values for the gestational age and correct whichever entry is wrong.",
+          "Reconcile the two values for the estimated delivery date and correct whichever entry is wrong."
         ]
       },
       "stages": [
@@ -2248,7 +2216,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",

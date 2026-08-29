@@ -727,7 +727,7 @@
       {
         "rule": "consistency.ga_matches_lmp",
         "field": "gestationalAge",
-        "statement": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
+        "statement": "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.",
         "values": [
           {
             "label": "Recorded gestational age",
@@ -761,7 +761,7 @@
       {
         "rule": "consistency.edd_matches_lmp",
         "field": "edd",
-        "statement": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
+        "statement": "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026.",
         "values": [
           {
             "label": "Recorded estimated delivery date",
@@ -796,7 +796,7 @@
       {
         "kind": "contradiction",
         "field": "gestationalAge",
-        "plain": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
+        "plain": "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.",
         "rule": "consistency.ga_matches_lmp",
         "provenance": {
           "quote": "GA 30+2   (recorded at visit 24/08/26)",
@@ -815,7 +815,7 @@
       {
         "kind": "contradiction",
         "field": "edd",
-        "plain": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.",
+        "plain": "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026.",
         "rule": "consistency.edd_matches_lmp",
         "provenance": {
           "quote": "EDD 31/10/2026",
@@ -855,12 +855,12 @@
         {
           "label": "Gestational Age",
           "value": "30+2 (recorded) vs 36+1 (calculated from LMP)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "EDD",
           "value": "2026-10-31 (recorded) vs 2026-09-20 (calculated from LMP)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "Gravidity",
@@ -930,23 +930,21 @@
         {
           "label": "Urine Protein",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         },
         {
           "label": "Anti-D Record",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         }
       ],
       "gapList": [
-        "Urine protein result is missing.",
-        "Anti-D record is missing."
+        "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.",
+        "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026."
       ],
       "beforeYouSend": [
-        "Clarify the discrepancy between the recorded gestational age and the date calculated from the last menstrual period.",
-        "Clarify the discrepancy between the recorded estimated delivery date and the date calculated from the last menstrual period.",
-        "Include the missing urine protein result.",
-        "Include the missing Anti-D record."
+        "Reconcile the two values for the gestational age and correct whichever entry is wrong.",
+        "Reconcile the two values for the estimated delivery date and correct whichever entry is wrong."
       ]
     },
     "attempts": [
@@ -976,31 +974,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.675Z",
-      "finishedAt": "2026-08-29T09:39:43.676Z"
+      "startedAt": "2026-08-29T10:00:44.287Z",
+      "finishedAt": "2026-08-29T10:00:44.287Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T09:39:43.676Z",
-      "finishedAt": "2026-08-29T09:39:43.676Z"
+      "startedAt": "2026-08-29T10:00:44.288Z",
+      "finishedAt": "2026-08-29T10:00:44.288Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.676Z",
-      "finishedAt": "2026-08-29T09:39:43.676Z"
+      "startedAt": "2026-08-29T10:00:44.288Z",
+      "finishedAt": "2026-08-29T10:00:44.288Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.676Z",
-      "finishedAt": "2026-08-29T09:39:43.676Z"
+      "startedAt": "2026-08-29T10:00:44.288Z",
+      "finishedAt": "2026-08-29T10:00:44.288Z"
     }
   ],
   "costUsd": 0.0014,
-  "ranAt": "2026-08-29T09:39:43.676Z"
+  "ranAt": "2026-08-29T10:00:44.288Z"
 }

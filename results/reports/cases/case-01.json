@@ -861,16 +861,14 @@
         {
           "label": "Anti-D",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         }
       ],
       "gapList": [
-        "Blood group is not recorded in the pack.",
-        "Anti-D record is not recorded in the pack."
+        "Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it."
       ],
       "beforeYouSend": [
-        "Record the patient's blood group.",
-        "Record the patient's Anti-D status."
+        "Add the blood group from the antenatal record, or arrange it before the woman travels."
       ]
     },
     "attempts": [
@@ -900,31 +898,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.645Z",
-      "finishedAt": "2026-08-29T09:39:43.649Z"
+      "startedAt": "2026-08-29T10:00:44.253Z",
+      "finishedAt": "2026-08-29T10:00:44.257Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T09:39:43.649Z",
-      "finishedAt": "2026-08-29T09:39:43.650Z"
+      "startedAt": "2026-08-29T10:00:44.257Z",
+      "finishedAt": "2026-08-29T10:00:44.258Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.650Z",
-      "finishedAt": "2026-08-29T09:39:43.650Z"
+      "startedAt": "2026-08-29T10:00:44.258Z",
+      "finishedAt": "2026-08-29T10:00:44.258Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.650Z",
-      "finishedAt": "2026-08-29T09:39:43.651Z"
+      "startedAt": "2026-08-29T10:00:44.258Z",
+      "finishedAt": "2026-08-29T10:00:44.260Z"
     }
   ],
   "costUsd": 0.0013,
-  "ranAt": "2026-08-29T09:39:43.651Z"
+  "ranAt": "2026-08-29T10:00:44.260Z"
 }

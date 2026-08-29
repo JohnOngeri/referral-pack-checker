@@ -779,10 +779,10 @@
         }
       ],
       "gapList": [
-        "Haemoglobin result is missing from the pack."
+        "Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it."
       ],
       "beforeYouSend": [
-        "Obtain and include a current haemoglobin result."
+        "Add the haemoglobin from the antenatal record, or arrange it before the woman travels."
       ]
     },
     "attempts": [
@@ -812,31 +812,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 2 attempts",
-      "startedAt": "2026-08-29T09:39:43.655Z",
-      "finishedAt": "2026-08-29T09:39:43.657Z"
+      "startedAt": "2026-08-29T10:00:44.264Z",
+      "finishedAt": "2026-08-29T10:00:44.266Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.657Z",
-      "finishedAt": "2026-08-29T09:39:43.657Z"
+      "startedAt": "2026-08-29T10:00:44.266Z",
+      "finishedAt": "2026-08-29T10:00:44.266Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.657Z",
-      "finishedAt": "2026-08-29T09:39:43.657Z"
+      "startedAt": "2026-08-29T10:00:44.266Z",
+      "finishedAt": "2026-08-29T10:00:44.266Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.657Z",
-      "finishedAt": "2026-08-29T09:39:43.658Z"
+      "startedAt": "2026-08-29T10:00:44.266Z",
+      "finishedAt": "2026-08-29T10:00:44.267Z"
     }
   ],
   "costUsd": 0.0019,
-  "ranAt": "2026-08-29T09:39:43.658Z"
+  "ranAt": "2026-08-29T10:00:44.267Z"
 }

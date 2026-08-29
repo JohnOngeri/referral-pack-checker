@@ -23,8 +23,8 @@
 
 ## Consistency
 - consistency.ga_matches_lmp
-  Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.
+  The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.
   detail: {"lmp":"2025-12-14","assessed_on":"2026-08-24","derived_ga_days":253,"recorded_ga_days":212,"delta_days":41,"tolerance_days":7,"resolution":null}
 - consistency.edd_matches_lmp
-  The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026.
+  The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026.
   detail: {"lmp":"2025-12-14","derived_edd":"2026-09-20","recorded_edd":"2026-10-31","delta_days":41,"tolerance_days":3,"resolution":null}

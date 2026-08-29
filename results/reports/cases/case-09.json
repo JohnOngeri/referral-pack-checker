@@ -783,22 +783,16 @@
         {
           "label": "Urine Protein",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         },
         {
           "label": "Anti-D Record",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         }
       ],
-      "gapList": [
-        "The urine protein result is missing.",
-        "The Anti-D record is missing."
-      ],
-      "beforeYouSend": [
-        "Obtain and include the missing urine protein result.",
-        "Obtain and include the Anti-D record."
-      ]
+      "gapList": [],
+      "beforeYouSend": []
     },
     "attempts": [
       {
@@ -827,31 +821,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.669Z",
-      "finishedAt": "2026-08-29T09:39:43.670Z"
+      "startedAt": "2026-08-29T10:00:44.279Z",
+      "finishedAt": "2026-08-29T10:00:44.280Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T09:39:43.670Z",
-      "finishedAt": "2026-08-29T09:39:43.670Z"
+      "startedAt": "2026-08-29T10:00:44.280Z",
+      "finishedAt": "2026-08-29T10:00:44.280Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.670Z",
-      "finishedAt": "2026-08-29T09:39:43.670Z"
+      "startedAt": "2026-08-29T10:00:44.280Z",
+      "finishedAt": "2026-08-29T10:00:44.280Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.670Z",
-      "finishedAt": "2026-08-29T09:39:43.670Z"
+      "startedAt": "2026-08-29T10:00:44.280Z",
+      "finishedAt": "2026-08-29T10:00:44.281Z"
     }
   ],
   "costUsd": 0.0012,
-  "ranAt": "2026-08-29T09:39:43.670Z"
+  "ranAt": "2026-08-29T10:00:44.281Z"
 }

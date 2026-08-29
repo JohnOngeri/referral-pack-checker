@@ -1,5 +1,5 @@
 # Trajectory — case-09 (elective_caesarean)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.670Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.281Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -49,8 +49,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for elective caesarean section. The referral pack is incomplete.
 Gap list:
-  - The urine protein result is missing.
-  - The Anti-D record is missing.
+  (none)
 
 ------------------------------------------------------------------------
 

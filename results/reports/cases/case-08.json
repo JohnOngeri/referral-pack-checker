@@ -673,7 +673,7 @@
       {
         "rule": "consistency.parity_matches_obstetric_history",
         "field": "parity",
-        "statement": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+        "statement": "Recorded parity (2) does not match the obstetric history, which lists 3 previous births.",
         "values": [
           {
             "label": "Recorded parity",
@@ -723,7 +723,7 @@
       {
         "kind": "contradiction",
         "field": "parity",
-        "plain": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+        "plain": "Recorded parity (2) does not match the obstetric history, which lists 3 previous births.",
         "rule": "consistency.parity_matches_obstetric_history",
         "provenance": {
           "quote": "P2",
@@ -778,7 +778,7 @@
         {
           "label": "Parity",
           "value": "2 (recorded as P2, but obstetric history lists 3 previous births)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "Reason for Referral",
@@ -813,22 +813,19 @@
         {
           "label": "Urine Protein",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         },
         {
           "label": "Anti-D Record",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         }
       ],
       "gapList": [
-        "Urine protein result is missing.",
-        "Anti-D record is missing."
+        "Recorded parity (2) does not match the obstetric history, which lists 3 previous births."
       ],
       "beforeYouSend": [
-        "Record the current urine protein result.",
-        "Document the patient's Anti-D status.",
-        "Clarify the discrepancy between the recorded parity of 2 and the obstetric history of 3 previous births."
+        "Reconcile the two values for the parity and correct whichever entry is wrong."
       ]
     },
     "attempts": [
@@ -858,31 +855,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.667Z",
-      "finishedAt": "2026-08-29T09:39:43.667Z"
+      "startedAt": "2026-08-29T10:00:44.277Z",
+      "finishedAt": "2026-08-29T10:00:44.277Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 14 field rules",
-      "startedAt": "2026-08-29T09:39:43.667Z",
-      "finishedAt": "2026-08-29T09:39:43.668Z"
+      "startedAt": "2026-08-29T10:00:44.278Z",
+      "finishedAt": "2026-08-29T10:00:44.278Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.668Z",
-      "finishedAt": "2026-08-29T09:39:43.668Z"
+      "startedAt": "2026-08-29T10:00:44.278Z",
+      "finishedAt": "2026-08-29T10:00:44.278Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.668Z",
-      "finishedAt": "2026-08-29T09:39:43.668Z"
+      "startedAt": "2026-08-29T10:00:44.278Z",
+      "finishedAt": "2026-08-29T10:00:44.278Z"
     }
   ],
   "costUsd": 0.0012,
-  "ranAt": "2026-08-29T09:39:43.668Z"
+  "ranAt": "2026-08-29T10:00:44.278Z"
 }

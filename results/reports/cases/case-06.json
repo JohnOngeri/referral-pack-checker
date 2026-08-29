@@ -755,14 +755,10 @@
         }
       ],
       "gapList": [
-        "The Anti-D immunoglobulin record is missing and is required because the patient is Rhesus negative.",
-        "The urine protein result is outstanding.",
-        "The previous obstetric history is outstanding."
+        "Anti-D immunoglobulin record is not in this pack. Mandatory here because: Required when the rhesus status is recorded as negative."
       ],
       "beforeYouSend": [
-        "Include the Anti-D immunoglobulin record.",
-        "Include the urine protein result.",
-        "Include the previous obstetric history."
+        "Add the anti-D immunoglobulin record — it is required for this pack."
       ]
     },
     "attempts": [
@@ -792,31 +788,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.663Z",
-      "finishedAt": "2026-08-29T09:39:43.664Z"
+      "startedAt": "2026-08-29T10:00:44.272Z",
+      "finishedAt": "2026-08-29T10:00:44.273Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.664Z",
-      "finishedAt": "2026-08-29T09:39:43.664Z"
+      "startedAt": "2026-08-29T10:00:44.273Z",
+      "finishedAt": "2026-08-29T10:00:44.273Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.664Z",
-      "finishedAt": "2026-08-29T09:39:43.664Z"
+      "startedAt": "2026-08-29T10:00:44.273Z",
+      "finishedAt": "2026-08-29T10:00:44.273Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.664Z",
-      "finishedAt": "2026-08-29T09:39:43.664Z"
+      "startedAt": "2026-08-29T10:00:44.273Z",
+      "finishedAt": "2026-08-29T10:00:44.274Z"
     }
   ],
   "costUsd": 0.0011,
-  "ranAt": "2026-08-29T09:39:43.664Z"
+  "ranAt": "2026-08-29T10:00:44.274Z"
 }

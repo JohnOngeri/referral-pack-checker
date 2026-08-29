@@ -761,7 +761,7 @@
         {
           "label": "Haemoglobin",
           "value": "10.9 g/dL (2026-03-14)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "HIV Screen",
@@ -805,12 +805,10 @@
         }
       ],
       "gapList": [
-        "Haemoglobin was taken 158 days ago; this referral type needs a result from the last 56 days.",
-        "Anti-D record is outstanding."
+        "Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days."
       ],
       "beforeYouSend": [
-        "Obtain a current haemoglobin result.",
-        "Document the patient's Anti-D status."
+        "Repeat the haemoglobin and add the current result."
       ]
     },
     "attempts": [
@@ -840,31 +838,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.653Z",
-      "finishedAt": "2026-08-29T09:39:43.654Z"
+      "startedAt": "2026-08-29T10:00:44.261Z",
+      "finishedAt": "2026-08-29T10:00:44.262Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.654Z",
-      "finishedAt": "2026-08-29T09:39:43.654Z"
+      "startedAt": "2026-08-29T10:00:44.263Z",
+      "finishedAt": "2026-08-29T10:00:44.263Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.654Z",
-      "finishedAt": "2026-08-29T09:39:43.654Z"
+      "startedAt": "2026-08-29T10:00:44.263Z",
+      "finishedAt": "2026-08-29T10:00:44.263Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.654Z",
-      "finishedAt": "2026-08-29T09:39:43.655Z"
+      "startedAt": "2026-08-29T10:00:44.263Z",
+      "finishedAt": "2026-08-29T10:00:44.263Z"
     }
   ],
   "costUsd": 0.0013,
-  "ranAt": "2026-08-29T09:39:43.655Z"
+  "ranAt": "2026-08-29T10:00:44.263Z"
 }

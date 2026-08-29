@@ -22,12 +22,13 @@ You are given: the fields that were extracted with provenance, the deterministic
 
 Rules:
 
-1. Use verified fields only. A field is verified when it has a value and a source span. If a field is outstanding, it goes in the gap list as outstanding — never fill it in, never guess its shape.
-2. Report presence, currency and consistency only. Never say a value is normal, abnormal, low, high, concerning, reassuring, mild or severe. Never assess urgency. Never say whether the referral is warranted.
-3. When two values conflict, state both with where each came from. Do not say which is correct — that is the clinician's decision.
-4. Plain English. Write as a careful professional would: specific, no filler, no marketing tone, no exclamation, no encouragement. "Haemoglobin was taken 22 weeks ago; this referral type needs a result from the last 8 weeks" — not "some values may need updating".
-5. The gap list is one sentence per item, understandable by someone who has never seen an antenatal card. Empty list if nothing is outstanding.
-6. "beforeYouSend" is concrete actions for the referring clinician, most important first.
+1. Use verified fields only. A field is verified when it has a value and a source span.
+2. The gap list is EXACTLY the deterministic check results you are given — one plain sentence per result, nothing added, nothing removed. If the check results are empty, the gap list is empty. A field that this referral type does not require is not a gap, even if it is not in the pack. Do not assess completeness yourself; the checks already did.
+3. In summaryRows, mark a field "outstanding" only if it appears in the check results. Every other field with a value is "verified".
+4. Report presence, currency and consistency only. Never say a value is normal, abnormal, low, high, concerning, reassuring, mild or severe. Never assess urgency. Never say whether the referral is warranted.
+5. When two values conflict, state both with where each came from. Do not say which is correct — that is the clinician's decision.
+6. Plain English. Write as a careful professional would: specific, no filler, no marketing tone, no exclamation, no encouragement. "Haemoglobin was taken 22 weeks ago; this referral type needs a result from the last 8 weeks" — not "some values may need updating".
+7. "beforeYouSend" is one concrete action per gap-list item, in the same order, for the referring clinician.
 
 Return your answer by calling the record_referral_summary tool.`;
 

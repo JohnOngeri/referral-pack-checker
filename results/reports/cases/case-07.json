@@ -688,7 +688,7 @@
       {
         "rule": "consistency.no_future_dates",
         "field": "haemoglobin",
-        "statement": "Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.",
+        "statement": "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).",
         "values": [
           {
             "label": "Haemoglobin sample",
@@ -721,7 +721,7 @@
       {
         "kind": "contradiction",
         "field": "haemoglobin",
-        "plain": "Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.",
+        "plain": "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).",
         "rule": "consistency.no_future_dates",
         "provenance": {
           "quote": "Hb 8.9   sample date 18/09/2026",
@@ -786,7 +786,7 @@
         {
           "label": "Haemoglobin",
           "value": "8.9 g/dL (2026-09-18)",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "HIV Screen",
@@ -830,11 +830,10 @@
         }
       ],
       "gapList": [
-        "The haemoglobin result is dated 18 September 2026, which is after the referral date of 18 August 2026."
+        "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026)."
       ],
       "beforeYouSend": [
-        "Verify the haemoglobin sample date as it is currently recorded as occurring after the referral date.",
-        "Confirm the accuracy of the haemoglobin result date before sending the referral."
+        "Reconcile the two values for the haemoglobin and correct whichever entry is wrong."
       ]
     },
     "attempts": [
@@ -864,31 +863,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.665Z",
-      "finishedAt": "2026-08-29T09:39:43.666Z"
+      "startedAt": "2026-08-29T10:00:44.275Z",
+      "finishedAt": "2026-08-29T10:00:44.275Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T09:39:43.666Z",
-      "finishedAt": "2026-08-29T09:39:43.666Z"
+      "startedAt": "2026-08-29T10:00:44.275Z",
+      "finishedAt": "2026-08-29T10:00:44.276Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.666Z",
-      "finishedAt": "2026-08-29T09:39:43.666Z"
+      "startedAt": "2026-08-29T10:00:44.276Z",
+      "finishedAt": "2026-08-29T10:00:44.276Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.666Z",
-      "finishedAt": "2026-08-29T09:39:43.666Z"
+      "startedAt": "2026-08-29T10:00:44.276Z",
+      "finishedAt": "2026-08-29T10:00:44.276Z"
     }
   ],
   "costUsd": 0.0013,
-  "ranAt": "2026-08-29T09:39:43.666Z"
+  "ranAt": "2026-08-29T10:00:44.276Z"
 }

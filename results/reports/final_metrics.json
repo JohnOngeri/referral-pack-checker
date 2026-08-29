@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T09:39:43.642Z",
+  "generatedAt": "2026-08-29T10:00:44.249Z",
   "mode": "fresh",
   "model": "gemini-3.1-flash-lite",
   "headline": {
@@ -19,7 +19,7 @@
     "contradictionsSeeded": 6,
     "contradictionsCaught": 6,
     "inventedValues": 0,
-    "costPerPackUsd": 0
+    "costPerPackUsd": 0.0014
   },
   "baseline": {
     "cases": 12,

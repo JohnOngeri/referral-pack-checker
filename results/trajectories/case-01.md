@@ -1,5 +1,5 @@
 # Trajectory — case-01 (elective_caesarean)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.651Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.260Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -49,8 +49,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.
 Gap list:
-  - Blood group is not recorded in the pack.
-  - Anti-D record is not recorded in the pack.
+  - Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it.
 
 ------------------------------------------------------------------------
 

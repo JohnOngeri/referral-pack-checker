@@ -112,10 +112,11 @@ ${verifiedFieldLines(raw)}
 Deterministic check results:
 ${checkLines}
 
-Write the summary. Verified fields only. Every outstanding item goes in the gap list. State both sides of any contradiction; resolve nothing.`;
+Write the summary. Verified fields only. The gap list is exactly the deterministic check results above — nothing added. State both sides of any contradiction; resolve nothing.`;
 
   const attempts: SummariserAttempt[] = [];
   const followups: Array<{ role: "assistant" | "user"; content: string }> = [];
+  let chosen: SummaryOutput | null = null;
 
   for (let attempt = 1; attempt <= MAX_SUMMARY_ATTEMPTS; attempt++) {
     const res = await provider.parseStructured(
@@ -128,8 +129,10 @@ Write the summary. Verified fields only. Every outstanding item goes in the gap 
     const ok = schemaValid && clin.length === 0;
     attempts.push({ attempt, ok, schemaValid, clinicalLanguageIssues: clin, rawText: res.rawText, usage: res.usage });
 
-    if (ok) return { summary: res.parsed as SummaryOutput, attempts, mode: res.mode };
-
+    if (ok) {
+      chosen = res.parsed as SummaryOutput;
+      break;
+    }
     if (attempt < MAX_SUMMARY_ATTEMPTS) {
       const problem = !schemaValid
         ? `The tool input did not match the schema:\n${res.rawText}`
@@ -142,8 +145,102 @@ Write the summary. Verified fields only. Every outstanding item goes in the gap 
     }
   }
 
-  const last = attempts[attempts.length - 1];
-  const reparsed = SummarySchema.safeParse(JSON.parse(last.rawText.slice(last.rawText.indexOf("{"))));
-  if (reparsed.success) return { summary: reparsed.data, attempts, mode: provider.mode };
-  throw new Error(`Summariser for ${caseId} failed after ${MAX_SUMMARY_ATTEMPTS} attempts.`);
+  if (!chosen) {
+    const last = attempts[attempts.length - 1];
+    const reparsed = SummarySchema.safeParse(
+      JSON.parse(last.rawText.slice(Math.max(0, last.rawText.indexOf("{")))),
+    );
+    if (!reparsed.success) throw new Error(`Summariser for ${caseId} failed after ${MAX_SUMMARY_ATTEMPTS} attempts.`);
+    chosen = reparsed.data;
+  }
+
+  return { summary: reconcileWithChecks(chosen, checks), attempts, mode: provider.mode };
+}
+
+/**
+ * The gap list and the "outstanding" markers are safety-critical, so they are
+ * taken from the deterministic check results, not from the model's own judgment
+ * of completeness. The model contributes the headline and the verified-field
+ * values; it cannot invent a gap the checks did not find, or hide one they did.
+ */
+function reconcileWithChecks(summary: SummaryOutput, checks: CheckResult): SummaryOutput {
+  const findingFields = new Set(checks.findings.map((f) => f.field.toLowerCase()));
+  const gapList = checks.findings.map((f) => f.plain);
+  const beforeYouSend =
+    checks.findings.length === 0
+      ? []
+      : checks.findings.map((f) => beforeYouSendFor(f));
+
+  const rows = summary.summaryRows.map((r) => {
+    const field = rowLabelToField(r.label);
+    const isGap = field !== null && findingFields.has(field.toLowerCase());
+    return { ...r, state: isGap ? ("outstanding" as const) : ("verified" as const) };
+  });
+
+  return { headline: summary.headline, summaryRows: rows, gapList, beforeYouSend };
+}
+
+function beforeYouSendFor(f: CheckResult["findings"][number]): string {
+  switch (f.kind) {
+    case "missing":
+      return `Add ${humanField(f.field)} from the antenatal record, or arrange it before the woman travels.`;
+    case "conditional":
+      return `Add ${humanField(f.field)} — it is required for this pack.`;
+    case "stale":
+      return `Repeat ${humanField(f.field)} and add the current result.`;
+    case "placeholder":
+      return `Enter a value for ${humanField(f.field)}; the field currently holds a placeholder.`;
+    case "contradiction":
+      return `Reconcile the two values for ${humanField(f.field)} and correct whichever entry is wrong.`;
+    default:
+      return `Check ${humanField(f.field)}.`;
+  }
+}
+
+/** Map a model-written summary-row label back to a canonical pack field. */
+function rowLabelToField(label: string): string | null {
+  const l = label.toLowerCase();
+  const table: Array<[RegExp, string]> = [
+    [/blood group/, "bloodGroup"],
+    [/rhesus|\brh\b/, "rhesus"],
+    [/anti-?d/, "antiD"],
+    [/h.?emoglobin|\bhb\b/, "haemoglobin"],
+    [/gestational age|\bga\b/, "gestationalAge"],
+    [/estimated delivery|\bedd\b/, "edd"],
+    [/last menstrual|\blmp\b/, "lmp"],
+    [/parity/, "parity"],
+    [/gravidit/, "gravidity"],
+    [/blood pressure|\bbp\b/, "bloodPressure"],
+    [/urine protein/, "urineProtein"],
+    [/hiv/, "hivScreen"],
+    [/syphilis|rpr|vdrl/, "syphilisScreen"],
+    [/obstetric history/, "previousObstetricHistory"],
+    [/medication/, "medications"],
+    [/allergie/, "allergies"],
+    [/reason/, "reasonForReferral"],
+    [/referring facility/, "referringFacility"],
+    [/referring clinician/, "referringClinician"],
+    [/referral date/, "referralDate"],
+    [/receiving facility/, "receivingFacility"],
+  ];
+  for (const [re, f] of table) if (re.test(l)) return f;
+  return null;
+}
+
+function humanField(field: string): string {
+  const map: Record<string, string> = {
+    bloodGroup: "the blood group",
+    rhesus: "the rhesus status",
+    antiD: "the anti-D immunoglobulin record",
+    haemoglobin: "the haemoglobin",
+    gestationalAge: "the gestational age",
+    edd: "the estimated delivery date",
+    lmp: "the last menstrual period",
+    parity: "the parity",
+    bloodPressure: "the blood pressure readings",
+    urineProtein: "the urine protein result",
+    hivScreen: "the HIV screening result",
+    syphilisScreen: "the syphilis screening result",
+  };
+  return map[field] ?? field;
 }

@@ -18,5 +18,5 @@
 
 ## Consistency
 - consistency.edd_matches_lmp
-  The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.
+  The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
   detail: {"lmp":"2025-11-20","derived_edd":"2026-08-27","recorded_edd":"2026-08-12","delta_days":-15,"tolerance_days":3,"resolution":null}

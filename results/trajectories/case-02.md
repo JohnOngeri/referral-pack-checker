@@ -1,5 +1,5 @@
 # Trajectory — case-02 (hypertension_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.655Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.263Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -47,8 +47,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for hypertension in pregnancy review. The referral pack is incomplete.
 Gap list:
-  - Haemoglobin was taken 158 days ago; this referral type needs a result from the last 56 days.
-  - Anti-D record is outstanding.
+  - Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days.
 
 ------------------------------------------------------------------------
 

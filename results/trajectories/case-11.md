@@ -1,5 +1,5 @@
 # Trajectory — case-11 (anaemia_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:39:43.674Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.286Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -37,7 +37,7 @@ No model call. The extracted structure is compared field by field to the require
 ------------------------------------------------------------------------
 
 ## Stage 3 — Looking for contradictions (deterministic)
-  [consistency.no_date_before_lmp] Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.
+  [consistency.no_date_before_lmp] Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
      (recorded) Syphilis screen: 20 Dec 2025  [RPR neg (20/12/25)]
      (recorded) Last menstrual period: 8 Jan 2026  [08/01/2026]
      resolution: none — reported for the clinician to decide.
@@ -51,9 +51,7 @@ Attempt 1: schema valid; 0 clinical-language issue(s)
 
 Headline: Referral for anaemia review. The referral pack is incomplete.
 Gap list:
-  - Urine protein result is outstanding.
-  - Anti-D record is outstanding.
-  - The syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.
+  - Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
 
 ------------------------------------------------------------------------
 

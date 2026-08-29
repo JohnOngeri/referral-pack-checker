@@ -18,5 +18,5 @@
 
 ## Consistency
 - consistency.parity_matches_obstetric_history
-  Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).
+  Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
   detail: {"recorded_parity":2,"history_entries":3,"history_births_24w_plus":3,"history":[{"summary":"2017  SVD term","outcome":"term_birth","weeks":null},{"summary":"2019  SVD term","outcome":"term_birth","weeks":null},{"summary":"2023  SVD term","outcome":"term_birth","weeks":null}],"resolution":null}

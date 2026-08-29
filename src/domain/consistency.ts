@@ -83,9 +83,8 @@ function gaMatchesLmp(pack: ReferralPack): ConsistencyFinding | null {
     rule: "consistency.ga_matches_lmp",
     field: "gestationalAge",
     statement:
-      `Gestational age is recorded as ${formatWeeksDays(rWd.weeks, rWd.days)} weeks. ` +
-      `The recorded last menstrual period of ${formatHuman(lmp)} gives ` +
-      `${formatWeeksDays(dWd.weeks, dWd.days)} weeks on ${formatHuman(on)}.`,
+      `The recorded gestational age (${formatWeeksDays(rWd.weeks, rWd.days)}) does not match the last ` +
+      `menstrual period, which gives ${formatWeeksDays(dWd.weeks, dWd.days)}.`,
     values: [
       {
         label: "Recorded gestational age",
@@ -126,8 +125,8 @@ function eddMatchesLmp(pack: ReferralPack): ConsistencyFinding | null {
     rule: "consistency.edd_matches_lmp",
     field: "edd",
     statement:
-      `The estimated delivery date is recorded as ${formatHuman(edd)}. ` +
-      `The recorded last menstrual period of ${formatHuman(lmp)} gives ${formatHuman(derivedEdd)}.`,
+      `The estimated delivery date (${formatHuman(edd)}) does not follow from the recorded last ` +
+      `menstrual period, which gives ${formatHuman(derivedEdd)}.`,
     values: [
       {
         label: "Recorded estimated delivery date",
@@ -168,9 +167,7 @@ function noFutureDates(pack: ReferralPack): ConsistencyFinding[] {
       out.push({
         rule: "consistency.no_future_dates",
         field: fieldFor(d.label),
-        statement:
-          `${d.label} is dated ${formatHuman(d.iso)}, which is after the referral date of ` +
-          `${formatHuman(ref)}.`,
+        statement: `${d.label} is dated ${formatHuman(d.iso)}, after the day the referral was written (${formatHuman(ref)}).`,
         values: [
           { label: d.label, value: formatHuman(d.iso), provenance: d.provenance, derived: false },
           {
@@ -203,9 +200,7 @@ function noDateBeforeLmp(pack: ReferralPack): ConsistencyFinding[] {
       out.push({
         rule: "consistency.no_date_before_lmp",
         field: fieldFor(d.label),
-        statement:
-          `${d.label} is dated ${formatHuman(d.iso)}, which is before the recorded last menstrual ` +
-          `period of ${formatHuman(lmp)}.`,
+        statement: `${d.label} is dated ${formatHuman(d.iso)}, before the recorded last menstrual period (${formatHuman(lmp)}).`,
         values: [
           { label: d.label, value: formatHuman(d.iso), provenance: d.provenance, derived: false },
           {
@@ -244,9 +239,8 @@ function parityMatchesHistory(pack: ReferralPack): ConsistencyFinding | null {
     rule: "consistency.parity_matches_obstetric_history",
     field: "parity",
     statement:
-      `Parity is recorded as ${parity}. The previous obstetric history lists ${births.length} ` +
-      `birth${births.length === 1 ? "" : "s"} at or beyond 24 weeks ` +
-      `(${hist.entries.length} previous ${hist.entries.length === 1 ? "pregnancy" : "pregnancies"} in total).`,
+      `Recorded parity (${parity}) does not match the obstetric history, which lists ${births.length} ` +
+      `previous birth${births.length === 1 ? "" : "s"}.`,
     values: [
       {
         label: "Recorded parity",

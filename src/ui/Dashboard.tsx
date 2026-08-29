@@ -246,11 +246,11 @@ function ReviewView(props: {
           <span style={{ fontSize: 120 }}>{m.headline.agentCaught}</span>
           <span style={{ fontSize: 40, color: C.ink45 }}>of {m.headline.seededDefects}</span>
         </div>
-        <p style={{ fontSize: 20, lineHeight: 1.5, margin: "24px 0 0", maxWidth: "46ch" }}>
-          documentation gaps caught, with {m.agent.falseFlags} raised against a pack that was fine.
+        <p style={{ fontSize: 20, lineHeight: 1.5, margin: "24px 0 0", maxWidth: "40ch" }}>
+          documentation gaps caught, {m.agent.falseFlags} false alarms.
         </p>
-        <p style={{ fontSize: 15, lineHeight: 1.5, margin: "10px 0 0", color: C.ink62, maxWidth: "46ch" }}>
-          A single AI prompt caught {m.headline.baselineCaught} and raised {m.baseline.falseFlags}.
+        <p style={{ fontSize: 15, lineHeight: 1.5, margin: "8px 0 0", color: C.ink62, maxWidth: "44ch" }}>
+          A single AI prompt: {m.headline.baselineCaught} caught, {m.baseline.falseFlags} false alarms.
         </p>
         <p style={{ fontSize: 12, color: C.ink45, margin: "12px 0 0", fontFamily: C.mono }}>
           {m.headline.sourceFile} · {m.mode === "fresh" ? "Fresh run" : "Replay"} · {m.model}

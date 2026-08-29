@@ -22,5 +22,5 @@
 
 ## Consistency
 - consistency.no_date_before_lmp
-  Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.
+  Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
   detail: {"field_date":"2025-12-20","lmp":"2026-01-08","days_before":19,"resolution":null}

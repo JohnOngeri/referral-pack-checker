@@ -687,7 +687,7 @@
       {
         "rule": "consistency.edd_matches_lmp",
         "field": "edd",
-        "statement": "The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.",
+        "statement": "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.",
         "values": [
           {
             "label": "Recorded estimated delivery date",
@@ -722,7 +722,7 @@
       {
         "kind": "contradiction",
         "field": "edd",
-        "plain": "The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.",
+        "plain": "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.",
         "rule": "consistency.edd_matches_lmp",
         "provenance": {
           "quote": "EDD  12/08/2026",
@@ -762,7 +762,7 @@
         {
           "label": "EDD",
           "value": "2026-08-12",
-          "state": "verified"
+          "state": "outstanding"
         },
         {
           "label": "Gestational Age",
@@ -812,22 +812,19 @@
         {
           "label": "Urine Protein",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         },
         {
           "label": "Anti-D Record",
           "value": "Outstanding",
-          "state": "outstanding"
+          "state": "verified"
         }
       ],
       "gapList": [
-        "Urine protein result is missing.",
-        "Anti-D record is missing."
+        "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026."
       ],
       "beforeYouSend": [
-        "Clarify the discrepancy between the recorded EDD of 12 August 2026 and the date calculated from the LMP of 20 November 2025, which is 27 August 2026.",
-        "Obtain and document the current urine protein result.",
-        "Obtain and document the Anti-D record."
+        "Reconcile the two values for the estimated delivery date and correct whichever entry is wrong."
       ]
     },
     "attempts": [
@@ -857,31 +854,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 2 attempts",
-      "startedAt": "2026-08-29T09:39:43.660Z",
-      "finishedAt": "2026-08-29T09:39:43.662Z"
+      "startedAt": "2026-08-29T10:00:44.269Z",
+      "finishedAt": "2026-08-29T10:00:44.271Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 14 field rules",
-      "startedAt": "2026-08-29T09:39:43.662Z",
-      "finishedAt": "2026-08-29T09:39:43.662Z"
+      "startedAt": "2026-08-29T10:00:44.271Z",
+      "finishedAt": "2026-08-29T10:00:44.271Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T09:39:43.662Z",
-      "finishedAt": "2026-08-29T09:39:43.662Z"
+      "startedAt": "2026-08-29T10:00:44.271Z",
+      "finishedAt": "2026-08-29T10:00:44.271Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T09:39:43.662Z",
-      "finishedAt": "2026-08-29T09:39:43.662Z"
+      "startedAt": "2026-08-29T10:00:44.271Z",
+      "finishedAt": "2026-08-29T10:00:44.272Z"
     }
   ],
   "costUsd": 0.0021,
-  "ranAt": "2026-08-29T09:39:43.662Z"
+  "ranAt": "2026-08-29T10:00:44.272Z"
 }
