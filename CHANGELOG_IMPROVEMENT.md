@@ -4,7 +4,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 
 ## Baseline — one prompt, whole job
 
-- **Measured**: caught 10 of 10 seeded defects (recall 100%); 47 false flag(s), 5 on control packs; contradictions 6/6.
+- **Measured**: caught 9 of 10 seeded defects (recall 90%); 34 false flag(s), 5 on control packs; contradictions 5/6.
 - **Evidence**: `results/reports/baseline.json`
 - **Decision**: reference point.
 
@@ -13,6 +13,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 4 of 10 seeded defects (recall 40%); 5 false flag(s), 2 on control packs; contradictions 1/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
+- **What changed**: extraction moved to a schema-constrained call with a provenance span on every field; absence became a first-class value. The requirement comparison is still a model judgment. Invented values went to 0; recall did not move, because the model check still misses the contradiction-type defects and still gets date arithmetic wrong.
 - **Evidence**: `results/reports/iter1.json`
 - **Decision**: kept.
 
@@ -21,7 +22,8 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 4 of 10 seeded defects (recall 40%); 0 false flag(s), 0 on control packs; contradictions 0/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
-- **Run-to-run variance** (n=3 runs per pack): model judgment mean finding-count stdev 0; deterministic code 0. Evidence: `results/reports/iter2_variance.csv`.
+- **Run-to-run variance** (n=3 runs per pack, temperature 0): model judgment mean finding-count stdev 0; deterministic code 0. Evidence: `results/reports/iter2_variance.csv`. At temperature 0 the model check did not vary in the number of findings, so variance is not what justified this change.
+- **What justified it**: precision. Moving the requirement comparison into code took false flags from 5 to 0 and removed the hallucinated staleness findings — on three packs Iteration 1 called a haemoglobin taken four to six days ago "stale". A recency rule is a date subtraction; it should not be a model's guess.
 - **Evidence**: `results/reports/iter2.json`
 - **Decision**: kept.
 
@@ -30,6 +32,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 10 of 10 seeded defects (recall 100%); 0 false flag(s), 0 on control packs; contradictions 6/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
+- **What this revealed about earlier results**: every configuration before this one passed case 12 as complete. It is not complete — the recorded gestational age and the LMP disagree by six weeks, and the estimated delivery date follows the wrong one. Those earlier "passes" were not genuine.
 - **Evidence**: `results/reports/iter3.json`
 - **Decision**: kept.
 
@@ -38,6 +41,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 10 of 10 seeded defects (recall 100%); 0 false flag(s), 0 on control packs; contradictions 6/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
+- **Measured effect**: recall unchanged (10 to 10). Memory does not find new defects; it reorders the gap list so a field a facility has repeatedly omitted appears first. Reported here whichever direction it went — it did not change what was caught.
 - **Evidence**: `results/reports/iter4.json`
 - **Decision**: kept.
 
@@ -46,7 +50,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Measured**: caught 10 of 10 seeded defects (recall 100%); 0 false flag(s), 0 on control packs; contradictions 6/6.
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
-- **Cost per pack**: $0.0009 (fresh mode, gemini-3.1-flash-lite).
+- **Cost per pack** (extraction + summary): $0.0000 (fresh mode, gemini-3.1-flash-lite).
 - **Evidence**: `results/reports/final.json`
 - **Decision**: shipped.
 

@@ -134,7 +134,7 @@ export async function runPipeline(
     ...extraction.attempts.map((a) => a.usage),
     ...summary.attempts.map((a) => a.usage),
   ];
-  const cost = provider.mode === "fresh" ? costOf(provider.model, usages) : 0;
+  const cost = costOf(provider.model, usages);
 
   const result: PipelineResult = {
     caseId,

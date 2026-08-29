@@ -9,6 +9,6 @@ case-07,hypertension_review,1,1,1,0,false,""
 case-08,routine_ultrasound,1,1,1,0,false,""
 case-09,elective_caesarean,0,0,0,0,false,""
 case-10,hypertension_review,0,0,0,0,true,"control pack"
-case-11,anaemia_review,1,1,1,0,false,""
+case-11,anaemia_review,1,0,1,0,false,"baseline missed a seeded defect the agent caught"
 case-12,elective_caesarean,2,2,2,0,false,""
-TOTAL,,10,10,10,0,,
+TOTAL,,10,9,10,0,,

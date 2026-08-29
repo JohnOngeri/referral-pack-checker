@@ -93,7 +93,21 @@ export function buildFinalMetrics(): FinalMetrics {
       };
 
   const seeded = final.aggregate.seededDefects;
-  const sentence = `${final.aggregate.caught} of ${seeded} documentation gaps caught. A single AI prompt caught ${baseline.aggregate.caught}.`;
+  const sentence =
+    `${final.aggregate.caught} of ${seeded} documentation gaps caught, with ${final.aggregate.falseFlags} false ` +
+    `alarm${final.aggregate.falseFlags === 1 ? "" : "s"}. The single-prompt baseline caught ${baseline.aggregate.caught}, ` +
+    `with ${baseline.aggregate.falseFlags}.`;
+
+  // Cost per pack for the full workflow (extraction + summary), averaged over the
+  // committed per-case pipeline results.
+  const casesDir2 = path.join(PATHS.reports, "cases");
+  const caseFiles = fs.existsSync(casesDir2)
+    ? fs.readdirSync(casesDir2).filter((f) => f.endsWith(".json"))
+    : [];
+  const agentCostPerPack = caseFiles.length
+    ? caseFiles.reduce((s, f) => s + (JSON.parse(fs.readFileSync(path.join(casesDir2, f), "utf8")).costUsd ?? 0), 0) /
+      caseFiles.length
+    : final.costUsd / ids.length;
 
   const metrics: FinalMetrics = {
     generatedAt: new Date().toISOString(),
@@ -110,7 +124,7 @@ export function buildFinalMetrics(): FinalMetrics {
       ...final.aggregate,
       falseFlags: final.aggregate.falseFlags,
       inventedValues: final.inventedValuesTotal,
-      costPerPackUsd: Number((final.costUsd / ids.length).toFixed(4)),
+      costPerPackUsd: Number(agentCostPerPack.toFixed(4)),
     },
     baseline: {
       ...baseline.aggregate,
@@ -151,6 +165,7 @@ export function buildChangelog(): string {
   const rows: string[] = [];
   const variance = readJson<VarianceReport>("iter2_variance.json");
   const adj = readJson<AdjudicatorResult>("adjudicator.json");
+  const fm = readJson<FinalMetrics>("final_metrics.json");
 
   const L: string[] = [];
   L.push("# Improvement Changelog");
@@ -179,13 +194,34 @@ export function buildChangelog(): string {
     if (r.provenanceCorrectness !== null && r.provenanceCorrectness !== undefined) {
       L.push(`- **Provenance correctness**: ${r.provenanceCorrectness}% of extracted spans are exact substrings of the pack text.`);
     }
-    if (id === "iter2" && variance) {
+    if (id === "iter1") {
       L.push(
-        `- **Run-to-run variance** (n=${variance.runs} runs per pack): model judgment mean finding-count stdev ${variance.modelMeanStdev}; deterministic code ${variance.deterministicMeanStdev}. Evidence: \`results/reports/iter2_variance.csv\`.`,
+        `- **What changed**: extraction moved to a schema-constrained call with a provenance span on every field; absence became a first-class value. The requirement comparison is still a model judgment. Invented values went to 0; recall did not move, because the model check still misses the contradiction-type defects and still gets date arithmetic wrong.`,
+      );
+    }
+    if (id === "iter3") {
+      L.push(
+        `- **What this revealed about earlier results**: every configuration before this one passed case 12 as complete. It is not complete — the recorded gestational age and the LMP disagree by six weeks, and the estimated delivery date follows the wrong one. Those earlier "passes" were not genuine.`,
+      );
+    }
+    if (id === "iter4") {
+      const i3 = readJson<ConfigReport>("iter3.json");
+      L.push(
+        `- **Measured effect**: recall unchanged (${i3 ? i3.aggregate.caught : "—"} to ${r.aggregate.caught}). Memory does not find new defects; it reorders the gap list so a field a facility has repeatedly omitted appears first. Reported here whichever direction it went — it did not change what was caught.`,
+      );
+    }
+    if (id === "iter2" && variance) {
+      const i1 = readJson<ConfigReport>("iter1.json");
+      L.push(
+        `- **Run-to-run variance** (n=${variance.runs} runs per pack, temperature 0): model judgment mean finding-count stdev ${variance.modelMeanStdev}; deterministic code ${variance.deterministicMeanStdev}. Evidence: \`results/reports/iter2_variance.csv\`. At temperature 0 the model check did not vary in the number of findings, so variance is not what justified this change.`,
+      );
+      L.push(
+        `- **What justified it**: precision. Moving the requirement comparison into code took false flags from ${i1 ? i1.aggregate.falseFlags : "—"} to ${r.aggregate.falseFlags} and removed the hallucinated staleness findings — on three packs Iteration 1 called a haemoglobin taken four to six days ago "stale". A recency rule is a date subtraction; it should not be a model's guess.`,
       );
     }
     if (id === "final") {
-      L.push(`- **Cost per pack**: $${(r.costUsd / r.perCase.length).toFixed(4)} (${r.mode} mode, ${r.model}).`);
+      const cpp = fm ? fm.agent.costPerPackUsd : r.costUsd / r.perCase.length;
+      L.push(`- **Cost per pack** (extraction + summary): $${cpp.toFixed(4)} (${r.mode} mode, ${r.model}).`);
     }
     L.push(`- **Evidence**: \`results/reports/${id}.json\``);
     L.push(`- **Decision**: ${id === "baseline" ? "reference point" : id === "final" ? "shipped" : "kept"}.`);

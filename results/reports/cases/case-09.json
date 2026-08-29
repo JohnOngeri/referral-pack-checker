@@ -1,0 +1,857 @@
+{
+  "caseId": "case-09",
+  "referralType": "elective_caesarean",
+  "patient": "B. Osei",
+  "packText": "ANC  --  B. Osei,  30     PID 9126\nMadina Clinic\n                                              // grp B+ , lab 12/12/25\nLMP 28/11/2025    EDD 04/09/2026    GA 37+2 (16/08/26)\nG2 P1    -- 2023 LSCS term\n\nHb 11.9 (12/08/26)\nHIV neg (08/12/25)    RPR neg (08/12/25)    Rh pos\nBP 122/78 (16/08/26)\n\nAllergies: nil known\nMeds: ferrous sulphate, folic acid, calcium\n\nReason: elective LSCS booking, previous caesarean, maternal request\nReferred by: Sr K. Mensah, Madina Clinic, 16/08/2026\nTo: Teaching Hospital -- Theatre list\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "9126",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 9126",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 30,
+        "absent": false,
+        "provenance": {
+          "quote": "30",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2025-11-28",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 28/11/2025",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-09-04",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 04/09/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 37,
+          "days": 2,
+          "assessedOn": "2026-08-16",
+          "provenance": {
+            "quote": "GA 37+2 (16/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 37+2 (16/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "B",
+        "absent": false,
+        "provenance": {
+          "quote": "grp B+",
+          "line": 3
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "grp B+",
+          "line": 3
+        }
+      },
+      "haemoglobin": {
+        "value": 11.9,
+        "date": "2026-08-12",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 11.9 (12/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2025-12-08",
+        "provenance": {
+          "quote": "HIV neg (08/12/25)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2025-12-08",
+        "provenance": {
+          "quote": "RPR neg (08/12/25)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 122,
+            "diastolic": 78,
+            "date": "2026-08-16",
+            "provenance": {
+              "quote": "BP 122/78 (16/08/26)",
+              "line": 9
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 122/78 (16/08/26)",
+          "line": 9
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2023 LSCS term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023 LSCS term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2023 LSCS term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate",
+          "folic acid",
+          "calcium"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate, folic acid, calcium",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil known",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil known",
+          "line": 11
+        }
+      },
+      "reasonForReferral": {
+        "value": "elective LSCS booking, previous caesarean, maternal request",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: elective LSCS booking, previous caesarean, maternal request",
+          "line": 14
+        }
+      },
+      "referringFacility": {
+        "value": "Madina Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Madina Clinic",
+          "line": 15
+        }
+      },
+      "referringClinician": {
+        "value": "Sr K. Mensah",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr K. Mensah",
+          "line": 15
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-16",
+        "absent": false,
+        "provenance": {
+          "quote": "16/08/2026",
+          "line": 15
+        }
+      },
+      "receivingFacility": {
+        "value": "Teaching Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Teaching Hospital",
+          "line": 16
+        }
+      },
+      "receivingDepartment": {
+        "value": "Theatre list",
+        "absent": false,
+        "provenance": {
+          "quote": "Theatre list",
+          "line": 16
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "9126",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 9126",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 30,
+        "absent": false,
+        "provenance": {
+          "quote": "30",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2025-11-28",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 28/11/2025",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-09-04",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 04/09/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 37,
+          "days": 2,
+          "assessedOn": "2026-08-16",
+          "provenance": {
+            "quote": "GA 37+2 (16/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 37+2 (16/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "B",
+        "absent": false,
+        "provenance": {
+          "quote": "grp B+",
+          "line": 3
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "grp B+",
+          "line": 3
+        }
+      },
+      "haemoglobin": {
+        "value": 11.9,
+        "date": "2026-08-12",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 11.9 (12/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2025-12-08",
+        "provenance": {
+          "quote": "HIV neg (08/12/25)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2025-12-08",
+        "provenance": {
+          "quote": "RPR neg (08/12/25)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 122,
+            "diastolic": 78,
+            "date": "2026-08-16",
+            "provenance": {
+              "quote": "BP 122/78 (16/08/26)",
+              "line": 9
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 122/78 (16/08/26)",
+          "line": 9
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2023 LSCS term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023 LSCS term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2023 LSCS term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate",
+          "folic acid",
+          "calcium"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate, folic acid, calcium",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil known",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil known",
+          "line": 11
+        }
+      },
+      "reasonForReferral": {
+        "value": "elective LSCS booking, previous caesarean, maternal request",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: elective LSCS booking, previous caesarean, maternal request",
+          "line": 14
+        }
+      },
+      "referringFacility": {
+        "value": "Madina Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Madina Clinic",
+          "line": 15
+        }
+      },
+      "referringClinician": {
+        "value": "Sr K. Mensah",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr K. Mensah",
+          "line": 15
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-16",
+        "absent": false,
+        "provenance": {
+          "quote": "16/08/2026",
+          "line": 15
+        }
+      },
+      "receivingFacility": {
+        "value": "Teaching Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Teaching Hospital",
+          "line": 16
+        }
+      },
+      "receivingDepartment": {
+        "value": "Theatre list",
+        "absent": false,
+        "provenance": {
+          "quote": "Theatre list",
+          "line": 16
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"9126\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 9126\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 30,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"30\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2025-11-28\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 28/11/2025\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-09-04\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 04/09/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 37,\n      \"days\": 2,\n      \"assessedOn\": \"2026-08-16\",\n      \"provenance\": {\n        \"quote\": \"GA 37+2 (16/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 37+2 (16/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G2\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 1,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P1\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"B\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"grp B+\",\n      \"line\": 3\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"grp B+\",\n      \"line\": 3\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 11.9,\n    \"date\": \"2026-08-12\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 11.9 (12/08/26)\",\n      \"line\": 7\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2025-12-08\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (08/12/25)\",\n      \"line\": 8\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2025-12-08\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (08/12/25)\",\n      \"line\": 8\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 122,\n        \"diastolic\": 78,\n        \"date\": \"2026-08-16\",\n        \"provenance\": {\n          \"quote\": \"BP 122/78 (16/08/26)\",\n          \"line\": 9\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 122/78 (16/08/26)\",\n      \"line\": 9\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2023 LSCS term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2023,\n        \"provenance\": {\n          \"quote\": \"2023 LSCS term\",\n          \"line\": 5\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"2023 LSCS term\",\n      \"line\": 5\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"ferrous sulphate\",\n      \"folic acid\",\n      \"calcium\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: ferrous sulphate, folic acid, calcium\",\n      \"line\": 12\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil known\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil known\",\n      \"line\": 11\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"elective LSCS booking, previous caesarean, maternal request\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: elective LSCS booking, previous caesarean, maternal request\",\n      \"line\": 14\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Madina Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Madina Clinic\",\n      \"line\": 15\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr K. Mensah\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr K. Mensah\",\n      \"line\": 15\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-16\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"16/08/2026\",\n      \"line\": 15\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"Teaching Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Teaching Hospital\",\n      \"line\": 16\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Theatre list\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Theatre list\",\n      \"line\": 16\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 791,
+          "outputTokens": 1735,
+          "cacheReadTokens": 431
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 9126",
+            "line": 1
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "30",
+            "line": 1
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "LMP 28/11/2025",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 37+2 (16/08/26)",
+            "line": 4
+          }
+        },
+        {
+          "field": "edd",
+          "label": "Estimated delivery date",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.edd",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "EDD 04/09/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G2",
+            "line": 5
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P1",
+            "line": 5
+          }
+        },
+        {
+          "field": "bloodGroup",
+          "label": "Blood group",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.bloodGroup",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "grp B+",
+            "line": 3
+          }
+        },
+        {
+          "field": "rhesus",
+          "label": "Rhesus status",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.rhesus",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "grp B+",
+            "line": 3
+          }
+        },
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.haemoglobin",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Hb 11.9 (12/08/26)",
+            "line": 7
+          }
+        },
+        {
+          "field": "hivScreen",
+          "label": "HIV screening status",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.hivScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "HIV neg (08/12/25)",
+            "line": 8
+          }
+        },
+        {
+          "field": "syphilisScreen",
+          "label": "Syphilis screening status",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.syphilisScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "RPR neg (08/12/25)",
+            "line": 8
+          }
+        },
+        {
+          "field": "previousObstetricHistory",
+          "label": "Previous obstetric history",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.previousObstetricHistory",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "2023 LSCS term",
+            "line": 5
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason: elective LSCS booking, previous caesarean, maternal request",
+            "line": 14
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Madina Clinic",
+            "line": 15
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr K. Mensah",
+            "line": 15
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "16/08/2026",
+            "line": 15
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.elective_caesarean.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Teaching Hospital",
+            "line": 16
+          }
+        },
+        {
+          "field": "antiD",
+          "label": "Anti-D immunoglobulin record",
+          "verdict": "not_required",
+          "rule": "requirements.elective_caesarean.antiD",
+          "detail": "Conditional (Required when the rhesus status is recorded as negative.) — condition not met.",
+          "provenance": null
+        }
+      ]
+    },
+    "consistency": [],
+    "findings": []
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for elective caesarean section. The referral pack is incomplete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "9126",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "30",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2025-11-28",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "37+2",
+          "state": "verified"
+        },
+        {
+          "label": "EDD",
+          "value": "2026-09-04",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "2",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "1",
+          "state": "verified"
+        },
+        {
+          "label": "Blood Group",
+          "value": "B",
+          "state": "verified"
+        },
+        {
+          "label": "Rhesus",
+          "value": "positive",
+          "state": "verified"
+        },
+        {
+          "label": "Haemoglobin",
+          "value": "11.9 g/dL (2026-08-12)",
+          "state": "verified"
+        },
+        {
+          "label": "HIV Screen",
+          "value": "negative (2025-12-08)",
+          "state": "verified"
+        },
+        {
+          "label": "Syphilis Screen",
+          "value": "negative (2025-12-08)",
+          "state": "verified"
+        },
+        {
+          "label": "Previous Obstetric History",
+          "value": "2023 LSCS term",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "elective LSCS booking, previous caesarean, maternal request",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Madina Clinic",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr K. Mensah",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-16",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "Teaching Hospital",
+          "state": "verified"
+        },
+        {
+          "label": "Urine Protein",
+          "value": "Outstanding",
+          "state": "outstanding"
+        },
+        {
+          "label": "Anti-D Record",
+          "value": "Outstanding",
+          "state": "outstanding"
+        }
+      ],
+      "gapList": [
+        "The urine protein result is missing.",
+        "The Anti-D record is missing."
+      ],
+      "beforeYouSend": [
+        "Obtain and include the missing urine protein result.",
+        "Obtain and include the Anti-D record."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for elective caesarean section. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"9126\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"30\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-28\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"37+2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-09-04\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.9 g/dL (2026-08-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean, maternal request\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Madina Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr K. Mensah\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-16\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Teaching Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"The urine protein result is missing.\",\n    \"The Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and include the missing urine protein result.\",\n    \"Obtain and include the Anti-D record.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1079,
+          "outputTokens": 829,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.669Z",
+      "finishedAt": "2026-08-29T09:39:43.670Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 22 field rules",
+      "startedAt": "2026-08-29T09:39:43.670Z",
+      "finishedAt": "2026-08-29T09:39:43.670Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.670Z",
+      "finishedAt": "2026-08-29T09:39:43.670Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.670Z",
+      "finishedAt": "2026-08-29T09:39:43.670Z"
+    }
+  ],
+  "costUsd": 0.0012,
+  "ranAt": "2026-08-29T09:39:43.670Z"
+}

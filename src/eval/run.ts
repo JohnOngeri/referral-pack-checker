@@ -73,13 +73,10 @@ async function outcomeForConfig(
 
   const ex = await runExtractor(provider, caseId, packText);
   const extractionScore = scoreExtraction(gt, ex.raw, packText);
-  const extractCost =
-    provider.mode === "fresh"
-      ? ex.attempts.reduce(
-          (s, a) => s + (a.usage.inputTokens * price.in + a.usage.outputTokens * price.out) / 1_000_000,
-          0,
-        )
-      : 0;
+  const extractCost = ex.attempts.reduce(
+    (s, a) => s + (a.usage.inputTokens * price.in + a.usage.outputTokens * price.out) / 1_000_000,
+    0,
+  );
 
   let findings: Finding[] = [];
   let modelCheckCost = 0;

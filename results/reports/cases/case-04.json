@@ -1,0 +1,765 @@
+{
+  "caseId": "case-04",
+  "referralType": "routine_ultrasound",
+  "patient": "R. Pillay",
+  "packText": "ANC CARD  --  R. Pillay,  31     PID 1902-14\nChatsworth Clinic\n\nLMP 01/03/2026     EDD 06/12/2026     GA 22+5 (07/08/26)\nG2 P1    -- 2023 SVD term\n\nHb 12.1  (01/08/26)\nHIV neg (10/03/26)    RPR neg (10/03/26)\nBlood gp A pos\n\nBP 116/74 (07/08/26)\nAllergies: nil known\nMeds: folic acid, ferrous sulphate\n\nReason: routine anomaly scan, no clinical concern\nReferred by: Sr P. Naidoo,  Chatsworth Clinic,  07/08/2026\nTo: District Hospital  --  Radiology\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "1902-14",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 1902-14",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 31,
+        "absent": false,
+        "provenance": {
+          "quote": "31",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-03-01",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 01/03/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-12-06",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 06/12/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 22,
+          "days": 5,
+          "assessedOn": "2026-08-07",
+          "provenance": {
+            "quote": "GA 22+5 (07/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 22+5 (07/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "haemoglobin": {
+        "value": 12.1,
+        "date": "2026-08-01",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 12.1  (01/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-10",
+        "provenance": {
+          "quote": "HIV neg (10/03/26)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-10",
+        "provenance": {
+          "quote": "RPR neg (10/03/26)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 116,
+            "diastolic": 74,
+            "date": "2026-08-07",
+            "provenance": {
+              "quote": "BP 116/74 (07/08/26)",
+              "line": 11
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 116/74 (07/08/26)",
+          "line": 11
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2023 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023 SVD term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2023 SVD term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "folic acid",
+          "ferrous sulphate"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: folic acid, ferrous sulphate",
+          "line": 13
+        }
+      },
+      "allergies": {
+        "value": "nil known",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil known",
+          "line": 12
+        }
+      },
+      "reasonForReferral": {
+        "value": "routine anomaly scan, no clinical concern",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: routine anomaly scan, no clinical concern",
+          "line": 15
+        }
+      },
+      "referringFacility": {
+        "value": "Chatsworth Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Chatsworth Clinic",
+          "line": 16
+        }
+      },
+      "referringClinician": {
+        "value": "Sr P. Naidoo",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr P. Naidoo",
+          "line": 16
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-07",
+        "absent": false,
+        "provenance": {
+          "quote": "07/08/2026",
+          "line": 16
+        }
+      },
+      "receivingFacility": {
+        "value": "District Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "District Hospital",
+          "line": 17
+        }
+      },
+      "receivingDepartment": {
+        "value": "Radiology",
+        "absent": false,
+        "provenance": {
+          "quote": "Radiology",
+          "line": 17
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "1902-14",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 1902-14",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 31,
+        "absent": false,
+        "provenance": {
+          "quote": "31",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-03-01",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 01/03/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-12-06",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 06/12/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 22,
+          "days": 5,
+          "assessedOn": "2026-08-07",
+          "provenance": {
+            "quote": "GA 22+5 (07/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 22+5 (07/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "haemoglobin": {
+        "value": 12.1,
+        "date": "2026-08-01",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 12.1  (01/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-10",
+        "provenance": {
+          "quote": "HIV neg (10/03/26)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-10",
+        "provenance": {
+          "quote": "RPR neg (10/03/26)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 116,
+            "diastolic": 74,
+            "date": "2026-08-07",
+            "provenance": {
+              "quote": "BP 116/74 (07/08/26)",
+              "line": 11
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 116/74 (07/08/26)",
+          "line": 11
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2023 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023 SVD term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2023 SVD term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "folic acid",
+          "ferrous sulphate"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: folic acid, ferrous sulphate",
+          "line": 13
+        }
+      },
+      "allergies": {
+        "value": "nil known",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil known",
+          "line": 12
+        }
+      },
+      "reasonForReferral": {
+        "value": "routine anomaly scan, no clinical concern",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: routine anomaly scan, no clinical concern",
+          "line": 15
+        }
+      },
+      "referringFacility": {
+        "value": "Chatsworth Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Chatsworth Clinic",
+          "line": 16
+        }
+      },
+      "referringClinician": {
+        "value": "Sr P. Naidoo",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr P. Naidoo",
+          "line": 16
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-07",
+        "absent": false,
+        "provenance": {
+          "quote": "07/08/2026",
+          "line": 16
+        }
+      },
+      "receivingFacility": {
+        "value": "District Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "District Hospital",
+          "line": 17
+        }
+      },
+      "receivingDepartment": {
+        "value": "Radiology",
+        "absent": false,
+        "provenance": {
+          "quote": "Radiology",
+          "line": 17
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"1902-14\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 1902-14\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 31,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"31\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2026-03-01\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 01/03/2026\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-12-06\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 06/12/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 22,\n      \"days\": 5,\n      \"assessedOn\": \"2026-08-07\",\n      \"provenance\": {\n        \"quote\": \"GA 22+5 (07/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 22+5 (07/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G2\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 1,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P1\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"A\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp A pos\",\n      \"line\": 9\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp A pos\",\n      \"line\": 9\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 12.1,\n    \"date\": \"2026-08-01\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 12.1  (01/08/26)\",\n      \"line\": 7\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-10\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (10/03/26)\",\n      \"line\": 8\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-10\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (10/03/26)\",\n      \"line\": 8\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 116,\n        \"diastolic\": 74,\n        \"date\": \"2026-08-07\",\n        \"provenance\": {\n          \"quote\": \"BP 116/74 (07/08/26)\",\n          \"line\": 11\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 116/74 (07/08/26)\",\n      \"line\": 11\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2023 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2023,\n        \"provenance\": {\n          \"quote\": \"2023 SVD term\",\n          \"line\": 5\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"2023 SVD term\",\n      \"line\": 5\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"folic acid\",\n      \"ferrous sulphate\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: folic acid, ferrous sulphate\",\n      \"line\": 13\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil known\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil known\",\n      \"line\": 12\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"routine anomaly scan, no clinical concern\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: routine anomaly scan, no clinical concern\",\n      \"line\": 15\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Chatsworth Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Chatsworth Clinic\",\n      \"line\": 16\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr P. Naidoo\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr P. Naidoo\",\n      \"line\": 16\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-07\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"07/08/2026\",\n      \"line\": 16\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"District Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"District Hospital\",\n      \"line\": 17\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Radiology\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Radiology\",\n      \"line\": 17\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 781,
+          "outputTokens": 1732,
+          "cacheReadTokens": 426
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 1902-14",
+            "line": 1
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "31",
+            "line": 1
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "LMP 01/03/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 22+5 (07/08/26)",
+            "line": 4
+          }
+        },
+        {
+          "field": "edd",
+          "label": "Estimated delivery date",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.edd",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "EDD 06/12/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G2",
+            "line": 5
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P1",
+            "line": 5
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason: routine anomaly scan, no clinical concern",
+            "line": 15
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Chatsworth Clinic",
+            "line": 16
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr P. Naidoo",
+            "line": 16
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "07/08/2026",
+            "line": 16
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "District Hospital",
+            "line": 17
+          }
+        },
+        {
+          "field": "receivingDepartment",
+          "label": "Receiving department",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.receivingDepartment",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Radiology",
+            "line": 17
+          }
+        },
+        {
+          "field": "bloodGroup",
+          "label": "Blood group",
+          "verdict": "not_required",
+          "rule": "requirements.routine_ultrasound.bloodGroup",
+          "detail": "Conditional (Required when the stated reason for referral mentions bleeding or a placental concern.) — condition not met.",
+          "provenance": {
+            "quote": "Blood gp A pos",
+            "line": 9
+          }
+        }
+      ]
+    },
+    "consistency": [],
+    "findings": []
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for routine anomaly scan. The referral pack is complete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "1902-14",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "31",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2026-03-01",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "22+5",
+          "state": "verified"
+        },
+        {
+          "label": "EDD",
+          "value": "2026-12-06",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "2",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "1",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "routine anomaly scan, no clinical concern",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Chatsworth Clinic",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr P. Naidoo",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-07",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "District Hospital",
+          "state": "verified"
+        },
+        {
+          "label": "Blood Group",
+          "value": "A positive",
+          "state": "verified"
+        }
+      ],
+      "gapList": [],
+      "beforeYouSend": [
+        "Ensure the patient is aware of the referral to the District Hospital for an anomaly scan.",
+        "Confirm that all relevant clinical notes are attached to the referral pack."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for routine anomaly scan. The referral pack is complete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"1902-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"31\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-03-01\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"22+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-12-06\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"routine anomaly scan, no clinical concern\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Chatsworth Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr P. Naidoo\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-07\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A positive\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [],\n  \"beforeYouSend\": [\n    \"Ensure the patient is aware of the referral to the District Hospital for an anomaly scan.\",\n    \"Confirm that all relevant clinical notes are attached to the referral pack.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1013,
+          "outputTokens": 544,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.658Z",
+      "finishedAt": "2026-08-29T09:39:43.659Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 14 field rules",
+      "startedAt": "2026-08-29T09:39:43.659Z",
+      "finishedAt": "2026-08-29T09:39:43.659Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.659Z",
+      "finishedAt": "2026-08-29T09:39:43.659Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.659Z",
+      "finishedAt": "2026-08-29T09:39:43.660Z"
+    }
+  ],
+  "costUsd": 0.0011,
+  "ranAt": "2026-08-29T09:39:43.660Z"
+}

@@ -1,0 +1,842 @@
+{
+  "caseId": "case-03",
+  "referralType": "anaemia_review",
+  "patient": "L. Adebayo",
+  "packText": "ANC  --  L. Adebayo,  24     PID 8830\nIkeja Health Post\n\nLMP 15/02/2026    EDD 22/11/2026    GA 24+3 (05/08/26)\nG1 P0\n\nHb:  --\nMCV 71    ferritin low  (01/08/26)\nHIV neg 20/03/26     VDRL neg 20/03/26\nBlood gp B pos\n\nMeds: ferrous sulphate 200mg bd, folic acid 5mg\nAllergies: nil\n\nBP 108/70 (05/08/26)\n\nReason: anaemia, for review and consideration of IV iron\nReferred by Sr F. Balogun, Ikeja Health Post, 05/08/2026\nTo: General Hospital -- Obstetric Day Unit\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "8830",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 8830",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 24,
+        "absent": false,
+        "provenance": {
+          "quote": "24",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-02-15",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 15/02/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-11-22",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 22/11/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 24,
+          "days": 3,
+          "assessedOn": "2026-08-05",
+          "provenance": {
+            "quote": "GA 24+3 (05/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 24+3 (05/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "G1",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 0,
+        "absent": false,
+        "provenance": {
+          "quote": "P0",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "B",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp B pos",
+          "line": 10
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp B pos",
+          "line": 10
+        }
+      },
+      "haemoglobin": {
+        "value": null,
+        "date": null,
+        "absent": true,
+        "provenance": {
+          "quote": "Hb:  --",
+          "line": 7
+        },
+        "absentReason": "placeholder"
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "HIV neg 20/03/26",
+          "line": 9
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "VDRL neg 20/03/26",
+          "line": 9
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 108,
+            "diastolic": 70,
+            "date": "2026-08-05",
+            "provenance": {
+              "quote": "BP 108/70 (05/08/26)",
+              "line": 15
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 108/70 (05/08/26)",
+          "line": 15
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [],
+        "absent": true,
+        "provenance": null
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate 200mg bd",
+          "folic acid 5mg"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate 200mg bd, folic acid 5mg",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 13
+        }
+      },
+      "reasonForReferral": {
+        "value": "anaemia, for review and consideration of IV iron",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: anaemia, for review and consideration of IV iron",
+          "line": 17
+        }
+      },
+      "referringFacility": {
+        "value": "Ikeja Health Post",
+        "absent": false,
+        "provenance": {
+          "quote": "Ikeja Health Post",
+          "line": 18
+        }
+      },
+      "referringClinician": {
+        "value": "Sr F. Balogun",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr F. Balogun",
+          "line": 18
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-05",
+        "absent": false,
+        "provenance": {
+          "quote": "05/08/2026",
+          "line": 18
+        }
+      },
+      "receivingFacility": {
+        "value": "General Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "General Hospital",
+          "line": 19
+        }
+      },
+      "receivingDepartment": {
+        "value": "Obstetric Day Unit",
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric Day Unit",
+          "line": 19
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "8830",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 8830",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 24,
+        "absent": false,
+        "provenance": {
+          "quote": "24",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-02-15",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 15/02/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-11-22",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 22/11/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 24,
+          "days": 3,
+          "assessedOn": "2026-08-05",
+          "provenance": {
+            "quote": "GA 24+3 (05/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 24+3 (05/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "G1",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 0,
+        "absent": false,
+        "provenance": {
+          "quote": "P0",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "B",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp B pos",
+          "line": 10
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp B pos",
+          "line": 10
+        }
+      },
+      "haemoglobin": {
+        "value": null,
+        "date": null,
+        "absent": true,
+        "provenance": {
+          "quote": "Hb:  --",
+          "line": 7
+        },
+        "absentReason": "placeholder"
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "HIV neg 20/03/26",
+          "line": 9
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "VDRL neg 20/03/26",
+          "line": 9
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 108,
+            "diastolic": 70,
+            "date": "2026-08-05",
+            "provenance": {
+              "quote": "BP 108/70 (05/08/26)",
+              "line": 15
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 108/70 (05/08/26)",
+          "line": 15
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [],
+        "absent": true,
+        "provenance": null
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate 200mg bd",
+          "folic acid 5mg"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate 200mg bd, folic acid 5mg",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 13
+        }
+      },
+      "reasonForReferral": {
+        "value": "anaemia, for review and consideration of IV iron",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: anaemia, for review and consideration of IV iron",
+          "line": 17
+        }
+      },
+      "referringFacility": {
+        "value": "Ikeja Health Post",
+        "absent": false,
+        "provenance": {
+          "quote": "Ikeja Health Post",
+          "line": 18
+        }
+      },
+      "referringClinician": {
+        "value": "Sr F. Balogun",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr F. Balogun",
+          "line": 18
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-05",
+        "absent": false,
+        "provenance": {
+          "quote": "05/08/2026",
+          "line": 18
+        }
+      },
+      "receivingFacility": {
+        "value": "General Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "General Hospital",
+          "line": 19
+        }
+      },
+      "receivingDepartment": {
+        "value": "Obstetric Day Unit",
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric Day Unit",
+          "line": 19
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": false,
+        "schemaValid": true,
+        "semanticIssues": [
+          "urineProtein.provenance: provenance quote \"15 | \" does not appear in the pack text. Quote the exact source text or set provenance to null and absent to true.",
+          "antiD.provenance: provenance quote \"19 | To: General Hospital -- Obstetric Day Unit\" does not appear in the pack text. Quote the exact source text or set provenance to null and absent to true."
+        ],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"8830\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 8830\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 24,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"24\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2026-02-15\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 15/02/2026\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-11-22\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 22/11/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 24,\n      \"days\": 3,\n      \"assessedOn\": \"2026-08-05\",\n      \"provenance\": {\n        \"quote\": \"GA 24+3 (05/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 24+3 (05/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 1,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G1\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 0,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P0\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"B\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp B pos\",\n      \"line\": 10\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"pos\",\n      \"line\": 10\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": null,\n    \"date\": null,\n    \"absent\": true,\n    \"provenance\": {\n      \"quote\": \"Hb:  --\",\n      \"line\": 7\n    },\n    \"absentReason\": \"placeholder\"\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"HIV neg 20/03/26\",\n      \"line\": 9\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"VDRL neg 20/03/26\",\n      \"line\": 9\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 108,\n        \"diastolic\": 70,\n        \"date\": \"2026-08-05\",\n        \"provenance\": {\n          \"quote\": \"BP 108/70 (05/08/26)\",\n          \"line\": 15\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 108/70 (05/08/26)\",\n      \"line\": 15\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": {\n      \"quote\": \"15 | \",\n      \"line\": 15\n    },\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [],\n    \"absent\": true,\n    \"provenance\": {\n      \"quote\": \"G1 P0\",\n      \"line\": 5\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"ferrous sulphate 200mg bd\",\n      \"folic acid 5mg\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"line\": 12\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil\",\n      \"line\": 13\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"anaemia, for review and consideration of IV iron\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: anaemia, for review and consideration of IV iron\",\n      \"line\": 17\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Ikeja Health Post\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Ikeja Health Post\",\n      \"line\": 18\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr F. Balogun\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr F. Balogun\",\n      \"line\": 18\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-05\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"05/08/2026\",\n      \"line\": 18\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"General Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"General Hospital\",\n      \"line\": 19\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Obstetric Day Unit\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Obstetric Day Unit\",\n      \"line\": 19\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": {\n      \"quote\": \"19 | To: General Hospital -- Obstetric Day Unit\",\n      \"line\": 19\n    },\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 794,
+          "outputTokens": 1701,
+          "cacheReadTokens": 432
+        }
+      },
+      {
+        "attempt": 2,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"8830\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 8830\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 24,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"24\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2026-02-15\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 15/02/2026\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-11-22\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 22/11/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 24,\n      \"days\": 3,\n      \"assessedOn\": \"2026-08-05\",\n      \"provenance\": {\n        \"quote\": \"GA 24+3 (05/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 24+3 (05/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 1,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G1\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 0,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P0\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"B\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp B pos\",\n      \"line\": 10\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp B pos\",\n      \"line\": 10\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": null,\n    \"date\": null,\n    \"absent\": true,\n    \"provenance\": {\n      \"quote\": \"Hb:  --\",\n      \"line\": 7\n    },\n    \"absentReason\": \"placeholder\"\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"HIV neg 20/03/26\",\n      \"line\": 9\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"VDRL neg 20/03/26\",\n      \"line\": 9\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 108,\n        \"diastolic\": 70,\n        \"date\": \"2026-08-05\",\n        \"provenance\": {\n          \"quote\": \"BP 108/70 (05/08/26)\",\n          \"line\": 15\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 108/70 (05/08/26)\",\n      \"line\": 15\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [],\n    \"absent\": true,\n    \"provenance\": null\n  },\n  \"medications\": {\n    \"value\": [\n      \"ferrous sulphate 200mg bd\",\n      \"folic acid 5mg\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"line\": 12\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil\",\n      \"line\": 13\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"anaemia, for review and consideration of IV iron\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: anaemia, for review and consideration of IV iron\",\n      \"line\": 17\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Ikeja Health Post\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Ikeja Health Post\",\n      \"line\": 18\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr F. Balogun\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr F. Balogun\",\n      \"line\": 18\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-05\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"05/08/2026\",\n      \"line\": 18\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"General Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"General Hospital\",\n      \"line\": 19\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Obstetric Day Unit\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Obstetric Day Unit\",\n      \"line\": 19\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 926,
+          "outputTokens": 1634,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "absent",
+          "rule": "requirements.anaemia_review.haemoglobin",
+          "detail": "Haemoglobin is mandatory for anaemia review.",
+          "provenance": {
+            "quote": "Hb:  --",
+            "line": 7
+          }
+        }
+      ],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 8830",
+            "line": 1
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "24",
+            "line": 1
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "LMP 15/02/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 24+3 (05/08/26)",
+            "line": 4
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G1",
+            "line": 5
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P0",
+            "line": 5
+          }
+        },
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "absent",
+          "rule": "requirements.anaemia_review.haemoglobin",
+          "detail": "Haemoglobin is mandatory for anaemia review.",
+          "provenance": {
+            "quote": "Hb:  --",
+            "line": 7
+          }
+        },
+        {
+          "field": "bloodGroup",
+          "label": "Blood group",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.bloodGroup",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Blood gp B pos",
+            "line": 10
+          }
+        },
+        {
+          "field": "rhesus",
+          "label": "Rhesus status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.rhesus",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Blood gp B pos",
+            "line": 10
+          }
+        },
+        {
+          "field": "hivScreen",
+          "label": "HIV screening status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.hivScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "HIV neg 20/03/26",
+            "line": 9
+          }
+        },
+        {
+          "field": "syphilisScreen",
+          "label": "Syphilis screening status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.syphilisScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "VDRL neg 20/03/26",
+            "line": 9
+          }
+        },
+        {
+          "field": "medications",
+          "label": "Current medications",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.medications",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Meds: ferrous sulphate 200mg bd, folic acid 5mg",
+            "line": 12
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason: anaemia, for review and consideration of IV iron",
+            "line": 17
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Ikeja Health Post",
+            "line": 18
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr F. Balogun",
+            "line": 18
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "05/08/2026",
+            "line": 18
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "General Hospital",
+            "line": 19
+          }
+        },
+        {
+          "field": "antiD",
+          "label": "Anti-D immunoglobulin record",
+          "verdict": "not_required",
+          "rule": "requirements.anaemia_review.antiD",
+          "detail": "Conditional (Required when the rhesus status is recorded as negative.) — condition not met.",
+          "provenance": null
+        }
+      ]
+    },
+    "consistency": [],
+    "findings": [
+      {
+        "kind": "missing",
+        "field": "haemoglobin",
+        "plain": "Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it.",
+        "rule": "requirements.anaemia_review.haemoglobin",
+        "provenance": {
+          "quote": "Hb:  --",
+          "line": 7
+        },
+        "raw": "Haemoglobin is mandatory for anaemia review.",
+        "evidenceFile": "results/raw/extract/case-03/extract__attempt-2.json"
+      }
+    ]
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for anaemia review. The referral pack is incomplete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "8830",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "24",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2026-02-15",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "24+3",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "1",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "0",
+          "state": "verified"
+        },
+        {
+          "label": "Haemoglobin",
+          "value": "Outstanding",
+          "state": "outstanding"
+        },
+        {
+          "label": "Blood Group",
+          "value": "B",
+          "state": "verified"
+        },
+        {
+          "label": "Rhesus",
+          "value": "positive",
+          "state": "verified"
+        },
+        {
+          "label": "HIV Screen",
+          "value": "negative (2026-03-20)",
+          "state": "verified"
+        },
+        {
+          "label": "Syphilis Screen",
+          "value": "negative (2026-03-20)",
+          "state": "verified"
+        },
+        {
+          "label": "Medications",
+          "value": "ferrous sulphate 200mg bd, folic acid 5mg",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "anaemia, for review and consideration of IV iron",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Ikeja Health Post",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr F. Balogun",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-05",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "General Hospital",
+          "state": "verified"
+        }
+      ],
+      "gapList": [
+        "Haemoglobin result is missing from the pack."
+      ],
+      "beforeYouSend": [
+        "Obtain and include a current haemoglobin result."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for anaemia review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"8830\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"24\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-02-15\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"24+3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"anaemia, for review and consideration of IV iron\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ikeja Health Post\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr F. Balogun\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"General Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Haemoglobin result is missing from the pack.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and include a current haemoglobin result.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1064,
+          "outputTokens": 691,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 2 attempts",
+      "startedAt": "2026-08-29T09:39:43.655Z",
+      "finishedAt": "2026-08-29T09:39:43.657Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 21 field rules",
+      "startedAt": "2026-08-29T09:39:43.657Z",
+      "finishedAt": "2026-08-29T09:39:43.657Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.657Z",
+      "finishedAt": "2026-08-29T09:39:43.657Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.657Z",
+      "finishedAt": "2026-08-29T09:39:43.658Z"
+    }
+  ],
+  "costUsd": 0.0019,
+  "ranAt": "2026-08-29T09:39:43.658Z"
+}

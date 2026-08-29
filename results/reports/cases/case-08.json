@@ -1,0 +1,888 @@
+{
+  "caseId": "case-08",
+  "referralType": "routine_ultrasound",
+  "patient": "N. Chirwa",
+  "packText": "ANC CARD  --  N. Chirwa,  33     PID 7714\nArea 25 Clinic\n\nLMP 12/03/2026   EDD 17/12/2026   GA 21+5 (11/08/26)\nG4 P2\n\nObstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term\n\nHb 11.6 (08/08/26)    Blood gp A pos\nHIV neg (20/03/26)    RPR neg (20/03/26)\nBP 114/72 (11/08/26)\n\nAllergies: nil\nMeds: folic acid, ferrous sulphate\n\nReason: growth scan\nReferred by: Sr C. Mbewe, Area 25 Clinic, 11/08/2026\nTo: Central Hospital -- Radiology\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "7714",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 7714",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 33,
+        "absent": false,
+        "provenance": {
+          "quote": "33",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-03-12",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 12/03/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-12-17",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 17/12/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 21,
+          "days": 5,
+          "assessedOn": "2026-08-11",
+          "provenance": {
+            "quote": "GA 21+5 (11/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 21+5 (11/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 4,
+        "absent": false,
+        "provenance": {
+          "quote": "G4",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "P2",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 12
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 12
+        }
+      },
+      "haemoglobin": {
+        "value": 11.6,
+        "date": "2026-08-08",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 11.6 (08/08/26)",
+          "line": 12
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "HIV neg (20/03/26)",
+          "line": 13
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "RPR neg (20/03/26)",
+          "line": 13
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 114,
+            "diastolic": 72,
+            "date": "2026-08-11",
+            "provenance": {
+              "quote": "BP 114/72 (11/08/26)",
+              "line": 14
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 114/72 (11/08/26)",
+          "line": 14
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2017  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2017,
+            "provenance": {
+              "quote": "2017  SVD term",
+              "line": 8
+            }
+          },
+          {
+            "summary": "2019  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2019,
+            "provenance": {
+              "quote": "2019  SVD term",
+              "line": 9
+            }
+          },
+          {
+            "summary": "2023  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023  SVD term",
+              "line": 10
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term",
+          "line": 7
+        }
+      },
+      "medications": {
+        "value": [
+          "folic acid",
+          "ferrous sulphate"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: folic acid, ferrous sulphate",
+          "line": 17
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 16
+        }
+      },
+      "reasonForReferral": {
+        "value": "growth scan",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: growth scan",
+          "line": 19
+        }
+      },
+      "referringFacility": {
+        "value": "Area 25 Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Area 25 Clinic",
+          "line": 20
+        }
+      },
+      "referringClinician": {
+        "value": "Sr C. Mbewe",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr C. Mbewe",
+          "line": 20
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-11",
+        "absent": false,
+        "provenance": {
+          "quote": "11/08/2026",
+          "line": 20
+        }
+      },
+      "receivingFacility": {
+        "value": "Central Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Central Hospital",
+          "line": 21
+        }
+      },
+      "receivingDepartment": {
+        "value": "Radiology",
+        "absent": false,
+        "provenance": {
+          "quote": "Radiology",
+          "line": 21
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "7714",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 7714",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 33,
+        "absent": false,
+        "provenance": {
+          "quote": "33",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-03-12",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 12/03/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-12-17",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 17/12/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 21,
+          "days": 5,
+          "assessedOn": "2026-08-11",
+          "provenance": {
+            "quote": "GA 21+5 (11/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 21+5 (11/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 4,
+        "absent": false,
+        "provenance": {
+          "quote": "G4",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "P2",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 12
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 12
+        }
+      },
+      "haemoglobin": {
+        "value": 11.6,
+        "date": "2026-08-08",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 11.6 (08/08/26)",
+          "line": 12
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "HIV neg (20/03/26)",
+          "line": 13
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-03-20",
+        "provenance": {
+          "quote": "RPR neg (20/03/26)",
+          "line": 13
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 114,
+            "diastolic": 72,
+            "date": "2026-08-11",
+            "provenance": {
+              "quote": "BP 114/72 (11/08/26)",
+              "line": 14
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 114/72 (11/08/26)",
+          "line": 14
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2017  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2017,
+            "provenance": {
+              "quote": "2017  SVD term",
+              "line": 8
+            }
+          },
+          {
+            "summary": "2019  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2019,
+            "provenance": {
+              "quote": "2019  SVD term",
+              "line": 9
+            }
+          },
+          {
+            "summary": "2023  SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2023,
+            "provenance": {
+              "quote": "2023  SVD term",
+              "line": 10
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term",
+          "line": 7
+        }
+      },
+      "medications": {
+        "value": [
+          "folic acid",
+          "ferrous sulphate"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: folic acid, ferrous sulphate",
+          "line": 17
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 16
+        }
+      },
+      "reasonForReferral": {
+        "value": "growth scan",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: growth scan",
+          "line": 19
+        }
+      },
+      "referringFacility": {
+        "value": "Area 25 Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Area 25 Clinic",
+          "line": 20
+        }
+      },
+      "referringClinician": {
+        "value": "Sr C. Mbewe",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr C. Mbewe",
+          "line": 20
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-11",
+        "absent": false,
+        "provenance": {
+          "quote": "11/08/2026",
+          "line": 20
+        }
+      },
+      "receivingFacility": {
+        "value": "Central Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Central Hospital",
+          "line": 21
+        }
+      },
+      "receivingDepartment": {
+        "value": "Radiology",
+        "absent": false,
+        "provenance": {
+          "quote": "Radiology",
+          "line": 21
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"7714\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 7714\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 33,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"33\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2026-03-12\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 12/03/2026\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-12-17\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 17/12/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 21,\n      \"days\": 5,\n      \"assessedOn\": \"2026-08-11\",\n      \"provenance\": {\n        \"quote\": \"GA 21+5 (11/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 21+5 (11/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 4,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G4\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P2\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"A\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp A pos\",\n      \"line\": 12\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp A pos\",\n      \"line\": 12\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 11.6,\n    \"date\": \"2026-08-08\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 11.6 (08/08/26)\",\n      \"line\": 12\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (20/03/26)\",\n      \"line\": 13\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-03-20\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (20/03/26)\",\n      \"line\": 13\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 114,\n        \"diastolic\": 72,\n        \"date\": \"2026-08-11\",\n        \"provenance\": {\n          \"quote\": \"BP 114/72 (11/08/26)\",\n          \"line\": 14\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 114/72 (11/08/26)\",\n      \"line\": 14\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2017  SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2017,\n        \"provenance\": {\n          \"quote\": \"2017  SVD term\",\n          \"line\": 8\n        }\n      },\n      {\n        \"summary\": \"2019  SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2019,\n        \"provenance\": {\n          \"quote\": \"2019  SVD term\",\n          \"line\": 9\n        }\n      },\n      {\n        \"summary\": \"2023  SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2023,\n        \"provenance\": {\n          \"quote\": \"2023  SVD term\",\n          \"line\": 10\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Obstetric history:\\n  2017  SVD term\\n  2019  SVD term\\n  2023  SVD term\",\n      \"line\": 7\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"folic acid\",\n      \"ferrous sulphate\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: folic acid, ferrous sulphate\",\n      \"line\": 17\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil\",\n      \"line\": 16\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"growth scan\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: growth scan\",\n      \"line\": 19\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Area 25 Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Area 25 Clinic\",\n      \"line\": 20\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr C. Mbewe\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr C. Mbewe\",\n      \"line\": 20\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-11\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"11/08/2026\",\n      \"line\": 20\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"Central Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Central Hospital\",\n      \"line\": 21\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Radiology\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Radiology\",\n      \"line\": 21\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 810,
+          "outputTokens": 1920,
+          "cacheReadTokens": 440
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 7714",
+            "line": 1
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "33",
+            "line": 1
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "LMP 12/03/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 21+5 (11/08/26)",
+            "line": 4
+          }
+        },
+        {
+          "field": "edd",
+          "label": "Estimated delivery date",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.edd",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "EDD 17/12/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G4",
+            "line": 5
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P2",
+            "line": 5
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason: growth scan",
+            "line": 19
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Area 25 Clinic",
+            "line": 20
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr C. Mbewe",
+            "line": 20
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "11/08/2026",
+            "line": 20
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Central Hospital",
+            "line": 21
+          }
+        },
+        {
+          "field": "receivingDepartment",
+          "label": "Receiving department",
+          "verdict": "present_current",
+          "rule": "requirements.routine_ultrasound.receivingDepartment",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Radiology",
+            "line": 21
+          }
+        },
+        {
+          "field": "bloodGroup",
+          "label": "Blood group",
+          "verdict": "not_required",
+          "rule": "requirements.routine_ultrasound.bloodGroup",
+          "detail": "Conditional (Required when the stated reason for referral mentions bleeding or a placental concern.) — condition not met.",
+          "provenance": {
+            "quote": "Blood gp A pos",
+            "line": 12
+          }
+        }
+      ]
+    },
+    "consistency": [
+      {
+        "rule": "consistency.parity_matches_obstetric_history",
+        "field": "parity",
+        "statement": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+        "values": [
+          {
+            "label": "Recorded parity",
+            "value": "2",
+            "provenance": {
+              "quote": "P2",
+              "line": 5
+            },
+            "derived": false
+          },
+          {
+            "label": "Births counted from obstetric history",
+            "value": "3",
+            "provenance": {
+              "quote": "Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term",
+              "line": 7
+            },
+            "derived": true
+          }
+        ],
+        "detail": {
+          "recorded_parity": 2,
+          "history_entries": 3,
+          "history_births_24w_plus": 3,
+          "history": [
+            {
+              "summary": "2017  SVD term",
+              "outcome": "term_birth",
+              "weeks": null
+            },
+            {
+              "summary": "2019  SVD term",
+              "outcome": "term_birth",
+              "weeks": null
+            },
+            {
+              "summary": "2023  SVD term",
+              "outcome": "term_birth",
+              "weeks": null
+            }
+          ],
+          "resolution": null
+        }
+      }
+    ],
+    "findings": [
+      {
+        "kind": "contradiction",
+        "field": "parity",
+        "plain": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+        "rule": "consistency.parity_matches_obstetric_history",
+        "provenance": {
+          "quote": "P2",
+          "line": 5
+        },
+        "extraProvenance": [
+          {
+            "quote": "Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term",
+            "line": 7
+          }
+        ],
+        "raw": "{\n  \"recorded_parity\": 2,\n  \"history_entries\": 3,\n  \"history_births_24w_plus\": 3,\n  \"history\": [\n    {\n      \"summary\": \"2017  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    },\n    {\n      \"summary\": \"2019  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    },\n    {\n      \"summary\": \"2023  SVD term\",\n      \"outcome\": \"term_birth\",\n      \"weeks\": null\n    }\n  ],\n  \"resolution\": null\n}",
+        "evidenceFile": "results/trajectories/case-08.checks.md",
+        "note": "Both values are reported with their source. This tool does not decide which is correct."
+      }
+    ]
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for routine growth scan. The referral pack is incomplete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "7714",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "33",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2026-03-12",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "21+5",
+          "state": "verified"
+        },
+        {
+          "label": "EDD",
+          "value": "2026-12-17",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "4",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "2 (recorded as P2, but obstetric history lists 3 previous births)",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "growth scan",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Area 25 Clinic",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr C. Mbewe",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-11",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "Central Hospital",
+          "state": "verified"
+        },
+        {
+          "label": "Blood Group",
+          "value": "A positive",
+          "state": "verified"
+        },
+        {
+          "label": "Urine Protein",
+          "value": "Outstanding",
+          "state": "outstanding"
+        },
+        {
+          "label": "Anti-D Record",
+          "value": "Outstanding",
+          "state": "outstanding"
+        }
+      ],
+      "gapList": [
+        "Urine protein result is missing.",
+        "Anti-D record is missing."
+      ],
+      "beforeYouSend": [
+        "Record the current urine protein result.",
+        "Document the patient's Anti-D status.",
+        "Clarify the discrepancy between the recorded parity of 2 and the obstetric history of 3 previous births."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for routine growth scan. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"7714\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"33\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-03-12\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"21+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-12-17\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"4\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2 (recorded as P2, but obstetric history lists 3 previous births)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"growth scan\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Area 25 Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr C. Mbewe\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-11\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Central Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"Urine protein result is missing.\",\n    \"Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Record the current urine protein result.\",\n    \"Document the patient's Anti-D status.\",\n    \"Clarify the discrepancy between the recorded parity of 2 and the obstetric history of 3 previous births.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1089,
+          "outputTokens": 651,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.667Z",
+      "finishedAt": "2026-08-29T09:39:43.667Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 14 field rules",
+      "startedAt": "2026-08-29T09:39:43.667Z",
+      "finishedAt": "2026-08-29T09:39:43.668Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.668Z",
+      "finishedAt": "2026-08-29T09:39:43.668Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.668Z",
+      "finishedAt": "2026-08-29T09:39:43.668Z"
+    }
+  ],
+  "costUsd": 0.0012,
+  "ranAt": "2026-08-29T09:39:43.668Z"
+}

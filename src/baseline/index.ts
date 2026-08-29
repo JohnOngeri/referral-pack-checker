@@ -65,10 +65,9 @@ ${packText}`;
   const parsed = parseBaseline(res.text, res.stopReason);
   const { findings, note } = parsed;
   const p = priceFor(provider.model);
-  const cost =
-    provider.mode === "fresh"
-      ? (res.usage.inputTokens * p.in + res.usage.outputTokens * p.out) / 1_000_000
-      : 0;
+  // The token counts are real whichever mode read them (replay reads the
+  // committed usage), so the cost is reported the same way in both modes.
+  const cost = (res.usage.inputTokens * p.in + res.usage.outputTokens * p.out) / 1_000_000;
 
   return {
     caseId,

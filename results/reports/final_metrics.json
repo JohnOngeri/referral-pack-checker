@@ -1,12 +1,12 @@
 {
-  "generatedAt": "2026-08-29T09:33:47.093Z",
+  "generatedAt": "2026-08-29T09:39:43.642Z",
   "mode": "fresh",
   "model": "gemini-3.1-flash-lite",
   "headline": {
     "agentCaught": 10,
-    "baselineCaught": 10,
+    "baselineCaught": 9,
     "seededDefects": 10,
-    "sentence": "10 of 10 documentation gaps caught. A single AI prompt caught 10.",
+    "sentence": "10 of 10 documentation gaps caught, with 0 false alarms. The single-prompt baseline caught 9, with 34.",
     "sourceFile": "results/reports/final_metrics.json"
   },
   "agent": {
@@ -19,23 +19,23 @@
     "contradictionsSeeded": 6,
     "contradictionsCaught": 6,
     "inventedValues": 0,
-    "costPerPackUsd": 0.0009
+    "costPerPackUsd": 0
   },
   "baseline": {
     "cases": 12,
     "seededDefects": 10,
-    "caught": 10,
-    "recallPct": 100,
-    "falseFlags": 47,
+    "caught": 9,
+    "recallPct": 90,
+    "falseFlags": 34,
     "falseFlagsOnControls": 5,
     "contradictionsSeeded": 6,
-    "contradictionsCaught": 6,
+    "contradictionsCaught": 5,
     "costPerPackUsd": 0.0003
   },
   "contradictionDetection": {
     "seeded": 6,
     "agentCaught": 6,
-    "baselineCaught": 6
+    "baselineCaught": 5
   },
   "perCase": [
     {
@@ -142,11 +142,11 @@
       "caseId": "case-11",
       "referralType": "anaemia_review",
       "seeded": 1,
-      "baselineCaught": 1,
+      "baselineCaught": 0,
       "agentCaught": 1,
       "agentFalseFlags": 0,
       "isControl": false,
-      "note": ""
+      "note": "baseline missed a seeded defect the agent caught"
     },
     {
       "caseId": "case-12",

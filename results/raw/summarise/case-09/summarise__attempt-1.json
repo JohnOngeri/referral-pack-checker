@@ -1,0 +1,107 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "summarise",
+  "caseId": "case-09",
+  "label": "summarise",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:34:29.577Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You write a referral summary and a \"before you send\" gap list for a nurse assembling a referral pack.\n\nYou are given: the fields that were extracted with provenance, the deterministic check results (what is missing, stale, or contradictory), and the facility's requirement set.\n\nRules:\n\n1. Use verified fields only. A field is verified when it has a value and a source span. If a field is outstanding, it goes in the gap list as outstanding — never fill it in, never guess its shape.\n2. Report presence, currency and consistency only. Never say a value is normal, abnormal, low, high, concerning, reassuring, mild or severe. Never assess urgency. Never say whether the referral is warranted.\n3. When two values conflict, state both with where each came from. Do not say which is correct — that is the clinician's decision.\n4. Plain English. Write as a careful professional would: specific, no filler, no marketing tone, no exclamation, no encouragement. \"Haemoglobin was taken 22 weeks ago; this referral type needs a result from the last 8 weeks\" — not \"some values may need updating\".\n5. The gap list is one sentence per item, understandable by someone who has never seen an antenatal card. Empty list if nothing is outstanding.\n6. \"beforeYouSend\" is concrete actions for the referring clinician, most important first.\n\nReturn your answer by calling the record_referral_summary tool.",
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "headline": {
+            "type": "string",
+            "description": "One or two sentences a clinician could hand to a colleague. States what the referral is for and whether the pack is complete. No clinical assessment."
+          },
+          "summaryRows": {
+            "type": "array",
+            "description": "One row per field group, verified values only.",
+            "items": {
+              "type": "object",
+              "properties": {
+                "label": {
+                  "type": "string"
+                },
+                "value": {
+                  "type": "string",
+                  "description": "The verified value, or 'Not found in pack' / 'Outstanding'."
+                },
+                "state": {
+                  "type": "string",
+                  "enum": [
+                    "verified",
+                    "outstanding"
+                  ]
+                }
+              },
+              "required": [
+                "label",
+                "value",
+                "state"
+              ]
+            }
+          },
+          "gapList": {
+            "type": "array",
+            "description": "Every outstanding item as one plain-English sentence. Empty if nothing is outstanding.",
+            "items": {
+              "type": "string"
+            }
+          },
+          "beforeYouSend": {
+            "type": "array",
+            "description": "Specific actions for the referring clinician, most important first.",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": [
+          "headline",
+          "summaryRows",
+          "gapList",
+          "beforeYouSend"
+        ]
+      },
+      "temperature": 0,
+      "maxOutputTokens": 4000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Requirement set: Elective caesarean booking\n  patientId — mandatory\n  ageYears — mandatory\n  lmp — mandatory\n  gestationalAge — mandatory\n  edd — mandatory\n  gravidity — mandatory\n  parity — mandatory\n  bloodGroup — mandatory\n  rhesus — mandatory\n  haemoglobin — mandatory (max age 56d)\n  hivScreen — mandatory (max age 365d)\n  syphilisScreen — mandatory (max age 365d)\n  previousObstetricHistory — mandatory\n  reasonForReferral — mandatory\n  referringFacility — mandatory\n  referringClinician — mandatory\n  referralDate — mandatory\n  receivingFacility — mandatory\n  antiD — conditional\n\nVerified fields (with source spans):\n- Patient id: 9126  [source: PID 9126]\n- Age: 30  [source: 30]\n- LMP: 2025-11-28  [source: LMP 28/11/2025]\n- EDD: 2026-09-04  [source: EDD 04/09/2026]\n- Gestational age: 37+2  [source: GA 37+2 (16/08/26)]\n- Gravidity: 2  [source: G2]\n- Parity: 1  [source: P1]\n- Blood group: B  [source: grp B+]\n- Rhesus: positive  [source: grp B+]\n- Haemoglobin: 11.9 g/dL (2026-08-12)  [source: Hb 11.9 (12/08/26)]\n- HIV screen: negative (2025-12-08)  [source: HIV neg (08/12/25)]\n- Syphilis screen: negative (2025-12-08)  [source: RPR neg (08/12/25)]\n- Blood pressure: 122/78 (2026-08-16)  [source: BP 122/78 (16/08/26)]\n- Urine protein: OUTSTANDING (not verified)\n- Previous obstetric history: 2023 LSCS term  [source: 2023 LSCS term]\n- Medications: ferrous sulphate, folic acid, calcium  [source: Meds: ferrous sulphate, folic acid, calcium]\n- Allergies: nil known  [source: Allergies: nil known]\n- Reason for referral: elective LSCS booking, previous caesarean, maternal request  [source: Reason: elective LSCS booking, previous caesarean, maternal request]\n- Referring facility: Madina Clinic  [source: Madina Clinic]\n- Referring clinician: Sr K. Mensah  [source: Sr K. Mensah]\n- Referral date: 2026-08-16  [source: 16/08/2026]\n- Receiving facility: Teaching Hospital  [source: Teaching Hospital]\n- Anti-D record: OUTSTANDING (not verified)\n\nDeterministic check results:\nNo gaps, no contradictions.\n\nWrite the summary. Verified fields only. Every outstanding item goes in the gap list. State both sides of any contradiction; resolve nothing."
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\n  \"headline\": \"Referral for elective caesarean section. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"9126\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"30\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-28\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"37+2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-09-04\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.9 g/dL (2026-08-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean, maternal request\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Madina Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr K. Mensah\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-16\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Teaching Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"The urine protein result is missing.\",\n    \"The Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and include the missing urine protein result.\",\n    \"Obtain and include the Anti-D record.\"\n  ]\n}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1079,
+      "candidatesTokenCount": 829,
+      "totalTokenCount": 1908,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1079
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1079,
+    "outputTokens": 829,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

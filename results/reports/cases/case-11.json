@@ -1,0 +1,903 @@
+{
+  "caseId": "case-11",
+  "referralType": "anaemia_review",
+  "patient": "D. Mahlangu",
+  "packText": "ANC  --  D. Mahlangu,  26     PID 2287\nTembisa Clinic\n\nLMP 08/01/2026    EDD 15/10/2026    GA 31+0 (13/08/26)\nG3 P2    -- 2019 SVD term ; 2022 SVD term\n\nHb 9.4 (09/08/26)     MCV 68\nHIV neg (20/01/26)     RPR neg (20/12/25)\nBlood gp A pos\n\nBP 124/80 (13/08/26)\nMeds: ferrous sulphate 200mg bd, folic acid\nAllergies: nil\n\nReason: iron-deficiency anaemia for review\nReferred by: Sr L. Nkosi, Tembisa Clinic, 13/08/2026\nTo: Regional Hospital -- Obstetric Day Unit\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "2287",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 2287",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 26,
+        "absent": false,
+        "provenance": {
+          "quote": "26",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-01-08",
+        "absent": false,
+        "provenance": {
+          "quote": "08/01/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-10-15",
+        "absent": false,
+        "provenance": {
+          "quote": "15/10/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 31,
+          "days": 0,
+          "assessedOn": "2026-08-13",
+          "provenance": {
+            "quote": "GA 31+0 (13/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 31+0 (13/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 3,
+        "absent": false,
+        "provenance": {
+          "quote": "G3",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "P2",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "pos",
+          "line": 9
+        }
+      },
+      "haemoglobin": {
+        "value": 9.4,
+        "date": "2026-08-09",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 9.4 (09/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-01-20",
+        "provenance": {
+          "quote": "HIV neg (20/01/26)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2025-12-20",
+        "provenance": {
+          "quote": "RPR neg (20/12/25)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 124,
+            "diastolic": 80,
+            "date": "2026-08-13",
+            "provenance": {
+              "quote": "BP 124/80 (13/08/26)",
+              "line": 11
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 124/80 (13/08/26)",
+          "line": 11
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2019 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2019,
+            "provenance": {
+              "quote": "2019 SVD term",
+              "line": 5
+            }
+          },
+          {
+            "summary": "2022 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2022,
+            "provenance": {
+              "quote": "2022 SVD term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2019 SVD term ; 2022 SVD term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate 200mg bd",
+          "folic acid"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate 200mg bd, folic acid",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 13
+        }
+      },
+      "reasonForReferral": {
+        "value": "iron-deficiency anaemia for review",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: iron-deficiency anaemia for review",
+          "line": 15
+        }
+      },
+      "referringFacility": {
+        "value": "Tembisa Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Tembisa Clinic",
+          "line": 16
+        }
+      },
+      "referringClinician": {
+        "value": "Sr L. Nkosi",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr L. Nkosi",
+          "line": 16
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-13",
+        "absent": false,
+        "provenance": {
+          "quote": "13/08/2026",
+          "line": 16
+        }
+      },
+      "receivingFacility": {
+        "value": "Regional Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Regional Hospital",
+          "line": 17
+        }
+      },
+      "receivingDepartment": {
+        "value": "Obstetric Day Unit",
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric Day Unit",
+          "line": 17
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "2287",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 2287",
+          "line": 1
+        }
+      },
+      "ageYears": {
+        "value": 26,
+        "absent": false,
+        "provenance": {
+          "quote": "26",
+          "line": 1
+        }
+      },
+      "lmp": {
+        "value": "2026-01-08",
+        "absent": false,
+        "provenance": {
+          "quote": "08/01/2026",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-10-15",
+        "absent": false,
+        "provenance": {
+          "quote": "15/10/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 31,
+          "days": 0,
+          "assessedOn": "2026-08-13",
+          "provenance": {
+            "quote": "GA 31+0 (13/08/26)",
+            "line": 4
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 31+0 (13/08/26)",
+          "line": 4
+        }
+      },
+      "gravidity": {
+        "value": 3,
+        "absent": false,
+        "provenance": {
+          "quote": "G3",
+          "line": 5
+        }
+      },
+      "parity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "P2",
+          "line": 5
+        }
+      },
+      "bloodGroup": {
+        "value": "A",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp A pos",
+          "line": 9
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "pos",
+          "line": 9
+        }
+      },
+      "haemoglobin": {
+        "value": 9.4,
+        "date": "2026-08-09",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 9.4 (09/08/26)",
+          "line": 7
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-01-20",
+        "provenance": {
+          "quote": "HIV neg (20/01/26)",
+          "line": 8
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2025-12-20",
+        "provenance": {
+          "quote": "RPR neg (20/12/25)",
+          "line": 8
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 124,
+            "diastolic": 80,
+            "date": "2026-08-13",
+            "provenance": {
+              "quote": "BP 124/80 (13/08/26)",
+              "line": 11
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP 124/80 (13/08/26)",
+          "line": 11
+        }
+      },
+      "urineProtein": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2019 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2019,
+            "provenance": {
+              "quote": "2019 SVD term",
+              "line": 5
+            }
+          },
+          {
+            "summary": "2022 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2022,
+            "provenance": {
+              "quote": "2022 SVD term",
+              "line": 5
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "2019 SVD term ; 2022 SVD term",
+          "line": 5
+        }
+      },
+      "medications": {
+        "value": [
+          "ferrous sulphate 200mg bd",
+          "folic acid"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "Meds: ferrous sulphate 200mg bd, folic acid",
+          "line": 12
+        }
+      },
+      "allergies": {
+        "value": "nil",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: nil",
+          "line": 13
+        }
+      },
+      "reasonForReferral": {
+        "value": "iron-deficiency anaemia for review",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason: iron-deficiency anaemia for review",
+          "line": 15
+        }
+      },
+      "referringFacility": {
+        "value": "Tembisa Clinic",
+        "absent": false,
+        "provenance": {
+          "quote": "Tembisa Clinic",
+          "line": 16
+        }
+      },
+      "referringClinician": {
+        "value": "Sr L. Nkosi",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr L. Nkosi",
+          "line": 16
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-13",
+        "absent": false,
+        "provenance": {
+          "quote": "13/08/2026",
+          "line": 16
+        }
+      },
+      "receivingFacility": {
+        "value": "Regional Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "Regional Hospital",
+          "line": 17
+        }
+      },
+      "receivingDepartment": {
+        "value": "Obstetric Day Unit",
+        "absent": false,
+        "provenance": {
+          "quote": "Obstetric Day Unit",
+          "line": 17
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "not_found"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"2287\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 2287\",\n      \"line\": 1\n    }\n  },\n  \"ageYears\": {\n    \"value\": 26,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"26\",\n      \"line\": 1\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2026-01-08\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"08/01/2026\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-10-15\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"15/10/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 31,\n      \"days\": 0,\n      \"assessedOn\": \"2026-08-13\",\n      \"provenance\": {\n        \"quote\": \"GA 31+0 (13/08/26)\",\n        \"line\": 4\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 31+0 (13/08/26)\",\n      \"line\": 4\n    }\n  },\n  \"gravidity\": {\n    \"value\": 3,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G3\",\n      \"line\": 5\n    }\n  },\n  \"parity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P2\",\n      \"line\": 5\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"A\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp A pos\",\n      \"line\": 9\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"pos\",\n      \"line\": 9\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 9.4,\n    \"date\": \"2026-08-09\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 9.4 (09/08/26)\",\n      \"line\": 7\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-01-20\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (20/01/26)\",\n      \"line\": 8\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2025-12-20\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (20/12/25)\",\n      \"line\": 8\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 124,\n        \"diastolic\": 80,\n        \"date\": \"2026-08-13\",\n        \"provenance\": {\n          \"quote\": \"BP 124/80 (13/08/26)\",\n          \"line\": 11\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 124/80 (13/08/26)\",\n      \"line\": 11\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2019 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2019,\n        \"provenance\": {\n          \"quote\": \"2019 SVD term\",\n          \"line\": 5\n        }\n      },\n      {\n        \"summary\": \"2022 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2022,\n        \"provenance\": {\n          \"quote\": \"2022 SVD term\",\n          \"line\": 5\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"2019 SVD term ; 2022 SVD term\",\n      \"line\": 5\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"ferrous sulphate 200mg bd\",\n      \"folic acid\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: ferrous sulphate 200mg bd, folic acid\",\n      \"line\": 12\n    }\n  },\n  \"allergies\": {\n    \"value\": \"nil\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: nil\",\n      \"line\": 13\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"iron-deficiency anaemia for review\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: iron-deficiency anaemia for review\",\n      \"line\": 15\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Tembisa Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Tembisa Clinic\",\n      \"line\": 16\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr L. Nkosi\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr L. Nkosi\",\n      \"line\": 16\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-13\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"13/08/2026\",\n      \"line\": 16\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"Regional Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Regional Hospital\",\n      \"line\": 17\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Obstetric Day Unit\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Obstetric Day Unit\",\n      \"line\": 17\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"not_found\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 797,
+          "outputTokens": 1820,
+          "cacheReadTokens": 434
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 2287",
+            "line": 1
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "26",
+            "line": 1
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "08/01/2026",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 31+0 (13/08/26)",
+            "line": 4
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G3",
+            "line": 5
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P2",
+            "line": 5
+          }
+        },
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.haemoglobin",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Hb 9.4 (09/08/26)",
+            "line": 7
+          }
+        },
+        {
+          "field": "bloodGroup",
+          "label": "Blood group",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.bloodGroup",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Blood gp A pos",
+            "line": 9
+          }
+        },
+        {
+          "field": "rhesus",
+          "label": "Rhesus status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.rhesus",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "pos",
+            "line": 9
+          }
+        },
+        {
+          "field": "hivScreen",
+          "label": "HIV screening status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.hivScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "HIV neg (20/01/26)",
+            "line": 8
+          }
+        },
+        {
+          "field": "syphilisScreen",
+          "label": "Syphilis screening status",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.syphilisScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "RPR neg (20/12/25)",
+            "line": 8
+          }
+        },
+        {
+          "field": "medications",
+          "label": "Current medications",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.medications",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Meds: ferrous sulphate 200mg bd, folic acid",
+            "line": 12
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason: iron-deficiency anaemia for review",
+            "line": 15
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Tembisa Clinic",
+            "line": 16
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr L. Nkosi",
+            "line": 16
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "13/08/2026",
+            "line": 16
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.anaemia_review.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Regional Hospital",
+            "line": 17
+          }
+        },
+        {
+          "field": "antiD",
+          "label": "Anti-D immunoglobulin record",
+          "verdict": "not_required",
+          "rule": "requirements.anaemia_review.antiD",
+          "detail": "Conditional (Required when the rhesus status is recorded as negative.) — condition not met.",
+          "provenance": null
+        }
+      ]
+    },
+    "consistency": [
+      {
+        "rule": "consistency.no_date_before_lmp",
+        "field": "syphilisScreen",
+        "statement": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+        "values": [
+          {
+            "label": "Syphilis screen",
+            "value": "20 Dec 2025",
+            "provenance": {
+              "quote": "RPR neg (20/12/25)",
+              "line": 8
+            },
+            "derived": false
+          },
+          {
+            "label": "Last menstrual period",
+            "value": "8 Jan 2026",
+            "provenance": {
+              "quote": "08/01/2026",
+              "line": 4
+            },
+            "derived": false
+          }
+        ],
+        "detail": {
+          "field_date": "2025-12-20",
+          "lmp": "2026-01-08",
+          "days_before": 19,
+          "resolution": null
+        }
+      }
+    ],
+    "findings": [
+      {
+        "kind": "contradiction",
+        "field": "syphilisScreen",
+        "plain": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+        "rule": "consistency.no_date_before_lmp",
+        "provenance": {
+          "quote": "RPR neg (20/12/25)",
+          "line": 8
+        },
+        "extraProvenance": [
+          {
+            "quote": "08/01/2026",
+            "line": 4
+          }
+        ],
+        "raw": "{\n  \"field_date\": \"2025-12-20\",\n  \"lmp\": \"2026-01-08\",\n  \"days_before\": 19,\n  \"resolution\": null\n}",
+        "evidenceFile": "results/trajectories/case-11.checks.md",
+        "note": "Both values are reported with their source. This tool does not decide which is correct."
+      }
+    ]
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for anaemia review. The referral pack is incomplete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "2287",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "26",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2026-01-08",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "31+0",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "3",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "2",
+          "state": "verified"
+        },
+        {
+          "label": "Haemoglobin",
+          "value": "9.4 g/dL (2026-08-09)",
+          "state": "verified"
+        },
+        {
+          "label": "Blood Group",
+          "value": "A",
+          "state": "verified"
+        },
+        {
+          "label": "Rhesus",
+          "value": "positive",
+          "state": "verified"
+        },
+        {
+          "label": "HIV Screen",
+          "value": "negative (2026-01-20)",
+          "state": "verified"
+        },
+        {
+          "label": "Syphilis Screen",
+          "value": "negative (2025-12-20)",
+          "state": "verified"
+        },
+        {
+          "label": "Medications",
+          "value": "ferrous sulphate 200mg bd, folic acid",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "iron-deficiency anaemia for review",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Tembisa Clinic",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr L. Nkosi",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-13",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "Regional Hospital",
+          "state": "verified"
+        }
+      ],
+      "gapList": [
+        "Urine protein result is outstanding.",
+        "Anti-D record is outstanding.",
+        "The syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026."
+      ],
+      "beforeYouSend": [
+        "Obtain and document the urine protein result.",
+        "Confirm and document the Anti-D status.",
+        "Verify the date of the syphilis screen relative to the last menstrual period."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for anaemia review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"2287\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"26\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-01-08\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"31+0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"9.4 g/dL (2026-08-09)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-01-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"iron-deficiency anaemia for review\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Tembisa Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr L. Nkosi\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-13\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Regional Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Urine protein result is outstanding.\",\n    \"Anti-D record is outstanding.\",\n    \"The syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and document the urine protein result.\",\n    \"Confirm and document the Anti-D status.\",\n    \"Verify the date of the syphilis screen relative to the last menstrual period.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1130,
+          "outputTokens": 771,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.673Z",
+      "finishedAt": "2026-08-29T09:39:43.674Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 21 field rules",
+      "startedAt": "2026-08-29T09:39:43.674Z",
+      "finishedAt": "2026-08-29T09:39:43.674Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.674Z",
+      "finishedAt": "2026-08-29T09:39:43.674Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.674Z",
+      "finishedAt": "2026-08-29T09:39:43.674Z"
+    }
+  ],
+  "costUsd": 0.0012,
+  "ranAt": "2026-08-29T09:39:43.674Z"
+}

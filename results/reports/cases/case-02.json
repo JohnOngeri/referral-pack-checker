@@ -1,0 +1,870 @@
+{
+  "caseId": "case-02",
+  "referralType": "hypertension_review",
+  "patient": "T. Nkosi",
+  "packText": "Antenatal referral  --  Sithole PHC\n\nPt: T. Nkosi        Age 34        PID 2210-08\nLMP 22/12/2025     EDD 28/09/2026\nGA 34+2  (visit 19/08/26)\nG2 P1   (2021 SVD term)\n\nBP  152/98  (18/08/26)\n    148/94  (19/08/26)\nUrine protein: 1+  (19/08/26)\n\nHb 10.9    taken 14/03/26\nHIV neg (05/01/26)     RPR neg (05/01/26)\nBlood gp O pos\n\nOn methyldopa 250mg tds\nAllergies: none\n\nReason for referral: raised BP, for review\nRef clinician: Sr B. Zwane, Sithole PHC,  19/08/2026\nReceiving: District Hospital -- Maternity Assessment\n",
+  "mode": "replay",
+  "model": "gemini-3.1-flash-lite",
+  "extraction": {
+    "pack": {
+      "patientId": {
+        "value": "2210-08",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 2210-08",
+          "line": 3
+        }
+      },
+      "ageYears": {
+        "value": 34,
+        "absent": false,
+        "provenance": {
+          "quote": "Age 34",
+          "line": 3
+        }
+      },
+      "lmp": {
+        "value": "2025-12-22",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 22/12/2025",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-09-28",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 28/09/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 34,
+          "days": 2,
+          "assessedOn": "2026-08-19",
+          "provenance": {
+            "quote": "GA 34+2  (visit 19/08/26)",
+            "line": 5
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 34+2  (visit 19/08/26)",
+          "line": 5
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 6
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 6
+        }
+      },
+      "bloodGroup": {
+        "value": "O",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp O pos",
+          "line": 14
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp O pos",
+          "line": 14
+        }
+      },
+      "haemoglobin": {
+        "value": 10.9,
+        "date": "2026-03-14",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 10.9    taken 14/03/26",
+          "line": 12
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-01-05",
+        "provenance": {
+          "quote": "HIV neg (05/01/26)",
+          "line": 13
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-01-05",
+        "provenance": {
+          "quote": "RPR neg (05/01/26)",
+          "line": 13
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 152,
+            "diastolic": 98,
+            "date": "2026-08-18",
+            "provenance": {
+              "quote": "BP  152/98  (18/08/26)",
+              "line": 8
+            }
+          },
+          {
+            "systolic": 148,
+            "diastolic": 94,
+            "date": "2026-08-19",
+            "provenance": {
+              "quote": "148/94  (19/08/26)",
+              "line": 9
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP  152/98  (18/08/26)\n    148/94  (19/08/26)",
+          "line": 8
+        }
+      },
+      "urineProtein": {
+        "value": "1+",
+        "absent": false,
+        "provenance": {
+          "quote": "Urine protein: 1+  (19/08/26)",
+          "line": 10
+        }
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2021 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2021,
+            "provenance": {
+              "quote": "2021 SVD term",
+              "line": 6
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "(2021 SVD term)",
+          "line": 6
+        }
+      },
+      "medications": {
+        "value": [
+          "methyldopa 250mg tds"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "On methyldopa 250mg tds",
+          "line": 16
+        }
+      },
+      "allergies": {
+        "value": "none",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: none",
+          "line": 17
+        }
+      },
+      "reasonForReferral": {
+        "value": "raised BP, for review",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason for referral: raised BP, for review",
+          "line": 19
+        }
+      },
+      "referringFacility": {
+        "value": "Sithole PHC",
+        "absent": false,
+        "provenance": {
+          "quote": "Sithole PHC",
+          "line": 20
+        }
+      },
+      "referringClinician": {
+        "value": "Sr B. Zwane",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr B. Zwane",
+          "line": 20
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-19",
+        "absent": false,
+        "provenance": {
+          "quote": "19/08/2026",
+          "line": 20
+        }
+      },
+      "receivingFacility": {
+        "value": "District Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "District Hospital",
+          "line": 21
+        }
+      },
+      "receivingDepartment": {
+        "value": "Maternity Assessment",
+        "absent": false,
+        "provenance": {
+          "quote": "Maternity Assessment",
+          "line": 21
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "no_value"
+      }
+    },
+    "raw": {
+      "patientId": {
+        "value": "2210-08",
+        "absent": false,
+        "provenance": {
+          "quote": "PID 2210-08",
+          "line": 3
+        }
+      },
+      "ageYears": {
+        "value": 34,
+        "absent": false,
+        "provenance": {
+          "quote": "Age 34",
+          "line": 3
+        }
+      },
+      "lmp": {
+        "value": "2025-12-22",
+        "absent": false,
+        "provenance": {
+          "quote": "LMP 22/12/2025",
+          "line": 4
+        }
+      },
+      "edd": {
+        "value": "2026-09-28",
+        "absent": false,
+        "provenance": {
+          "quote": "EDD 28/09/2026",
+          "line": 4
+        }
+      },
+      "gestationalAge": {
+        "value": {
+          "weeks": 34,
+          "days": 2,
+          "assessedOn": "2026-08-19",
+          "provenance": {
+            "quote": "GA 34+2  (visit 19/08/26)",
+            "line": 5
+          }
+        },
+        "absent": false,
+        "provenance": {
+          "quote": "GA 34+2  (visit 19/08/26)",
+          "line": 5
+        }
+      },
+      "gravidity": {
+        "value": 2,
+        "absent": false,
+        "provenance": {
+          "quote": "G2",
+          "line": 6
+        }
+      },
+      "parity": {
+        "value": 1,
+        "absent": false,
+        "provenance": {
+          "quote": "P1",
+          "line": 6
+        }
+      },
+      "bloodGroup": {
+        "value": "O",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp O pos",
+          "line": 14
+        }
+      },
+      "rhesus": {
+        "value": "positive",
+        "absent": false,
+        "provenance": {
+          "quote": "Blood gp O pos",
+          "line": 14
+        }
+      },
+      "haemoglobin": {
+        "value": 10.9,
+        "date": "2026-03-14",
+        "absent": false,
+        "provenance": {
+          "quote": "Hb 10.9    taken 14/03/26",
+          "line": 12
+        }
+      },
+      "hivScreen": {
+        "status": "negative",
+        "date": "2026-01-05",
+        "provenance": {
+          "quote": "HIV neg (05/01/26)",
+          "line": 13
+        }
+      },
+      "syphilisScreen": {
+        "status": "negative",
+        "date": "2026-01-05",
+        "provenance": {
+          "quote": "RPR neg (05/01/26)",
+          "line": 13
+        }
+      },
+      "bloodPressure": {
+        "readings": [
+          {
+            "systolic": 152,
+            "diastolic": 98,
+            "date": "2026-08-18",
+            "provenance": {
+              "quote": "BP  152/98  (18/08/26)",
+              "line": 8
+            }
+          },
+          {
+            "systolic": 148,
+            "diastolic": 94,
+            "date": "2026-08-19",
+            "provenance": {
+              "quote": "148/94  (19/08/26)",
+              "line": 9
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "BP  152/98  (18/08/26)\n    148/94  (19/08/26)",
+          "line": 8
+        }
+      },
+      "urineProtein": {
+        "value": "1+",
+        "absent": false,
+        "provenance": {
+          "quote": "Urine protein: 1+  (19/08/26)",
+          "line": 10
+        }
+      },
+      "previousObstetricHistory": {
+        "entries": [
+          {
+            "summary": "2021 SVD term",
+            "outcome": "term_birth",
+            "gestationWeeks": null,
+            "year": 2021,
+            "provenance": {
+              "quote": "2021 SVD term",
+              "line": 6
+            }
+          }
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "(2021 SVD term)",
+          "line": 6
+        }
+      },
+      "medications": {
+        "value": [
+          "methyldopa 250mg tds"
+        ],
+        "absent": false,
+        "provenance": {
+          "quote": "On methyldopa 250mg tds",
+          "line": 16
+        }
+      },
+      "allergies": {
+        "value": "none",
+        "absent": false,
+        "provenance": {
+          "quote": "Allergies: none",
+          "line": 17
+        }
+      },
+      "reasonForReferral": {
+        "value": "raised BP, for review",
+        "absent": false,
+        "provenance": {
+          "quote": "Reason for referral: raised BP, for review",
+          "line": 19
+        }
+      },
+      "referringFacility": {
+        "value": "Sithole PHC",
+        "absent": false,
+        "provenance": {
+          "quote": "Sithole PHC",
+          "line": 20
+        }
+      },
+      "referringClinician": {
+        "value": "Sr B. Zwane",
+        "absent": false,
+        "provenance": {
+          "quote": "Sr B. Zwane",
+          "line": 20
+        }
+      },
+      "referralDate": {
+        "value": "2026-08-19",
+        "absent": false,
+        "provenance": {
+          "quote": "19/08/2026",
+          "line": 20
+        }
+      },
+      "receivingFacility": {
+        "value": "District Hospital",
+        "absent": false,
+        "provenance": {
+          "quote": "District Hospital",
+          "line": 21
+        }
+      },
+      "receivingDepartment": {
+        "value": "Maternity Assessment",
+        "absent": false,
+        "provenance": {
+          "quote": "Maternity Assessment",
+          "line": 21
+        }
+      },
+      "antiD": {
+        "value": null,
+        "absent": true,
+        "provenance": null,
+        "absentReason": "no_value"
+      }
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "semanticIssues": [],
+        "rawText": "{\n  \"patientId\": {\n    \"value\": \"2210-08\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 2210-08\",\n      \"line\": 3\n    }\n  },\n  \"ageYears\": {\n    \"value\": 34,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Age 34\",\n      \"line\": 3\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2025-12-22\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP 22/12/2025\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-09-28\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD 28/09/2026\",\n      \"line\": 4\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 34,\n      \"days\": 2,\n      \"assessedOn\": \"2026-08-19\",\n      \"provenance\": {\n        \"quote\": \"GA 34+2  (visit 19/08/26)\",\n        \"line\": 5\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA 34+2  (visit 19/08/26)\",\n      \"line\": 5\n    }\n  },\n  \"gravidity\": {\n    \"value\": 2,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G2\",\n      \"line\": 6\n    }\n  },\n  \"parity\": {\n    \"value\": 1,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P1\",\n      \"line\": 6\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"O\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 14\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 14\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 10.9,\n    \"date\": \"2026-03-14\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 10.9    taken 14/03/26\",\n      \"line\": 12\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-01-05\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (05/01/26)\",\n      \"line\": 13\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-01-05\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (05/01/26)\",\n      \"line\": 13\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 152,\n        \"diastolic\": 98,\n        \"date\": \"2026-08-18\",\n        \"provenance\": {\n          \"quote\": \"BP  152/98  (18/08/26)\",\n          \"line\": 8\n        }\n      },\n      {\n        \"systolic\": 148,\n        \"diastolic\": 94,\n        \"date\": \"2026-08-19\",\n        \"provenance\": {\n          \"quote\": \"148/94  (19/08/26)\",\n          \"line\": 9\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP  152/98  (18/08/26)\\n    148/94  (19/08/26)\",\n      \"line\": 8\n    }\n  },\n  \"urineProtein\": {\n    \"value\": \"1+\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Urine protein: 1+  (19/08/26)\",\n      \"line\": 10\n    }\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2021 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2021,\n        \"provenance\": {\n          \"quote\": \"2021 SVD term\",\n          \"line\": 6\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"(2021 SVD term)\",\n      \"line\": 6\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"methyldopa 250mg tds\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"On methyldopa 250mg tds\",\n      \"line\": 16\n    }\n  },\n  \"allergies\": {\n    \"value\": \"none\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: none\",\n      \"line\": 17\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"raised BP, for review\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason for referral: raised BP, for review\",\n      \"line\": 19\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Sithole PHC\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sithole PHC\",\n      \"line\": 20\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr B. Zwane\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr B. Zwane\",\n      \"line\": 20\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-19\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"19/08/2026\",\n      \"line\": 20\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"District Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"District Hospital\",\n      \"line\": 21\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Maternity Assessment\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Maternity Assessment\",\n      \"line\": 21\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"no_value\"\n  }\n}",
+        "stopReason": "STOP",
+        "usage": {
+          "inputTokens": 842,
+          "outputTokens": 1876,
+          "cacheReadTokens": 455
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "checks": {
+    "requirements": {
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "present_stale",
+          "rule": "requirements.hypertension_review.haemoglobin.max_age_days",
+          "detail": "Taken 14 Mar 2026 (158 days before the referral). This referral type requires a result from the last 56 days.",
+          "provenance": {
+            "quote": "Hb 10.9    taken 14/03/26",
+            "line": 12
+          },
+          "ageDays": 158,
+          "maxAgeDays": 56
+        }
+      ],
+      "all": [
+        {
+          "field": "patientId",
+          "label": "Patient identifier",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.patientId",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "PID 2210-08",
+            "line": 3
+          }
+        },
+        {
+          "field": "ageYears",
+          "label": "Age",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.ageYears",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Age 34",
+            "line": 3
+          }
+        },
+        {
+          "field": "lmp",
+          "label": "Last menstrual period",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.lmp",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "LMP 22/12/2025",
+            "line": 4
+          }
+        },
+        {
+          "field": "gestationalAge",
+          "label": "Gestational age",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.gestationalAge",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "GA 34+2  (visit 19/08/26)",
+            "line": 5
+          }
+        },
+        {
+          "field": "gravidity",
+          "label": "Gravidity",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.gravidity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "G2",
+            "line": 6
+          }
+        },
+        {
+          "field": "parity",
+          "label": "Parity",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.parity",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "P1",
+            "line": 6
+          }
+        },
+        {
+          "field": "bloodPressure",
+          "label": "Blood pressure readings",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.bloodPressure",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "BP  152/98  (18/08/26)\n    148/94  (19/08/26)",
+            "line": 8
+          }
+        },
+        {
+          "field": "urineProtein",
+          "label": "Urine protein result",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.urineProtein",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Urine protein: 1+  (19/08/26)",
+            "line": 10
+          }
+        },
+        {
+          "field": "haemoglobin",
+          "label": "Haemoglobin",
+          "verdict": "present_stale",
+          "rule": "requirements.hypertension_review.haemoglobin.max_age_days",
+          "detail": "Taken 14 Mar 2026 (158 days before the referral). This referral type requires a result from the last 56 days.",
+          "provenance": {
+            "quote": "Hb 10.9    taken 14/03/26",
+            "line": 12
+          },
+          "ageDays": 158,
+          "maxAgeDays": 56
+        },
+        {
+          "field": "hivScreen",
+          "label": "HIV screening status",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.hivScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "HIV neg (05/01/26)",
+            "line": 13
+          }
+        },
+        {
+          "field": "syphilisScreen",
+          "label": "Syphilis screening status",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.syphilisScreen",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "RPR neg (05/01/26)",
+            "line": 13
+          }
+        },
+        {
+          "field": "medications",
+          "label": "Current medications",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.medications",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "On methyldopa 250mg tds",
+            "line": 16
+          }
+        },
+        {
+          "field": "reasonForReferral",
+          "label": "Reason for referral",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.reasonForReferral",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Reason for referral: raised BP, for review",
+            "line": 19
+          }
+        },
+        {
+          "field": "referringFacility",
+          "label": "Referring facility",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.referringFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sithole PHC",
+            "line": 20
+          }
+        },
+        {
+          "field": "referringClinician",
+          "label": "Referring clinician",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.referringClinician",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "Sr B. Zwane",
+            "line": 20
+          }
+        },
+        {
+          "field": "referralDate",
+          "label": "Referral date",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.referralDate",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "19/08/2026",
+            "line": 20
+          }
+        },
+        {
+          "field": "receivingFacility",
+          "label": "Receiving facility",
+          "verdict": "present_current",
+          "rule": "requirements.hypertension_review.receivingFacility",
+          "detail": "Present and within the recency limit.",
+          "provenance": {
+            "quote": "District Hospital",
+            "line": 21
+          }
+        }
+      ]
+    },
+    "consistency": [],
+    "findings": [
+      {
+        "kind": "stale",
+        "field": "haemoglobin",
+        "plain": "Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days.",
+        "rule": "requirements.hypertension_review.haemoglobin.max_age_days",
+        "provenance": {
+          "quote": "Hb 10.9    taken 14/03/26",
+          "line": 12
+        },
+        "raw": "Taken 14 Mar 2026 (158 days before the referral). This referral type requires a result from the last 56 days.",
+        "evidenceFile": "results/raw/extract/case-02/extract__attempt-1.json"
+      }
+    ]
+  },
+  "summary": {
+    "summary": {
+      "headline": "Referral for hypertension in pregnancy review. The referral pack is incomplete.",
+      "summaryRows": [
+        {
+          "label": "Patient ID",
+          "value": "2210-08",
+          "state": "verified"
+        },
+        {
+          "label": "Age",
+          "value": "34",
+          "state": "verified"
+        },
+        {
+          "label": "LMP",
+          "value": "2025-12-22",
+          "state": "verified"
+        },
+        {
+          "label": "Gestational Age",
+          "value": "34+2",
+          "state": "verified"
+        },
+        {
+          "label": "Gravidity",
+          "value": "2",
+          "state": "verified"
+        },
+        {
+          "label": "Parity",
+          "value": "1",
+          "state": "verified"
+        },
+        {
+          "label": "Blood Pressure",
+          "value": "152/98 (2026-08-18) and 148/94 (2026-08-19)",
+          "state": "verified"
+        },
+        {
+          "label": "Urine Protein",
+          "value": "1+",
+          "state": "verified"
+        },
+        {
+          "label": "Haemoglobin",
+          "value": "10.9 g/dL (2026-03-14)",
+          "state": "verified"
+        },
+        {
+          "label": "HIV Screen",
+          "value": "negative (2026-01-05)",
+          "state": "verified"
+        },
+        {
+          "label": "Syphilis Screen",
+          "value": "negative (2026-01-05)",
+          "state": "verified"
+        },
+        {
+          "label": "Medications",
+          "value": "methyldopa 250mg tds",
+          "state": "verified"
+        },
+        {
+          "label": "Reason for Referral",
+          "value": "raised BP, for review",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Facility",
+          "value": "Sithole PHC",
+          "state": "verified"
+        },
+        {
+          "label": "Referring Clinician",
+          "value": "Sr B. Zwane",
+          "state": "verified"
+        },
+        {
+          "label": "Referral Date",
+          "value": "2026-08-19",
+          "state": "verified"
+        },
+        {
+          "label": "Receiving Facility",
+          "value": "District Hospital",
+          "state": "verified"
+        }
+      ],
+      "gapList": [
+        "Haemoglobin was taken 158 days ago; this referral type needs a result from the last 56 days.",
+        "Anti-D record is outstanding."
+      ],
+      "beforeYouSend": [
+        "Obtain a current haemoglobin result.",
+        "Document the patient's Anti-D status."
+      ]
+    },
+    "attempts": [
+      {
+        "attempt": 1,
+        "ok": true,
+        "schemaValid": true,
+        "clinicalLanguageIssues": [],
+        "rawText": "{\n  \"headline\": \"Referral for hypertension in pregnancy review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"2210-08\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"34\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-12-22\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"34+2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Pressure\",\n      \"value\": \"152/98 (2026-08-18) and 148/94 (2026-08-19)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"1+\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"10.9 g/dL (2026-03-14)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-01-05)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-01-05)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"methyldopa 250mg tds\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"raised BP, for review\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Sithole PHC\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr B. Zwane\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-19\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Haemoglobin was taken 158 days ago; this referral type needs a result from the last 56 days.\",\n    \"Anti-D record is outstanding.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain a current haemoglobin result.\",\n    \"Document the patient's Anti-D status.\"\n  ]\n}",
+        "usage": {
+          "inputTokens": 1182,
+          "outputTokens": 777,
+          "cacheReadTokens": 0
+        }
+      }
+    ],
+    "mode": "replay"
+  },
+  "review": {
+    "state": "awaiting_review",
+    "clinician": null,
+    "decidedAt": null,
+    "note": null
+  },
+  "stages": [
+    {
+      "key": "reading",
+      "label": "Reading the referral pack",
+      "detail": "model call, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.653Z",
+      "finishedAt": "2026-08-29T09:39:43.654Z"
+    },
+    {
+      "key": "requirements",
+      "label": "Checking against facility requirements",
+      "detail": "deterministic, 21 field rules",
+      "startedAt": "2026-08-29T09:39:43.654Z",
+      "finishedAt": "2026-08-29T09:39:43.654Z"
+    },
+    {
+      "key": "contradictions",
+      "label": "Looking for contradictions",
+      "detail": "deterministic, 6 rules",
+      "startedAt": "2026-08-29T09:39:43.654Z",
+      "finishedAt": "2026-08-29T09:39:43.654Z"
+    },
+    {
+      "key": "summary",
+      "label": "Preparing the summary",
+      "detail": "model call, verified fields only, 1 attempt",
+      "startedAt": "2026-08-29T09:39:43.654Z",
+      "finishedAt": "2026-08-29T09:39:43.655Z"
+    }
+  ],
+  "costUsd": 0.0013,
+  "ranAt": "2026-08-29T09:39:43.655Z"
+}
