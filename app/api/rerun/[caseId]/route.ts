@@ -7,17 +7,20 @@ import { allCaseIds } from "@/lib/fixtures";
 export const dynamic = "force-dynamic";
 
 /**
- * Re-run the full workflow for one pack. Uses fresh mode when a key is present,
- * otherwise replay (reading committed model responses). Returns the real
- * per-stage timings so the dashboard can animate genuine completion.
+ * Re-run the full workflow for one pack. Defaults to replay (reading the
+ * committed model responses) so the dashboard button never spends API quota or
+ * overwrites committed evidence. Set RPC_RERUN_FRESH=1 to make live calls — that
+ * path is for deliberately regenerating evidence, and `npm run eval -- --mode
+ * fresh` is the supported way to do it. Returns the real per-stage timings so
+ * the dashboard can animate genuine completion.
  */
 export async function POST(_req: Request, { params }: { params: { caseId: string } }) {
   const caseId = params.caseId;
   if (!allCaseIds().includes(caseId)) {
     return NextResponse.json({ error: `Unknown case ${caseId}` }, { status: 404 });
   }
-  // RPC_FORCE_REPLAY keeps a demo from spending API quota even when a key is present.
-  const mode = process.env.RPC_FORCE_REPLAY || !hasApiKey() ? "replay" : "fresh";
+  const wantsFresh = process.env.RPC_RERUN_FRESH === "1" && !process.env.RPC_FORCE_REPLAY;
+  const mode = wantsFresh && hasApiKey() ? "fresh" : "replay";
   try {
     const provider = makeProvider(mode);
     const started = Date.now();
