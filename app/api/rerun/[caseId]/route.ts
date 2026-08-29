@@ -21,8 +21,12 @@ export async function POST(_req: Request, { params }: { params: { caseId: string
     const provider = makeProvider(mode);
     const started = Date.now();
     const result = await runPipeline(provider, caseId);
-    persistResult(result);
-    writeDashboardData();
+    try {
+      persistResult(result);
+      writeDashboardData();
+    } catch {
+      // read-only filesystem (serverless) — the recomputed result is still returned
+    }
     return NextResponse.json({
       caseId,
       mode,

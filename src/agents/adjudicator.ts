@@ -111,7 +111,7 @@ Which is correct?`;
     cases,
     agreementRate: rate,
     boundaryAssessment:
-      "Crossed. In every case the model chose between two values recorded in a clinical document. That determination belongs to the clinician, whether or not the choice was correct. The experiment is removed. The consistency verifier reports both values with their provenance and resolves nothing.",
+      "Where the model did pick a value, it was choosing between two entries in a clinical document — a determination that belongs to the clinician, whether or not the choice was correct. Where it declined to pick, it added nothing the verifier does not already provide. Either way the experiment is removed: the consistency verifier reports both values with their provenance and resolves nothing.",
   };
 
   fs.mkdirSync(PATHS.reports, { recursive: true });

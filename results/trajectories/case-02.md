@@ -1,5 +1,5 @@
 # Trajectory — case-02 (hypertension_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.263Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.679Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -8,7 +8,7 @@ REPLAY RUN — model outputs read from committed files, no API call made.
 Instruction: transcribe the pack into the typed schema; quote every source span; mark absent, never guess.
 Context given: the pack text with line numbers (22 lines).
 
-Attempt 1: schema valid; 0 semantic issue(s); stop_reason=STOP; tokens in/out 842/1876
+Attempt 1: schema valid; 0 semantic issue(s); stop_reason=STOP; tokens in/out 842/1873
   Accepted.
 
 ------------------------------------------------------------------------
@@ -45,7 +45,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for hypertension in pregnancy review. The referral pack is incomplete.
+Headline: This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.
 Gap list:
   - Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days.
 

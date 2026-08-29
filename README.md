@@ -15,13 +15,31 @@ clinical judgment of any kind** — see [SCOPE_AND_SAFETY.md](SCOPE_AND_SAFETY.m
 
 ## Result
 
-<!-- METRICS:HEADLINE -->
-_Run `npm run eval && npm run report` to populate. The headline is read from
-`results/reports/final_metrics.json`._
+**The agent workflow caught 10 of 10 seeded documentation gaps with 0 false alarms.
+A single end-to-end prompt caught 9, and raised 34 findings against packs that were
+fine — 5 of them against the two control packs.**
+
+Numbers below are from `results/reports/final_metrics.json`, produced by a fresh run
+against the Gemini API (`gemini-3.1-flash-lite`); every request and response is
+committed under `results/raw/`, so the run replays offline.
 
 ![Dashboard](docs/dashboard.png)
 
-<!-- METRICS:TABLE -->
+| Metric | Agent workflow | Single prompt |
+|---|---:|---:|
+| Seeded defects caught (of 10) | **10** | 9 |
+| False flags | **0** | 34 |
+| False flags on the two control packs | **0** | 5 |
+| Contradictions caught (of 6) | **6** | 5 |
+| Invented values (value with no source, or where ground truth says absent) | **0** | not measured¹ |
+| Cost per pack | $0.0014 | $0.0003 |
+
+¹ The single prompt has no structured extraction step, so "invented values" is not
+directly comparable; its equivalent failure shows up as the 34 false flags, many of
+which are contradictions it computed wrongly in its head.
+
+Human review time is **not** reported — it was not measured, and an estimate next to
+measured numbers would be misleading. `REPRODUCTION.md` explains how to add it.
 
 ## What the workflow does
 
@@ -67,10 +85,11 @@ The messy step — reading "GA 30+2 (recorded at visit 24/08/26)" and a blood gr
 written only as `// grp B+` in the margin — is where a model has a real advantage
 over rules. The checking step is arithmetic and calendar logic. A rule like "the
 gestational age must agree with the LMP" should not be re-decided by a model on every
-run, because it will occasionally decide differently. Iteration 2 in the changelog
-measures that drift directly: moving the requirement check from a model judgment into
-code took run-to-run variance in the number of findings from
-<!-- METRICS:VARIANCE --> to near zero.
+run, because it will occasionally decide differently. The changelog measures
+this: at temperature 0 the model's requirement check did not vary in the *number* of
+findings across three runs (stdev 0 either way), but it was wrong in *content* — on
+three packs it called a haemoglobin taken four to six days ago "stale". Moving the
+check into code took false flags from 5 to 0.
 
 ## Repository
 
@@ -145,9 +164,8 @@ model asked to produce a complete referral summary will produce a complete-*look
 one, inventing the shape of a value it never found. The defence is structural:
 provenance on every extracted field, and an unlocatable field treated as absent by
 construction — `fieldPresent()` returns false without a source span — rather than by
-asking the model nicely. The changelog's "invented values" counter tracks this;
-Iteration 1 is where it went to
-<!-- METRICS:INVENTED -->.
+asking the model nicely. The changelog's "invented values" counter tracks this: with structured extraction
+and a provenance span on every field, it was 0 from Iteration 1 onward.
 
 ## Hot take
 

@@ -5,7 +5,7 @@
   "caseId": "case-07",
   "label": "adjudicator",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:33:33.670Z",
+  "timestamp": "2026-08-29T10:11:41.777Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {
@@ -18,19 +18,19 @@
         "role": "user",
         "parts": [
           {
-            "text": "Contradiction: Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.\n\nA (Haemoglobin sample): 18 Sep 2026  [source: Hb 8.9   sample date 18/09/2026]\nB (Referral date): 18 Aug 2026  [source: 18/08/2026]\n\nWhich is correct?"
+            "text": "Contradiction: Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).\n\nA (Haemoglobin sample): 18 Sep 2026  [source: Hb 8.9   sample date 18/09/2026]\nB (Referral date): 18 Aug 2026  [source: 18/08/2026]\n\nWhich is correct?"
           }
         ]
       }
     ]
   },
   "response": {
-    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While it is chronologically unusual for a sample date to post-date a referral, it is clinically possible for a sample to be taken after the initial referral request (e.g., a follow-up test or a clerical error in the referral date). Without access to the patient's medical record or the ability to verify the source documents, it is impossible to determine which date is erroneous.\"}",
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While the dates are chronologically inconsistent for a standard referral process, it is impossible to determine which is 'correct' without external verification. The haemoglobin sample date may be a typo (e.g., meant to be August), or the referral date may be incorrect, or the sample was indeed taken a month after the referral was initially drafted.\"}",
     "finishReason": "STOP",
     "usageMetadata": {
       "promptTokenCount": 162,
-      "candidatesTokenCount": 92,
-      "totalTokenCount": 254,
+      "candidatesTokenCount": 82,
+      "totalTokenCount": 244,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
@@ -42,7 +42,7 @@
   },
   "usage": {
     "inputTokens": 162,
-    "outputTokens": 92,
+    "outputTokens": 82,
     "cacheReadTokens": 0
   },
   "stopReason": "STOP"

@@ -5,7 +5,7 @@
   "caseId": "case-08",
   "label": "adjudicator",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:33:37.355Z",
+  "timestamp": "2026-08-29T10:11:44.345Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {
@@ -18,31 +18,31 @@
         "role": "user",
         "parts": [
           {
-            "text": "Contradiction: Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).\n\nA (Recorded parity): 2  [source: P2]\nB (Births counted from obstetric history): 3  [source: Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term]\n\nWhich is correct?"
+            "text": "Contradiction: Recorded parity (2) does not match the obstetric history, which lists 3 previous births.\n\nA (Recorded parity): 2  [source: P2]\nB (Births counted from obstetric history): 3  [source: Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term]\n\nWhich is correct?"
           }
         ]
       }
     ]
   },
   "response": {
-    "text": "{\"choice\": \"B\", \"reasoning\": \"The obstetric history explicitly lists three distinct births (2017, 2019, 2023), all of which meet the criteria for parity (births at or beyond 24 weeks). The recorded parity of '2' is likely a clerical error.\"}",
+    "text": "{\"choice\": \"B\", \"reasoning\": \"The obstetric history provides a detailed, itemized list of three specific births (2017, 2019, 2023), which serves as primary evidence that the parity count of 2 is an error.\"}",
     "finishReason": "STOP",
     "usageMetadata": {
-      "promptTokenCount": 153,
-      "candidatesTokenCount": 70,
-      "totalTokenCount": 223,
+      "promptTokenCount": 142,
+      "candidatesTokenCount": 60,
+      "totalTokenCount": 202,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
-          "tokenCount": 153
+          "tokenCount": 142
         }
       ],
       "serviceTier": "standard"
     }
   },
   "usage": {
-    "inputTokens": 153,
-    "outputTokens": 70,
+    "inputTokens": 142,
+    "outputTokens": 60,
     "cacheReadTokens": 0
   },
   "stopReason": "STOP"

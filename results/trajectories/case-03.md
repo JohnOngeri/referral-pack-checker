@@ -1,5 +1,5 @@
 # Trajectory — case-03 (anaemia_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.267Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.680Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -51,7 +51,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for anaemia review. The referral pack is incomplete.
+Headline: This is a referral for anaemia review. The referral pack is incomplete.
 Gap list:
   - Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it.
 

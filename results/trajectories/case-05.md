@@ -1,5 +1,5 @@
 # Trajectory — case-05 (routine_ultrasound)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.272Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.682Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -50,7 +50,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for routine ultrasound for patient 5514. The referral pack is incomplete.
+Headline: This is a referral for a routine ultrasound. The referral pack contains a contradiction regarding the estimated delivery date.
 Gap list:
   - The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
 

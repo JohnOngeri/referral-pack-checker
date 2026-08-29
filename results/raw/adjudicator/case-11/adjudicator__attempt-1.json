@@ -5,7 +5,7 @@
   "caseId": "case-11",
   "label": "adjudicator",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:33:41.655Z",
+  "timestamp": "2026-08-29T10:11:49.616Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {
@@ -18,31 +18,31 @@
         "role": "user",
         "parts": [
           {
-            "text": "Contradiction: Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.\n\nA (Syphilis screen): 20 Dec 2025  [source: RPR neg (20/12/25)]\nB (Last menstrual period): 8 Jan 2026  [source: 08/01/2026]\n\nWhich is correct?"
+            "text": "Contradiction: Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).\n\nA (Syphilis screen): 20 Dec 2025  [source: RPR neg (20/12/25)]\nB (Last menstrual period): 8 Jan 2026  [source: 08/01/2026]\n\nWhich is correct?"
           }
         ]
       }
     ]
   },
   "response": {
-    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While it is clinically unusual for a syphilis screen to predate the last menstrual period in a current pregnancy, it is possible that the screen was performed as part of pre-conception care or an earlier clinical encounter. Without access to the patient's medical history or the ability to verify the dates with the patient, it is impossible to determine which value is 'correct' or if both are accurate representations of different events.\"}",
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While the dates are chronologically inconsistent for a standard pregnancy timeline, both values are documented clinical data points. It is impossible to determine which is 'correct' without verifying the patient's records, as either the syphilis screen date could be a clerical error, the LMP could be misremembered or misrecorded, or the screen could have been performed prior to the current pregnancy.\"}",
     "finishReason": "STOP",
     "usageMetadata": {
-      "promptTokenCount": 156,
-      "candidatesTokenCount": 97,
-      "totalTokenCount": 253,
+      "promptTokenCount": 153,
+      "candidatesTokenCount": 88,
+      "totalTokenCount": 241,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
-          "tokenCount": 156
+          "tokenCount": 153
         }
       ],
       "serviceTier": "standard"
     }
   },
   "usage": {
-    "inputTokens": 156,
-    "outputTokens": 97,
+    "inputTokens": 153,
+    "outputTokens": 88,
     "cacheReadTokens": 0
   },
   "stopReason": "STOP"

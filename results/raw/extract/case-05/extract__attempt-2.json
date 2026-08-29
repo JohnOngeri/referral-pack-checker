@@ -5,7 +5,7 @@
   "caseId": "case-05",
   "label": "extract",
   "attempt": 2,
-  "timestamp": "2026-08-29T09:29:21.557Z",
+  "timestamp": "2026-08-29T10:07:14.002Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {

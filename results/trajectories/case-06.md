@@ -1,5 +1,5 @@
 # Trajectory — case-06 (anaemia_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.274Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.684Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -46,7 +46,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for anaemia review for patient 3388. The referral pack is incomplete.
+Headline: Referral for anaemia review. The referral pack is incomplete.
 Gap list:
   - Anti-D immunoglobulin record is not in this pack. Mandatory here because: Required when the rhesus status is recorded as negative.
 

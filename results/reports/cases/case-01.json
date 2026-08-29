@@ -515,7 +515,7 @@
         "usage": {
           "inputTokens": 824,
           "outputTokens": 1991,
-          "cacheReadTokens": 447
+          "cacheReadTokens": 0
         }
       }
     ],
@@ -766,7 +766,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.",
+      "headline": "This is a referral for an elective caesarean booking. The referral pack is incomplete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -784,13 +784,13 @@
           "state": "verified"
         },
         {
-          "label": "Gestational Age",
-          "value": "31+4",
+          "label": "EDD",
+          "value": "2026-10-10",
           "state": "verified"
         },
         {
-          "label": "EDD",
-          "value": "2026-10-10",
+          "label": "Gestational Age",
+          "value": "31+4",
           "state": "verified"
         },
         {
@@ -857,11 +857,6 @@
           "label": "Receiving Facility",
           "value": "Regional Hospital",
           "state": "verified"
-        },
-        {
-          "label": "Anti-D",
-          "value": "Outstanding",
-          "state": "verified"
         }
       ],
       "gapList": [
@@ -877,10 +872,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"4471-22\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"29\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-01-03\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"31+4\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-10-10\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.4 g/dL (2026-08-04)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-02-02)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-02-02)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2019 SVD term; 2022 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, prev CS x1 (2022)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ext 4 Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr N. Mokoena\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-12\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Regional Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Anti-D\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"Blood group is not recorded in the pack.\",\n    \"Anti-D record is not recorded in the pack.\"\n  ],\n  \"beforeYouSend\": [\n    \"Record the patient's blood group.\",\n    \"Record the patient's Anti-D status.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for an elective caesarean booking. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"4471-22\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"29\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-01-03\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-10-10\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"31+4\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.4 g/dL (2026-08-04)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-02-02)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-02-02)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2019 SVD term; 2022 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, prev CS x1 (2022)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ext 4 Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr N. Mokoena\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-12\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Regional Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it.\"\n  ],\n  \"beforeYouSend\": [\n    \"Record the patient's blood group in the referral pack.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1180,
-          "outputTokens": 826,
+          "inputTokens": 1245,
+          "outputTokens": 773,
           "cacheReadTokens": 0
         }
       }
@@ -898,31 +893,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.253Z",
-      "finishedAt": "2026-08-29T10:00:44.257Z"
+      "startedAt": "2026-08-29T10:21:35.676Z",
+      "finishedAt": "2026-08-29T10:21:35.676Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T10:00:44.257Z",
-      "finishedAt": "2026-08-29T10:00:44.258Z"
+      "startedAt": "2026-08-29T10:21:35.676Z",
+      "finishedAt": "2026-08-29T10:21:35.676Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.258Z",
-      "finishedAt": "2026-08-29T10:00:44.258Z"
+      "startedAt": "2026-08-29T10:21:35.676Z",
+      "finishedAt": "2026-08-29T10:21:35.676Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.258Z",
-      "finishedAt": "2026-08-29T10:00:44.260Z"
+      "startedAt": "2026-08-29T10:21:35.676Z",
+      "finishedAt": "2026-08-29T10:21:35.678Z"
     }
   ],
   "costUsd": 0.0013,
-  "ranAt": "2026-08-29T10:00:44.260Z"
+  "ranAt": "2026-08-29T10:21:35.678Z"
 }

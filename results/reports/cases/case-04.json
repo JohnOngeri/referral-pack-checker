@@ -634,7 +634,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for routine anomaly scan. The referral pack is complete.",
+      "headline": "This is a referral for a routine anomaly scan. The referral pack is complete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -711,10 +711,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for routine anomaly scan. The referral pack is complete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"1902-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"31\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-03-01\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"22+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-12-06\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"routine anomaly scan, no clinical concern\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Chatsworth Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr P. Naidoo\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-07\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A positive\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [],\n  \"beforeYouSend\": [\n    \"Ensure the patient is aware of the referral to the District Hospital for an anomaly scan.\",\n    \"Confirm that all relevant clinical notes are attached to the referral pack.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for a routine anomaly scan. The referral pack is complete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"1902-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"31\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-03-01\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"22+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-12-06\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"routine anomaly scan, no clinical concern\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Chatsworth Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr P. Naidoo\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-07\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A positive\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [],\n  \"beforeYouSend\": []\n}",
         "usage": {
-          "inputTokens": 1013,
-          "outputTokens": 544,
+          "inputTokens": 1078,
+          "outputTokens": 508,
           "cacheReadTokens": 0
         }
       }
@@ -732,31 +732,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.267Z",
-      "finishedAt": "2026-08-29T10:00:44.268Z"
+      "startedAt": "2026-08-29T10:21:35.681Z",
+      "finishedAt": "2026-08-29T10:21:35.681Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 14 field rules",
-      "startedAt": "2026-08-29T10:00:44.268Z",
-      "finishedAt": "2026-08-29T10:00:44.268Z"
+      "startedAt": "2026-08-29T10:21:35.681Z",
+      "finishedAt": "2026-08-29T10:21:35.681Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.268Z",
-      "finishedAt": "2026-08-29T10:00:44.268Z"
+      "startedAt": "2026-08-29T10:21:35.681Z",
+      "finishedAt": "2026-08-29T10:21:35.681Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.268Z",
-      "finishedAt": "2026-08-29T10:00:44.269Z"
+      "startedAt": "2026-08-29T10:21:35.681Z",
+      "finishedAt": "2026-08-29T10:21:35.681Z"
     }
   ],
   "costUsd": 0.0011,
-  "ranAt": "2026-08-29T10:00:44.269Z"
+  "ranAt": "2026-08-29T10:21:35.681Z"
 }

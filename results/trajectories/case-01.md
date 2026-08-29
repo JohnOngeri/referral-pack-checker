@@ -1,5 +1,5 @@
 # Trajectory — case-01 (elective_caesarean)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.260Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.678Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -47,7 +47,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.
+Headline: This is a referral for an elective caesarean booking. The referral pack is incomplete.
 Gap list:
   - Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it.
 

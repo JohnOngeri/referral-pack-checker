@@ -1,16 +1,16 @@
 # Removed experiment — contradiction adjudicator
 
-Mode: fresh   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T09:33:47.088Z
+Mode: replay   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.668Z
 
-Agreement with the internally consistent value: 2 of 3
+Agreement with the internally consistent value: 1 of 3
 
-Crossed. In every case the model chose between two values recorded in a clinical document. That determination belongs to the clinician, whether or not the choice was correct. The experiment is removed. The consistency verifier reports both values with their provenance and resolves nothing.
+Where the model did pick a value, it was choosing between two entries in a clinical document — a determination that belongs to the clinician, whether or not the choice was correct. Where it declined to pick, it added nothing the verifier does not already provide. Either way the experiment is removed: the consistency verifier reports both values with their provenance and resolves nothing.
 
 ## case-05
-The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.
+The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
 
 PROMPT
-Contradiction: The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.
+Contradiction: The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.
 
 A (Recorded estimated delivery date): 12 Aug 2026  [source: EDD  12/08/2026]
 B (Estimated delivery date derived from LMP): 27 Aug 2026 (LMP + 280 days)  [source: LMP  20/11/2025]
@@ -19,17 +19,17 @@ Which is correct?
 
 RESPONSE
 choice: cannot determine
-reasoning: The EDD is typically calculated based on the LMP, but clinical adjustments are often made based on early ultrasound scans. Without knowing if the 12 Aug date was derived from a scan (which is more accurate than LMP) or if it is a clerical error, it is impossible to determine which value is correct.
+reasoning: An estimated delivery date (EDD) is often adjusted based on early ultrasound dating scans, which are clinically considered more accurate than calculations based solely on the last menstrual period (LMP). Without access to the clinical notes or ultrasound report, it is impossible to determine if the 12 Aug date is a corrected clinical estimate or an error.
 
 REVIEW
 ground-truth leaning: B   agreed: false
 
 ------------------------------------------------------------
 ## case-07
-Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.
+Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).
 
 PROMPT
-Contradiction: Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.
+Contradiction: Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).
 
 A (Haemoglobin sample): 18 Sep 2026  [source: Hb 8.9   sample date 18/09/2026]
 B (Referral date): 18 Aug 2026  [source: 18/08/2026]
@@ -38,17 +38,17 @@ Which is correct?
 
 RESPONSE
 choice: cannot determine
-reasoning: While it is chronologically unusual for a sample date to post-date a referral, it is clinically possible for a sample to be taken after the initial referral request (e.g., a follow-up test or a clerical error in the referral date). Without access to the patient's medical record or the ability to verify the source documents, it is impossible to determine which date is erroneous.
+reasoning: While the dates are chronologically inconsistent for a standard referral process, it is impossible to determine which is 'correct' without external verification. The haemoglobin sample date may be a typo (e.g., meant to be August), or the referral date may be incorrect, or the sample was indeed taken a month after the referral was initially drafted.
 
 REVIEW
 ground-truth leaning: n/a   agreed: n/a
 
 ------------------------------------------------------------
 ## case-08
-Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).
+Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
 
 PROMPT
-Contradiction: Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).
+Contradiction: Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
 
 A (Recorded parity): 2  [source: P2]
 B (Births counted from obstetric history): 3  [source: Obstetric history:
@@ -60,17 +60,17 @@ Which is correct?
 
 RESPONSE
 choice: B
-reasoning: The obstetric history explicitly lists three distinct births (2017, 2019, 2023), all of which meet the criteria for parity (births at or beyond 24 weeks). The recorded parity of '2' is likely a clerical error.
+reasoning: The obstetric history provides a detailed, itemized list of three specific births (2017, 2019, 2023), which serves as primary evidence that the parity count of 2 is an error.
 
 REVIEW
 ground-truth leaning: B   agreed: true
 
 ------------------------------------------------------------
 ## case-11
-Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.
+Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
 
 PROMPT
-Contradiction: Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.
+Contradiction: Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
 
 A (Syphilis screen): 20 Dec 2025  [source: RPR neg (20/12/25)]
 B (Last menstrual period): 8 Jan 2026  [source: 08/01/2026]
@@ -79,17 +79,17 @@ Which is correct?
 
 RESPONSE
 choice: cannot determine
-reasoning: While it is clinically unusual for a syphilis screen to predate the last menstrual period in a current pregnancy, it is possible that the screen was performed as part of pre-conception care or an earlier clinical encounter. Without access to the patient's medical history or the ability to verify the dates with the patient, it is impossible to determine which value is 'correct' or if both are accurate representations of different events.
+reasoning: While the dates are chronologically inconsistent for a standard pregnancy timeline, both values are documented clinical data points. It is impossible to determine which is 'correct' without verifying the patient's records, as either the syphilis screen date could be a clerical error, the LMP could be misremembered or misrecorded, or the screen could have been performed prior to the current pregnancy.
 
 REVIEW
 ground-truth leaning: n/a   agreed: n/a
 
 ------------------------------------------------------------
 ## case-12
-Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.
+The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.
 
 PROMPT
-Contradiction: Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.
+Contradiction: The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.
 
 A (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]
 B (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]
@@ -97,9 +97,9 @@ B (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14
 Which is correct?
 
 RESPONSE
-choice: B
-reasoning: The gestational age derived from the Last Menstrual Period (LMP) of 14 Dec 2025 to the date of 24 Aug 2026 is mathematically 36 weeks and 1 day. The recorded value of 30+2 is inconsistent with the provided LMP date, suggesting a documentation error or a discrepancy in the clinical record.
+choice: cannot determine
+reasoning: A discrepancy between gestational age based on LMP and clinical assessment (often via ultrasound) is common. Without information regarding whether an early dating scan was performed to confirm or override the LMP-based date, it is impossible to determine which value is clinically accurate.
 
 REVIEW
-ground-truth leaning: B   agreed: true
+ground-truth leaning: B   agreed: false
 

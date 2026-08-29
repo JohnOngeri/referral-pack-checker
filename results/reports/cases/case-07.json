@@ -741,7 +741,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for hypertension in pregnancy review. The referral pack is incomplete.",
+      "headline": "This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -842,10 +842,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for hypertension in pregnancy review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"6602\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"22\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-02-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"27+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Pressure\",\n      \"value\": \"152/100 (2026-08-17), 149/95 (2026-08-18)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"2+\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"8.9 g/dL (2026-09-18)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-02-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-02-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"methyldopa 250mg tds, nifedipine SR 30mg od\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"raised BP with proteinuria, for review\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ruaraka Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr G. Wanjiru\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-18\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"General Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"The haemoglobin result is dated 18 September 2026, which is after the referral date of 18 August 2026.\"\n  ],\n  \"beforeYouSend\": [\n    \"Verify the haemoglobin sample date as it is currently recorded as occurring after the referral date.\",\n    \"Confirm the accuracy of the haemoglobin result date before sending the referral.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"6602\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"22\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-02-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"27+5\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Pressure\",\n      \"value\": \"152/100 (2026-08-17), 149/95 (2026-08-18)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"2+\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"8.9 g/dL (2026-09-18)\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-02-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-02-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"methyldopa 250mg tds, nifedipine SR 30mg od\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"raised BP with proteinuria, for review\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ruaraka Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr G. Wanjiru\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-18\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"General Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).\"\n  ],\n  \"beforeYouSend\": [\n    \"Verify the haemoglobin sample date and provide a corrected result.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1196,
-          "outputTokens": 796,
+          "inputTokens": 1261,
+          "outputTokens": 775,
           "cacheReadTokens": 0
         }
       }
@@ -863,31 +863,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.275Z",
-      "finishedAt": "2026-08-29T10:00:44.275Z"
+      "startedAt": "2026-08-29T10:21:35.684Z",
+      "finishedAt": "2026-08-29T10:21:35.684Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T10:00:44.275Z",
-      "finishedAt": "2026-08-29T10:00:44.276Z"
+      "startedAt": "2026-08-29T10:21:35.684Z",
+      "finishedAt": "2026-08-29T10:21:35.684Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.276Z",
-      "finishedAt": "2026-08-29T10:00:44.276Z"
+      "startedAt": "2026-08-29T10:21:35.684Z",
+      "finishedAt": "2026-08-29T10:21:35.684Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.276Z",
-      "finishedAt": "2026-08-29T10:00:44.276Z"
+      "startedAt": "2026-08-29T10:21:35.684Z",
+      "finishedAt": "2026-08-29T10:21:35.685Z"
     }
   ],
   "costUsd": 0.0013,
-  "ranAt": "2026-08-29T10:00:44.276Z"
+  "ranAt": "2026-08-29T10:21:35.685Z"
 }

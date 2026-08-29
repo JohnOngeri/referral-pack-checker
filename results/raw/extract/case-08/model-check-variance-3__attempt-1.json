@@ -5,7 +5,7 @@
   "caseId": "case-08",
   "label": "model-check-variance-3",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:32:28.712Z",
+  "timestamp": "2026-08-29T10:10:36.500Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {

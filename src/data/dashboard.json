@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-29T10:00:44.301Z",
+  "generatedAt": "2026-08-29T10:21:35.705Z",
   "metrics": {
     "mode": "fresh",
     "model": "gemini-3.1-flash-lite",
-    "generatedAt": "2026-08-29T10:00:44.249Z",
+    "generatedAt": "2026-08-29T10:21:35.674Z",
     "headline": {
       "agentCaught": 10,
       "baselineCaught": 9,
@@ -164,7 +164,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.260Z",
+      "ranAt": "2026-08-29T10:21:35.678Z",
       "packLines": [
         "ANC CARD  --  M. Dlamini,  29y     PID 4471-22",
         "Ext 4 Clinic",
@@ -201,7 +201,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for elective caesarean booking for patient 4471-22. The referral pack is incomplete.",
+        "headline": "This is a referral for an elective caesarean booking. The referral pack is incomplete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -219,13 +219,13 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
-            "value": "31+4",
+            "label": "EDD",
+            "value": "2026-10-10",
             "state": "verified"
           },
           {
-            "label": "EDD",
-            "value": "2026-10-10",
+            "label": "Gestational Age",
+            "value": "31+4",
             "state": "verified"
           },
           {
@@ -292,11 +292,6 @@
             "label": "Receiving Facility",
             "value": "Regional Hospital",
             "state": "verified"
-          },
-          {
-            "label": "Anti-D",
-            "value": "Outstanding",
-            "state": "verified"
           }
         ],
         "gapList": [
@@ -311,13 +306,13 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 4
+          "ms": 0
         },
         {
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 22 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -349,7 +344,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.263Z",
+      "ranAt": "2026-08-29T10:21:35.679Z",
       "packLines": [
         "Antenatal referral  --  Sithole PHC",
         "",
@@ -389,7 +384,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for hypertension in pregnancy review. The referral pack is incomplete.",
+        "headline": "This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -407,7 +402,7 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
+            "label": "Gestational age",
             "value": "34+2",
             "state": "verified"
           },
@@ -422,12 +417,12 @@
             "state": "verified"
           },
           {
-            "label": "Blood Pressure",
-            "value": "152/98 (2026-08-18) and 148/94 (2026-08-19)",
+            "label": "Blood pressure",
+            "value": "152/98 (2026-08-18), 148/94 (2026-08-19)",
             "state": "verified"
           },
           {
-            "label": "Urine Protein",
+            "label": "Urine protein",
             "value": "1+",
             "state": "verified"
           },
@@ -437,12 +432,12 @@
             "state": "outstanding"
           },
           {
-            "label": "HIV Screen",
+            "label": "HIV screen",
             "value": "negative (2026-01-05)",
             "state": "verified"
           },
           {
-            "label": "Syphilis Screen",
+            "label": "Syphilis screen",
             "value": "negative (2026-01-05)",
             "state": "verified"
           },
@@ -452,27 +447,27 @@
             "state": "verified"
           },
           {
-            "label": "Reason for Referral",
+            "label": "Reason for referral",
             "value": "raised BP, for review",
             "state": "verified"
           },
           {
-            "label": "Referring Facility",
+            "label": "Referring facility",
             "value": "Sithole PHC",
             "state": "verified"
           },
           {
-            "label": "Referring Clinician",
+            "label": "Referring clinician",
             "value": "Sr B. Zwane",
             "state": "verified"
           },
           {
-            "label": "Referral Date",
+            "label": "Referral date",
             "value": "2026-08-19",
             "state": "verified"
           },
           {
-            "label": "Receiving Facility",
+            "label": "Receiving facility",
             "value": "District Hospital",
             "state": "verified"
           }
@@ -489,7 +484,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -527,7 +522,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.267Z",
+      "ranAt": "2026-08-29T10:21:35.680Z",
       "packLines": [
         "ANC  --  L. Adebayo,  24     PID 8830",
         "Ikeja Health Post",
@@ -565,7 +560,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for anaemia review. The referral pack is incomplete.",
+        "headline": "This is a referral for anaemia review. The referral pack is incomplete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -665,7 +660,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 2 attempts",
-          "ms": 2
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -683,7 +678,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -703,7 +698,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.269Z",
+      "ranAt": "2026-08-29T10:21:35.681Z",
       "packLines": [
         "ANC CARD  --  R. Pillay,  31     PID 1902-14",
         "Chatsworth Clinic",
@@ -726,7 +721,7 @@
       "flaggedLines": [],
       "findings": [],
       "summary": {
-        "headline": "Referral for routine anomaly scan. The referral pack is complete.",
+        "headline": "This is a referral for a routine anomaly scan. The referral pack is complete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -802,7 +797,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -820,7 +815,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -840,7 +835,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.272Z",
+      "ranAt": "2026-08-29T10:21:35.682Z",
       "packLines": [
         "Kibera Clinic  --  antenatal referral",
         "",
@@ -881,7 +876,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for routine ultrasound for patient 5514. The referral pack is incomplete.",
+        "headline": "This is a referral for a routine ultrasound. The referral pack contains a contradiction regarding the estimated delivery date.",
         "rows": [
           {
             "label": "Patient ID",
@@ -900,7 +895,7 @@
           },
           {
             "label": "EDD",
-            "value": "2026-08-12",
+            "value": "12/08/2026 (from EDD field) and 27/08/2026 (calculated from LMP)",
             "state": "outstanding"
           },
           {
@@ -916,11 +911,6 @@
           {
             "label": "Parity",
             "value": "3",
-            "state": "verified"
-          },
-          {
-            "label": "Blood Group",
-            "value": "O positive",
             "state": "verified"
           },
           {
@@ -949,13 +939,8 @@
             "state": "verified"
           },
           {
-            "label": "Urine Protein",
-            "value": "Outstanding",
-            "state": "verified"
-          },
-          {
-            "label": "Anti-D Record",
-            "value": "Outstanding",
+            "label": "Blood Group",
+            "value": "O positive",
             "state": "verified"
           }
         ],
@@ -971,7 +956,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 2 attempts",
-          "ms": 2
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -989,7 +974,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -1009,7 +994,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.274Z",
+      "ranAt": "2026-08-29T10:21:35.684Z",
       "packLines": [
         "ANC  --  S. Banda,  27     PID 3388",
         "Chelstone PHC",
@@ -1043,7 +1028,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for anaemia review for patient 3388. The referral pack is incomplete.",
+        "headline": "Referral for anaemia review. The referral pack is incomplete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -1061,7 +1046,7 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
+            "label": "Gestational age",
             "value": "31+6",
             "state": "verified"
           },
@@ -1081,7 +1066,7 @@
             "state": "verified"
           },
           {
-            "label": "Blood Group",
+            "label": "Blood group",
             "value": "A",
             "state": "verified"
           },
@@ -1091,12 +1076,12 @@
             "state": "verified"
           },
           {
-            "label": "HIV Screen",
+            "label": "HIV screen",
             "value": "negative (2026-01-20)",
             "state": "verified"
           },
           {
-            "label": "Syphilis Screen",
+            "label": "Syphilis screen",
             "value": "negative (2026-01-20)",
             "state": "verified"
           },
@@ -1106,29 +1091,34 @@
             "state": "verified"
           },
           {
-            "label": "Reason for Referral",
+            "label": "Reason for referral",
             "value": "microcytic anaemia for review, ? IV iron",
             "state": "verified"
           },
           {
-            "label": "Referring Facility",
+            "label": "Referring facility",
             "value": "Chelstone PHC",
             "state": "verified"
           },
           {
-            "label": "Referring Clinician",
+            "label": "Referring clinician",
             "value": "Sr M. Phiri",
             "state": "verified"
           },
           {
-            "label": "Referral Date",
+            "label": "Referral date",
             "value": "2026-08-21",
             "state": "verified"
           },
           {
-            "label": "Receiving Facility",
+            "label": "Receiving facility",
             "value": "District Hospital",
             "state": "verified"
+          },
+          {
+            "label": "Anti-D record",
+            "value": "Outstanding",
+            "state": "outstanding"
           }
         ],
         "gapList": [
@@ -1143,7 +1133,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -1181,7 +1171,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.276Z",
+      "ranAt": "2026-08-29T10:21:35.685Z",
       "packLines": [
         "Ruaraka Clinic",
         "Antenatal referral -- hypertension",
@@ -1225,7 +1215,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for hypertension in pregnancy review. The referral pack is incomplete.",
+        "headline": "This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -1331,7 +1321,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -1343,7 +1333,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1363,7 +1353,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.278Z",
+      "ranAt": "2026-08-29T10:21:35.687Z",
       "packLines": [
         "ANC CARD  --  N. Chirwa,  33     PID 7714",
         "Area 25 Clinic",
@@ -1407,7 +1397,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for routine growth scan. The referral pack is incomplete.",
+        "headline": "Referral for routine ultrasound. The referral pack contains a contradiction regarding parity.",
         "rows": [
           {
             "label": "Patient ID",
@@ -1425,13 +1415,13 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
-            "value": "21+5",
+            "label": "EDD",
+            "value": "2026-12-17",
             "state": "verified"
           },
           {
-            "label": "EDD",
-            "value": "2026-12-17",
+            "label": "Gestational Age",
+            "value": "21+5",
             "state": "verified"
           },
           {
@@ -1473,16 +1463,6 @@
             "label": "Blood Group",
             "value": "A positive",
             "state": "verified"
-          },
-          {
-            "label": "Urine Protein",
-            "value": "Outstanding",
-            "state": "verified"
-          },
-          {
-            "label": "Anti-D Record",
-            "value": "Outstanding",
-            "state": "verified"
           }
         ],
         "gapList": [
@@ -1515,7 +1495,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1535,7 +1515,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.281Z",
+      "ranAt": "2026-08-29T10:21:35.688Z",
       "packLines": [
         "ANC  --  B. Osei,  30     PID 9126",
         "Madina Clinic",
@@ -1557,7 +1537,7 @@
       "flaggedLines": [],
       "findings": [],
       "summary": {
-        "headline": "Referral for elective caesarean section. The referral pack is incomplete.",
+        "headline": "Referral for elective caesarean booking. The referral pack is complete.",
         "rows": [
           {
             "label": "Patient ID",
@@ -1575,13 +1555,13 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
-            "value": "37+2",
+            "label": "EDD",
+            "value": "2026-09-04",
             "state": "verified"
           },
           {
-            "label": "EDD",
-            "value": "2026-09-04",
+            "label": "Gestational Age",
+            "value": "37+2",
             "state": "verified"
           },
           {
@@ -1648,16 +1628,6 @@
             "label": "Receiving Facility",
             "value": "Teaching Hospital",
             "state": "verified"
-          },
-          {
-            "label": "Urine Protein",
-            "value": "Outstanding",
-            "state": "verified"
-          },
-          {
-            "label": "Anti-D Record",
-            "value": "Outstanding",
-            "state": "verified"
           }
         ],
         "gapList": [],
@@ -1668,7 +1638,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -1706,7 +1676,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.284Z",
+      "ranAt": "2026-08-29T10:21:35.689Z",
       "packLines": [
         "Kisumu West Clinic  --  antenatal referral",
         "",
@@ -1750,7 +1720,7 @@
             "state": "verified"
           },
           {
-            "label": "Gestational Age",
+            "label": "Gestational age",
             "value": "32+6",
             "state": "verified"
           },
@@ -1765,13 +1735,13 @@
             "state": "verified"
           },
           {
-            "label": "Blood Pressure",
+            "label": "Blood pressure",
             "value": "146/92 (2026-08-19), 144/90 (2026-08-20)",
             "state": "verified"
           },
           {
-            "label": "Urine Protein",
-            "value": "1+ (2026-08-20)",
+            "label": "Urine protein",
+            "value": "1+",
             "state": "verified"
           },
           {
@@ -1780,12 +1750,12 @@
             "state": "verified"
           },
           {
-            "label": "HIV Screen",
+            "label": "HIV screen",
             "value": "negative (2026-01-09)",
             "state": "verified"
           },
           {
-            "label": "Syphilis Screen",
+            "label": "Syphilis screen",
             "value": "negative (2026-01-09)",
             "state": "verified"
           },
@@ -1795,27 +1765,27 @@
             "state": "verified"
           },
           {
-            "label": "Reason for Referral",
+            "label": "Reason for referral",
             "value": "raised blood pressure for review",
             "state": "verified"
           },
           {
-            "label": "Referring Facility",
+            "label": "Referring facility",
             "value": "Kisumu West Clinic",
             "state": "verified"
           },
           {
-            "label": "Referring Clinician",
+            "label": "Referring clinician",
             "value": "Sr E. Onyango",
             "state": "verified"
           },
           {
-            "label": "Referral Date",
+            "label": "Referral date",
             "value": "2026-08-20",
             "state": "verified"
           },
           {
-            "label": "Receiving Facility",
+            "label": "Receiving facility",
             "value": "County Hospital",
             "state": "verified"
           }
@@ -1828,7 +1798,7 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
@@ -1846,7 +1816,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -1866,7 +1836,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.286Z",
+      "ranAt": "2026-08-29T10:21:35.690Z",
       "packLines": [
         "ANC  --  D. Mahlangu,  26     PID 2287",
         "Tembisa Clinic",
@@ -1906,7 +1876,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for anaemia review. The referral pack is incomplete.",
+        "headline": "Referral for anaemia review. The referral pack contains a contradiction regarding the syphilis screen date.",
         "rows": [
           {
             "label": "Patient ID",
@@ -2006,13 +1976,13 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -2044,7 +2014,7 @@
       "statusLine": "2 contradictions found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:00:44.288Z",
+      "ranAt": "2026-08-29T10:21:35.691Z",
       "packLines": [
         "ANC CARD  --  J. Sibanda,  31y     PID 1188-05",
         "Mzilikazi Clinic",
@@ -2099,7 +2069,7 @@
         }
       ],
       "summary": {
-        "headline": "Referral for elective caesarean booking for patient 1188-05. The referral pack is incomplete.",
+        "headline": "This is a referral for an elective caesarean booking. The referral pack contains contradictions regarding gestational age and estimated delivery date.",
         "rows": [
           {
             "label": "Patient ID",
@@ -2118,12 +2088,12 @@
           },
           {
             "label": "Gestational Age",
-            "value": "30+2 (recorded) vs 36+1 (calculated from LMP)",
+            "value": "30+2 (recorded); 36+1 (calculated from LMP)",
             "state": "outstanding"
           },
           {
             "label": "EDD",
-            "value": "2026-10-31 (recorded) vs 2026-09-20 (calculated from LMP)",
+            "value": "2026-10-31 (recorded); 2026-09-20 (calculated from LMP)",
             "state": "outstanding"
           },
           {
@@ -2189,16 +2159,6 @@
           {
             "label": "Receiving Facility",
             "value": "Central Hospital",
-            "state": "verified"
-          },
-          {
-            "label": "Urine Protein",
-            "value": "Outstanding",
-            "state": "verified"
-          },
-          {
-            "label": "Anti-D Record",
-            "value": "Outstanding",
             "state": "verified"
           }
         ],
@@ -2290,9 +2250,9 @@
     }
   ],
   "adjudicator": {
-    "agreementRate": "2 of 3",
-    "boundaryAssessment": "Crossed. In every case the model chose between two values recorded in a clinical document. That determination belongs to the clinician, whether or not the choice was correct. The experiment is removed. The consistency verifier reports both values with their provenance and resolves nothing.",
-    "case12Transcript": "## case-12\nGestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.\n\nPROMPT\nContradiction: Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.\n\nA (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]\nB (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]\n\nWhich is correct?\n\nRESPONSE\nchoice: B\nreasoning: The gestational age derived from the Last Menstrual Period (LMP) of 14 Dec 2025 to the date of 24 Aug 2026 is mathematically 36 weeks and 1 day. The recorded value of 30+2 is inconsistent with the provided LMP date, suggesting a documentation error or a discrepancy in the clinical record.\n\nREVIEW\nground-truth leaning: B   agreed: true\n\n",
+    "agreementRate": "1 of 3",
+    "boundaryAssessment": "Where the model did pick a value, it was choosing between two entries in a clinical document — a determination that belongs to the clinician, whether or not the choice was correct. Where it declined to pick, it added nothing the verifier does not already provide. Either way the experiment is removed: the consistency verifier reports both values with their provenance and resolves nothing.",
+    "case12Transcript": "## case-12\nThe recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.\n\nPROMPT\nContradiction: The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.\n\nA (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]\nB (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]\n\nWhich is correct?\n\nRESPONSE\nchoice: cannot determine\nreasoning: A discrepancy between gestational age based on LMP and clinical assessment (often via ultrasound) is common. Without information regarding whether an early dating scan was performed to confirm or override the LMP-based date, it is impossible to determine which value is clinically accurate.\n\nREVIEW\nground-truth leaning: B   agreed: false\n\n",
     "transcriptFile": "results/trajectories/adjudicator.md"
   },
   "variance": {

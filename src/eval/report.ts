@@ -22,6 +22,28 @@ function readJson<T>(name: string): T | null {
   return fs.existsSync(p) ? (JSON.parse(fs.readFileSync(p, "utf8")) as T) : null;
 }
 
+/**
+ * The mode the committed model calls were actually made in. Reports may be
+ * regenerated in replay from a fresh run's committed responses; in that case the
+ * detection numbers still come from real API calls, and this returns "fresh".
+ */
+function sourceCallMode(): "fresh" | "replay" | "unknown" {
+  for (const rel of [
+    ["baseline", "case-01", "baseline__attempt-1.json"],
+    ["extract", "case-01", "extract__attempt-1.json"],
+  ]) {
+    const p = path.join(PATHS.resultsRaw, ...rel);
+    if (fs.existsSync(p)) {
+      try {
+        return (JSON.parse(fs.readFileSync(p, "utf8")).mode as "fresh" | "replay") ?? "unknown";
+      } catch {
+        /* fall through */
+      }
+    }
+  }
+  return "unknown";
+}
+
 export interface FinalMetrics {
   generatedAt: string;
   mode: string;
@@ -111,7 +133,7 @@ export function buildFinalMetrics(): FinalMetrics {
 
   const metrics: FinalMetrics = {
     generatedAt: new Date().toISOString(),
-    mode: final.mode,
+    mode: sourceCallMode() === "unknown" ? final.mode : sourceCallMode(),
     model: final.model,
     headline: {
       agentCaught: final.aggregate.caught,

@@ -5,7 +5,7 @@
   "caseId": "case-05",
   "label": "adjudicator",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:33:28.764Z",
+  "timestamp": "2026-08-29T10:11:36.822Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {
@@ -18,31 +18,31 @@
         "role": "user",
         "parts": [
           {
-            "text": "Contradiction: The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.\n\nA (Recorded estimated delivery date): 12 Aug 2026  [source: EDD  12/08/2026]\nB (Estimated delivery date derived from LMP): 27 Aug 2026 (LMP + 280 days)  [source: LMP  20/11/2025]\n\nWhich is correct?"
+            "text": "Contradiction: The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.\n\nA (Recorded estimated delivery date): 12 Aug 2026  [source: EDD  12/08/2026]\nB (Estimated delivery date derived from LMP): 27 Aug 2026 (LMP + 280 days)  [source: LMP  20/11/2025]\n\nWhich is correct?"
           }
         ]
       }
     ]
   },
   "response": {
-    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"The EDD is typically calculated based on the LMP, but clinical adjustments are often made based on early ultrasound scans. Without knowing if the 12 Aug date was derived from a scan (which is more accurate than LMP) or if it is a clerical error, it is impossible to determine which value is correct.\"}",
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"An estimated delivery date (EDD) is often adjusted based on early ultrasound dating scans, which are clinically considered more accurate than calculations based solely on the last menstrual period (LMP). Without access to the clinical notes or ultrasound report, it is impossible to determine if the 12 Aug date is a corrected clinical estimate or an error.\"}",
     "finishReason": "STOP",
     "usageMetadata": {
-      "promptTokenCount": 181,
-      "candidatesTokenCount": 76,
-      "totalTokenCount": 257,
+      "promptTokenCount": 174,
+      "candidatesTokenCount": 81,
+      "totalTokenCount": 255,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
-          "tokenCount": 181
+          "tokenCount": 174
         }
       ],
       "serviceTier": "standard"
     }
   },
   "usage": {
-    "inputTokens": 181,
-    "outputTokens": 76,
+    "inputTokens": 174,
+    "outputTokens": 81,
     "cacheReadTokens": 0
   },
   "stopReason": "STOP"

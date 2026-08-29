@@ -688,7 +688,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for elective caesarean section. The referral pack is incomplete.",
+      "headline": "Referral for elective caesarean booking. The referral pack is complete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -706,13 +706,13 @@
           "state": "verified"
         },
         {
-          "label": "Gestational Age",
-          "value": "37+2",
+          "label": "EDD",
+          "value": "2026-09-04",
           "state": "verified"
         },
         {
-          "label": "EDD",
-          "value": "2026-09-04",
+          "label": "Gestational Age",
+          "value": "37+2",
           "state": "verified"
         },
         {
@@ -779,16 +779,6 @@
           "label": "Receiving Facility",
           "value": "Teaching Hospital",
           "state": "verified"
-        },
-        {
-          "label": "Urine Protein",
-          "value": "Outstanding",
-          "state": "verified"
-        },
-        {
-          "label": "Anti-D Record",
-          "value": "Outstanding",
-          "state": "verified"
         }
       ],
       "gapList": [],
@@ -800,10 +790,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for elective caesarean section. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"9126\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"30\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-28\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"37+2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-09-04\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.9 g/dL (2026-08-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean, maternal request\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Madina Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr K. Mensah\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-16\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Teaching Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"The urine protein result is missing.\",\n    \"The Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and include the missing urine protein result.\",\n    \"Obtain and include the Anti-D record.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"Referral for elective caesarean booking. The referral pack is complete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"9126\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"30\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-28\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-09-04\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"37+2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.9 g/dL (2026-08-12)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-08)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean, maternal request\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Madina Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr K. Mensah\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-16\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Teaching Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [],\n  \"beforeYouSend\": []\n}",
         "usage": {
-          "inputTokens": 1079,
-          "outputTokens": 829,
+          "inputTokens": 1144,
+          "outputTokens": 711,
           "cacheReadTokens": 0
         }
       }
@@ -821,31 +811,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.279Z",
-      "finishedAt": "2026-08-29T10:00:44.280Z"
+      "startedAt": "2026-08-29T10:21:35.687Z",
+      "finishedAt": "2026-08-29T10:21:35.687Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T10:00:44.280Z",
-      "finishedAt": "2026-08-29T10:00:44.280Z"
+      "startedAt": "2026-08-29T10:21:35.687Z",
+      "finishedAt": "2026-08-29T10:21:35.687Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.280Z",
-      "finishedAt": "2026-08-29T10:00:44.280Z"
+      "startedAt": "2026-08-29T10:21:35.687Z",
+      "finishedAt": "2026-08-29T10:21:35.687Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.280Z",
-      "finishedAt": "2026-08-29T10:00:44.281Z"
+      "startedAt": "2026-08-29T10:21:35.687Z",
+      "finishedAt": "2026-08-29T10:21:35.688Z"
     }
   ],
   "costUsd": 0.0012,
-  "ranAt": "2026-08-29T10:00:44.281Z"
+  "ranAt": "2026-08-29T10:21:35.688Z"
 }

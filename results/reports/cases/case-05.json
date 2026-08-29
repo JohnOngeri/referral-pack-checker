@@ -742,7 +742,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for routine ultrasound for patient 5514. The referral pack is incomplete.",
+      "headline": "This is a referral for a routine ultrasound. The referral pack contains a contradiction regarding the estimated delivery date.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -761,7 +761,7 @@
         },
         {
           "label": "EDD",
-          "value": "2026-08-12",
+          "value": "12/08/2026 (from EDD field) and 27/08/2026 (calculated from LMP)",
           "state": "outstanding"
         },
         {
@@ -777,11 +777,6 @@
         {
           "label": "Parity",
           "value": "3",
-          "state": "verified"
-        },
-        {
-          "label": "Blood Group",
-          "value": "O positive",
           "state": "verified"
         },
         {
@@ -810,13 +805,8 @@
           "state": "verified"
         },
         {
-          "label": "Urine Protein",
-          "value": "Outstanding",
-          "state": "verified"
-        },
-        {
-          "label": "Anti-D Record",
-          "value": "Outstanding",
+          "label": "Blood Group",
+          "value": "O positive",
           "state": "verified"
         }
       ],
@@ -833,10 +823,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for routine ultrasound for patient 5514. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"5514\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"36\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-20\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-08-12\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"38+1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"4\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"O positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"growth scan follow-up, previous large-for-dates baby\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Kibera Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr J. Otieno\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Referral Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"Urine protein result is missing.\",\n    \"Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Clarify the discrepancy between the recorded EDD of 12 August 2026 and the date calculated from the LMP of 20 November 2025, which is 27 August 2026.\",\n    \"Obtain and document the current urine protein result.\",\n    \"Obtain and document the Anti-D record.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for a routine ultrasound. The referral pack contains a contradiction regarding the estimated delivery date.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"5514\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"36\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-11-20\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"12/08/2026 (from EDD field) and 27/08/2026 (calculated from LMP)\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"38+1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"4\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"growth scan follow-up, previous large-for-dates baby\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Kibera Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr J. Otieno\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Referral Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"O positive\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026.\"\n  ],\n  \"beforeYouSend\": [\n    \"Review the patient's records to confirm the correct estimated delivery date and update the referral form accordingly.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1103,
-          "outputTokens": 685,
+          "inputTokens": 1161,
+          "outputTokens": 608,
           "cacheReadTokens": 0
         }
       }
@@ -854,31 +844,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 2 attempts",
-      "startedAt": "2026-08-29T10:00:44.269Z",
-      "finishedAt": "2026-08-29T10:00:44.271Z"
+      "startedAt": "2026-08-29T10:21:35.682Z",
+      "finishedAt": "2026-08-29T10:21:35.682Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 14 field rules",
-      "startedAt": "2026-08-29T10:00:44.271Z",
-      "finishedAt": "2026-08-29T10:00:44.271Z"
+      "startedAt": "2026-08-29T10:21:35.682Z",
+      "finishedAt": "2026-08-29T10:21:35.682Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.271Z",
-      "finishedAt": "2026-08-29T10:00:44.271Z"
+      "startedAt": "2026-08-29T10:21:35.682Z",
+      "finishedAt": "2026-08-29T10:21:35.682Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.271Z",
-      "finishedAt": "2026-08-29T10:00:44.272Z"
+      "startedAt": "2026-08-29T10:21:35.682Z",
+      "finishedAt": "2026-08-29T10:21:35.682Z"
     }
   ],
   "costUsd": 0.0021,
-  "ranAt": "2026-08-29T10:00:44.272Z"
+  "ranAt": "2026-08-29T10:21:35.682Z"
 }

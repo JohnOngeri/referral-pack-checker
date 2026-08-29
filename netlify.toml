@@ -1,0 +1,13 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# The public demo runs in REPLAY mode: the dashboard and the "Re-run check" action
+# read the committed model responses under results/raw/ and make no API call.
+# To run it against the live model instead, set GEMINI_API_KEY in the Netlify
+# site environment variables. Note that this spends API quota per re-run.
+[build.environment]
+  NODE_VERSION = "20"

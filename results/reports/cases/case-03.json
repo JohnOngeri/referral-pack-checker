@@ -690,7 +690,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for anaemia review. The referral pack is incomplete.",
+      "headline": "This is a referral for anaemia review. The referral pack is incomplete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -791,10 +791,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for anaemia review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"8830\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"24\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-02-15\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"24+3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"anaemia, for review and consideration of IV iron\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ikeja Health Post\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr F. Balogun\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"General Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Haemoglobin result is missing from the pack.\"\n  ],\n  \"beforeYouSend\": [\n    \"Obtain and include a current haemoglobin result.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for anaemia review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"8830\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"24\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-02-15\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"24+3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"B\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-03-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"anaemia, for review and consideration of IV iron\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Ikeja Health Post\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr F. Balogun\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"General Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it.\"\n  ],\n  \"beforeYouSend\": [\n    \"Record the patient's current haemoglobin level.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1064,
-          "outputTokens": 691,
+          "inputTokens": 1129,
+          "outputTokens": 700,
           "cacheReadTokens": 0
         }
       }
@@ -812,31 +812,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 2 attempts",
-      "startedAt": "2026-08-29T10:00:44.264Z",
-      "finishedAt": "2026-08-29T10:00:44.266Z"
+      "startedAt": "2026-08-29T10:21:35.680Z",
+      "finishedAt": "2026-08-29T10:21:35.680Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T10:00:44.266Z",
-      "finishedAt": "2026-08-29T10:00:44.266Z"
+      "startedAt": "2026-08-29T10:21:35.680Z",
+      "finishedAt": "2026-08-29T10:21:35.680Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.266Z",
-      "finishedAt": "2026-08-29T10:00:44.266Z"
+      "startedAt": "2026-08-29T10:21:35.680Z",
+      "finishedAt": "2026-08-29T10:21:35.680Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.266Z",
-      "finishedAt": "2026-08-29T10:00:44.267Z"
+      "startedAt": "2026-08-29T10:21:35.680Z",
+      "finishedAt": "2026-08-29T10:21:35.680Z"
     }
   ],
   "costUsd": 0.0019,
-  "ranAt": "2026-08-29T10:00:44.267Z"
+  "ranAt": "2026-08-29T10:21:35.680Z"
 }

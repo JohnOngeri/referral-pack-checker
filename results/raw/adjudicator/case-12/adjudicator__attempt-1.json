@@ -5,7 +5,7 @@
   "caseId": "case-12",
   "label": "adjudicator",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:33:47.084Z",
+  "timestamp": "2026-08-29T10:11:54.186Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {
@@ -18,31 +18,31 @@
         "role": "user",
         "parts": [
           {
-            "text": "Contradiction: Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.\n\nA (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]\nB (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]\n\nWhich is correct?"
+            "text": "Contradiction: The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.\n\nA (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]\nB (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]\n\nWhich is correct?"
           }
         ]
       }
     ]
   },
   "response": {
-    "text": "{\"choice\": \"B\", \"reasoning\": \"The gestational age derived from the Last Menstrual Period (LMP) of 14 Dec 2025 to the date of 24 Aug 2026 is mathematically 36 weeks and 1 day. The recorded value of 30+2 is inconsistent with the provided LMP date, suggesting a documentation error or a discrepancy in the clinical record.\"}",
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"A discrepancy between gestational age based on LMP and clinical assessment (often via ultrasound) is common. Without information regarding whether an early dating scan was performed to confirm or override the LMP-based date, it is impossible to determine which value is clinically accurate.\"}",
     "finishReason": "STOP",
     "usageMetadata": {
-      "promptTokenCount": 184,
-      "candidatesTokenCount": 89,
-      "totalTokenCount": 273,
+      "promptTokenCount": 164,
+      "candidatesTokenCount": 63,
+      "totalTokenCount": 227,
       "promptTokensDetails": [
         {
           "modality": "TEXT",
-          "tokenCount": 184
+          "tokenCount": 164
         }
       ],
       "serviceTier": "standard"
     }
   },
   "usage": {
-    "inputTokens": 184,
-    "outputTokens": 89,
+    "inputTokens": 164,
+    "outputTokens": 63,
     "cacheReadTokens": 0
   },
   "stopReason": "STOP"

@@ -8,6 +8,7 @@ import { runConfig } from "./eval/run";
 import { runVariance } from "./eval/variance";
 import { runAdjudicator } from "./agents/adjudicator";
 import { buildFinalMetrics, buildChangelog, writeDashboardData } from "./eval/report";
+import { writeExtraTrajectories, trajectoryIndex } from "./eval/trajectories";
 import { ITERATION_ORDER } from "./eval/configs";
 import { PATHS } from "./lib/paths";
 
@@ -79,16 +80,40 @@ async function cmdEval() {
     const a = await runAdjudicator(provider);
     console.log(`    agreement ${a.agreementRate}`);
   }
-  await cmdReport();
+  await finalize(provider);
 }
 
+/** Standalone report: regenerate every derived artifact from the committed model
+ * calls, so analysis-code changes take effect without a new evaluation. No new
+ * API calls in replay mode. */
 async function cmdReport() {
+  const provider = makeProvider(resolveMode());
+  for (const id of ITERATION_ORDER) {
+    try {
+      await runConfig(provider, id);
+    } catch (e) {
+      console.warn(`  config ${id}: ${(e as Error).message}`);
+    }
+  }
+  try {
+    await runVariance(provider, 3);
+  } catch (e) {
+    console.warn(`  variance: ${(e as Error).message}`);
+  }
+  try {
+    await runAdjudicator(provider);
+  } catch (e) {
+    console.warn(`  adjudicator: ${(e as Error).message}`);
+  }
+  await finalize(provider);
+}
+
+/** Build final metrics, changelog, per-case pipeline data, trajectories and the
+ * dashboard data from whatever configuration reports are already on disk. */
+async function finalize(provider: ReturnType<typeof makeProvider>) {
   const metrics = buildFinalMetrics();
   const changelog = buildChangelog();
   fs.writeFileSync(path.join(process.cwd(), "CHANGELOG_IMPROVEMENT.md"), changelog, "utf8");
-  // Run each case through the pipeline once for the dashboard (replay-safe).
-  const mode = resolveMode();
-  const provider = makeProvider(mode);
   for (const id of allCaseIds()) {
     try {
       const r = await runPipeline(provider, id);
@@ -97,9 +122,15 @@ async function cmdReport() {
       console.warn(`  pipeline ${id}: ${(e as Error).message}`);
     }
   }
+  try {
+    await writeExtraTrajectories(provider);
+  } catch (e) {
+    console.warn(`  extra trajectories: ${(e as Error).message}`);
+  }
+  trajectoryIndex();
   writeDashboardData();
   console.log(
-    `Report written.\n  headline: ${metrics.headline.sentence}\n  -> results/reports/final_metrics.json\n  -> results/reports/comparison.csv\n  -> CHANGELOG_IMPROVEMENT.md\n  -> src/data/dashboard.json`,
+    `Report written.\n  headline: ${metrics.headline.sentence}\n  -> results/reports/final_metrics.json\n  -> results/reports/comparison.csv\n  -> CHANGELOG_IMPROVEMENT.md\n  -> results/trajectories/\n  -> src/data/dashboard.json`,
   );
 }
 

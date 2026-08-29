@@ -1,5 +1,5 @@
 # Trajectory — case-08 (routine_ultrasound)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.278Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.687Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for routine growth scan. The referral pack is incomplete.
+Headline: Referral for routine ultrasound. The referral pack contains a contradiction regarding parity.
 Gap list:
   - Recorded parity (2) does not match the obstetric history, which lists 3 previous births.
 

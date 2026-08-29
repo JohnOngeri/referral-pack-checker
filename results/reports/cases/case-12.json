@@ -835,7 +835,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for elective caesarean booking for patient 1188-05. The referral pack is incomplete.",
+      "headline": "This is a referral for an elective caesarean booking. The referral pack contains contradictions regarding gestational age and estimated delivery date.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -854,12 +854,12 @@
         },
         {
           "label": "Gestational Age",
-          "value": "30+2 (recorded) vs 36+1 (calculated from LMP)",
+          "value": "30+2 (recorded); 36+1 (calculated from LMP)",
           "state": "outstanding"
         },
         {
           "label": "EDD",
-          "value": "2026-10-31 (recorded) vs 2026-09-20 (calculated from LMP)",
+          "value": "2026-10-31 (recorded); 2026-09-20 (calculated from LMP)",
           "state": "outstanding"
         },
         {
@@ -926,16 +926,6 @@
           "label": "Receiving Facility",
           "value": "Central Hospital",
           "state": "verified"
-        },
-        {
-          "label": "Urine Protein",
-          "value": "Outstanding",
-          "state": "verified"
-        },
-        {
-          "label": "Anti-D Record",
-          "value": "Outstanding",
-          "state": "verified"
         }
       ],
       "gapList": [
@@ -953,10 +943,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for elective caesarean booking for patient 1188-05. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"1188-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"31\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-12-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"30+2 (recorded) vs 36+1 (calculated from LMP)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-10-31 (recorded) vs 2026-09-20 (calculated from LMP)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"O\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.7 g/dL (2026-08-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2019 SVD term; 2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean (2023)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Mzilikazi Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr T. Ndlovu\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-24\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Central Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Urine Protein\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Anti-D Record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"Urine protein result is missing.\",\n    \"Anti-D record is missing.\"\n  ],\n  \"beforeYouSend\": [\n    \"Clarify the discrepancy between the recorded gestational age and the date calculated from the last menstrual period.\",\n    \"Clarify the discrepancy between the recorded estimated delivery date and the date calculated from the last menstrual period.\",\n    \"Include the missing urine protein result.\",\n    \"Include the missing Anti-D record.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"This is a referral for an elective caesarean booking. The referral pack contains contradictions regarding gestational age and estimated delivery date.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"1188-05\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"31\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2025-12-14\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"30+2 (recorded); 36+1 (calculated from LMP)\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"EDD\",\n      \"value\": \"2026-10-31 (recorded); 2026-09-20 (calculated from LMP)\",\n      \"state\": \"outstanding\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"3\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"2\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"O\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"positive\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"11.7 g/dL (2026-08-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2025-12-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2025-12-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Previous Obstetric History\",\n      \"value\": \"2019 SVD term; 2023 LSCS term\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"elective LSCS booking, previous caesarean (2023)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Mzilikazi Clinic\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr T. Ndlovu\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-24\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"Central Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1.\",\n    \"The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026.\"\n  ],\n  \"beforeYouSend\": [\n    \"Review and clarify the discrepancy between the recorded gestational age and the date calculated from the LMP.\",\n    \"Review and clarify the discrepancy between the recorded EDD and the date calculated from the LMP.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1290,
-          "outputTokens": 926,
+          "inputTokens": 1328,
+          "outputTokens": 883,
           "cacheReadTokens": 0
         }
       }
@@ -974,31 +964,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.287Z",
-      "finishedAt": "2026-08-29T10:00:44.287Z"
+      "startedAt": "2026-08-29T10:21:35.691Z",
+      "finishedAt": "2026-08-29T10:21:35.691Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T10:00:44.288Z",
-      "finishedAt": "2026-08-29T10:00:44.288Z"
+      "startedAt": "2026-08-29T10:21:35.691Z",
+      "finishedAt": "2026-08-29T10:21:35.691Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.288Z",
-      "finishedAt": "2026-08-29T10:00:44.288Z"
+      "startedAt": "2026-08-29T10:21:35.691Z",
+      "finishedAt": "2026-08-29T10:21:35.691Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.288Z",
-      "finishedAt": "2026-08-29T10:00:44.288Z"
+      "startedAt": "2026-08-29T10:21:35.691Z",
+      "finishedAt": "2026-08-29T10:21:35.691Z"
     }
   ],
   "costUsd": 0.0014,
-  "ranAt": "2026-08-29T10:00:44.288Z"
+  "ranAt": "2026-08-29T10:21:35.691Z"
 }

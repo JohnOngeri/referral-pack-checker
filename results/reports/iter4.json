@@ -1,9 +1,9 @@
 {
   "configId": "iter4",
   "label": "Iteration 4 — per-facility memory",
-  "mode": "fresh",
+  "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T09:30:38.927Z",
+  "ranAt": "2026-08-29T10:21:35.648Z",
   "perCase": [
     {
       "caseId": "case-01",
@@ -93,7 +93,7 @@
         {
           "field": "edd",
           "kind": "contradiction",
-          "plain": "The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026."
+          "plain": "The estimated delivery date (12 Aug 2026) does not follow from the recorded last menstrual period, which gives 27 Aug 2026."
         }
       ]
     },
@@ -133,7 +133,7 @@
         {
           "field": "haemoglobin",
           "kind": "contradiction",
-          "plain": "Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026."
+          "plain": "Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026)."
         }
       ]
     },
@@ -153,7 +153,7 @@
         {
           "field": "parity",
           "kind": "contradiction",
-          "plain": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total)."
+          "plain": "Recorded parity (2) does not match the obstetric history, which lists 3 previous births."
         }
       ]
     },
@@ -197,7 +197,7 @@
         {
           "field": "syphilisScreen",
           "kind": "contradiction",
-          "plain": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026."
+          "plain": "Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026)."
         }
       ]
     },
@@ -218,12 +218,12 @@
         {
           "field": "gestationalAge",
           "kind": "contradiction",
-          "plain": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026."
+          "plain": "The recorded gestational age (30+2) does not match the last menstrual period, which gives 36+1."
         },
         {
           "field": "edd",
           "kind": "contradiction",
-          "plain": "The estimated delivery date is recorded as 31 Oct 2026. The recorded last menstrual period of 14 Dec 2025 gives 20 Sep 2026."
+          "plain": "The estimated delivery date (31 Oct 2026) does not follow from the recorded last menstrual period, which gives 20 Sep 2026."
         }
       ]
     }

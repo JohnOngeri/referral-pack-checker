@@ -5,7 +5,7 @@
   "caseId": "case-10",
   "label": "model-check-iter1",
   "attempt": 1,
-  "timestamp": "2026-08-29T09:30:11.013Z",
+  "timestamp": "2026-08-29T10:08:11.646Z",
   "request": {
     "model": "gemini-3.1-flash-lite",
     "config": {

@@ -666,7 +666,7 @@
   },
   "summary": {
     "summary": {
-      "headline": "Referral for anaemia review for patient 3388. The referral pack is incomplete.",
+      "headline": "Referral for anaemia review. The referral pack is incomplete.",
       "summaryRows": [
         {
           "label": "Patient ID",
@@ -684,7 +684,7 @@
           "state": "verified"
         },
         {
-          "label": "Gestational Age",
+          "label": "Gestational age",
           "value": "31+6",
           "state": "verified"
         },
@@ -704,7 +704,7 @@
           "state": "verified"
         },
         {
-          "label": "Blood Group",
+          "label": "Blood group",
           "value": "A",
           "state": "verified"
         },
@@ -714,12 +714,12 @@
           "state": "verified"
         },
         {
-          "label": "HIV Screen",
+          "label": "HIV screen",
           "value": "negative (2026-01-20)",
           "state": "verified"
         },
         {
-          "label": "Syphilis Screen",
+          "label": "Syphilis screen",
           "value": "negative (2026-01-20)",
           "state": "verified"
         },
@@ -729,29 +729,34 @@
           "state": "verified"
         },
         {
-          "label": "Reason for Referral",
+          "label": "Reason for referral",
           "value": "microcytic anaemia for review, ? IV iron",
           "state": "verified"
         },
         {
-          "label": "Referring Facility",
+          "label": "Referring facility",
           "value": "Chelstone PHC",
           "state": "verified"
         },
         {
-          "label": "Referring Clinician",
+          "label": "Referring clinician",
           "value": "Sr M. Phiri",
           "state": "verified"
         },
         {
-          "label": "Referral Date",
+          "label": "Referral date",
           "value": "2026-08-21",
           "state": "verified"
         },
         {
-          "label": "Receiving Facility",
+          "label": "Receiving facility",
           "value": "District Hospital",
           "state": "verified"
+        },
+        {
+          "label": "Anti-D record",
+          "value": "Outstanding",
+          "state": "outstanding"
         }
       ],
       "gapList": [
@@ -767,10 +772,10 @@
         "ok": true,
         "schemaValid": true,
         "clinicalLanguageIssues": [],
-        "rawText": "{\n  \"headline\": \"Referral for anaemia review for patient 3388. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"3388\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"27\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-01-10\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational Age\",\n      \"value\": \"31+6\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"9.4 g/dL (2026-08-15)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood Group\",\n      \"value\": \"A\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"negative\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV Screen\",\n      \"value\": \"negative (2026-01-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis Screen\",\n      \"value\": \"negative (2026-01-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for Referral\",\n      \"value\": \"microcytic anaemia for review, ? IV iron\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Facility\",\n      \"value\": \"Chelstone PHC\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring Clinician\",\n      \"value\": \"Sr M. Phiri\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral Date\",\n      \"value\": \"2026-08-21\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving Facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    }\n  ],\n  \"gapList\": [\n    \"The Anti-D immunoglobulin record is missing and is required because the patient is Rhesus negative.\",\n    \"The urine protein result is outstanding.\",\n    \"The previous obstetric history is outstanding.\"\n  ],\n  \"beforeYouSend\": [\n    \"Include the Anti-D immunoglobulin record.\",\n    \"Include the urine protein result.\",\n    \"Include the previous obstetric history.\"\n  ]\n}",
+        "rawText": "{\n  \"headline\": \"Referral for anaemia review. The referral pack is incomplete.\",\n  \"summaryRows\": [\n    {\n      \"label\": \"Patient ID\",\n      \"value\": \"3388\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Age\",\n      \"value\": \"27\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"LMP\",\n      \"value\": \"2026-01-10\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gestational age\",\n      \"value\": \"31+6\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Gravidity\",\n      \"value\": \"1\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Parity\",\n      \"value\": \"0\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Haemoglobin\",\n      \"value\": \"9.4 g/dL (2026-08-15)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Blood group\",\n      \"value\": \"A\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Rhesus\",\n      \"value\": \"negative\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"HIV screen\",\n      \"value\": \"negative (2026-01-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Syphilis screen\",\n      \"value\": \"negative (2026-01-20)\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Medications\",\n      \"value\": \"ferrous sulphate 200mg bd, folic acid 5mg\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Reason for referral\",\n      \"value\": \"microcytic anaemia for review, ? IV iron\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring facility\",\n      \"value\": \"Chelstone PHC\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referring clinician\",\n      \"value\": \"Sr M. Phiri\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Referral date\",\n      \"value\": \"2026-08-21\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Receiving facility\",\n      \"value\": \"District Hospital\",\n      \"state\": \"verified\"\n    },\n    {\n      \"label\": \"Anti-D record\",\n      \"value\": \"Outstanding\",\n      \"state\": \"outstanding\"\n    }\n  ],\n  \"gapList\": [\n    \"Anti-D immunoglobulin record is not in this pack. Mandatory here because: Required when the rhesus status is recorded as negative.\"\n  ],\n  \"beforeYouSend\": [\n    \"Include the Anti-D immunoglobulin record in the referral pack.\"\n  ]\n}",
         "usage": {
-          "inputTokens": 1105,
-          "outputTokens": 758,
+          "inputTokens": 1170,
+          "outputTokens": 756,
           "cacheReadTokens": 0
         }
       }
@@ -788,31 +793,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.272Z",
-      "finishedAt": "2026-08-29T10:00:44.273Z"
+      "startedAt": "2026-08-29T10:21:35.683Z",
+      "finishedAt": "2026-08-29T10:21:35.683Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 21 field rules",
-      "startedAt": "2026-08-29T10:00:44.273Z",
-      "finishedAt": "2026-08-29T10:00:44.273Z"
+      "startedAt": "2026-08-29T10:21:35.683Z",
+      "finishedAt": "2026-08-29T10:21:35.683Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:00:44.273Z",
-      "finishedAt": "2026-08-29T10:00:44.273Z"
+      "startedAt": "2026-08-29T10:21:35.683Z",
+      "finishedAt": "2026-08-29T10:21:35.683Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:00:44.273Z",
-      "finishedAt": "2026-08-29T10:00:44.274Z"
+      "startedAt": "2026-08-29T10:21:35.683Z",
+      "finishedAt": "2026-08-29T10:21:35.684Z"
     }
   ],
-  "costUsd": 0.0011,
-  "ranAt": "2026-08-29T10:00:44.274Z"
+  "costUsd": 0.0012,
+  "ranAt": "2026-08-29T10:21:35.684Z"
 }

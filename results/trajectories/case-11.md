@@ -1,5 +1,5 @@
 # Trajectory — case-11 (anaemia_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.286Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.690Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -49,7 +49,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for anaemia review. The referral pack is incomplete.
+Headline: Referral for anaemia review. The referral pack contains a contradiction regarding the syphilis screen date.
 Gap list:
   - Syphilis screen is dated 20 Dec 2025, before the recorded last menstrual period (8 Jan 2026).
 

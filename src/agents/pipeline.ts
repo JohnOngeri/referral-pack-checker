@@ -152,7 +152,11 @@ export async function runPipeline(
     ranAt: new Date().toISOString(),
   };
 
-  writeTrajectory(result);
+  try {
+    writeTrajectory(result);
+  } catch {
+    // read-only filesystem (e.g. serverless) — the trajectory is best-effort here
+  }
   return result;
 }
 

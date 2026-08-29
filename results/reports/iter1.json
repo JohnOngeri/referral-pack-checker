@@ -1,9 +1,9 @@
 {
   "configId": "iter1",
   "label": "Iteration 1 — structured extraction with provenance",
-  "mode": "fresh",
+  "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T09:30:38.902Z",
+  "ranAt": "2026-08-29T10:21:35.629Z",
   "perCase": [
     {
       "caseId": "case-01",

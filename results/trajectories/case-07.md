@@ -1,5 +1,5 @@
 # Trajectory — case-07 (hypertension_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:00:44.276Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T10:21:35.685Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
@@ -48,7 +48,7 @@ No model call. The extracted structure is compared field by field to the require
 Attempt 1: schema valid; 0 clinical-language issue(s)
   Accepted.
 
-Headline: Referral for hypertension in pregnancy review. The referral pack is incomplete.
+Headline: This is a referral for a hypertension in pregnancy review. The referral pack is incomplete.
 Gap list:
   - Haemoglobin sample is dated 18 Sep 2026, after the day the referral was written (18 Aug 2026).
 
