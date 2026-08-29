@@ -3,7 +3,7 @@
   "label": "Iteration 1 — structured extraction with provenance",
   "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T10:21:35.629Z",
+  "ranAt": "2026-08-29T11:06:23.865Z",
   "perCase": [
     {
       "caseId": "case-01",

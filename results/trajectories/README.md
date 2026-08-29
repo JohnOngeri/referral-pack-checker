@@ -2,6 +2,7 @@
 
 Readable top-to-bottom traces of each run.
 
+- [README.md](README.md)
 - [adjudicator.md](adjudicator.md)
 - [baseline.md](baseline.md)
 - [case-01.checks.md](case-01.checks.md)
