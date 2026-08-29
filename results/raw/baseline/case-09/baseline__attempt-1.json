@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-09",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:10.670Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Elective caesarean booking\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Estimated delivery date (edd): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood group (bloodGroup): mandatory\n- Rhesus status (rhesus): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Previous obstetric history (previousObstetricHistory): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Anti-D immunoglobulin record (antiD): conditional — only if: Required when the rhesus status is recorded as negative.\n\nREFERRAL PACK\nANC  --  B. Osei,  30     PID 9126\nMadina Clinic\n                                              // grp B+ , lab 12/12/25\nLMP 28/11/2025    EDD 04/09/2026    GA 37+2 (16/08/26)\nG2 P1    -- 2023 LSCS term\n\nHb 11.9 (12/08/26)\nHIV neg (08/12/25)    RPR neg (08/12/25)    Rh pos\nBP 122/78 (16/08/26)\n\nAllergies: nil known\nMeds: ferrous sulphate, folic acid, calcium\n\nReason: elective LSCS booking, previous caesarean, maternal request\nReferred by: Sr K. Mensah, Madina Clinic, 16/08/2026\nTo: Teaching Hospital -- Theatre list\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- Haemoglobin: Out of date (dated 12/08/26, which is 4 days outside the 56-day limit relative to the referral date of 16/08/26).\n- Gestational Age: Contradiction (LMP 28/11/2025 results in a GA of 37+5 on 16/08/26, but the pack records 37+2).\n- Blood Group: Contradiction (Header states \"grp B+\" while the body states \"Rh pos\" without specifying the ABO group).\n- Referral Date: Contradiction (The referral date is 16/08/2026, but the blood group lab date is 12/12/25, which is in the future).\n- HIV Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date).\n- Syphilis Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date).\n\n### SUMMARY\nPatient B. Osei (PID 9126), a 30-year-old G2P1, is referred by Sr K. Mensah at Madina Clinic for an elective caesarean section due to a previous LSCS and maternal request. The patient has a history of one previous term LSCS in 2023. Current clinical findings include a blood pressure of 122/78 mmHg and a haemoglobin level of 11.9 g/dL. The patient is noted to be Rhesus positive. The referral is directed to the Teaching Hospital theatre list.\n\n### BEFORE YOU SEND\n1. **Update Haemoglobin:** Provide a new haemoglobin result dated within the last 56 days.\n2. **Verify Dates:** Correct the dates for the blood group, HIV, and Syphilis tests; the current dates (12/12/25 and 08/12/25) are in the future and invalid.\n3. **Reconcile Gestational Age:** Recalculate the gestational age based on the LMP and ensure it matches the clinical record (37+5 vs 37+2).\n4. **Clarify Blood Group:** Confirm the full blood group (ABO and Rhesus) to resolve the discrepancy between the header (\"B+\") and the body (\"Rh pos\").\n5. **Standardize Documentation:** Ensure all dates are formatted consistently and reflect the current calendar year (2026).",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 694,
+      "candidatesTokenCount": 557,
+      "totalTokenCount": 1251,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 694
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 694,
+    "outputTokens": 557,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

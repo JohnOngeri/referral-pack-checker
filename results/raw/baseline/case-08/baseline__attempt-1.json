@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-08",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:05.619Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Routine ultrasound referral\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Estimated delivery date (edd): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Receiving department (receivingDepartment): mandatory\n- Blood group (bloodGroup): conditional — only if: Required when the stated reason for referral mentions bleeding or a placental concern.\n\nREFERRAL PACK\nANC CARD  --  N. Chirwa,  33     PID 7714\nArea 25 Clinic\n\nLMP 12/03/2026   EDD 17/12/2026   GA 21+5 (11/08/26)\nG4 P2\n\nObstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term\n\nHb 11.6 (08/08/26)    Blood gp A pos\nHIV neg (20/03/26)    RPR neg (20/03/26)\nBP 114/72 (11/08/26)\n\nAllergies: nil\nMeds: folic acid, ferrous sulphate\n\nReason: growth scan\nReferred by: Sr C. Mbewe, Area 25 Clinic, 11/08/2026\nTo: Central Hospital -- Radiology\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- Missing field: The referral pack does not explicitly state the patient's age in years (though \"33\" is listed, it is not labeled as `ageYears`).\n- Contradiction: The parity is listed as \"P2,\" but the obstetric history lists three previous births (2017, 2019, 2023).\n- Contradiction: The gestational age (GA) calculation is inconsistent. If the LMP is 12/03/2026, the GA on 11/08/2026 should be 21 weeks and 6 days, not 21+5.\n- Contradiction: The EDD is listed as 17/12/2026; based on an LMP of 12/03/2026, the EDD should be 17/12/2026 (this is consistent), but the GA calculation remains mathematically inconsistent with the LMP.\n\n### SUMMARY\n**Patient:** N. Chirwa (PID 7714)\n**Age:** 33 years\n**LMP:** 12/03/2026\n**EDD:** 17/12/2026\n**GA:** 21+5 or 21+6 (Calculated 11/08/2026)\n**Gravidity:** G4\n**Parity:** P2 or P3 (Obstetric history lists 3 previous births)\n**Reason for Referral:** Growth scan\n**Referring Facility:** Area 25 Clinic\n**Referring Clinician:** Sr C. Mbewe\n**Referral Date:** 11/08/2026\n**Receiving Facility:** Central Hospital\n**Receiving Department:** Radiology\n**Blood Group:** A positive\n\n### BEFORE YOU SEND\n1. **Clarify Parity:** Please reconcile the parity (P2) with the obstetric history provided (which lists three previous SVDs).\n2. **Verify Gestational Age:** Please re-calculate the gestational age based on the LMP of 12/03/2026 to ensure the GA is accurate for the date of referral (11/08/2026).\n3. **Label Age:** Explicitly label the patient's age as \"33 years\" to meet the mandatory field requirement.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 604,
+      "candidatesTokenCount": 521,
+      "totalTokenCount": 1125,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 604
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 604,
+    "outputTokens": 521,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

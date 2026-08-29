@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-12",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:23.753Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Elective caesarean booking\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Estimated delivery date (edd): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood group (bloodGroup): mandatory\n- Rhesus status (rhesus): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Previous obstetric history (previousObstetricHistory): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Anti-D immunoglobulin record (antiD): conditional — only if: Required when the rhesus status is recorded as negative.\n\nREFERRAL PACK\nANC CARD  --  J. Sibanda,  31y     PID 1188-05\nMzilikazi Clinic\n\nLMP 14/12/2025\nGA 30+2   (recorded at visit 24/08/26)\nEDD 31/10/2026\nG3 P2     -- 2019 SVD term ; 2023 LSCS term\n\nHb 11.7 (20/08/26)     Blood gp O pos\nHIV neg (20/12/25)     RPR neg (20/12/25)\nBP 126/82 (24/08/26)   120/78 (10/08/26)\n\nAllergies: none known\nMeds: ferrous sulphate, folic acid, calcium, aspirin 75mg\n\nReason: elective LSCS booking, previous caesarean (2023)\nReferred by: Sr T. Ndlovu, Mzilikazi Clinic, 24/08/2026\nTo: Central Hospital -- Theatre list\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n*   **LMP:** The recorded date (14/12/2025) is in the future relative to the referral date (24/08/2026).\n*   **Gestational Age:** The GA (30+2) is inconsistent with the LMP (14/12/2025); based on the LMP, the patient would not yet be pregnant.\n*   **Haemoglobin:** The result (20/08/26) is 4 days old, which is within the 56-day limit; however, the record is valid.\n*   **HIV Screening Status:** The result (20/12/25) is 247 days old, which is within the 365-day limit.\n*   **Syphilis Screening Status:** The result (20/12/25) is 247 days old, which is within the 365-day limit.\n*   **Referral Date:** Present.\n*   **Referring Clinician:** Present.\n*   **Referring Facility:** Present.\n*   **Receiving Facility:** Present.\n*   **Anti-D Immunoglobulin Record:** Not required (Rhesus status is positive).\n\n### SUMMARY\nPatient J. Sibanda (PID 1188-05), a 31-year-old G3 P2, is referred by Sr T. Ndlovu of Mzilikazi Clinic to Central Hospital for an elective LSCS booking due to a previous caesarean section in 2023. The patient’s obstetric history includes a 2019 term SVD and a 2023 term LSCS. Current investigations include Hb 11.7 g/dL (20/08/26), Blood Group O Positive, HIV negative (20/12/25), and Syphilis negative (20/12/25). The patient is currently maintained on ferrous sulphate, folic acid, calcium, and aspirin 75mg.\n\n### BEFORE YOU SEND\n*   **Correct the LMP:** The current date (14/12/2025) is in the future. Please verify and update the correct LMP.\n*   **Reconcile Gestational Age:** Once the LMP is corrected, please recalculate the gestational age to ensure it is consistent with the new date.\n*   **Verify Referral Date:** Ensure the referral date (24/08/2026) is accurate, as it currently conflicts with the future-dated LMP.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 726,
+      "candidatesTokenCount": 562,
+      "totalTokenCount": 1288,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 726
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 726,
+    "outputTokens": 562,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

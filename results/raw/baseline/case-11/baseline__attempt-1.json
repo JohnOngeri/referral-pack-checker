@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-11",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:19.772Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Anaemia review\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 28 days\n- Blood group (bloodGroup): mandatory\n- Rhesus status (rhesus): mandatory\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Current medications (medications): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Anti-D immunoglobulin record (antiD): conditional — only if: Required when the rhesus status is recorded as negative.\n\nREFERRAL PACK\nANC  --  D. Mahlangu,  26     PID 2287\nTembisa Clinic\n\nLMP 08/01/2026    EDD 15/10/2026    GA 31+0 (13/08/26)\nG3 P2    -- 2019 SVD term ; 2022 SVD term\n\nHb 9.4 (09/08/26)     MCV 68\nHIV neg (20/01/26)     RPR neg (20/12/25)\nBlood gp A pos\n\nBP 124/80 (13/08/26)\nMeds: ferrous sulphate 200mg bd, folic acid\nAllergies: nil\n\nReason: iron-deficiency anaemia for review\nReferred by: Sr L. Nkosi, Tembisa Clinic, 13/08/2026\nTo: Regional Hospital -- Obstetric Day Unit\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n*   **Missing field:** Anti-D immunoglobulin record (Required as Rhesus status is positive, but the requirement states it is conditional; however, as the patient is Rhesus positive, this is technically not applicable, but the field is missing from the documentation).\n*   **Contradiction:** Gestational age (GA) calculation. LMP 08/01/2026 to 13/08/2026 is 31 weeks and 2 days, but the record states 31+0.\n*   **Contradiction:** Parity vs. Obstetric history. Parity is listed as P2, but the history lists two previous births (2019 and 2022), which is consistent; however, the Gravidity is listed as G3, which implies 3 pregnancies total. This is consistent with G3 P2. (No contradiction found).\n*   **Out of date:** Syphilis screening (RPR). The test date is 20/12/2025. As of 13/08/2026, this is 236 days old, which is within the 365-day limit. (Correction: This is valid).\n*   **Out of date:** HIV screening. The test date is 20/01/2026. As of 13/08/2026, this is 205 days old, which is within the 365-day limit. (Correction: This is valid).\n\n### SUMMARY\nPatient D. Mahlangu (PID 2287), a 26-year-old G3 P2 at approximately 31 weeks gestation, is referred by Sr L. Nkosi from Tembisa Clinic to the Regional Hospital Obstetric Day Unit on 13/08/2026. The patient presents with iron-deficiency anaemia (Hb 9.4 g/dL, MCV 68). Current medications include ferrous sulphate 200mg bd and folic acid. The patient is Blood Group A Positive, HIV negative (20/01/2026), and RPR negative (20/12/2025).\n\n### BEFORE YOU SEND\n1.  **Clarify Gestational Age:** Please reconcile the discrepancy between the LMP-calculated date (31 weeks 2 days) and the recorded GA (31 weeks 0 days).\n2.  **Verify Anti-D Status:** While the patient is Rhesus positive (making Anti-D unnecessary), please ensure the referral form explicitly states \"Not applicable\" or \"N/A\" for the Anti-D field to confirm it was not simply overlooked.\n3.  **Confirm Data Entry:** Ensure all fields required by the receiving facility are explicitly labeled on the final referral form to prevent administrative rejection.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 681,
+      "candidatesTokenCount": 621,
+      "totalTokenCount": 1302,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 681
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 681,
+    "outputTokens": 621,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

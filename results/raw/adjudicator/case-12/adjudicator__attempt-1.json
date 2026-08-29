@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "adjudicator",
+  "caseId": "case-12",
+  "label": "adjudicator",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:33:47.084Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "Two values in an antenatal referral pack conflict. You are asked which is correct. Answer with a single JSON object: {\"choice\": \"A\" | \"B\" | \"cannot determine\", \"reasoning\": \"...\"}.",
+      "temperature": 0,
+      "maxOutputTokens": 800
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Contradiction: Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.\n\nA (Recorded gestational age): 30+2 weeks  [source: GA 30+2   (recorded at visit 24/08/26)]\nB (Gestational age derived from LMP): 36+1 weeks on 24 Aug 2026  [source: LMP 14/12/2025]\n\nWhich is correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"choice\": \"B\", \"reasoning\": \"The gestational age derived from the Last Menstrual Period (LMP) of 14 Dec 2025 to the date of 24 Aug 2026 is mathematically 36 weeks and 1 day. The recorded value of 30+2 is inconsistent with the provided LMP date, suggesting a documentation error or a discrepancy in the clinical record.\"}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 184,
+      "candidatesTokenCount": 89,
+      "totalTokenCount": 273,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 184
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 184,
+    "outputTokens": 89,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

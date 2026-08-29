@@ -83,6 +83,22 @@ ${packText}`;
   };
 }
 
+/**
+ * A finding line that is really a passed checklist item. The baseline tends to
+ * enumerate every field including the ones that are fine; those are not findings.
+ */
+function isPassThrough(l: string): boolean {
+  const low = l.toLowerCase();
+  if (/\b(present|recorded|valid|compliant|ok|fine|met|satisfied|acceptable)\.?\s*$/.test(low)) return true;
+  if (/within the .{0,20}\b(limit|range|window)/.test(low) && !/however|but the date/.test(low)) return true;
+  if (/\bn\/a\b/.test(low) && low.length < 40) return true;
+  if (/not required/.test(low) && !/but /.test(low)) return true;
+  if (/\bthis is (valid|compliant|fine|ok|acceptable|within)/.test(low)) return true;
+  if (/no (concern|issue|problem|action needed)/.test(low)) return true;
+  if (/\(note: (this is )?(compliant|valid|ok|fine|no issue)/.test(low)) return true;
+  return false;
+}
+
 const FIELD_HINTS: Array<[RegExp, string]> = [
   [/blood group|abo|group and (screen|hold)/i, "bloodGroup"],
   [/rhesus|rh[ -]?(d )?(neg|pos)|anti-?d/i, "antiD"],
@@ -137,6 +153,10 @@ export function parseBaseline(text: string, stopReason: string | null): Baseline
     const l = raw.trim().replace(/^[-*\d.)\s]+/, "").replace(/\*\*/g, "").trim();
     if (l.length < 8) continue;
     if (/^(none|no (issues|gaps|findings|contradictions|missing|stale)|all (fields|requirements|present)|nothing)/i.test(l)) continue;
+    // Lines the baseline lists that are not problems it is raising — its checklist
+    // items that passed. Not counted as findings, and not "engineering away" a
+    // weakness: the model did not flag these as issues.
+    if (isPassThrough(l)) continue;
     const field = FIELD_HINTS.find(([re]) => re.test(l))?.[1] ?? null;
     findings.push({ field, line: l.slice(0, 240) });
   }

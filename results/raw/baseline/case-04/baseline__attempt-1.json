@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-04",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:27:48.170Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Routine ultrasound referral\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Estimated delivery date (edd): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Receiving department (receivingDepartment): mandatory\n- Blood group (bloodGroup): conditional — only if: Required when the stated reason for referral mentions bleeding or a placental concern.\n\nREFERRAL PACK\nANC CARD  --  R. Pillay,  31     PID 1902-14\nChatsworth Clinic\n\nLMP 01/03/2026     EDD 06/12/2026     GA 22+5 (07/08/26)\nG2 P1    -- 2023 SVD term\n\nHb 12.1  (01/08/26)\nHIV neg (10/03/26)    RPR neg (10/03/26)\nBlood gp A pos\n\nBP 116/74 (07/08/26)\nAllergies: nil known\nMeds: folic acid, ferrous sulphate\n\nReason: routine anomaly scan, no clinical concern\nReferred by: Sr P. Naidoo,  Chatsworth Clinic,  07/08/2026\nTo: District Hospital  --  Radiology\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- **Gestational Age/LMP Contradiction:** The LMP of 01/03/2026 results in a gestational age of 23 weeks and 0 days as of 07/08/2026, which contradicts the stated GA of 22+5.\n- **Missing Field:** The referral pack does not explicitly state the patient's age in years (only \"31\" is provided, which is ambiguous without a label).\n\n### SUMMARY\n**Patient:** R. Pillay (PID 1902-14)\n**Age:** 31 years\n**LMP:** 01/03/2026\n**Gestational Age:** 22+5 (as of 07/08/2026)\n**EDD:** 06/12/2026\n**Obstetric History:** G2 P1 (2023 SVD term)\n**Reason for Referral:** Routine anomaly scan\n**Referring Facility:** Chatsworth Clinic\n**Referring Clinician:** Sr P. Naidoo\n**Referral Date:** 07/08/2026\n**Receiving Facility:** District Hospital\n**Receiving Department:** Radiology\n**Blood Group:** A pos\n\n### BEFORE YOU SEND\n1. **Clarify Age:** Please explicitly label the patient's age as \"31 years\" to ensure it meets the mandatory identifier requirement.\n2. **Reconcile Dates:** Please verify the calculation of the gestational age. Based on an LMP of 01/03/2026, the gestational age on 07/08/2026 is 23 weeks and 0 days, which conflicts with the recorded 22+5. Please confirm which value is correct and update the record accordingly.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 589,
+      "candidatesTokenCount": 399,
+      "totalTokenCount": 988,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 589
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 589,
+    "outputTokens": 399,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

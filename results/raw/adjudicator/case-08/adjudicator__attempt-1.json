@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "adjudicator",
+  "caseId": "case-08",
+  "label": "adjudicator",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:33:37.355Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "Two values in an antenatal referral pack conflict. You are asked which is correct. Answer with a single JSON object: {\"choice\": \"A\" | \"B\" | \"cannot determine\", \"reasoning\": \"...\"}.",
+      "temperature": 0,
+      "maxOutputTokens": 800
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Contradiction: Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).\n\nA (Recorded parity): 2  [source: P2]\nB (Births counted from obstetric history): 3  [source: Obstetric history:\n  2017  SVD term\n  2019  SVD term\n  2023  SVD term]\n\nWhich is correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"choice\": \"B\", \"reasoning\": \"The obstetric history explicitly lists three distinct births (2017, 2019, 2023), all of which meet the criteria for parity (births at or beyond 24 weeks). The recorded parity of '2' is likely a clerical error.\"}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 153,
+      "candidatesTokenCount": 70,
+      "totalTokenCount": 223,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 153
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 153,
+    "outputTokens": 70,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

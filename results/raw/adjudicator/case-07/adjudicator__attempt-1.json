@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "adjudicator",
+  "caseId": "case-07",
+  "label": "adjudicator",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:33:33.670Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "Two values in an antenatal referral pack conflict. You are asked which is correct. Answer with a single JSON object: {\"choice\": \"A\" | \"B\" | \"cannot determine\", \"reasoning\": \"...\"}.",
+      "temperature": 0,
+      "maxOutputTokens": 800
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Contradiction: Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.\n\nA (Haemoglobin sample): 18 Sep 2026  [source: Hb 8.9   sample date 18/09/2026]\nB (Referral date): 18 Aug 2026  [source: 18/08/2026]\n\nWhich is correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While it is chronologically unusual for a sample date to post-date a referral, it is clinically possible for a sample to be taken after the initial referral request (e.g., a follow-up test or a clerical error in the referral date). Without access to the patient's medical record or the ability to verify the source documents, it is impossible to determine which date is erroneous.\"}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 162,
+      "candidatesTokenCount": 92,
+      "totalTokenCount": 254,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 162
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 162,
+    "outputTokens": 92,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

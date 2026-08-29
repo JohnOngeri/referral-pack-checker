@@ -1,0 +1,373 @@
+{
+  "configId": "iter1",
+  "label": "Iteration 1 — structured extraction with provenance",
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "ranAt": "2026-08-29T09:30:38.902Z",
+  "perCase": [
+    {
+      "caseId": "case-01",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-01-d1"
+      ],
+      "findings": [
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "The blood group is a mandatory field but is absent."
+        }
+      ]
+    },
+    {
+      "caseId": "case-02",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-02-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "stale",
+          "plain": "The haemoglobin result is dated 2026-03-14, which exceeds the 56-day recency limit relative to the referral date of 2026-08-19."
+        }
+      ]
+    },
+    {
+      "caseId": "case-03",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-03-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-04",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 2,
+      "falseFlagLines": [
+        "receivingFacility: The receiving facility is missing.",
+        "receivingDepartment: The receiving department is missing."
+      ],
+      "matchedDefectIds": [],
+      "findings": [
+        {
+          "field": "receivingFacility",
+          "kind": "missing",
+          "plain": "The receiving facility is missing."
+        },
+        {
+          "field": "receivingDepartment",
+          "kind": "missing",
+          "plain": "The receiving department is missing."
+        }
+      ]
+    },
+    {
+      "caseId": "case-05",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-05-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-06",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 1,
+      "falseFlagLines": [
+        "haemoglobin: The haemoglobin result is dated 2026-08-15, which is older than the 28-day limit relative to the referral date of 2026-08-21."
+      ],
+      "matchedDefectIds": [
+        "case-06-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "stale",
+          "plain": "The haemoglobin result is dated 2026-08-15, which is older than the 28-day limit relative to the referral date of 2026-08-21."
+        },
+        {
+          "field": "antiD",
+          "kind": "conditional",
+          "plain": "The antiD field is required because the rhesus status is recorded as negative, but it is absent."
+        }
+      ]
+    },
+    {
+      "caseId": "case-07",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-07-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-08",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-08-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-09",
+      "isControl": false,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-10",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-11",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 1,
+      "falseFlagLines": [
+        "haemoglobin: The haemoglobin result is dated 2026-08-09, which is older than the 28-day limit relative to the referral date of 2026-08-13."
+      ],
+      "matchedDefectIds": [
+        "case-11-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "stale",
+          "plain": "The haemoglobin result is dated 2026-08-09, which is older than the 28-day limit relative to the referral date of 2026-08-13."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "stale",
+          "plain": "The syphilis screen is dated 2025-12-20, which is older than the 365-day limit relative to the referral date of 2026-08-13."
+        }
+      ]
+    },
+    {
+      "caseId": "case-12",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 2,
+      "caught": 0,
+      "missed": [
+        "case-12-d1",
+        "case-12-d2"
+      ],
+      "falseFlags": 1,
+      "falseFlagLines": [
+        "haemoglobin: The haemoglobin result is dated 2026-08-20, which is older than the 56-day limit from the referral date of 2026-08-24."
+      ],
+      "matchedDefectIds": [],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "stale",
+          "plain": "The haemoglobin result is dated 2026-08-20, which is older than the 56-day limit from the referral date of 2026-08-24."
+        }
+      ]
+    }
+  ],
+  "extraction": [
+    {
+      "caseId": "case-01",
+      "fieldsExtracted": 19,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 24,
+      "provenanceTotal": 24
+    },
+    {
+      "caseId": "case-02",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-03",
+      "fieldsExtracted": 18,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 21,
+      "provenanceTotal": 21
+    },
+    {
+      "caseId": "case-04",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-05",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-06",
+      "fieldsExtracted": 19,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 21,
+      "provenanceTotal": 21
+    },
+    {
+      "caseId": "case-07",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-08",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [
+        "previousObstetricHistory"
+      ],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-09",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-10",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-11",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [
+        "syphilisScreen"
+      ],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-12",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    }
+  ],
+  "aggregate": {
+    "cases": 12,
+    "seededDefects": 10,
+    "caught": 4,
+    "recallPct": 40,
+    "falseFlags": 5,
+    "falseFlagsOnControls": 2,
+    "contradictionsSeeded": 6,
+    "contradictionsCaught": 1
+  },
+  "inventedValuesTotal": 0,
+  "provenanceCorrectness": 100,
+  "unparseableCount": null,
+  "costUsd": 0.0114,
+  "notes": []
+}

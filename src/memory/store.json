@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "facilities": {
+    "ext 4 clinic": {
+      "facility": "Ext 4 Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "bloodGroup": 1
+      }
+    },
+    "sithole phc": {
+      "facility": "Sithole PHC",
+      "packsSeen": 1,
+      "omissions": {
+        "haemoglobin": 1
+      }
+    },
+    "ikeja health post": {
+      "facility": "Ikeja Health Post",
+      "packsSeen": 1,
+      "omissions": {
+        "haemoglobin": 1
+      }
+    },
+    "chatsworth clinic": {
+      "facility": "Chatsworth Clinic",
+      "packsSeen": 1,
+      "omissions": {}
+    },
+    "kibera clinic": {
+      "facility": "Kibera Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "edd": 1
+      }
+    },
+    "chelstone phc": {
+      "facility": "Chelstone PHC",
+      "packsSeen": 1,
+      "omissions": {
+        "antiD": 1
+      }
+    },
+    "ruaraka clinic": {
+      "facility": "Ruaraka Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "haemoglobin": 1
+      }
+    },
+    "area 25 clinic": {
+      "facility": "Area 25 Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "parity": 1
+      }
+    },
+    "madina clinic": {
+      "facility": "Madina Clinic",
+      "packsSeen": 1,
+      "omissions": {}
+    },
+    "kisumu west clinic": {
+      "facility": "Kisumu West Clinic",
+      "packsSeen": 1,
+      "omissions": {}
+    },
+    "tembisa clinic": {
+      "facility": "Tembisa Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "syphilisScreen": 1
+      }
+    },
+    "mzilikazi clinic": {
+      "facility": "Mzilikazi Clinic",
+      "packsSeen": 1,
+      "omissions": {
+        "gestationalAge": 1,
+        "edd": 1
+      }
+    }
+  }
+}

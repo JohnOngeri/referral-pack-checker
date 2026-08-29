@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-07",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:01.621Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Hypertension in pregnancy review\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood pressure readings (bloodPressure): mandatory, must be from the last 14 days\n- Urine protein result (urineProtein): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Current medications (medications): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n\nREFERRAL PACK\nRuaraka Clinic\nAntenatal referral -- hypertension\n\nF. Kamau   22y   PID 6602\nLMP 05/02/2026   EDD 12/11/2026   GA 27+5 (18/08/26)\nG2 P1   -- 2022 SVD term\n\nBP  152/100 (17/08/26)\n    149/95  (18/08/26)\nUrine protein 2+ (18/08/26)\n\nHb 8.9   sample date 18/09/2026\nHIV neg (12/02/26)   RPR neg (12/02/26)\nBlood gp O pos\n\nMeds: methyldopa 250mg tds, nifedipine SR 30mg od\nAllergies: none known\n\nReason: raised BP with proteinuria, for review\nReferred by: Sr G. Wanjiru, Ruaraka Clinic, 18/08/2026\nReceiving facility: General Hospital -- Maternity Assessment\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- **Gestational Age Contradiction:** The LMP (05/02/2026) and the referral date (18/08/2026) calculate to a gestational age of 27+6, which contradicts the stated GA of 27+5.\n- **Parity Contradiction:** The patient is listed as G2 P1, but the obstetric history only lists one previous birth (2022 SVD), which is consistent with P1; however, the parity field is missing the standard notation for current pregnancy status (e.g., G2 P1+0).\n- **Haemoglobin Recency:** The Hb sample date (18/09/2026) is in the future relative to the referral date (18/08/2026) and exceeds the 56-day recency requirement if the current date is assumed to be the referral date.\n- **Referral Date Contradiction:** The Hb sample date (18/09/2026) is in the future relative to the referral date (18/08/2026).\n\n### SUMMARY\n**Patient:** F. Kamau (PID 6602), 22 years old.\n**Obstetric History:** G2 P1.\n**Current Pregnancy:** LMP 05/02/2026; GA 27+5/27+6 (as of 18/08/2026).\n**Clinical Status:** Presenting with hypertension (BP 152/100 and 149/95) and proteinuria (2+).\n**Investigations:** Hb 8.9 (dated 18/09/2026); HIV negative (12/02/2026); Syphilis (RPR) negative (12/02/2026); Blood group O positive.\n**Medications:** Methyldopa 250mg tds, Nifedipine SR 30mg od.\n**Referral:** Referred by Sr G. Wanjiru (Ruaraka Clinic) on 18/08/2026 to General Hospital Maternity Assessment for management of hypertension and proteinuria.\n\n### BEFORE YOU SEND\n1. **Correct the Hb Date:** The current Hb sample date (18/09/2026) is in the future. Please verify the actual date the blood was drawn and ensure it is within the 56-day limit.\n2. **Reconcile Gestational Age:** Please confirm the correct gestational age, as the LMP calculation (27+6) does not match the stated GA (27+5).\n3. **Clarify Parity:** Please confirm the parity notation (e.g., P1+0) to ensure it accurately reflects the obstetric history provided.\n4. **Verify Referral Date:** Ensure the referral date is accurate, as it currently precedes the listed Hb sample date.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 704,
+      "candidatesTokenCount": 653,
+      "totalTokenCount": 1357,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 704
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 704,
+    "outputTokens": 653,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

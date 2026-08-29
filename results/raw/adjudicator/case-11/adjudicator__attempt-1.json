@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "adjudicator",
+  "caseId": "case-11",
+  "label": "adjudicator",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:33:41.655Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "Two values in an antenatal referral pack conflict. You are asked which is correct. Answer with a single JSON object: {\"choice\": \"A\" | \"B\" | \"cannot determine\", \"reasoning\": \"...\"}.",
+      "temperature": 0,
+      "maxOutputTokens": 800
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Contradiction: Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.\n\nA (Syphilis screen): 20 Dec 2025  [source: RPR neg (20/12/25)]\nB (Last menstrual period): 8 Jan 2026  [source: 08/01/2026]\n\nWhich is correct?"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"choice\": \"cannot determine\", \"reasoning\": \"While it is clinically unusual for a syphilis screen to predate the last menstrual period in a current pregnancy, it is possible that the screen was performed as part of pre-conception care or an earlier clinical encounter. Without access to the patient's medical history or the ability to verify the dates with the patient, it is impossible to determine which value is 'correct' or if both are accurate representations of different events.\"}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 156,
+      "candidatesTokenCount": 97,
+      "totalTokenCount": 253,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 156
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 156,
+    "outputTokens": 97,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

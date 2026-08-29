@@ -1,0 +1,13 @@
+case_id,model_run_1,model_run_2,model_run_3,model_stdev,deterministic_stdev
+case-01,1,1,1,0,0
+case-02,1,1,1,0,0
+case-03,0,0,0,0,0
+case-04,2,2,2,0,0
+case-05,0,0,0,0,0
+case-06,2,2,2,0,0
+case-07,0,0,0,0,0
+case-08,0,0,0,0,0
+case-09,0,0,0,0,0
+case-10,0,0,0,0,0
+case-11,2,2,2,0,0
+case-12,1,1,1,0,0

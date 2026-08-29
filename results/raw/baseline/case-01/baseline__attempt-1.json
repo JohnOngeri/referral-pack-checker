@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-01",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:27:36.405Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Elective caesarean booking\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Estimated delivery date (edd): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood group (bloodGroup): mandatory\n- Rhesus status (rhesus): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Previous obstetric history (previousObstetricHistory): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Anti-D immunoglobulin record (antiD): conditional — only if: Required when the rhesus status is recorded as negative.\n\nREFERRAL PACK\nANC CARD  --  M. Dlamini,  29y     PID 4471-22\nExt 4 Clinic\n\nLMP 03/01/2026    EDD 10/10/2026    GA 31+4 (12/08/26)\nG3 P2\n\nObstetric hx:  2019 SVD term ;  2022 LSCS term\nHb 11.4  (04/08/26)\nHIV neg (02/02/26)    RPR neg (02/02/26)    Rh D pos\nBlood gp:\nBP 118/76 (04/08/26)   116/74 (28/07/26)\n\nAllergies: nil known\nMeds: ferrous sulphate, folic acid\n\nReason: elective LSCS booking, prev CS x1 (2022)\nReferred by: Sr N. Mokoena,  Ext 4 Clinic   12/08/26\nTo: Regional Hospital, Obstetrics\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- Missing field: Blood group (The field is present but the value is blank).\n- Contradiction: Gestational age (LMP 03/01/2026 results in a GA of 31+6 on 12/08/2026, but the pack records 31+4).\n- Contradiction: Parity (The patient is G3 P2, but the obstetric history lists only two previous births: 2019 SVD and 2022 LSCS).\n- Missing field: Anti-D immunoglobulin record (Note: Not required as Rhesus is positive, but the blood group field is empty, making the Rhesus status technically unverified).\n\n### SUMMARY\nPatient M. Dlamini (PID 4471-22), a 29-year-old G3 P2, is referred by Sr N. Mokoena from Ext 4 Clinic to Regional Hospital for an elective LSCS booking. The patient is currently at approximately 31 weeks gestation (LMP 03/01/2026). Clinical records indicate a previous SVD in 2019 and an LSCS in 2022. Laboratory results include Hb 11.4 g/dL (04/08/26), HIV negative (02/02/26), and Syphilis (RPR) negative (02/02/26). The patient is Rh D positive.\n\n### BEFORE YOU SEND\n1. **Record the Blood Group:** The blood group field is currently blank; please ensure this is filled in, as it is a mandatory requirement.\n2. **Reconcile Gestational Age:** Please verify the calculation. An LMP of 03/01/2026 corresponds to 31+6 weeks on 12/08/2026, not 31+4.\n3. **Reconcile Parity:** Please clarify the obstetric history. The patient is recorded as P2, but only two previous pregnancies are listed. If there is a missing pregnancy outcome (e.g., miscarriage or early loss), please update the history to match the P2 status.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 719,
+      "candidatesTokenCount": 480,
+      "totalTokenCount": 1199,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 719
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 719,
+    "outputTokens": 480,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

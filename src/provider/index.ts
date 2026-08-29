@@ -10,15 +10,16 @@ export const DEFAULT_MODEL = "gemini-3.1-flash-lite";
 
 /** Gemini API prices, USD per 1M tokens. Recorded per run for the cost metric. */
 export const PRICES: Record<string, { in: number; out: number }> = {
-  "gemini-3.1-flash-lite": { in: 0.3, out: 2.5 },
-  "gemini-3.5-flash": { in: 0.3, out: 2.5 },
+  "gemini-3.1-flash-lite": { in: 0.1, out: 0.4 },
+  "gemini-flash-lite-latest": { in: 0.1, out: 0.4 },
+  "gemini-3.6-flash": { in: 0.3, out: 2.5 },
   "gemini-flash-latest": { in: 0.3, out: 2.5 },
   "gemini-3.1-pro-preview": { in: 1.25, out: 10 },
   "gemini-pro-latest": { in: 1.25, out: 10 },
 };
 
 export function priceFor(model: string): { in: number; out: number } {
-  return PRICES[model] ?? { in: 0.3, out: 2.5 };
+  return PRICES[model] ?? { in: 0.1, out: 0.4 };
 }
 
 /** Load .env.local without a dependency, so scripts pick up the key. */

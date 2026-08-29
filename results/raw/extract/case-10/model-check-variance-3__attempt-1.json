@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-10",
+  "label": "model-check-variance-3",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:32:59.132Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You compare an already-extracted antenatal referral pack against a facility requirement set. For each mandatory field that is absent, each dated field older than its recency limit, and each conditional field whose condition is met but which is absent, output one finding. Do not assess anything clinically. Reply with a JSON object: {\"findings\":[{\"field\",\"kind\",\"plain\"}]} and nothing else. kind is one of missing, stale, conditional.",
+      "temperature": 0,
+      "maxOutputTokens": 1500
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "REQUIREMENTS (Hypertension in pregnancy review):\n- patientId: mandatory\n- ageYears: mandatory\n- lmp: mandatory\n- gestationalAge: mandatory\n- gravidity: mandatory\n- parity: mandatory\n- bloodPressure: mandatory, max age 14 days from the referral date\n- urineProtein: mandatory\n- haemoglobin: mandatory, max age 56 days from the referral date\n- hivScreen: mandatory, max age 365 days from the referral date\n- syphilisScreen: mandatory, max age 365 days from the referral date\n- medications: mandatory\n- reasonForReferral: mandatory\n- referringFacility: mandatory\n- referringClinician: mandatory\n- referralDate: mandatory\n- receivingFacility: mandatory\n\nEXTRACTED FIELDS:\npatientId: {\"value\":\"4050-91\",\"absent\":false,\"provenance\":{\"quote\":\"PID 4050-91\",\"line\":3}}\nageYears: {\"value\":28,\"absent\":false,\"provenance\":{\"quote\":\"Age 28\",\"line\":3}}\nlmp: {\"value\":\"2026-01-02\",\"absent\":false,\"provenance\":{\"quote\":\"LMP 02/01/2026\",\"line\":4}}\nedd: {\"value\":\"2026-10-09\",\"absent\":false,\"provenance\":{\"quote\":\"EDD 09/10/2026\",\"line\":4}}\ngestationalAge: {\"value\":{\"weeks\":32,\"days\":6,\"assessedOn\":\"2026-08-20\",\"provenance\":{\"quote\":\"GA 32+6 (20/08/26)\",\"line\":4}},\"absent\":false,\"provenance\":{\"quote\":\"GA 32+6 (20/08/26)\",\"line\":4}}\ngravidity: {\"value\":2,\"absent\":false,\"provenance\":{\"quote\":\"G2\",\"line\":5}}\nparity: {\"value\":1,\"absent\":false,\"provenance\":{\"quote\":\"P1\",\"line\":5}}\nbloodGroup: {\"value\":\"O\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":13}}\nrhesus: {\"value\":\"positive\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":13}}\nhaemoglobin: {\"value\":11.5,\"date\":\"2026-08-14\",\"absent\":false,\"provenance\":{\"quote\":\"Hb 11.5 (14/08/26)\",\"line\":11}}\nhivScreen: {\"status\":\"negative\",\"date\":\"2026-01-09\",\"provenance\":{\"quote\":\"HIV neg (09/01/26)\",\"line\":12}}\nsyphilisScreen: {\"status\":\"negative\",\"date\":\"2026-01-09\",\"provenance\":{\"quote\":\"RPR neg (09/01/26)\",\"line\":12}}\nbloodPressure: {\"readings\":[{\"systolic\":146,\"diastolic\":92,\"date\":\"2026-08-19\",\"provenance\":{\"quote\":\"BP  146/92 (19/08/26)\",\"line\":7}},{\"systolic\":144,\"diastolic\":90,\"date\":\"2026-08-20\",\"provenance\":{\"quote\":\"144/90 (20/08/26)\",\"line\":8}}],\"absent\":false,\"provenance\":{\"quote\":\"BP  146/92 (19/08/26)\\n    144/90 (20/08/26)\",\"line\":7}}\nurineProtein: {\"value\":\"1+\",\"absent\":false,\"provenance\":{\"quote\":\"Urine protein 1+ (20/08/26)\",\"line\":9}}\npreviousObstetricHistory: {\"entries\":[{\"summary\":\"2022 SVD term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2022,\"provenance\":{\"quote\":\"2022 SVD term\",\"line\":5}}],\"absent\":false,\"provenance\":{\"quote\":\"(2022 SVD term)\",\"line\":5}}\nmedications: {\"value\":[\"labetalol 200mg bd\"],\"absent\":false,\"provenance\":{\"quote\":\"Meds: labetalol 200mg bd\",\"line\":15}}\nallergies: {\"value\":\"nil known\",\"absent\":false,\"provenance\":{\"quote\":\"Allergies: nil known\",\"line\":16}}\nreasonForReferral: {\"value\":\"raised blood pressure for review\",\"absent\":false,\"provenance\":{\"quote\":\"Reason: raised blood pressure for review\",\"line\":18}}\nreferringFacility: {\"value\":\"Kisumu West Clinic\",\"absent\":false,\"provenance\":{\"quote\":\"Kisumu West Clinic\",\"line\":19}}\nreferringClinician: {\"value\":\"Sr E. Onyango\",\"absent\":false,\"provenance\":{\"quote\":\"Sr E. Onyango\",\"line\":19}}\nreferralDate: {\"value\":\"2026-08-20\",\"absent\":false,\"provenance\":{\"quote\":\"20/08/2026\",\"line\":19}}\nreceivingFacility: {\"value\":\"County Hospital\",\"absent\":false,\"provenance\":{\"quote\":\"County Hospital\",\"line\":20}}\nreceivingDepartment: {\"value\":\"Maternity\",\"absent\":false,\"provenance\":{\"quote\":\"Maternity\",\"line\":20}}\nantiD: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"no_value\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"findings\":[]}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1362,
+      "candidatesTokenCount": 4,
+      "totalTokenCount": 1366,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1362
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1362,
+    "outputTokens": 4,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

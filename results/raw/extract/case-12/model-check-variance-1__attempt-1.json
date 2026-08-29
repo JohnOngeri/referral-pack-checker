@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-12",
+  "label": "model-check-variance-1",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:33:14.683Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You compare an already-extracted antenatal referral pack against a facility requirement set. For each mandatory field that is absent, each dated field older than its recency limit, and each conditional field whose condition is met but which is absent, output one finding. Do not assess anything clinically. Reply with a JSON object: {\"findings\":[{\"field\",\"kind\",\"plain\"}]} and nothing else. kind is one of missing, stale, conditional.",
+      "temperature": 0,
+      "maxOutputTokens": 1500
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "REQUIREMENTS (Elective caesarean booking):\n- patientId: mandatory\n- ageYears: mandatory\n- lmp: mandatory\n- gestationalAge: mandatory\n- edd: mandatory\n- gravidity: mandatory\n- parity: mandatory\n- bloodGroup: mandatory\n- rhesus: mandatory\n- haemoglobin: mandatory, max age 56 days from the referral date\n- hivScreen: mandatory, max age 365 days from the referral date\n- syphilisScreen: mandatory, max age 365 days from the referral date\n- previousObstetricHistory: mandatory\n- reasonForReferral: mandatory\n- referringFacility: mandatory\n- referringClinician: mandatory\n- referralDate: mandatory\n- receivingFacility: mandatory\n- antiD: conditional, only required if Required when the rhesus status is recorded as negative.\n\nEXTRACTED FIELDS:\npatientId: {\"value\":\"1188-05\",\"absent\":false,\"provenance\":{\"quote\":\"PID 1188-05\",\"line\":1}}\nageYears: {\"value\":31,\"absent\":false,\"provenance\":{\"quote\":\"31y\",\"line\":1}}\nlmp: {\"value\":\"2025-12-14\",\"absent\":false,\"provenance\":{\"quote\":\"LMP 14/12/2025\",\"line\":4}}\nedd: {\"value\":\"2026-10-31\",\"absent\":false,\"provenance\":{\"quote\":\"EDD 31/10/2026\",\"line\":6}}\ngestationalAge: {\"value\":{\"weeks\":30,\"days\":2,\"assessedOn\":\"2026-08-24\",\"provenance\":{\"quote\":\"GA 30+2   (recorded at visit 24/08/26)\",\"line\":5}},\"absent\":false,\"provenance\":{\"quote\":\"GA 30+2   (recorded at visit 24/08/26)\",\"line\":5}}\ngravidity: {\"value\":3,\"absent\":false,\"provenance\":{\"quote\":\"G3\",\"line\":7}}\nparity: {\"value\":2,\"absent\":false,\"provenance\":{\"quote\":\"P2\",\"line\":7}}\nbloodGroup: {\"value\":\"O\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":9}}\nrhesus: {\"value\":\"positive\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":9}}\nhaemoglobin: {\"value\":11.7,\"date\":\"2026-08-20\",\"absent\":false,\"provenance\":{\"quote\":\"Hb 11.7 (20/08/26)\",\"line\":9}}\nhivScreen: {\"status\":\"negative\",\"date\":\"2025-12-20\",\"provenance\":{\"quote\":\"HIV neg (20/12/25)\",\"line\":10}}\nsyphilisScreen: {\"status\":\"negative\",\"date\":\"2025-12-20\",\"provenance\":{\"quote\":\"RPR neg (20/12/25)\",\"line\":10}}\nbloodPressure: {\"readings\":[{\"systolic\":126,\"diastolic\":82,\"date\":\"2026-08-24\",\"provenance\":{\"quote\":\"BP 126/82 (24/08/26)\",\"line\":11}},{\"systolic\":120,\"diastolic\":78,\"date\":\"2026-08-10\",\"provenance\":{\"quote\":\"120/78 (10/08/26)\",\"line\":11}}],\"absent\":false,\"provenance\":{\"quote\":\"BP 126/82 (24/08/26)   120/78 (10/08/26)\",\"line\":11}}\nurineProtein: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}\npreviousObstetricHistory: {\"entries\":[{\"summary\":\"2019 SVD term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2019,\"provenance\":{\"quote\":\"2019 SVD term\",\"line\":7}},{\"summary\":\"2023 LSCS term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2023,\"provenance\":{\"quote\":\"2023 LSCS term\",\"line\":7}}],\"absent\":false,\"provenance\":{\"quote\":\"2019 SVD term ; 2023 LSCS term\",\"line\":7}}\nmedications: {\"value\":[\"ferrous sulphate\",\"folic acid\",\"calcium\",\"aspirin 75mg\"],\"absent\":false,\"provenance\":{\"quote\":\"Meds: ferrous sulphate, folic acid, calcium, aspirin 75mg\",\"line\":14}}\nallergies: {\"value\":\"none known\",\"absent\":false,\"provenance\":{\"quote\":\"Allergies: none known\",\"line\":13}}\nreasonForReferral: {\"value\":\"elective LSCS booking, previous caesarean (2023)\",\"absent\":false,\"provenance\":{\"quote\":\"Reason: elective LSCS booking, previous caesarean (2023)\",\"line\":16}}\nreferringFacility: {\"value\":\"Mzilikazi Clinic\",\"absent\":false,\"provenance\":{\"quote\":\"Mzilikazi Clinic\",\"line\":17}}\nreferringClinician: {\"value\":\"Sr T. Ndlovu\",\"absent\":false,\"provenance\":{\"quote\":\"Sr T. Ndlovu\",\"line\":17}}\nreferralDate: {\"value\":\"2026-08-24\",\"absent\":false,\"provenance\":{\"quote\":\"24/08/2026\",\"line\":17}}\nreceivingFacility: {\"value\":\"Central Hospital\",\"absent\":false,\"provenance\":{\"quote\":\"Central Hospital\",\"line\":18}}\nreceivingDepartment: {\"value\":\"Theatre list\",\"absent\":false,\"provenance\":{\"quote\":\"Theatre list\",\"line\":18}}\nantiD: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"findings\":[{\"field\":\"haemoglobin\",\"kind\":\"stale\",\"plain\":\"The haemoglobin result is dated 2026-08-20, which is older than the 56-day limit from the referral date of 2026-08-24.\"}]}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1462,
+      "candidatesTokenCount": 63,
+      "totalTokenCount": 1525,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1462
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1462,
+    "outputTokens": 63,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

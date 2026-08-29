@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-10",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:14.623Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Hypertension in pregnancy review\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood pressure readings (bloodPressure): mandatory, must be from the last 14 days\n- Urine protein result (urineProtein): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Current medications (medications): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n\nREFERRAL PACK\nKisumu West Clinic  --  antenatal referral\n\nPt: K. Achieng    Age 28    PID 4050-91\nLMP 02/01/2026    EDD 09/10/2026    GA 32+6 (20/08/26)\nG2 P1    (2022 SVD term)\n\nBP  146/92 (19/08/26)\n    144/90 (20/08/26)\nUrine protein 1+ (20/08/26)\n\nHb 11.5 (14/08/26)\nHIV neg (09/01/26)    RPR neg (09/01/26)\nBlood gp O pos\n\nMeds: labetalol 200mg bd\nAllergies: nil known\n\nReason: raised blood pressure for review\nReferred by: Sr E. Onyango, Kisumu West Clinic, 20/08/2026\nTo: County Hospital -- Maternity\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- **Gestational Age:** Contradiction between LMP (02/01/2026) and GA (32+6 on 20/08/2026). Based on the LMP, the GA should be 33+1.\n- **HIV Screening Status:** Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit.\n- **Syphilis Screening Status:** Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit.\n\n### SUMMARY\n**Patient:** K. Achieng (PID: 4050-91), Age 28.\n**Obstetric History:** G2 P1 (2022 SVD term).\n**Current Pregnancy:** LMP 02/01/2026. Gestational age is recorded as 32+6 (calculated as 33+1 based on LMP).\n**Clinical Status:** Patient is currently on Labetalol 200mg BD. Blood pressure readings are 146/92 mmHg and 144/90 mmHg (20/08/2026). Urine protein is 1+ (20/08/2026). Haemoglobin is 11.5 g/dL (14/08/2026).\n**Screening:** HIV and Syphilis (RPR) status were negative as of 09/01/2026.\n**Referral:** Referred by Sr E. Onyango (Kisumu West Clinic) on 20/08/2026 to County Hospital Maternity for review of raised blood pressure.\n\n### BEFORE YOU SEND\n1. **Clarify Gestational Age:** Please reconcile the discrepancy between the LMP (02/01/2026) and the recorded GA (32+6).\n2. **Update HIV Screening:** The current HIV result is older than 365 days; please perform a repeat test and include the new date and result.\n3. **Update Syphilis Screening:** The current RPR result is older than 365 days; please perform a repeat test and include the new date and result.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 689,
+      "candidatesTokenCount": 522,
+      "totalTokenCount": 1211,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 689
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 689,
+    "outputTokens": 522,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

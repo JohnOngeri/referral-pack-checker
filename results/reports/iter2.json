@@ -1,0 +1,337 @@
+{
+  "configId": "iter2",
+  "label": "Iteration 2 — requirement checking moved to deterministic code",
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "ranAt": "2026-08-29T09:30:38.912Z",
+  "perCase": [
+    {
+      "caseId": "case-01",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-01-d1"
+      ],
+      "findings": [
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "Blood group is not recorded anywhere in this pack, and elective caesarean booking requires it."
+        }
+      ]
+    },
+    {
+      "caseId": "case-02",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-02-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "stale",
+          "plain": "Haemoglobin is 158 days old; hypertension in pregnancy review requires a result from the last 56 days."
+        }
+      ]
+    },
+    {
+      "caseId": "case-03",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-03-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin is not recorded anywhere in this pack, and anaemia review requires it."
+        }
+      ]
+    },
+    {
+      "caseId": "case-04",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-05",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-05-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-06",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [
+        "case-06-d1"
+      ],
+      "findings": [
+        {
+          "field": "antiD",
+          "kind": "conditional",
+          "plain": "Anti-D immunoglobulin record is not in this pack. Mandatory here because: Required when the rhesus status is recorded as negative."
+        }
+      ]
+    },
+    {
+      "caseId": "case-07",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-07-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-08",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-08-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-09",
+      "isControl": false,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-10",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-11",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 0,
+      "missed": [
+        "case-11-d1"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    },
+    {
+      "caseId": "case-12",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 2,
+      "caught": 0,
+      "missed": [
+        "case-12-d1",
+        "case-12-d2"
+      ],
+      "falseFlags": 0,
+      "falseFlagLines": [],
+      "matchedDefectIds": [],
+      "findings": []
+    }
+  ],
+  "extraction": [
+    {
+      "caseId": "case-01",
+      "fieldsExtracted": 19,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 24,
+      "provenanceTotal": 24
+    },
+    {
+      "caseId": "case-02",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-03",
+      "fieldsExtracted": 18,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 21,
+      "provenanceTotal": 21
+    },
+    {
+      "caseId": "case-04",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-05",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-06",
+      "fieldsExtracted": 19,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 21,
+      "provenanceTotal": 21
+    },
+    {
+      "caseId": "case-07",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-08",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [
+        "previousObstetricHistory"
+      ],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-09",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-10",
+      "fieldsExtracted": 21,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 23,
+      "provenanceTotal": 23
+    },
+    {
+      "caseId": "case-11",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [
+        "syphilisScreen"
+      ],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    },
+    {
+      "caseId": "case-12",
+      "fieldsExtracted": 20,
+      "inventedValues": 0,
+      "inventedFields": [],
+      "wronglyPresent": [],
+      "wronglyAbsent": [],
+      "provenanceOk": 22,
+      "provenanceTotal": 22
+    }
+  ],
+  "aggregate": {
+    "cases": 12,
+    "seededDefects": 10,
+    "caught": 4,
+    "recallPct": 40,
+    "falseFlags": 0,
+    "falseFlagsOnControls": 0,
+    "contradictionsSeeded": 6,
+    "contradictionsCaught": 0
+  },
+  "inventedValuesTotal": 0,
+  "provenanceCorrectness": 100,
+  "unparseableCount": null,
+  "costUsd": 0.0114,
+  "notes": []
+}

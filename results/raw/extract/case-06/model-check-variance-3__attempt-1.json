@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-06",
+  "label": "model-check-variance-3",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:32:01.148Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You compare an already-extracted antenatal referral pack against a facility requirement set. For each mandatory field that is absent, each dated field older than its recency limit, and each conditional field whose condition is met but which is absent, output one finding. Do not assess anything clinically. Reply with a JSON object: {\"findings\":[{\"field\",\"kind\",\"plain\"}]} and nothing else. kind is one of missing, stale, conditional.",
+      "temperature": 0,
+      "maxOutputTokens": 1500
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "REQUIREMENTS (Anaemia review):\n- patientId: mandatory\n- ageYears: mandatory\n- lmp: mandatory\n- gestationalAge: mandatory\n- gravidity: mandatory\n- parity: mandatory\n- haemoglobin: mandatory, max age 28 days from the referral date\n- bloodGroup: mandatory\n- rhesus: mandatory\n- hivScreen: mandatory, max age 365 days from the referral date\n- syphilisScreen: mandatory, max age 365 days from the referral date\n- medications: mandatory\n- reasonForReferral: mandatory\n- referringFacility: mandatory\n- referringClinician: mandatory\n- referralDate: mandatory\n- receivingFacility: mandatory\n- antiD: conditional, only required if Required when the rhesus status is recorded as negative.\n\nEXTRACTED FIELDS:\npatientId: {\"value\":\"3388\",\"absent\":false,\"provenance\":{\"quote\":\"PID 3388\",\"line\":1}}\nageYears: {\"value\":27,\"absent\":false,\"provenance\":{\"quote\":\"27\",\"line\":1}}\nlmp: {\"value\":\"2026-01-10\",\"absent\":false,\"provenance\":{\"quote\":\"10/01/2026\",\"line\":4}}\nedd: {\"value\":\"2026-10-17\",\"absent\":false,\"provenance\":{\"quote\":\"17/10/2026\",\"line\":4}}\ngestationalAge: {\"value\":{\"weeks\":31,\"days\":6,\"assessedOn\":\"2026-08-21\",\"provenance\":{\"quote\":\"GA 31+6  (21/08/26)\",\"line\":4}},\"absent\":false,\"provenance\":{\"quote\":\"GA 31+6  (21/08/26)\",\"line\":4}}\ngravidity: {\"value\":1,\"absent\":false,\"provenance\":{\"quote\":\"G1\",\"line\":5}}\nparity: {\"value\":0,\"absent\":false,\"provenance\":{\"quote\":\"P0\",\"line\":5}}\nbloodGroup: {\"value\":\"A\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp A neg\",\"line\":9}}\nrhesus: {\"value\":\"negative\",\"absent\":false,\"provenance\":{\"quote\":\"A neg\",\"line\":9}}\nhaemoglobin: {\"value\":9.4,\"date\":\"2026-08-15\",\"absent\":false,\"provenance\":{\"quote\":\"Hb 9.4  (15/08/26)\",\"line\":7}}\nhivScreen: {\"status\":\"negative\",\"date\":\"2026-01-20\",\"provenance\":{\"quote\":\"HIV neg (20/01/26)\",\"line\":8}}\nsyphilisScreen: {\"status\":\"negative\",\"date\":\"2026-01-20\",\"provenance\":{\"quote\":\"RPR neg (20/01/26)\",\"line\":8}}\nbloodPressure: {\"readings\":[{\"systolic\":118,\"diastolic\":76,\"date\":\"2026-08-20\",\"provenance\":{\"quote\":\"BP 118/76 (20/08/26)\",\"line\":11}}],\"absent\":false,\"provenance\":{\"quote\":\"BP 118/76 (20/08/26)\",\"line\":11}}\nurineProtein: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}\npreviousObstetricHistory: {\"entries\":[],\"absent\":true,\"provenance\":null}\nmedications: {\"value\":[\"ferrous sulphate 200mg bd\",\"folic acid 5mg\"],\"absent\":false,\"provenance\":{\"quote\":\"Meds: ferrous sulphate 200mg bd, folic acid 5mg\",\"line\":12}}\nallergies: {\"value\":\"nil known\",\"absent\":false,\"provenance\":{\"quote\":\"Allergies: nil known\",\"line\":13}}\nreasonForReferral: {\"value\":\"microcytic anaemia for review, ? IV iron\",\"absent\":false,\"provenance\":{\"quote\":\"Reason: microcytic anaemia for review, ? IV iron\",\"line\":15}}\nreferringFacility: {\"value\":\"Chelstone PHC\",\"absent\":false,\"provenance\":{\"quote\":\"Chelstone PHC\",\"line\":16}}\nreferringClinician: {\"value\":\"Sr M. Phiri\",\"absent\":false,\"provenance\":{\"quote\":\"Sr M. Phiri\",\"line\":16}}\nreferralDate: {\"value\":\"2026-08-21\",\"absent\":false,\"provenance\":{\"quote\":\"21/08/2026\",\"line\":16}}\nreceivingFacility: {\"value\":\"District Hospital\",\"absent\":false,\"provenance\":{\"quote\":\"District Hospital\",\"line\":17}}\nreceivingDepartment: {\"value\":\"Obstetric Day Unit\",\"absent\":false,\"provenance\":{\"quote\":\"Obstetric Day Unit\",\"line\":17}}\nantiD: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"findings\":[{\"field\":\"haemoglobin\",\"kind\":\"stale\",\"plain\":\"The haemoglobin result is dated 2026-08-15, which is older than the 28-day limit relative to the referral date of 2026-08-21.\"},{\"field\":\"antiD\",\"kind\":\"conditional\",\"plain\":\"The antiD field is required because the rhesus status is recorded as negative, but it is absent.\"}]}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1233,
+      "candidatesTokenCount": 97,
+      "totalTokenCount": 1330,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1233
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1233,
+    "outputTokens": 97,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-02",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:27:40.483Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Hypertension in pregnancy review\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Blood pressure readings (bloodPressure): mandatory, must be from the last 14 days\n- Urine protein result (urineProtein): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 56 days\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Current medications (medications): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n\nREFERRAL PACK\nAntenatal referral  --  Sithole PHC\n\nPt: T. Nkosi        Age 34        PID 2210-08\nLMP 22/12/2025     EDD 28/09/2026\nGA 34+2  (visit 19/08/26)\nG2 P1   (2021 SVD term)\n\nBP  152/98  (18/08/26)\n    148/94  (19/08/26)\nUrine protein: 1+  (19/08/26)\n\nHb 10.9    taken 14/03/26\nHIV neg (05/01/26)     RPR neg (05/01/26)\nBlood gp O pos\n\nOn methyldopa 250mg tds\nAllergies: none\n\nReason for referral: raised BP, for review\nRef clinician: Sr B. Zwane, Sithole PHC,  19/08/2026\nReceiving: District Hospital -- Maternity Assessment\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n- **LMP/Gestational Age Contradiction:** The LMP of 22/12/2025 results in a gestational age of 34+6 weeks as of 19/08/2026, which contradicts the recorded GA of 34+2.\n- **Haemoglobin Recency:** The Hb result (14/03/26) is 158 days old, exceeding the 56-day requirement.\n- **HIV Screening Recency:** The HIV status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date.\n- **Syphilis Screening Recency:** The RPR status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date.\n- **Missing Field:** Patient identifier (patientId) is present as \"2210-08\", but the requirement specifies a mandatory patient identifier; ensure this is the full unique national/facility ID.\n\n### SUMMARY\n**Referral Summary:**\nPatient T. Nkosi (PID: 2210-08), a 34-year-old G2 P1, is referred by Sr B. Zwane from Sithole PHC on 19/08/2026 to the District Hospital Maternity Assessment unit. The patient presents with hypertension (BP 152/98 and 148/94 mmHg) and 1+ proteinuria. Current obstetric history notes one previous SVD at term in 2021. The patient is currently managed on Methyldopa 250mg tds. The referral is prompted by the recent elevation in blood pressure.\n\n### BEFORE YOU SEND\n1. **Verify Dates:** Re-calculate the gestational age based on the LMP or confirm the correct LMP date, as the current documentation (LMP 22/12/25 vs GA 34+2) is inconsistent.\n2. **Update Haemoglobin:** Obtain a new haemoglobin test, as the current result is older than 56 days.\n3. **Clarify Screening Dates:** Investigate why the HIV and Syphilis screening dates (05/01/26) precede the recorded LMP (22/12/25). If the patient was screened prior to the current pregnancy, new screening results are required.\n4. **Confirm Identifier:** Ensure \"2210-08\" is the complete and correct unique patient identifier required by the receiving facility.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 698,
+      "candidatesTokenCount": 629,
+      "totalTokenCount": 1327,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 698
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 698,
+    "outputTokens": 629,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

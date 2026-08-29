@@ -1,0 +1,14 @@
+case_id,referral_type,seeded_defects,baseline_caught,agent_caught,agent_false_flags,is_control,note
+case-01,elective_caesarean,1,1,1,0,false,""
+case-02,hypertension_review,1,1,1,0,false,""
+case-03,anaemia_review,1,1,1,0,false,""
+case-04,routine_ultrasound,0,0,0,0,true,"control pack"
+case-05,routine_ultrasound,1,1,1,0,false,""
+case-06,anaemia_review,1,1,1,0,false,""
+case-07,hypertension_review,1,1,1,0,false,""
+case-08,routine_ultrasound,1,1,1,0,false,""
+case-09,elective_caesarean,0,0,0,0,false,""
+case-10,hypertension_review,0,0,0,0,true,"control pack"
+case-11,anaemia_review,1,1,1,0,false,""
+case-12,elective_caesarean,2,2,2,0,false,""
+TOTAL,,10,10,10,0,,

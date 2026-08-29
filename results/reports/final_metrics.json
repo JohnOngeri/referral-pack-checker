@@ -1,0 +1,166 @@
+{
+  "generatedAt": "2026-08-29T09:33:47.093Z",
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "headline": {
+    "agentCaught": 10,
+    "baselineCaught": 10,
+    "seededDefects": 10,
+    "sentence": "10 of 10 documentation gaps caught. A single AI prompt caught 10.",
+    "sourceFile": "results/reports/final_metrics.json"
+  },
+  "agent": {
+    "cases": 12,
+    "seededDefects": 10,
+    "caught": 10,
+    "recallPct": 100,
+    "falseFlags": 0,
+    "falseFlagsOnControls": 0,
+    "contradictionsSeeded": 6,
+    "contradictionsCaught": 6,
+    "inventedValues": 0,
+    "costPerPackUsd": 0.0009
+  },
+  "baseline": {
+    "cases": 12,
+    "seededDefects": 10,
+    "caught": 10,
+    "recallPct": 100,
+    "falseFlags": 47,
+    "falseFlagsOnControls": 5,
+    "contradictionsSeeded": 6,
+    "contradictionsCaught": 6,
+    "costPerPackUsd": 0.0003
+  },
+  "contradictionDetection": {
+    "seeded": 6,
+    "agentCaught": 6,
+    "baselineCaught": 6
+  },
+  "perCase": [
+    {
+      "caseId": "case-01",
+      "referralType": "elective_caesarean",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-02",
+      "referralType": "hypertension_review",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-03",
+      "referralType": "anaemia_review",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-04",
+      "referralType": "routine_ultrasound",
+      "seeded": 0,
+      "baselineCaught": 0,
+      "agentCaught": 0,
+      "agentFalseFlags": 0,
+      "isControl": true,
+      "note": "control pack"
+    },
+    {
+      "caseId": "case-05",
+      "referralType": "routine_ultrasound",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-06",
+      "referralType": "anaemia_review",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-07",
+      "referralType": "hypertension_review",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-08",
+      "referralType": "routine_ultrasound",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-09",
+      "referralType": "elective_caesarean",
+      "seeded": 0,
+      "baselineCaught": 0,
+      "agentCaught": 0,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-10",
+      "referralType": "hypertension_review",
+      "seeded": 0,
+      "baselineCaught": 0,
+      "agentCaught": 0,
+      "agentFalseFlags": 0,
+      "isControl": true,
+      "note": "control pack"
+    },
+    {
+      "caseId": "case-11",
+      "referralType": "anaemia_review",
+      "seeded": 1,
+      "baselineCaught": 1,
+      "agentCaught": 1,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    },
+    {
+      "caseId": "case-12",
+      "referralType": "elective_caesarean",
+      "seeded": 2,
+      "baselineCaught": 2,
+      "agentCaught": 2,
+      "agentFalseFlags": 0,
+      "isControl": false,
+      "note": ""
+    }
+  ],
+  "humanReviewTime": {
+    "measured": false,
+    "note": "Not measured. Omitted rather than estimated. To add it: time yourself reviewing three packs by hand and three tool-assisted, then write results/reports/human_review_time.json."
+  }
+}

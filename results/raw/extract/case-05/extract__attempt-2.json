@@ -1,0 +1,1300 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-05",
+  "label": "extract",
+  "attempt": 2,
+  "timestamp": "2026-08-29T09:29:21.557Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You transcribe an antenatal referral pack into a fixed structure. The pack is semi-structured text copied from a paper card, with abbreviations, shorthand, and fields in no fixed order.\n\nRules, in order of importance:\n\n1. Never guess. If you cannot locate a field, set \"absent\": true, \"value\": null, \"provenance\": null. Inventing a plausible value is the most dangerous error you can make here.\n2. Quote your source. For every value you record, \"provenance.quote\" must be an exact substring of the pack text — copy it character for character. Include the line number in \"provenance.line\" (the pack is given with line numbers).\n3. A dash, blank, \"tbc\", \"pending\" or similar is not a value. Set \"absent\": true and \"absentReason\": \"placeholder\" (or \"no_value\"), with provenance pointing at the empty label.\n4. Look everywhere. Values may sit in margin notes, after a \"//\" mark, on an unrelated line, or in shorthand. A blood group may be written only as \"grp B+\" in the margin.\n5. Dates on the card are day/month/year. Two-digit years in the 2020s mean 20xx. Convert every date to ISO format YYYY-MM-DD. If a date is ambiguous or unreadable, record the field value but set the date to null.\n6. Gestational age: record weeks and days separately. If the card notes the date the GA was taken (\"at visit 24/08/26\"), record it in \"assessedOn\" as ISO; otherwise null.\n7. Rhesus: record \"positive\" or \"negative\". \"A neg\", \"O+\", \"Rh D pos\" all encode the rhesus status.\n8. Obstetric history: one entry per previous pregnancy. Classify the outcome. \"SVD term\" and \"LSCS term\" are term_birth. A miscarriage at \"11/40\" is a miscarriage with gestationWeeks 11.\n9. Do not interpret any value. Do not note whether a reading is high, low, normal or abnormal. Record only what is written.\n\nReturn your answer by calling the record_referral_pack tool.",
+      "responseMimeType": "application/json",
+      "responseSchema": {
+        "type": "object",
+        "properties": {
+          "patientId": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Patient identifier / file number as written."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "ageYears": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "nullable": true,
+                "description": "Age in years."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "lmp": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Last menstrual period as ISO date YYYY-MM-DD. Card dates are day/month/year."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "edd": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Estimated delivery date as ISO date YYYY-MM-DD."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "gestationalAge": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "object",
+                "properties": {
+                  "weeks": {
+                    "type": "integer"
+                  },
+                  "days": {
+                    "type": "integer"
+                  },
+                  "assessedOn": {
+                    "type": "string",
+                    "description": "ISO date the GA was recorded at, or null.",
+                    "nullable": true
+                  },
+                  "provenance": {
+                    "type": "object",
+                    "properties": {
+                      "quote": {
+                        "type": "string",
+                        "description": "Verbatim substring of the pack text."
+                      },
+                      "line": {
+                        "type": "integer",
+                        "description": "1-indexed line number, or null.",
+                        "nullable": true
+                      }
+                    },
+                    "required": [
+                      "quote",
+                      "line"
+                    ],
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "weeks",
+                  "days",
+                  "assessedOn",
+                  "provenance"
+                ],
+                "nullable": true
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "gravidity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Gravidity (G number)."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "parity": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "integer",
+                "nullable": true,
+                "description": "Parity (P number)."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "bloodGroup": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "ABO blood group only, e.g. 'O', 'A', 'B', 'AB'. Check margin notes."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "rhesus": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Rhesus status: 'positive' or 'negative' as documented."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "haemoglobin": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "number",
+                "nullable": true,
+                "description": "Haemoglobin in g/dL."
+              },
+              "date": {
+                "type": "string",
+                "nullable": true,
+                "description": "ISO date sample was taken."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "date",
+              "absent",
+              "provenance"
+            ]
+          },
+          "hivScreen": {
+            "type": "object",
+            "description": "HIV screening",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "e.g. 'negative', 'positive', 'not done'.",
+                "nullable": true
+              },
+              "date": {
+                "type": "string",
+                "description": "ISO date.",
+                "nullable": true
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "status",
+              "date",
+              "provenance"
+            ]
+          },
+          "syphilisScreen": {
+            "type": "object",
+            "description": "Syphilis / RPR / VDRL screening",
+            "properties": {
+              "status": {
+                "type": "string",
+                "description": "e.g. 'negative', 'positive', 'not done'.",
+                "nullable": true
+              },
+              "date": {
+                "type": "string",
+                "description": "ISO date.",
+                "nullable": true
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "status",
+              "date",
+              "provenance"
+            ]
+          },
+          "bloodPressure": {
+            "type": "object",
+            "properties": {
+              "readings": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "systolic": {
+                      "type": "integer"
+                    },
+                    "diastolic": {
+                      "type": "integer"
+                    },
+                    "date": {
+                      "type": "string",
+                      "description": "ISO date.",
+                      "nullable": true
+                    },
+                    "provenance": {
+                      "type": "object",
+                      "properties": {
+                        "quote": {
+                          "type": "string",
+                          "description": "Verbatim substring of the pack text."
+                        },
+                        "line": {
+                          "type": "integer",
+                          "description": "1-indexed line number, or null.",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "quote",
+                        "line"
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "systolic",
+                    "diastolic",
+                    "date",
+                    "provenance"
+                  ]
+                }
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "readings",
+              "absent",
+              "provenance"
+            ]
+          },
+          "urineProtein": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Urine protein result as documented, e.g. '1+', 'nil', 'trace'."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "previousObstetricHistory": {
+            "type": "object",
+            "properties": {
+              "entries": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "summary": {
+                      "type": "string",
+                      "description": "Verbatim entry."
+                    },
+                    "outcome": {
+                      "type": "string",
+                      "enum": [
+                        "term_birth",
+                        "preterm_birth",
+                        "stillbirth",
+                        "miscarriage",
+                        "termination",
+                        "ectopic",
+                        "other"
+                      ]
+                    },
+                    "gestationWeeks": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "year": {
+                      "type": "integer",
+                      "nullable": true
+                    },
+                    "provenance": {
+                      "type": "object",
+                      "properties": {
+                        "quote": {
+                          "type": "string",
+                          "description": "Verbatim substring of the pack text."
+                        },
+                        "line": {
+                          "type": "integer",
+                          "description": "1-indexed line number, or null.",
+                          "nullable": true
+                        }
+                      },
+                      "required": [
+                        "quote",
+                        "line"
+                      ],
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "summary",
+                    "outcome",
+                    "gestationWeeks",
+                    "year",
+                    "provenance"
+                  ]
+                }
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "entries",
+              "absent",
+              "provenance"
+            ]
+          },
+          "medications": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                },
+                "nullable": true,
+                "description": "Current medications as a list."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "allergies": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Allergies as documented. 'none known' is a real answer."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "reasonForReferral": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Stated reason for referral, verbatim where possible."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "referringFacility": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Referring facility name."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "referringClinician": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Referring clinician name."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "referralDate": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Date the referral was written, ISO YYYY-MM-DD."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "receivingFacility": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Receiving facility name."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "receivingDepartment": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Receiving department or unit."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          },
+          "antiD": {
+            "type": "object",
+            "properties": {
+              "value": {
+                "type": "string",
+                "nullable": true,
+                "description": "Anti-D immunoglobulin record (given + date), when documented."
+              },
+              "absent": {
+                "type": "boolean"
+              },
+              "provenance": {
+                "type": "object",
+                "properties": {
+                  "quote": {
+                    "type": "string",
+                    "description": "Verbatim substring of the pack text."
+                  },
+                  "line": {
+                    "type": "integer",
+                    "description": "1-indexed line number, or null.",
+                    "nullable": true
+                  }
+                },
+                "required": [
+                  "quote",
+                  "line"
+                ],
+                "nullable": true
+              },
+              "absentReason": {
+                "type": "string",
+                "enum": [
+                  "not_found",
+                  "placeholder",
+                  "no_value"
+                ],
+                "nullable": true
+              }
+            },
+            "required": [
+              "value",
+              "absent",
+              "provenance"
+            ]
+          }
+        },
+        "required": [
+          "patientId",
+          "ageYears",
+          "lmp",
+          "edd",
+          "gestationalAge",
+          "gravidity",
+          "parity",
+          "bloodGroup",
+          "rhesus",
+          "haemoglobin",
+          "hivScreen",
+          "syphilisScreen",
+          "bloodPressure",
+          "urineProtein",
+          "previousObstetricHistory",
+          "medications",
+          "allergies",
+          "reasonForReferral",
+          "referringFacility",
+          "referringClinician",
+          "referralDate",
+          "receivingFacility",
+          "receivingDepartment",
+          "antiD"
+        ]
+      },
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "Referral pack (with line numbers):\n\n 1 | Kibera Clinic  --  antenatal referral\n 2 | \n 3 | A. Mwangi,  36y     PID 5514\n 4 | LMP  20/11/2025\n 5 | EDD  12/08/2026\n 6 | GA   38+1  (14/08/26)\n 7 | G4 P3    prev: 2016 SVD term, 2019 LSCS term, 2022 LSCS term\n 8 | \n 9 | Hb 11.0 (10/08/26)     Blood gp O pos\n10 | HIV neg (05/01/26)     RPR neg (05/01/26)\n11 | BP 120/78 (14/08/26)\n12 | \n13 | Allergies: penicillin\n14 | Meds: folic acid\n15 | \n16 | Reason: growth scan follow-up, previous large-for-dates baby\n17 | Referred by Sr J. Otieno, Kibera Clinic, 14/08/2026\n18 | To: Referral Hospital -- Radiology\n19 | "
+          }
+        ]
+      },
+      {
+        "role": "model",
+        "parts": [
+          {
+            "text": "(previous attempt 1)"
+          }
+        ]
+      },
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "The structure was valid but these fields have problems:\n- urineProtein.provenance: provenance quote \"11 | BP 120/78 (14/08/26)\" does not appear in the pack text. Quote the exact source text or set provenance to null and absent to true.\n- antiD.provenance: provenance quote \"1 | Kibera Clinic  --  antenatal referral\" does not appear in the pack text. Quote the exact source text or set provenance to null and absent to true.\n\nCorrect these and call record_referral_pack again. Remember: quote source text exactly, and mark a field absent rather than guess."
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\n  \"patientId\": {\n    \"value\": \"5514\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"PID 5514\",\n      \"line\": 3\n    }\n  },\n  \"ageYears\": {\n    \"value\": 36,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"36y\",\n      \"line\": 3\n    }\n  },\n  \"lmp\": {\n    \"value\": \"2025-11-20\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"LMP  20/11/2025\",\n      \"line\": 4\n    }\n  },\n  \"edd\": {\n    \"value\": \"2026-08-12\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"EDD  12/08/2026\",\n      \"line\": 5\n    }\n  },\n  \"gestationalAge\": {\n    \"value\": {\n      \"weeks\": 38,\n      \"days\": 1,\n      \"assessedOn\": \"2026-08-14\",\n      \"provenance\": {\n        \"quote\": \"GA   38+1  (14/08/26)\",\n        \"line\": 6\n      }\n    },\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"GA   38+1  (14/08/26)\",\n      \"line\": 6\n    }\n  },\n  \"gravidity\": {\n    \"value\": 4,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"G4\",\n      \"line\": 7\n    }\n  },\n  \"parity\": {\n    \"value\": 3,\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"P3\",\n      \"line\": 7\n    }\n  },\n  \"bloodGroup\": {\n    \"value\": \"O\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 9\n    }\n  },\n  \"rhesus\": {\n    \"value\": \"positive\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Blood gp O pos\",\n      \"line\": 9\n    }\n  },\n  \"haemoglobin\": {\n    \"value\": 11.0,\n    \"date\": \"2026-08-10\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Hb 11.0 (10/08/26)\",\n      \"line\": 9\n    }\n  },\n  \"hivScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-01-05\",\n    \"provenance\": {\n      \"quote\": \"HIV neg (05/01/26)\",\n      \"line\": 10\n    }\n  },\n  \"syphilisScreen\": {\n    \"status\": \"negative\",\n    \"date\": \"2026-01-05\",\n    \"provenance\": {\n      \"quote\": \"RPR neg (05/01/26)\",\n      \"line\": 10\n    }\n  },\n  \"bloodPressure\": {\n    \"readings\": [\n      {\n        \"systolic\": 120,\n        \"diastolic\": 78,\n        \"date\": \"2026-08-14\",\n        \"provenance\": {\n          \"quote\": \"BP 120/78 (14/08/26)\",\n          \"line\": 11\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"BP 120/78 (14/08/26)\",\n      \"line\": 11\n    }\n  },\n  \"urineProtein\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"no_value\"\n  },\n  \"previousObstetricHistory\": {\n    \"entries\": [\n      {\n        \"summary\": \"2016 SVD term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2016,\n        \"provenance\": {\n          \"quote\": \"2016 SVD term\",\n          \"line\": 7\n        }\n      },\n      {\n        \"summary\": \"2019 LSCS term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2019,\n        \"provenance\": {\n          \"quote\": \"2019 LSCS term\",\n          \"line\": 7\n        }\n      },\n      {\n        \"summary\": \"2022 LSCS term\",\n        \"outcome\": \"term_birth\",\n        \"gestationWeeks\": null,\n        \"year\": 2022,\n        \"provenance\": {\n          \"quote\": \"2022 LSCS term\",\n          \"line\": 7\n        }\n      }\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"prev: 2016 SVD term, 2019 LSCS term, 2022 LSCS term\",\n      \"line\": 7\n    }\n  },\n  \"medications\": {\n    \"value\": [\n      \"folic acid\"\n    ],\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Meds: folic acid\",\n      \"line\": 14\n    }\n  },\n  \"allergies\": {\n    \"value\": \"penicillin\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Allergies: penicillin\",\n      \"line\": 13\n    }\n  },\n  \"reasonForReferral\": {\n    \"value\": \"growth scan follow-up, previous large-for-dates baby\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Reason: growth scan follow-up, previous large-for-dates baby\",\n      \"line\": 16\n    }\n  },\n  \"referringFacility\": {\n    \"value\": \"Kibera Clinic\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Kibera Clinic\",\n      \"line\": 17\n    }\n  },\n  \"referringClinician\": {\n    \"value\": \"Sr J. Otieno\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Sr J. Otieno\",\n      \"line\": 17\n    }\n  },\n  \"referralDate\": {\n    \"value\": \"2026-08-14\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"14/08/2026\",\n      \"line\": 17\n    }\n  },\n  \"receivingFacility\": {\n    \"value\": \"Referral Hospital\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Referral Hospital\",\n      \"line\": 18\n    }\n  },\n  \"receivingDepartment\": {\n    \"value\": \"Radiology\",\n    \"absent\": false,\n    \"provenance\": {\n      \"quote\": \"Radiology\",\n      \"line\": 18\n    }\n  },\n  \"antiD\": {\n    \"value\": null,\n    \"absent\": true,\n    \"provenance\": null,\n    \"absentReason\": \"no_value\"\n  }\n}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 947,
+      "candidatesTokenCount": 1918,
+      "totalTokenCount": 2865,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 947
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 947,
+    "outputTokens": 1918,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

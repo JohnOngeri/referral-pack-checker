@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-03",
+  "label": "model-check-iter1",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:28:58.053Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You compare an already-extracted antenatal referral pack against a facility requirement set. For each mandatory field that is absent, each dated field older than its recency limit, and each conditional field whose condition is met but which is absent, output one finding. Do not assess anything clinically. Reply with a JSON object: {\"findings\":[{\"field\",\"kind\",\"plain\"}]} and nothing else. kind is one of missing, stale, conditional.",
+      "temperature": 0,
+      "maxOutputTokens": 1500
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "REQUIREMENTS (Anaemia review):\n- patientId: mandatory\n- ageYears: mandatory\n- lmp: mandatory\n- gestationalAge: mandatory\n- gravidity: mandatory\n- parity: mandatory\n- haemoglobin: mandatory, max age 28 days from the referral date\n- bloodGroup: mandatory\n- rhesus: mandatory\n- hivScreen: mandatory, max age 365 days from the referral date\n- syphilisScreen: mandatory, max age 365 days from the referral date\n- medications: mandatory\n- reasonForReferral: mandatory\n- referringFacility: mandatory\n- referringClinician: mandatory\n- referralDate: mandatory\n- receivingFacility: mandatory\n- antiD: conditional, only required if Required when the rhesus status is recorded as negative.\n\nEXTRACTED FIELDS:\npatientId: {\"value\":\"8830\",\"absent\":false,\"provenance\":{\"quote\":\"PID 8830\",\"line\":1}}\nageYears: {\"value\":24,\"absent\":false,\"provenance\":{\"quote\":\"24\",\"line\":1}}\nlmp: {\"value\":\"2026-02-15\",\"absent\":false,\"provenance\":{\"quote\":\"LMP 15/02/2026\",\"line\":4}}\nedd: {\"value\":\"2026-11-22\",\"absent\":false,\"provenance\":{\"quote\":\"EDD 22/11/2026\",\"line\":4}}\ngestationalAge: {\"value\":{\"weeks\":24,\"days\":3,\"assessedOn\":\"2026-08-05\",\"provenance\":{\"quote\":\"GA 24+3 (05/08/26)\",\"line\":4}},\"absent\":false,\"provenance\":{\"quote\":\"GA 24+3 (05/08/26)\",\"line\":4}}\ngravidity: {\"value\":1,\"absent\":false,\"provenance\":{\"quote\":\"G1\",\"line\":5}}\nparity: {\"value\":0,\"absent\":false,\"provenance\":{\"quote\":\"P0\",\"line\":5}}\nbloodGroup: {\"value\":\"B\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp B pos\",\"line\":10}}\nrhesus: {\"value\":\"positive\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp B pos\",\"line\":10}}\nhaemoglobin: {\"value\":null,\"date\":null,\"absent\":true,\"provenance\":{\"quote\":\"Hb:  --\",\"line\":7},\"absentReason\":\"placeholder\"}\nhivScreen: {\"status\":\"negative\",\"date\":\"2026-03-20\",\"provenance\":{\"quote\":\"HIV neg 20/03/26\",\"line\":9}}\nsyphilisScreen: {\"status\":\"negative\",\"date\":\"2026-03-20\",\"provenance\":{\"quote\":\"VDRL neg 20/03/26\",\"line\":9}}\nbloodPressure: {\"readings\":[{\"systolic\":108,\"diastolic\":70,\"date\":\"2026-08-05\",\"provenance\":{\"quote\":\"BP 108/70 (05/08/26)\",\"line\":15}}],\"absent\":false,\"provenance\":{\"quote\":\"BP 108/70 (05/08/26)\",\"line\":15}}\nurineProtein: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}\npreviousObstetricHistory: {\"entries\":[],\"absent\":true,\"provenance\":null}\nmedications: {\"value\":[\"ferrous sulphate 200mg bd\",\"folic acid 5mg\"],\"absent\":false,\"provenance\":{\"quote\":\"Meds: ferrous sulphate 200mg bd, folic acid 5mg\",\"line\":12}}\nallergies: {\"value\":\"nil\",\"absent\":false,\"provenance\":{\"quote\":\"Allergies: nil\",\"line\":13}}\nreasonForReferral: {\"value\":\"anaemia, for review and consideration of IV iron\",\"absent\":false,\"provenance\":{\"quote\":\"Reason: anaemia, for review and consideration of IV iron\",\"line\":17}}\nreferringFacility: {\"value\":\"Ikeja Health Post\",\"absent\":false,\"provenance\":{\"quote\":\"Ikeja Health Post\",\"line\":18}}\nreferringClinician: {\"value\":\"Sr F. Balogun\",\"absent\":false,\"provenance\":{\"quote\":\"Sr F. Balogun\",\"line\":18}}\nreferralDate: {\"value\":\"2026-08-05\",\"absent\":false,\"provenance\":{\"quote\":\"05/08/2026\",\"line\":18}}\nreceivingFacility: {\"value\":\"General Hospital\",\"absent\":false,\"provenance\":{\"quote\":\"General Hospital\",\"line\":19}}\nreceivingDepartment: {\"value\":\"Obstetric Day Unit\",\"absent\":false,\"provenance\":{\"quote\":\"Obstetric Day Unit\",\"line\":19}}\nantiD: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"not_found\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"findings\":[{\"field\":\"haemoglobin\",\"kind\":\"missing\"}]}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1222,
+      "candidatesTokenCount": 14,
+      "totalTokenCount": 1236,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1222
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1222,
+    "outputTokens": 14,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

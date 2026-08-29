@@ -1,0 +1,544 @@
+{
+  "configId": "baseline",
+  "label": "Baseline — one prompt, whole job",
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "ranAt": "2026-08-29T09:28:23.755Z",
+  "perCase": [
+    {
+      "caseId": "case-01",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 3,
+      "falseFlagLines": [
+        "Contradiction: Gestational age (LMP 03/01/2026 results in a GA of 31+6 on 12/08/2026, but the pack records 31+4).",
+        "Contradiction: Parity (The patient is G3 P2, but the obstetric history lists only two previous births: 2019 SVD and 2022 LSCS).",
+        "Missing field: Anti-D immunoglobulin record (Note: Not required as Rhesus is positive, but the blood group field is empty, making the Rhesus status technically unverified)."
+      ],
+      "matchedDefectIds": [
+        "case-01-d1"
+      ],
+      "findings": [
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "Missing field: Blood group (The field is present but the value is blank)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Contradiction: Gestational age (LMP 03/01/2026 results in a GA of 31+6 on 12/08/2026, but the pack records 31+4)."
+        },
+        {
+          "field": "parity",
+          "kind": "missing",
+          "plain": "Contradiction: Parity (The patient is G3 P2, but the obstetric history lists only two previous births: 2019 SVD and 2022 LSCS)."
+        },
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "Missing field: Anti-D immunoglobulin record (Note: Not required as Rhesus is positive, but the blood group field is empty, making the Rhesus status technically unverified)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-02",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 4,
+      "falseFlagLines": [
+        "LMP/Gestational Age Contradiction: The LMP of 22/12/2025 results in a gestational age of 34+6 weeks as of 19/08/2026, which contradicts the recorded GA of 34+2.",
+        "HIV Screening Recency: The HIV status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date.",
+        "Syphilis Screening Recency: The RPR status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date.",
+        "Missing Field: Patient identifier (patientId) is present as \"2210-08\", but the requirement specifies a mandatory patient identifier; ensure this is the full unique national/facility ID."
+      ],
+      "matchedDefectIds": [
+        "case-02-d1"
+      ],
+      "findings": [
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "LMP/Gestational Age Contradiction: The LMP of 22/12/2025 results in a gestational age of 34+6 weeks as of 19/08/2026, which contradicts the recorded GA of 34+2."
+        },
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin Recency: The Hb result (14/03/26) is 158 days old, exceeding the 56-day requirement."
+        },
+        {
+          "field": "lmp",
+          "kind": "missing",
+          "plain": "HIV Screening Recency: The HIV status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date."
+        },
+        {
+          "field": "lmp",
+          "kind": "missing",
+          "plain": "Syphilis Screening Recency: The RPR status (05/01/26) is 226 days old, which is within the 365-day limit; however, the date is in the past relative to the LMP (22/12/2025), suggesting a potential error in the LMP or screening date."
+        },
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Missing Field: Patient identifier (patientId) is present as \"2210-08\", but the requirement specifies a mandatory patient identifier; ensure this is the full unique national/facility ID."
+        }
+      ]
+    },
+    {
+      "caseId": "case-03",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 5,
+      "falseFlagLines": [
+        "Haemoglobin Recency: N/A (value missing).",
+        "Gestational Age/LMP Contradiction: LMP 15/02/2026 implies a gestational age of 24+3 on 05/08/2026; however, the calculation is consistent, but the field is noted for verification.",
+        "HIV Screening Status: Present, but the date (20/03/26) is within the 365-day limit.",
+        "Syphilis Screening Status: Present, but the date (20/03/26) is within the 365-day limit.",
+        "Anti-D Immunoglobulin Record: Not required (Rhesus status is positive)."
+      ],
+      "matchedDefectIds": [
+        "case-03-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin: Missing (value not recorded)."
+        },
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin Recency: N/A (value missing)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age/LMP Contradiction: LMP 15/02/2026 implies a gestational age of 24+3 on 05/08/2026; however, the calculation is consistent, but the field is noted for verification."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "HIV Screening Status: Present, but the date (20/03/26) is within the 365-day limit."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Syphilis Screening Status: Present, but the date (20/03/26) is within the 365-day limit."
+        },
+        {
+          "field": "antiD",
+          "kind": "missing",
+          "plain": "Anti-D Immunoglobulin Record: Not required (Rhesus status is positive)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-04",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 2,
+      "falseFlagLines": [
+        "Gestational Age/LMP Contradiction: The LMP of 01/03/2026 results in a gestational age of 23 weeks and 0 days as of 07/08/2026, which contradicts the stated GA of 22+5.",
+        "Missing Field: The referral pack does not explicitly state the patient's age in years (only \"31\" is provided, which is ambiguous without a label)."
+      ],
+      "matchedDefectIds": [],
+      "findings": [
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age/LMP Contradiction: The LMP of 01/03/2026 results in a gestational age of 23 weeks and 0 days as of 07/08/2026, which contradicts the stated GA of 22+5."
+        },
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Missing Field: The referral pack does not explicitly state the patient's age in years (only \"31\" is provided, which is ambiguous without a label)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-05",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 2,
+      "falseFlagLines": [
+        "Estimated Delivery Date (EDD): The stated EDD of 12/08/2026 contradicts the GA calculation based on the LMP (which would result in an EDD of approximately 27/08/2026).",
+        "Parity: The stated parity of P3 contradicts the obstetric history provided (2016 SVD, 2019 LSCS, 2022 LSCS = 3 births; however, the patient is G4, implying a missing pregnancy outcome)."
+      ],
+      "matchedDefectIds": [
+        "case-05-d1"
+      ],
+      "findings": [
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age (GA): The stated GA of 38+1 weeks on 14/08/2026 contradicts the LMP of 20/11/2025 (which would result in a GA of approximately 38+3 weeks)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Estimated Delivery Date (EDD): The stated EDD of 12/08/2026 contradicts the GA calculation based on the LMP (which would result in an EDD of approximately 27/08/2026)."
+        },
+        {
+          "field": "parity",
+          "kind": "missing",
+          "plain": "Parity: The stated parity of P3 contradicts the obstetric history provided (2016 SVD, 2019 LSCS, 2022 LSCS = 3 births; however, the patient is G4, implying a missing pregnancy outcome)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-06",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 4,
+      "falseFlagLines": [
+        "Haemoglobin: Present, but the date (15/08/26) is 6 days old, which is within the 28-day limit. (Note: This is compliant).",
+        "HIV screening status: Present, but the date (20/01/26) is 213 days old, which is within the 365-day limit. (Note: This is compliant).",
+        "Syphilis screening status: Present, but the date (20/01/26) is 213 days old, which is within the 365-day limit. (Note: This is compliant).",
+        "Gestational age: Contradiction: LMP 10/01/2026 to 21/08/2026 calculates to 32 weeks 0 days, but the record states 31 weeks 6 days."
+      ],
+      "matchedDefectIds": [
+        "case-06-d1"
+      ],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin: Present, but the date (15/08/26) is 6 days old, which is within the 28-day limit. (Note: This is compliant)."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "HIV screening status: Present, but the date (20/01/26) is 213 days old, which is within the 365-day limit. (Note: This is compliant)."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Syphilis screening status: Present, but the date (20/01/26) is 213 days old, which is within the 365-day limit. (Note: This is compliant)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational age: Contradiction: LMP 10/01/2026 to 21/08/2026 calculates to 32 weeks 0 days, but the record states 31 weeks 6 days."
+        },
+        {
+          "field": "antiD",
+          "kind": "missing",
+          "plain": "Anti-D immunoglobulin record: Missing; required because the patient is Rhesus negative."
+        }
+      ]
+    },
+    {
+      "caseId": "case-07",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 3,
+      "falseFlagLines": [
+        "Gestational Age Contradiction: The LMP (05/02/2026) and the referral date (18/08/2026) calculate to a gestational age of 27+6, which contradicts the stated GA of 27+5.",
+        "Parity Contradiction: The patient is listed as G2 P1, but the obstetric history only lists one previous birth (2022 SVD), which is consistent with P1; however, the parity field is missing the standard notation for current pregnancy status (",
+        "Referral Date Contradiction: The Hb sample date (18/09/2026) is in the future relative to the referral date (18/08/2026)."
+      ],
+      "matchedDefectIds": [
+        "case-07-d1"
+      ],
+      "findings": [
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age Contradiction: The LMP (05/02/2026) and the referral date (18/08/2026) calculate to a gestational age of 27+6, which contradicts the stated GA of 27+5."
+        },
+        {
+          "field": "parity",
+          "kind": "missing",
+          "plain": "Parity Contradiction: The patient is listed as G2 P1, but the obstetric history only lists one previous birth (2022 SVD), which is consistent with P1; however, the parity field is missing the standard notation for current pregnancy status ("
+        },
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin Recency: The Hb sample date (18/09/2026) is in the future relative to the referral date (18/08/2026) and exceeds the 56-day recency requirement if the current date is assumed to be the referral date."
+        },
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Referral Date Contradiction: The Hb sample date (18/09/2026) is in the future relative to the referral date (18/08/2026)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-08",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 3,
+      "falseFlagLines": [
+        "Missing field: The referral pack does not explicitly state the patient's age in years (though \"33\" is listed, it is not labeled as `ageYears`).",
+        "Contradiction: The gestational age (GA) calculation is inconsistent. If the LMP is 12/03/2026, the GA on 11/08/2026 should be 21 weeks and 6 days, not 21+5.",
+        "Contradiction: The EDD is listed as 17/12/2026; based on an LMP of 12/03/2026, the EDD should be 17/12/2026 (this is consistent), but the GA calculation remains mathematically inconsistent with the LMP."
+      ],
+      "matchedDefectIds": [
+        "case-08-d1"
+      ],
+      "findings": [
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Missing field: The referral pack does not explicitly state the patient's age in years (though \"33\" is listed, it is not labeled as `ageYears`)."
+        },
+        {
+          "field": "parity",
+          "kind": "missing",
+          "plain": "Contradiction: The parity is listed as \"P2,\" but the obstetric history lists three previous births (2017, 2019, 2023)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Contradiction: The gestational age (GA) calculation is inconsistent. If the LMP is 12/03/2026, the GA on 11/08/2026 should be 21 weeks and 6 days, not 21+5."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Contradiction: The EDD is listed as 17/12/2026; based on an LMP of 12/03/2026, the EDD should be 17/12/2026 (this is consistent), but the GA calculation remains mathematically inconsistent with the LMP."
+        }
+      ]
+    },
+    {
+      "caseId": "case-09",
+      "isControl": false,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 6,
+      "falseFlagLines": [
+        "Haemoglobin: Out of date (dated 12/08/26, which is 4 days outside the 56-day limit relative to the referral date of 16/08/26).",
+        "Gestational Age: Contradiction (LMP 28/11/2025 results in a GA of 37+5 on 16/08/26, but the pack records 37+2).",
+        "Blood Group: Contradiction (Header states \"grp B+\" while the body states \"Rh pos\" without specifying the ABO group).",
+        "Referral Date: Contradiction (The referral date is 16/08/2026, but the blood group lab date is 12/12/25, which is in the future).",
+        "HIV Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date).",
+        "Syphilis Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date)."
+      ],
+      "matchedDefectIds": [],
+      "findings": [
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin: Out of date (dated 12/08/26, which is 4 days outside the 56-day limit relative to the referral date of 16/08/26)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age: Contradiction (LMP 28/11/2025 results in a GA of 37+5 on 16/08/26, but the pack records 37+2)."
+        },
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "Blood Group: Contradiction (Header states \"grp B+\" while the body states \"Rh pos\" without specifying the ABO group)."
+        },
+        {
+          "field": "bloodGroup",
+          "kind": "missing",
+          "plain": "Referral Date: Contradiction (The referral date is 16/08/2026, but the blood group lab date is 12/12/25, which is in the future)."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "HIV Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date)."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Syphilis Screening: Contradiction (Date 08/12/25 is in the future relative to the referral date)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-10",
+      "isControl": true,
+      "noFindingsExpected": true,
+      "seededDefects": 0,
+      "caught": 0,
+      "missed": [],
+      "falseFlags": 3,
+      "falseFlagLines": [
+        "Gestational Age: Contradiction between LMP (02/01/2026) and GA (32+6 on 20/08/2026). Based on the LMP, the GA should be 33+1.",
+        "HIV Screening Status: Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit.",
+        "Syphilis Screening Status: Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit."
+      ],
+      "matchedDefectIds": [],
+      "findings": [
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age: Contradiction between LMP (02/01/2026) and GA (32+6 on 20/08/2026). Based on the LMP, the GA should be 33+1."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "HIV Screening Status: Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Syphilis Screening Status: Out of date. The result is from 09/01/2026 (223 days old), which exceeds the 365-day limit."
+        }
+      ]
+    },
+    {
+      "caseId": "case-11",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 1,
+      "caught": 1,
+      "missed": [],
+      "falseFlags": 4,
+      "falseFlagLines": [
+        "Missing field: Anti-D immunoglobulin record (Required as Rhesus status is positive, but the requirement states it is conditional; however, as the patient is Rhesus positive, this is technically not applicable, but the field is missing from ",
+        "Contradiction: Gestational age (GA) calculation. LMP 08/01/2026 to 13/08/2026 is 31 weeks and 2 days, but the record states 31+0.",
+        "Contradiction: Parity vs. Obstetric history. Parity is listed as P2, but the history lists two previous births (2019 and 2022), which is consistent; however, the Gravidity is listed as G3, which implies 3 pregnancies total. This is consiste",
+        "Out of date: HIV screening. The test date is 20/01/2026. As of 13/08/2026, this is 205 days old, which is within the 365-day limit. (Correction: This is valid)."
+      ],
+      "matchedDefectIds": [
+        "case-11-d1"
+      ],
+      "findings": [
+        {
+          "field": "antiD",
+          "kind": "missing",
+          "plain": "Missing field: Anti-D immunoglobulin record (Required as Rhesus status is positive, but the requirement states it is conditional; however, as the patient is Rhesus positive, this is technically not applicable, but the field is missing from "
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Contradiction: Gestational age (GA) calculation. LMP 08/01/2026 to 13/08/2026 is 31 weeks and 2 days, but the record states 31+0."
+        },
+        {
+          "field": "parity",
+          "kind": "missing",
+          "plain": "Contradiction: Parity vs. Obstetric history. Parity is listed as P2, but the history lists two previous births (2019 and 2022), which is consistent; however, the Gravidity is listed as G3, which implies 3 pregnancies total. This is consiste"
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Out of date: Syphilis screening (RPR). The test date is 20/12/2025. As of 13/08/2026, this is 236 days old, which is within the 365-day limit. (Correction: This is valid)."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "Out of date: HIV screening. The test date is 20/01/2026. As of 13/08/2026, this is 205 days old, which is within the 365-day limit. (Correction: This is valid)."
+        }
+      ]
+    },
+    {
+      "caseId": "case-12",
+      "isControl": false,
+      "noFindingsExpected": false,
+      "seededDefects": 2,
+      "caught": 2,
+      "missed": [],
+      "falseFlags": 8,
+      "falseFlagLines": [
+        "Haemoglobin: The result (20/08/26) is 4 days old, which is within the 56-day limit; however, the record is valid.",
+        "HIV Screening Status: The result (20/12/25) is 247 days old, which is within the 365-day limit.",
+        "Syphilis Screening Status: The result (20/12/25) is 247 days old, which is within the 365-day limit.",
+        "Referral Date: Present.",
+        "Referring Clinician: Present.",
+        "Referring Facility: Present.",
+        "Receiving Facility: Present.",
+        "Anti-D Immunoglobulin Record: Not required (Rhesus status is positive)."
+      ],
+      "matchedDefectIds": [
+        "case-12-d1",
+        "case-12-d2"
+      ],
+      "findings": [
+        {
+          "field": "lmp",
+          "kind": "missing",
+          "plain": "LMP: The recorded date (14/12/2025) is in the future relative to the referral date (24/08/2026)."
+        },
+        {
+          "field": "gestationalAge",
+          "kind": "missing",
+          "plain": "Gestational Age: The GA (30+2) is inconsistent with the LMP (14/12/2025); based on the LMP, the patient would not yet be pregnant."
+        },
+        {
+          "field": "haemoglobin",
+          "kind": "missing",
+          "plain": "Haemoglobin: The result (20/08/26) is 4 days old, which is within the 56-day limit; however, the record is valid."
+        },
+        {
+          "field": "hivScreen",
+          "kind": "missing",
+          "plain": "HIV Screening Status: The result (20/12/25) is 247 days old, which is within the 365-day limit."
+        },
+        {
+          "field": "syphilisScreen",
+          "kind": "missing",
+          "plain": "Syphilis Screening Status: The result (20/12/25) is 247 days old, which is within the 365-day limit."
+        },
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Referral Date: Present."
+        },
+        {
+          "field": "referringClinician",
+          "kind": "missing",
+          "plain": "Referring Clinician: Present."
+        },
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Referring Facility: Present."
+        },
+        {
+          "field": "unknown",
+          "kind": "missing",
+          "plain": "Receiving Facility: Present."
+        },
+        {
+          "field": "antiD",
+          "kind": "missing",
+          "plain": "Anti-D Immunoglobulin Record: Not required (Rhesus status is positive)."
+        }
+      ]
+    }
+  ],
+  "extraction": null,
+  "aggregate": {
+    "cases": 12,
+    "seededDefects": 10,
+    "caught": 10,
+    "recallPct": 100,
+    "falseFlags": 47,
+    "falseFlagsOnControls": 5,
+    "contradictionsSeeded": 6,
+    "contradictionsCaught": 6
+  },
+  "inventedValuesTotal": null,
+  "provenanceCorrectness": null,
+  "unparseableCount": 0,
+  "costUsd": 0.0035,
+  "notes": []
+}

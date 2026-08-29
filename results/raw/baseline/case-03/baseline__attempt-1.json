@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "baseline",
+  "caseId": "case-03",
+  "label": "baseline",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:27:44.097Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You are an experienced antenatal clinician reviewing a referral pack before it is sent to a higher-level facility. You are given the raw pack text and the receiving facility's requirement set.\n\nIn one pass, do the whole job:\n- Identify every field that is missing, that is present but out of date under the stated recency limits, or that contradicts another field in the pack (for example a gestational age that does not match the last menstrual period, a date in the future, a parity that does not match the obstetric history).\n- Then write a corrected referral summary and a short \"before you send\" list of what the referring clinician needs to add or fix.\n\nReport contradictions by stating both values; do not decide which is right. Do not make any clinical assessment — this is a check of paperwork completeness and internal consistency only.\n\nWrite your answer as clear prose with clearly labelled sections: FINDINGS (one per line, each naming the field), SUMMARY, BEFORE YOU SEND.",
+      "temperature": 0,
+      "maxOutputTokens": 16000
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "RECEIVING FACILITY REQUIREMENTS — Anaemia review\n- Patient identifier (patientId): mandatory\n- Age (ageYears): mandatory\n- Last menstrual period (lmp): mandatory\n- Gestational age (gestationalAge): mandatory\n- Gravidity (gravidity): mandatory\n- Parity (parity): mandatory\n- Haemoglobin (haemoglobin): mandatory, must be from the last 28 days\n- Blood group (bloodGroup): mandatory\n- Rhesus status (rhesus): mandatory\n- HIV screening status (hivScreen): mandatory, must be from the last 365 days\n- Syphilis screening status (syphilisScreen): mandatory, must be from the last 365 days\n- Current medications (medications): mandatory\n- Reason for referral (reasonForReferral): mandatory\n- Referring facility (referringFacility): mandatory\n- Referring clinician (referringClinician): mandatory\n- Referral date (referralDate): mandatory\n- Receiving facility (receivingFacility): mandatory\n- Anti-D immunoglobulin record (antiD): conditional — only if: Required when the rhesus status is recorded as negative.\n\nREFERRAL PACK\nANC  --  L. Adebayo,  24     PID 8830\nIkeja Health Post\n\nLMP 15/02/2026    EDD 22/11/2026    GA 24+3 (05/08/26)\nG1 P0\n\nHb:  --\nMCV 71    ferritin low  (01/08/26)\nHIV neg 20/03/26     VDRL neg 20/03/26\nBlood gp B pos\n\nMeds: ferrous sulphate 200mg bd, folic acid 5mg\nAllergies: nil\n\nBP 108/70 (05/08/26)\n\nReason: anaemia, for review and consideration of IV iron\nReferred by Sr F. Balogun, Ikeja Health Post, 05/08/2026\nTo: General Hospital -- Obstetric Day Unit\n"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "### FINDINGS\n*   **Haemoglobin:** Missing (value not recorded).\n*   **Haemoglobin Recency:** N/A (value missing).\n*   **Gestational Age/LMP Contradiction:** LMP 15/02/2026 implies a gestational age of 24+3 on 05/08/2026; however, the calculation is consistent, but the field is noted for verification.\n*   **HIV Screening Status:** Present, but the date (20/03/26) is within the 365-day limit.\n*   **Syphilis Screening Status:** Present, but the date (20/03/26) is within the 365-day limit.\n*   **Anti-D Immunoglobulin Record:** Not required (Rhesus status is positive).\n\n### SUMMARY\n**Patient:** L. Adebayo (PID 8830)\n**Age:** 24\n**Referring Facility:** Ikeja Health Post\n**Receiving Facility:** General Hospital – Obstetric Day Unit\n**Referral Date:** 05/08/2026\n**Obstetric History:** G1 P0\n**LMP:** 15/02/2026\n**Gestational Age:** 24+3 weeks\n**Blood Group:** B Positive\n**Screening:** HIV Negative (20/03/26), Syphilis Negative (20/03/26)\n**Medications:** Ferrous sulphate 200mg BD, Folic acid 5mg\n**Reason for Referral:** Anaemia, for review and consideration of IV iron.\n**Clinical Notes:** MCV 71, ferritin low (01/08/26). BP 108/70 (05/08/26).\n\n### BEFORE YOU SEND\n1.  **Record Haemoglobin:** The referral is for anaemia review, but the haemoglobin level is missing from the pack. This must be performed and recorded before the patient is sent.\n2.  **Verify Haemoglobin Recency:** Ensure the haemoglobin test is performed within 28 days of the referral date.\n3.  **Confirm Data:** Please double-check the patient's full name and ensure all mandatory fields are completed in the final submission to the Obstetric Day Unit.",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 671,
+      "candidatesTokenCount": 517,
+      "totalTokenCount": 1188,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 671
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 671,
+    "outputTokens": 517,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

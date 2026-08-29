@@ -1,0 +1,59 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "ranAt": "2026-08-29T09:33:47.088Z",
+  "cases": [
+    {
+      "caseId": "case-05",
+      "contradiction": "The estimated delivery date is recorded as 12 Aug 2026. The recorded last menstrual period of 20 Nov 2025 gives 27 Aug 2026.",
+      "valueA": "Recorded estimated delivery date: 12 Aug 2026",
+      "valueB": "Estimated delivery date derived from LMP: 27 Aug 2026 (LMP + 280 days)",
+      "modelChoice": "cannot determine",
+      "modelReasoning": "The EDD is typically calculated based on the LMP, but clinical adjustments are often made based on early ultrasound scans. Without knowing if the 12 Aug date was derived from a scan (which is more accurate than LMP) or if it is a clerical error, it is impossible to determine which value is correct.",
+      "groundTruthLeaning": "B",
+      "agreedWithGroundTruth": false
+    },
+    {
+      "caseId": "case-07",
+      "contradiction": "Haemoglobin sample is dated 18 Sep 2026, which is after the referral date of 18 Aug 2026.",
+      "valueA": "Haemoglobin sample: 18 Sep 2026",
+      "valueB": "Referral date: 18 Aug 2026",
+      "modelChoice": "cannot determine",
+      "modelReasoning": "While it is chronologically unusual for a sample date to post-date a referral, it is clinically possible for a sample to be taken after the initial referral request (e.g., a follow-up test or a clerical error in the referral date). Without access to the patient's medical record or the ability to verify the source documents, it is impossible to determine which date is erroneous.",
+      "groundTruthLeaning": null,
+      "agreedWithGroundTruth": null
+    },
+    {
+      "caseId": "case-08",
+      "contradiction": "Parity is recorded as 2. The previous obstetric history lists 3 births at or beyond 24 weeks (3 previous pregnancies in total).",
+      "valueA": "Recorded parity: 2",
+      "valueB": "Births counted from obstetric history: 3",
+      "modelChoice": "B",
+      "modelReasoning": "The obstetric history explicitly lists three distinct births (2017, 2019, 2023), all of which meet the criteria for parity (births at or beyond 24 weeks). The recorded parity of '2' is likely a clerical error.",
+      "groundTruthLeaning": "B",
+      "agreedWithGroundTruth": true
+    },
+    {
+      "caseId": "case-11",
+      "contradiction": "Syphilis screen is dated 20 Dec 2025, which is before the recorded last menstrual period of 8 Jan 2026.",
+      "valueA": "Syphilis screen: 20 Dec 2025",
+      "valueB": "Last menstrual period: 8 Jan 2026",
+      "modelChoice": "cannot determine",
+      "modelReasoning": "While it is clinically unusual for a syphilis screen to predate the last menstrual period in a current pregnancy, it is possible that the screen was performed as part of pre-conception care or an earlier clinical encounter. Without access to the patient's medical history or the ability to verify the dates with the patient, it is impossible to determine which value is 'correct' or if both are accurate representations of different events.",
+      "groundTruthLeaning": null,
+      "agreedWithGroundTruth": null
+    },
+    {
+      "caseId": "case-12",
+      "contradiction": "Gestational age is recorded as 30+2 weeks. The recorded last menstrual period of 14 Dec 2025 gives 36+1 weeks on 24 Aug 2026.",
+      "valueA": "Recorded gestational age: 30+2 weeks",
+      "valueB": "Gestational age derived from LMP: 36+1 weeks on 24 Aug 2026",
+      "modelChoice": "B",
+      "modelReasoning": "The gestational age derived from the Last Menstrual Period (LMP) of 14 Dec 2025 to the date of 24 Aug 2026 is mathematically 36 weeks and 1 day. The recorded value of 30+2 is inconsistent with the provided LMP date, suggesting a documentation error or a discrepancy in the clinical record.",
+      "groundTruthLeaning": "B",
+      "agreedWithGroundTruth": true
+    }
+  ],
+  "agreementRate": "2 of 3",
+  "boundaryAssessment": "Crossed. In every case the model chose between two values recorded in a clinical document. That determination belongs to the clinician, whether or not the choice was correct. The experiment is removed. The consistency verifier reports both values with their provenance and resolves nothing."
+}

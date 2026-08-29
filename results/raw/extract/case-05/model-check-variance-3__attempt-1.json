@@ -1,0 +1,49 @@
+{
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "phase": "extract",
+  "caseId": "case-05",
+  "label": "model-check-variance-3",
+  "attempt": 1,
+  "timestamp": "2026-08-29T09:31:47.167Z",
+  "request": {
+    "model": "gemini-3.1-flash-lite",
+    "config": {
+      "systemInstruction": "You compare an already-extracted antenatal referral pack against a facility requirement set. For each mandatory field that is absent, each dated field older than its recency limit, and each conditional field whose condition is met but which is absent, output one finding. Do not assess anything clinically. Reply with a JSON object: {\"findings\":[{\"field\",\"kind\",\"plain\"}]} and nothing else. kind is one of missing, stale, conditional.",
+      "temperature": 0,
+      "maxOutputTokens": 1500
+    },
+    "contents": [
+      {
+        "role": "user",
+        "parts": [
+          {
+            "text": "REQUIREMENTS (Routine ultrasound referral):\n- patientId: mandatory\n- ageYears: mandatory\n- lmp: mandatory\n- gestationalAge: mandatory\n- edd: mandatory\n- gravidity: mandatory\n- parity: mandatory\n- reasonForReferral: mandatory\n- referringFacility: mandatory\n- referringClinician: mandatory\n- referralDate: mandatory\n- receivingFacility: mandatory\n- receivingDepartment: mandatory\n- bloodGroup: conditional, only required if Required when the stated reason for referral mentions bleeding or a placental concern.\n\nEXTRACTED FIELDS:\npatientId: {\"value\":\"5514\",\"absent\":false,\"provenance\":{\"quote\":\"PID 5514\",\"line\":3}}\nageYears: {\"value\":36,\"absent\":false,\"provenance\":{\"quote\":\"36y\",\"line\":3}}\nlmp: {\"value\":\"2025-11-20\",\"absent\":false,\"provenance\":{\"quote\":\"LMP  20/11/2025\",\"line\":4}}\nedd: {\"value\":\"2026-08-12\",\"absent\":false,\"provenance\":{\"quote\":\"EDD  12/08/2026\",\"line\":5}}\ngestationalAge: {\"value\":{\"weeks\":38,\"days\":1,\"assessedOn\":\"2026-08-14\",\"provenance\":{\"quote\":\"GA   38+1  (14/08/26)\",\"line\":6}},\"absent\":false,\"provenance\":{\"quote\":\"GA   38+1  (14/08/26)\",\"line\":6}}\ngravidity: {\"value\":4,\"absent\":false,\"provenance\":{\"quote\":\"G4\",\"line\":7}}\nparity: {\"value\":3,\"absent\":false,\"provenance\":{\"quote\":\"P3\",\"line\":7}}\nbloodGroup: {\"value\":\"O\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":9}}\nrhesus: {\"value\":\"positive\",\"absent\":false,\"provenance\":{\"quote\":\"Blood gp O pos\",\"line\":9}}\nhaemoglobin: {\"value\":11,\"date\":\"2026-08-10\",\"absent\":false,\"provenance\":{\"quote\":\"Hb 11.0 (10/08/26)\",\"line\":9}}\nhivScreen: {\"status\":\"negative\",\"date\":\"2026-01-05\",\"provenance\":{\"quote\":\"HIV neg (05/01/26)\",\"line\":10}}\nsyphilisScreen: {\"status\":\"negative\",\"date\":\"2026-01-05\",\"provenance\":{\"quote\":\"RPR neg (05/01/26)\",\"line\":10}}\nbloodPressure: {\"readings\":[{\"systolic\":120,\"diastolic\":78,\"date\":\"2026-08-14\",\"provenance\":{\"quote\":\"BP 120/78 (14/08/26)\",\"line\":11}}],\"absent\":false,\"provenance\":{\"quote\":\"BP 120/78 (14/08/26)\",\"line\":11}}\nurineProtein: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"no_value\"}\npreviousObstetricHistory: {\"entries\":[{\"summary\":\"2016 SVD term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2016,\"provenance\":{\"quote\":\"2016 SVD term\",\"line\":7}},{\"summary\":\"2019 LSCS term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2019,\"provenance\":{\"quote\":\"2019 LSCS term\",\"line\":7}},{\"summary\":\"2022 LSCS term\",\"outcome\":\"term_birth\",\"gestationWeeks\":null,\"year\":2022,\"provenance\":{\"quote\":\"2022 LSCS term\",\"line\":7}}],\"absent\":false,\"provenance\":{\"quote\":\"prev: 2016 SVD term, 2019 LSCS term, 2022 LSCS term\",\"line\":7}}\nmedications: {\"value\":[\"folic acid\"],\"absent\":false,\"provenance\":{\"quote\":\"Meds: folic acid\",\"line\":14}}\nallergies: {\"value\":\"penicillin\",\"absent\":false,\"provenance\":{\"quote\":\"Allergies: penicillin\",\"line\":13}}\nreasonForReferral: {\"value\":\"growth scan follow-up, previous large-for-dates baby\",\"absent\":false,\"provenance\":{\"quote\":\"Reason: growth scan follow-up, previous large-for-dates baby\",\"line\":16}}\nreferringFacility: {\"value\":\"Kibera Clinic\",\"absent\":false,\"provenance\":{\"quote\":\"Kibera Clinic\",\"line\":17}}\nreferringClinician: {\"value\":\"Sr J. Otieno\",\"absent\":false,\"provenance\":{\"quote\":\"Sr J. Otieno\",\"line\":17}}\nreferralDate: {\"value\":\"2026-08-14\",\"absent\":false,\"provenance\":{\"quote\":\"14/08/2026\",\"line\":17}}\nreceivingFacility: {\"value\":\"Referral Hospital\",\"absent\":false,\"provenance\":{\"quote\":\"Referral Hospital\",\"line\":18}}\nreceivingDepartment: {\"value\":\"Radiology\",\"absent\":false,\"provenance\":{\"quote\":\"Radiology\",\"line\":18}}\nantiD: {\"value\":null,\"absent\":true,\"provenance\":null,\"absentReason\":\"no_value\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "response": {
+    "text": "{\"findings\":[]}",
+    "finishReason": "STOP",
+    "usageMetadata": {
+      "promptTokenCount": 1339,
+      "candidatesTokenCount": 4,
+      "totalTokenCount": 1343,
+      "promptTokensDetails": [
+        {
+          "modality": "TEXT",
+          "tokenCount": 1339
+        }
+      ],
+      "serviceTier": "standard"
+    }
+  },
+  "usage": {
+    "inputTokens": 1339,
+    "outputTokens": 4,
+    "cacheReadTokens": 0
+  },
+  "stopReason": "STOP"
+}

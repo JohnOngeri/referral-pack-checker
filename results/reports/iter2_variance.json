@@ -1,0 +1,190 @@
+{
+  "runs": 3,
+  "mode": "fresh",
+  "model": "gemini-3.1-flash-lite",
+  "ranAt": "2026-08-29T09:33:24.545Z",
+  "perCase": [
+    {
+      "caseId": "case-01",
+      "modelCounts": [
+        1,
+        1,
+        1
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        1,
+        1,
+        1
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-02",
+      "modelCounts": [
+        1,
+        1,
+        1
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        1,
+        1,
+        1
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-03",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        1,
+        1,
+        1
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-04",
+      "modelCounts": [
+        2,
+        2,
+        2
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-05",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-06",
+      "modelCounts": [
+        2,
+        2,
+        2
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        1,
+        1,
+        1
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-07",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-08",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-09",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-10",
+      "modelCounts": [
+        0,
+        0,
+        0
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-11",
+      "modelCounts": [
+        2,
+        2,
+        2
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    },
+    {
+      "caseId": "case-12",
+      "modelCounts": [
+        1,
+        1,
+        1
+      ],
+      "modelStdev": 0,
+      "deterministicCounts": [
+        0,
+        0,
+        0
+      ],
+      "deterministicStdev": 0
+    }
+  ],
+  "modelMeanStdev": 0,
+  "deterministicMeanStdev": 0
+}
