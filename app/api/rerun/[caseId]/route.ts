@@ -16,7 +16,8 @@ export async function POST(_req: Request, { params }: { params: { caseId: string
   if (!allCaseIds().includes(caseId)) {
     return NextResponse.json({ error: `Unknown case ${caseId}` }, { status: 404 });
   }
-  const mode = hasApiKey() ? "fresh" : "replay";
+  // RPC_FORCE_REPLAY keeps a demo from spending API quota even when a key is present.
+  const mode = process.env.RPC_FORCE_REPLAY || !hasApiKey() ? "replay" : "fresh";
   try {
     const provider = makeProvider(mode);
     const started = Date.now();

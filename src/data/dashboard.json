@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T10:21:35.705Z",
+  "generatedAt": "2026-08-29T10:55:44.954Z",
   "metrics": {
     "mode": "fresh",
     "model": "gemini-3.1-flash-lite",
@@ -2014,7 +2014,7 @@
       "statusLine": "2 contradictions found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T10:21:35.691Z",
+      "ranAt": "2026-08-29T10:55:44.937Z",
       "packLines": [
         "ANC CARD  --  J. Sibanda,  31y     PID 1188-05",
         "Mzilikazi Clinic",
@@ -2176,13 +2176,13 @@
           "key": "reading",
           "label": "Reading the referral pack",
           "detail": "model call, 1 attempt",
-          "ms": 0
+          "ms": 3
         },
         {
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 22 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",
@@ -2194,7 +2194,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 2
         }
       ],
       "checkpoint": {

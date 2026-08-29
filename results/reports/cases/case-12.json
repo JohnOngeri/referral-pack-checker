@@ -964,31 +964,31 @@
       "key": "reading",
       "label": "Reading the referral pack",
       "detail": "model call, 1 attempt",
-      "startedAt": "2026-08-29T10:21:35.691Z",
-      "finishedAt": "2026-08-29T10:21:35.691Z"
+      "startedAt": "2026-08-29T10:55:44.930Z",
+      "finishedAt": "2026-08-29T10:55:44.933Z"
     },
     {
       "key": "requirements",
       "label": "Checking against facility requirements",
       "detail": "deterministic, 22 field rules",
-      "startedAt": "2026-08-29T10:21:35.691Z",
-      "finishedAt": "2026-08-29T10:21:35.691Z"
+      "startedAt": "2026-08-29T10:55:44.934Z",
+      "finishedAt": "2026-08-29T10:55:44.935Z"
     },
     {
       "key": "contradictions",
       "label": "Looking for contradictions",
       "detail": "deterministic, 6 rules",
-      "startedAt": "2026-08-29T10:21:35.691Z",
-      "finishedAt": "2026-08-29T10:21:35.691Z"
+      "startedAt": "2026-08-29T10:55:44.935Z",
+      "finishedAt": "2026-08-29T10:55:44.935Z"
     },
     {
       "key": "summary",
       "label": "Preparing the summary",
       "detail": "model call, verified fields only, 1 attempt",
-      "startedAt": "2026-08-29T10:21:35.691Z",
-      "finishedAt": "2026-08-29T10:21:35.691Z"
+      "startedAt": "2026-08-29T10:55:44.935Z",
+      "finishedAt": "2026-08-29T10:55:44.937Z"
     }
   ],
   "costUsd": 0.0014,
-  "ranAt": "2026-08-29T10:21:35.691Z"
+  "ranAt": "2026-08-29T10:55:44.937Z"
 }
