@@ -167,8 +167,7 @@ npm run dev                         # dashboard at localhost:3000
 - [docs/evaluation-plan.md](docs/evaluation-plan.md) — what a good result was defined to be, before the run
 - [docs/human-review-time.md](docs/human-review-time.md) — the review-burden proxy and a protocol for the real figure
 - [results/trajectories/](results/trajectories/) — readable traces, one per pack, plus baseline, memory, both retry loops
-- [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md) — the five-minute walkthrough
-
+- 
 ## Main failure mode
 
 The most dangerous thing this system can do is fill a gap instead of reporting it. A
