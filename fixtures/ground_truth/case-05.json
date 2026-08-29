@@ -1,0 +1,29 @@
+{
+  "id": "case-05",
+  "referralType": "routine_ultrasound",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-05-d1",
+      "field": "edd",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.edd_matches_lmp",
+      "summary": "The pack records an estimated delivery date of 12 August 2026. The recorded last menstrual period of 20 November 2025 gives 27 August 2026.",
+      "sourceSpan": "LMP  20/11/2025 / EDD  12/08/2026",
+      "conflictingValues": {
+        "recorded_edd": "2026-08-12",
+        "derived_edd": "2026-08-27",
+        "delta_days": 15
+      },
+      "correctResolution": "The referring clinician confirms the last menstrual period and the dating scan, then corrects whichever entry is wrong. The tool does not decide which is correct.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "lmp", "expect": "present", "note": "2025-11-20" },
+    { "field": "edd", "expect": "present", "note": "2026-08-12" },
+    { "field": "gestationalAge", "expect": "present", "note": "38+1, consistent with LMP" }
+  ]
+}

@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&display=swap">
+<style>
+html,body{margin:0;background:#FAF8F5}
+body{font-family:Archivo,system-ui,sans-serif;color:#152238;-webkit-font-smoothing:antialiased}
+a{color:#0F766E;text-underline-offset:3px}a:hover{color:#0B5A54}
+button{font-family:inherit}
+::selection{background:rgba(15,118,110,.18)}
+:focus-visible{outline:2px solid #0F766E;outline-offset:2px}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</helmet>
+<div style="min-height:100vh;background:#FAF8F5;color:#152238">
+
+  <header style="display:flex;align-items:center;gap:32px;padding:16px 40px;border-bottom:1px solid rgba(21,34,56,.12);position:sticky;top:0;z-index:30;background:#FAF8F5">
+    <span style="font-size:15px;font-weight:600;letter-spacing:-.01em">Referral Pack Checker</span>
+    <nav style="display:flex;gap:4px;margin-right:auto">
+      <sc-for list="{{ views }}" as="v" hint-placeholder-count="3">
+        <button style="{{ v.style }}" onClick="{{ v.go }}">{{ v.label }}</button>
+      </sc-for>
+    </nav>
+    <div style="display:flex;align-items:center;gap:9px;padding:6px 12px;border:1px solid rgba(21,34,56,.12);border-radius:4px;background:#FFFDFA">
+      <span style="{{ modeDot }}"></span>
+      <span style="font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase">{{ modeLabel }}</span>
+      <button style="border:0;background:transparent;color:rgba(21,34,56,.62);font-size:11.5px;cursor:pointer;padding:0 2px" onClick="{{ toggleMode }}">switch</button>
+    </div>
+  </header>
+
+  <div style="padding:11px 40px;background:#FFFDFA;border-bottom:1px solid rgba(21,34,56,.12);font-size:12.5px;color:rgba(21,34,56,.62)">This tool checks documentation completeness and internal consistency only. It makes no clinical assessment. A clinician approves every summary.</div>
+
+  <sc-if value="{{ isReview }}" hint-placeholder-val="{{ true }}">
+  <div style="max-width:1320px;margin:0 auto;padding:0 40px 96px">
+
+    <div style="padding:64px 0 48px">
+      <div style="display:flex;align-items:baseline;gap:18px;font-weight:600;letter-spacing:-.04em;line-height:1">
+        <span style="font-size:120px">11</span>
+        <span style="font-size:40px;color:rgba(21,34,56,.45)">of 12</span>
+      </div>
+      <p style="font-size:20px;line-height:1.5;margin:24px 0 0;max-width:40ch">documentation gaps caught. A single AI prompt caught 6.</p>
+      <p style="font-size:12px;color:rgba(21,34,56,.45);margin:10px 0 0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">results/reports/final_metrics.json · {{ modeLabel }}</p>
+    </div>
+
+    <div style="display:flex;gap:48px;align-items:flex-start;flex-wrap:wrap">
+
+      <aside style="flex:1 1 240px;max-width:280px;align-self:flex-start">
+        <div style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(21,34,56,.45);padding:0 0 12px">Packs</div>
+        <div style="display:flex;flex-direction:column;gap:2px">
+          <sc-for list="{{ packs }}" as="p" hint-placeholder-count="12">
+            <button style="{{ p.rowStyle }}" onClick="{{ p.select }}">
+              <span style="{{ p.shapeStyle }}"></span>
+              <span style="display:flex;flex-direction:column;align-items:flex-start;gap:1px;min-width:0">
+                <span style="font-size:13.5px;font-weight:500">{{ p.name }}</span>
+                <span style="font-size:11.5px;color:rgba(21,34,56,.45);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:196px">{{ p.type }}</span>
+              </span>
+            </button>
+          </sc-for>
+        </div>
+      </aside>
+
+      <main style="flex:999 1 620px;min-width:0">
+
+        <div style="display:flex;align-items:center;gap:13px">
+          <span style="{{ current.shapeStyle }}"></span>
+          <h1 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:0">{{ current.statusLine }}</h1>
+        </div>
+        <div style="font-size:13px;color:rgba(21,34,56,.62);margin-top:8px">{{ current.name }} · {{ current.type }} · {{ current.from }}</div>
+
+        <div style="display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:28px;padding:14px 18px;background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px">
+          <sc-for list="{{ stages }}" as="st" hint-placeholder-count="4">
+            <span style="{{ st.style }}"><span style="{{ st.dotStyle }}"></span>{{ st.label }}</span>
+          </sc-for>
+          <button style="{{ rerunStyle }}" onClick="{{ runCheck }}">Re-run check</button>
+        </div>
+
+        <div style="display:flex;gap:24px;margin-top:36px;border-bottom:1px solid rgba(21,34,56,.12)">
+          <sc-for list="{{ tabs }}" as="t" hint-placeholder-count="2">
+            <button style="{{ t.style }}" onClick="{{ t.go }}">{{ t.label }}</button>
+          </sc-for>
+        </div>
+
+        <sc-if value="{{ tabFindings }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:12px;margin-top:24px">
+          <sc-for list="{{ findings }}" as="f" hint-placeholder-count="2">
+            <button style="{{ f.cardStyle }}" onClick="{{ f.open }}">
+              <span style="display:flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:{{ f.color }}">
+                <span style="{{ f.shapeStyle }}"></span>{{ f.kind }}
+              </span>
+              <span style="font-size:16px;line-height:1.6;text-wrap:pretty">{{ f.plain }}</span>
+              <span style="font-size:12.5px;color:rgba(21,34,56,.45)">Evidence</span>
+            </button>
+          </sc-for>
+          <sc-if value="{{ noFindings }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:24px;background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px;font-size:16px">Nothing outstanding in this pack.</div>
+          </sc-if>
+        </div>
+        </sc-if>
+
+        <sc-if value="{{ tabSummary }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px;margin-top:24px">
+          <div style="background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px">
+            <div style="padding:14px 20px;border-bottom:1px solid rgba(21,34,56,.12);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45)">As received</div>
+            <div style="padding:20px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.9">
+              <sc-for list="{{ packLines }}" as="l" hint-placeholder-count="10">
+                <div style="{{ l.style }}">{{ l.text }}</div>
+              </sc-for>
+            </div>
+          </div>
+          <div style="background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px">
+            <div style="padding:14px 20px;border-bottom:1px solid rgba(21,34,56,.12);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45)">Summary, unapproved</div>
+            <div style="padding:8px 20px 20px">
+              <sc-for list="{{ summaryRows }}" as="r" hint-placeholder-count="8">
+                <div style="display:flex;gap:16px;align-items:baseline;padding:12px 0;border-bottom:1px solid rgba(21,34,56,.08)">
+                  <span style="flex:0 0 34%;font-size:12.5px;color:rgba(21,34,56,.62)">{{ r.label }}</span>
+                  <span style="flex:1;font-size:13.5px">{{ r.value }}</span>
+                  <span style="{{ r.tagStyle }}">{{ r.state }}</span>
+                </div>
+              </sc-for>
+            </div>
+          </div>
+        </div>
+        </sc-if>
+
+        <div style="{{ approvalStyle }}">
+          <div style="display:flex;gap:32px;align-items:flex-start;flex-wrap:wrap">
+            <div style="flex:1;min-width:280px">
+              <div style="font-size:17px;font-weight:600">{{ approvalTitle }}</div>
+              <div style="font-size:12.5px;color:rgba(21,34,56,.62);margin-top:8px;max-width:62ch">Nothing is finalised until a clinician approves. This tool checks documentation completeness only and makes no clinical assessment.</div>
+            </div>
+            <div style="display:flex;gap:10px;flex-wrap:wrap">
+              <button style="{{ approveStyle }}" onClick="{{ approve }}">Approve summary</button>
+              <button style="{{ secondaryBtn }}" onClick="{{ sendBack }}">Send back for correction</button>
+              <button style="{{ secondaryBtn }}" onClick="{{ runCheck }}">Re-run check</button>
+            </div>
+          </div>
+        </div>
+
+      </main>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isCompare }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1320px;margin:0 auto;padding:56px 40px 96px">
+    <h2 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:0 0 32px">Single prompt against the agent workflow</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:48px;align-items:start">
+      <div>
+        <sc-for list="{{ bars }}" as="b" hint-placeholder-count="4">
+          <div style="margin-bottom:24px">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;font-size:13px;margin-bottom:8px">
+              <span>{{ b.label }}</span><span style="font-weight:600">{{ b.value }}</span>
+            </div>
+            <div style="height:12px;background:rgba(21,34,56,.08);border-radius:2px;overflow:hidden">
+              <div style="{{ b.fillStyle }}"></div>
+            </div>
+          </div>
+        </sc-for>
+        <p style="font-size:12.5px;color:rgba(21,34,56,.62);max-width:52ch;margin-top:32px">Both runs received the same twelve packs and the same requirement sets, and were scored identically.</p>
+      </div>
+      <div>
+        <div style="display:grid;grid-template-columns:1.1fr 1.4fr repeat(3,auto) 1.6fr;gap:0 16px;font-size:13px">
+          <sc-for list="{{ headerCells }}" as="h" hint-placeholder-count="6">
+            <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);padding:0 0 10px;border-bottom:1px solid rgba(21,34,56,.12);text-align:{{ h.align }}">{{ h.label }}</div>
+          </sc-for>
+          <sc-for list="{{ rows }}" as="r" hint-placeholder-count="12">
+            <div style="{{ r.cell }}font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px">{{ r.id }}</div>
+            <div style="{{ r.cell }}">{{ r.type }}</div>
+            <div style="{{ r.cell }}text-align:right">{{ r.seeded }}</div>
+            <div style="{{ r.cell }}text-align:right;color:rgba(21,34,56,.45)">{{ r.baseline }}</div>
+            <div style="{{ r.cell }}text-align:right;font-weight:600">{{ r.agent }}</div>
+            <div style="{{ r.cell }}font-size:11.5px;color:rgba(21,34,56,.45)">{{ r.note }}</div>
+          </sc-for>
+        </div>
+        <p style="font-size:12px;color:rgba(21,34,56,.45);margin-top:16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">results/reports/comparison.csv · 12 seeded · baseline 6 · agent 11 · false flags 3 / 0</p>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <sc-if value="{{ isChangelog }}" hint-placeholder-val="{{ false }}">
+  <div style="max-width:1320px;margin:0 auto;padding:56px 40px 96px">
+    <h2 style="font-size:26px;font-weight:600;letter-spacing:-.02em;margin:0 0 32px">Improvement changelog</h2>
+    <div style="display:flex;flex-direction:column;gap:12px;max-width:1040px">
+      <sc-for list="{{ changelog }}" as="c" hint-placeholder-count="7">
+        <div style="display:grid;grid-template-columns:minmax(190px,1fr) minmax(0,2.2fr) auto;gap:8px 32px;align-items:baseline;padding:20px 24px;background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px">
+          <div>
+            <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45)">{{ c.step }}</div>
+            <div style="font-size:16px;font-weight:600;margin-top:4px">{{ c.title }}</div>
+          </div>
+          <div style="font-size:13.5px;line-height:1.6;color:rgba(21,34,56,.78)">{{ c.measured }}</div>
+          <div style="display:flex;align-items:center;gap:16px;justify-content:flex-end">
+            <span style="{{ c.tagStyle }}">{{ c.decision }}</span>
+            <a href="#" style="font-size:11.5px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace">{{ c.file }}</a>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+
+    <div style="margin-top:32px;max-width:1040px;padding:24px;background:#FBECEC;border:1px solid rgba(185,28,28,.35);border-radius:4px">
+      <div style="display:flex;gap:14px;align-items:center">
+        <span style="width:11px;height:11px;background:#B91C1C"></span>
+        <span style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#B91C1C">Removed</span>
+        <span style="font-size:17px;font-weight:600">Contradiction adjudicator</span>
+      </div>
+      <p style="font-size:14px;line-height:1.65;margin:14px 0 0;max-width:80ch">A model call was given both conflicting values and asked which was correct. It matched the clinician's later reading in 9 of 12 cases. It was removed anyway: choosing between two recorded values is a determination reserved for the clinician.</p>
+      <button style="{{ secondaryBtn }}" onClick="{{ toggleTranscript }}">{{ transcriptLabel }}</button>
+      <div style="{{ transcriptStyle }}">
+        <pre style="margin:16px 0 0;padding:20px;background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-radius:4px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.7;white-space:pre-wrap">{{ transcript }}</pre>
+      </div>
+    </div>
+  </div>
+  </sc-if>
+
+  <div style="{{ backdropStyle }}" onClick="{{ closeDrawer }}"></div>
+  <aside style="{{ drawerStyle }}">
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:16px;margin-bottom:28px">
+      <span style="font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(21,34,56,.45)">Evidence</span>
+      <button style="{{ secondaryBtn }}" onClick="{{ closeDrawer }}">Close</button>
+    </div>
+    <div style="font-size:17px;line-height:1.6;text-wrap:pretty">{{ drawer.plain }}</div>
+    <div style="display:flex;flex-direction:column;gap:20px;margin-top:32px">
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Field</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px">{{ drawer.field }}</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Rule fired</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px">{{ drawer.rule }}</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Source span</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:13px;padding:12px 14px;background:#FAF8F5;border-left:2px solid #0F766E">{{ drawer.span }}</div>
+      </div>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Raw model output</div>
+        <pre style="margin:0;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.7;white-space:pre-wrap;padding:14px;background:#FAF8F5">{{ drawer.raw }}</pre>
+      </div>
+      <sc-if value="{{ drawer.memory }}" hint-placeholder-val="{{ false }}">
+        <div>
+          <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Facility history</div>
+          <div style="font-size:13.5px">{{ drawer.memory }}</div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ drawer.note }}" hint-placeholder-val="{{ false }}">
+        <div style="font-size:13px;color:rgba(21,34,56,.62);padding-top:4px">{{ drawer.note }}</div>
+      </sc-if>
+      <div>
+        <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(21,34,56,.45);margin-bottom:6px">Evidence file</div>
+        <div style="font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;color:rgba(21,34,56,.62)">{{ drawer.file }}</div>
+      </div>
+    </div>
+  </aside>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;mode&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;replay&quot;,&quot;fresh&quot;],&quot;default&quot;:&quot;replay&quot;,&quot;tsType&quot;:&quot;'replay' | 'fresh'&quot;}}">
+const P = [
+  {id:"case-01",name:"M. Dlamini",type:"Elective caesarean booking",status:"gaps",from:"Ext 4 Clinic",to:"Regional Hospital — Obstetrics",date:"12 Aug 2026",
+   lines:["ANC CARD — M. Dlamini, 29y   PID 4471","LMP 03/01/2026   EDD 10/10/2026   GA 32+1","G3 P2   prev 2 SVD","Hb 11.4 (04/08/26)   HIV neg (02/02/26)   RPR neg (02/02/26)","Blood gp: ","BP 118/76 (04/08/26)  118/72 (12/08/26)","Reason: elective LSCS booking, prev CS x1","Ref: Sr N. Mokoena, Ext 4 Clinic, 12/08/26"],
+   flag:[4],
+   findings:[{kind:"Missing",field:"blood_group",plain:"Blood group is not recorded anywhere in this pack, and the receiving facility requires it for a caesarean booking.",rule:"requirements.elective_caesarean.blood_group = mandatory",span:"line 5 — \"Blood gp:\" (label present, no value)",raw:"\"blood_group\": {\"value\": null, \"absent\": true, \"provenance\": \"Blood gp:\"}",file:"results/raw/case-01/extract_01.json",memory:"Ext 4 Clinic has omitted this field in 4 of its last 9 packs"}],
+   rows:[["Patient","M. Dlamini, 29","verified"],["Gestation","32+1 by LMP 03/01/2026","verified"],["Gravidity / parity","G3 P2","verified"],["Blood group and rhesus","Not found in pack","outstanding"],["Haemoglobin","11.4 g/dL, 04 Aug 2026","verified"],["HIV / syphilis screening","Both recorded 02 Feb 2026","verified"],["Blood pressure","118/76, 118/72","verified"],["Reason for referral","Elective LSCS booking, previous caesarean","verified"]]},
+
+  {id:"case-02",name:"T. Nkosi",type:"Hypertension in pregnancy review",status:"gaps",from:"Sithole PHC",to:"District Hospital — Maternity",date:"19 Aug 2026",
+   lines:["ANC — T. Nkosi 34y  PID 2210","LMP 22/12/2025  EDD 28/09/2026  GA 34+6","G2 P1","BP 152/98 (18/08/26), 148/94 (19/08/26)","Hb 10.9  taken 14/03/26","HIV neg   RPR neg   (dates not entered)","On methyldopa 250mg tds","Reason: raised BP for review"],
+   flag:[4,5],
+   findings:[{kind:"Stale",field:"haemoglobin.date",plain:"Haemoglobin was taken 24 weeks ago; this referral type requires a result from the last 8 weeks.",rule:"requirements.hypertension_review.haemoglobin.max_age_days = 56",span:"line 5 — \"Hb 10.9  taken 14/03/26\"",raw:"\"haemoglobin\": {\"value\": \"10.9\", \"date\": \"2026-03-14\", \"provenance\": \"Hb 10.9  taken 14/03/26\"}",file:"results/raw/case-02/extract_01.json",memory:""},
+             {kind:"Missing",field:"hiv_screen.date",plain:"HIV and syphilis results are recorded without dates, so neither can be checked for currency.",rule:"consistency.dated_value_requires_date",span:"line 6 — \"(dates not entered)\"",raw:"\"hiv_screen\": {\"value\": \"negative\", \"date\": null, \"absent\": false}",file:"results/raw/case-02/extract_01.json",memory:""}],
+   rows:[["Patient","T. Nkosi, 34","verified"],["Gestation","34+6 by LMP 22/12/2025","verified"],["Blood pressure","152/98 and 148/94, 18-19 Aug 2026","verified"],["Haemoglobin","10.9 g/dL, 14 Mar 2026","outstanding"],["HIV / syphilis screening","Recorded negative, no dates","outstanding"],["Current medication","Methyldopa 250mg three times daily","verified"],["Blood group and rhesus","O positive","verified"],["Reason for referral","Raised blood pressure for review","verified"]]},
+
+  {id:"case-03",name:"L. Adebayo",type:"Anaemia review",status:"gaps",from:"Ikeja Health Post",to:"General Hospital — Obstetrics",date:"05 Aug 2026",
+   lines:["ANC — L. Adebayo, 24  PID 8830","LMP 15/02/2026  EDD 22/11/2026  GA 24+3","G1 P0","Hb: —","MCV 71   ferritin low (01/08/26)","HIV neg 20/03/26   VDRL neg 20/03/26","Blood gp B pos","Reason: anaemia, for review"],
+   flag:[3],
+   findings:[{kind:"Placeholder",field:"haemoglobin.value",plain:"The haemoglobin field holds a dash rather than a value.",rule:"consistency.present_field_must_hold_real_value",span:"line 4 — \"Hb: —\"",raw:"\"haemoglobin\": {\"value\": \"—\", \"absent\": true, \"reason\": \"placeholder\"}",file:"results/raw/case-03/extract_01.json",memory:""}],
+   rows:[["Patient","L. Adebayo, 24","verified"],["Gestation","24+3 by LMP 15/02/2026","verified"],["Haemoglobin","No value recorded","outstanding"],["Other haematology","MCV 71, ferritin low, 01 Aug 2026","verified"],["Blood group and rhesus","B positive","verified"],["HIV / syphilis screening","Both negative, 20 Mar 2026","verified"],["Gravidity / parity","G1 P0","verified"],["Reason for referral","Anaemia, for review","verified"]]},
+
+  {id:"case-04",name:"R. Pillay",type:"Routine ultrasound referral",status:"ready",from:"Chatsworth Clinic",to:"District Hospital — Radiology",date:"07 Aug 2026",
+   lines:["ANC — R. Pillay, 31  PID 1902","LMP 01/03/2026  EDD 06/12/2026  GA 22+4","G2 P1  prev 1 SVD","Hb 12.1 (01/08/26)","HIV neg 10/03/26  RPR neg 10/03/26","Blood gp A neg   anti-D given 12/07/26","BP 116/74 (07/08/26)","Reason: routine anomaly scan","Ref: Sr P. Naidoo, Chatsworth Clinic, 07/08/26"],
+   flag:[],findings:[],
+   rows:[["Patient","R. Pillay, 31","verified"],["Gestation","22+4 by LMP 01/03/2026","verified"],["Gravidity / parity","G2 P1, one previous vaginal birth","verified"],["Blood group and rhesus","A negative, anti-D 12 Jul 2026","verified"],["Haemoglobin","12.1 g/dL, 01 Aug 2026","verified"],["HIV / syphilis screening","Both negative, 10 Mar 2026","verified"],["Blood pressure","116/74, 07 Aug 2026","verified"],["Reason for referral","Routine anomaly scan","verified"]]},
+
+  {id:"case-05",name:"A. Mwangi",type:"Elective caesarean booking",status:"contradiction",from:"Kibera Clinic",to:"Referral Hospital — Theatre list",date:"14 Aug 2026",
+   lines:["ANC — A. Mwangi, 36  PID 5514","LMP 20/11/2025","EDD 12/08/2026","GA 38+2","G4 P3  prev CS x2","Hb 11.0 (10/08/26)  Blood gp O pos","HIV neg 05/01/26  RPR neg 05/01/26","Reason: elective LSCS, prev CS x2"],
+   flag:[1,2],
+   findings:[{kind:"Contradiction",field:"estimated_delivery_date",plain:"The pack records 12 August 2026. The recorded last menstrual period gives 27 August 2026.",rule:"consistency.edd_matches_lmp (tolerance 0 days)",span:"lines 2-3 — \"LMP 20/11/2025\" / \"EDD 12/08/2026\"",raw:"\"contradiction\": {\"derived_edd\": \"2026-08-27\", \"recorded_edd\": \"2026-08-12\", \"delta_days\": 15}",file:"results/raw/case-05/verify.json",memory:""}],
+   rows:[["Patient","A. Mwangi, 36","verified"],["Last menstrual period","20 Nov 2025","verified"],["Estimated delivery date","12 Aug 2026 as recorded — conflicts with LMP","outstanding"],["Gestational age","38+2 as recorded","verified"],["Gravidity / parity","G4 P3, two previous caesareans","verified"],["Blood group and rhesus","O positive","verified"],["Haemoglobin","11.0 g/dL, 10 Aug 2026","verified"],["Reason for referral","Elective caesarean, two previous","verified"]]},
+
+  {id:"case-06",name:"S. Banda",type:"Hypertension in pregnancy review",status:"gaps",from:"Chelstone PHC",to:"District Hospital — Maternity",date:"21 Aug 2026",
+   lines:["ANC — S. Banda, 27  PID 3388","LMP 10/01/2026  EDD 17/10/2026  GA 32+0","G1 P0","BP: recorded in register, not transcribed","Hb 11.8 (15/08/26)  Blood gp AB pos","HIV neg 20/01/26  RPR neg 20/01/26","Reason: BP high at last two visits"],
+   flag:[3],
+   findings:[{kind:"Missing",field:"blood_pressure",plain:"No blood pressure reading appears in the pack; the note says the readings stayed in the facility register.",rule:"requirements.hypertension_review.blood_pressure = mandatory",span:"line 4 — \"BP: recorded in register, not transcribed\"",raw:"\"blood_pressure\": {\"readings\": [], \"absent\": true, \"provenance\": \"recorded in register, not transcribed\"}",file:"results/raw/case-06/extract_01.json",memory:"Chelstone PHC has omitted this field in 2 of its last 6 packs"}],
+   rows:[["Patient","S. Banda, 27","verified"],["Gestation","32+0 by LMP 10/01/2026","verified"],["Blood pressure","Not transcribed into pack","outstanding"],["Urine protein","Not found in pack","outstanding"],["Haemoglobin","11.8 g/dL, 15 Aug 2026","verified"],["Blood group and rhesus","AB positive","verified"],["HIV / syphilis screening","Both negative, 20 Jan 2026","verified"],["Reason for referral","Blood pressure high at last two visits","verified"]]},
+
+  {id:"case-07",name:"F. Kamau",type:"Anaemia review",status:"contradiction",from:"Ruaraka Clinic",to:"General Hospital — Obstetrics",date:"18 Aug 2026",
+   lines:["ANC — F. Kamau, 22  PID 6602","LMP 05/02/2026  EDD 12/11/2026  GA 28+0","G2 P1","Hb 8.9  sample date 18/09/2026","Blood gp O neg  anti-D 01/08/26","HIV neg 12/02/26  RPR neg 12/02/26","Reason: low Hb for review"],
+   flag:[3],
+   findings:[{kind:"Contradiction",field:"haemoglobin.date",plain:"The haemoglobin sample is dated 18 September 2026, three weeks after the pack was written.",rule:"consistency.no_future_dates",span:"line 4 — \"sample date 18/09/2026\"",raw:"\"contradiction\": {\"field\": \"haemoglobin.date\", \"value\": \"2026-09-18\", \"pack_date\": \"2026-08-18\"}",file:"results/raw/case-07/verify.json",memory:""}],
+   rows:[["Patient","F. Kamau, 22","verified"],["Gestation","28+0 by LMP 05/02/2026","verified"],["Haemoglobin","8.9 g/dL, sample dated 18 Sep 2026","outstanding"],["Blood group and rhesus","O negative, anti-D 01 Aug 2026","verified"],["HIV / syphilis screening","Both negative, 12 Feb 2026","verified"],["Gravidity / parity","G2 P1","verified"],["Reason for referral","Low haemoglobin for review","verified"]]},
+
+  {id:"case-08",name:"N. Chirwa",type:"Routine ultrasound referral",status:"contradiction",from:"Area 25 Clinic",to:"Central Hospital — Radiology",date:"11 Aug 2026",
+   lines:["ANC — N. Chirwa, 33  PID 7714","LMP 12/03/2026  EDD 17/12/2026  GA 21+3","G3 P2","Obstetric hx: 2019 SVD term; 2022 miscarriage 11/40; 2024 SVD term","Hb 11.6 (08/08/26)  Blood gp A pos","HIV neg 20/03/26  RPR neg 20/03/26","Reason: growth scan"],
+   flag:[2,3],
+   findings:[{kind:"Contradiction",field:"parity",plain:"Parity is recorded as 2. The obstetric history below it lists three previous pregnancies.",rule:"consistency.parity_matches_obstetric_history",span:"lines 3-4 — \"G3 P2\" / obstetric history entries",raw:"\"contradiction\": {\"recorded_parity\": 2, \"history_pregnancies\": 3, \"history_term_births\": 2}",file:"results/raw/case-08/verify.json",memory:""}],
+   rows:[["Patient","N. Chirwa, 33","verified"],["Gestation","21+3 by LMP 12/03/2026","verified"],["Gravidity / parity","G3 P2 as recorded — conflicts with history","outstanding"],["Previous obstetric history","Three entries, 2019 / 2022 / 2024","verified"],["Blood group and rhesus","A positive","verified"],["Haemoglobin","11.6 g/dL, 08 Aug 2026","verified"],["Reason for referral","Growth scan","verified"]]},
+
+  {id:"case-09",name:"B. Osei",type:"Elective caesarean booking",status:"ready",from:"Madina Clinic",to:"Teaching Hospital — Theatre list",date:"16 Aug 2026",
+   lines:["ANC — B. Osei, 30  PID 9126","LMP 28/11/2025  EDD 04/09/2026  GA 37+4","G2 P1  prev CS x1","Hb 11.9 (12/08/26)  Blood gp B neg","HIV neg 08/12/25  RPR neg 08/12/25","BP 122/78 (16/08/26)","Reason: elective LSCS booking"],
+   flag:[],findings:[],
+   rows:[["Patient","B. Osei, 30","verified"],["Gestation","37+4 by LMP 28/11/2025","verified"],["Gravidity / parity","G2 P1, one previous caesarean","verified"],["Blood group and rhesus","B negative","verified"],["Haemoglobin","11.9 g/dL, 12 Aug 2026","verified"],["HIV / syphilis screening","Both negative, 08 Dec 2025","verified"],["Blood pressure","122/78, 16 Aug 2026","verified"],["Reason for referral","Elective caesarean booking","verified"]]},
+
+  {id:"case-10",name:"K. Achieng",type:"Hypertension in pregnancy review",status:"ready",from:"Kisumu West Clinic",to:"County Hospital — Maternity",date:"20 Aug 2026",
+   lines:["ANC — K. Achieng, 28  PID 4050","LMP 02/01/2026  EDD 09/10/2026  GA 33+2","G2 P1","BP 146/92 (19/08/26), 144/90 (20/08/26)","Urine protein 1+ (20/08/26)","Hb 11.5 (14/08/26)  Blood gp O pos","HIV neg 09/01/26  RPR neg 09/01/26","Reason: raised BP for review"],
+   flag:[],findings:[],
+   rows:[["Patient","K. Achieng, 28","verified"],["Gestation","33+2 by LMP 02/01/2026","verified"],["Blood pressure","146/92 and 144/90, 19-20 Aug 2026","verified"],["Urine protein","1+, 20 Aug 2026","verified"],["Haemoglobin","11.5 g/dL, 14 Aug 2026","verified"],["Blood group and rhesus","O positive","verified"],["HIV / syphilis screening","Both negative, 09 Jan 2026","verified"],["Reason for referral","Raised blood pressure for review","verified"]]},
+
+  {id:"case-11",name:"D. Mahlangu",type:"Anaemia review",status:"ready",from:"Tembisa Clinic",to:"Regional Hospital — Obstetrics",date:"13 Aug 2026",
+   lines:["ANC — D. Mahlangu, 26  PID 2287","LMP 08/01/2026  EDD 15/10/2026  GA 31+3","G3 P2","Hb 9.4 (09/08/26)  MCV 68","HIV neg 15/01/26  RPR neg 15/01/26","BP 124/80 (13/08/26)","margin note: gp A+ (checked 15/01)","Reason: anaemia for review"],
+   flag:[6],
+   findings:[],
+   rows:[["Patient","D. Mahlangu, 26","verified"],["Gestation","31+3 by LMP 08/01/2026","verified"],["Haemoglobin","9.4 g/dL, 09 Aug 2026","verified"],["Blood group and rhesus","A positive — read from margin note","verified"],["HIV / syphilis screening","Both negative, 15 Jan 2026","verified"],["Blood pressure","124/80, 13 Aug 2026","verified"],["Gravidity / parity","G3 P2","verified"],["Reason for referral","Anaemia for review","verified"]]},
+
+  {id:"case-12",name:"J. Sibanda",type:"Elective caesarean booking",status:"contradiction",from:"Mzilikazi Clinic",to:"Central Hospital — Theatre list",date:"24 Aug 2026",
+   lines:["ANC CARD — J. Sibanda, 31y   PID 1188","LMP 14/12/2025","GA 30+2 (recorded at visit 24/08/26)","EDD 22/09/2026","G3 P2  prev SVD 2019, prev CS 2023","Hb 11.7 (20/08/26)   Blood gp O pos","HIV neg 20/12/25   RPR neg 20/12/25","BP 126/82 (24/08/26)  120/78 (10/08/26)","Allergies: none known   Meds: ferrous sulphate","Reason: elective LSCS booking, prev CS x1","Ref: Sr T. Ndlovu, Mzilikazi Clinic, 24/08/26"],
+   flag:[1,2,3],
+   findings:[
+     {kind:"Contradiction",field:"gestational_age",plain:"The pack records 30 weeks and 2 days. The recorded last menstrual period gives 36 weeks and 3 days.",rule:"consistency.ga_matches_lmp (tolerance 7 days)",span:"lines 2-3 — \"LMP 14/12/2025\" / \"GA 30+2 (recorded at visit 24/08/26)\"",raw:"\"contradiction\": {\"derived_ga_days\": 255, \"recorded_ga_days\": 212, \"delta_days\": 43, \"resolution\": null}",file:"results/raw/case-12/verify.json",memory:""},
+     {kind:"Contradiction",field:"estimated_delivery_date",plain:"The estimated delivery date follows the recorded gestational age, not the last menstrual period.",rule:"consistency.edd_matches_lmp (tolerance 0 days)",span:"lines 2-4 — \"LMP 14/12/2025\" / \"EDD 22/09/2026\"",raw:"\"contradiction\": {\"derived_edd\": \"2026-09-20\", \"recorded_edd\": \"2026-09-22\", \"anchored_to\": \"recorded_ga\", \"resolution\": null}",file:"results/raw/case-12/verify.json",memory:""}],
+   rows:[["Patient","J. Sibanda, 31","verified"],["Last menstrual period","14 Dec 2025","verified"],["Gestational age","30+2 as recorded; 36+3 derived from LMP","outstanding"],["Estimated delivery date","22 Sep 2026 as recorded — conflicts with LMP","outstanding"],["Gravidity / parity","G3 P2, one previous caesarean 2023","verified"],["Blood group and rhesus","O positive","verified"],["Haemoglobin","11.7 g/dL, 20 Aug 2026","verified"],["Blood pressure","126/82 and 120/78","verified"],["Allergies / medication","None known; ferrous sulphate","verified"],["Reason for referral","Elective caesarean booking, previous caesarean","verified"]]}
+];
+
+const ROWS = [
+  ["case-01","Elective caesarean",1,1,1,""],["case-02","Hypertension review",2,1,2,""],
+  ["case-03","Anaemia review",1,0,1,"baseline read the dash as a value"],["case-04","Routine ultrasound",0,0,0,"control pack"],
+  ["case-05","Elective caesarean",1,1,1,""],["case-06","Hypertension review",2,1,1,"agent missed the conditional urine protein"],
+  ["case-07","Anaemia review",1,0,1,""],["case-08","Routine ultrasound",1,0,1,""],
+  ["case-09","Elective caesarean",1,1,0,"agent missed the anti-D conditional"],["case-10","Hypertension review",0,0,0,"control pack"],
+  ["case-11","Anaemia review",0,0,0,"blood group in margin, both found it"],["case-12","Elective caesarean",2,1,2,"baseline passed the pack as complete"]
+];
+
+const STAGE_DETAIL = ["model call, 1 attempt","deterministic, 24 rules","deterministic, 6 rules","model call, verified fields only"];
+const STAGE_LABEL = ["Reading the referral pack","Checking against facility requirements","Looking for contradictions","Preparing the summary"];
+
+const CHANGELOG = [
+  {step:"Baseline",title:"One prompt, whole job",measured:"6 of 12 defects caught, 3 false flags, 2 responses unparseable on first read.",decision:"Reference",file:"results/raw/baseline/"},
+  {step:"Iteration 1",title:"Structured extraction with provenance",measured:"Invented values fell from 7 to 0. Defects caught rose to 8 of 12.",decision:"Kept",file:"results/reports/iter1.json"},
+  {step:"Iteration 2",title:"Requirement checking moved to code",measured:"Run-to-run variance on the same pack fell from 2.1 findings to 0.",decision:"Kept",file:"results/reports/iter2_variance.csv"},
+  {step:"Iteration 3",title:"Consistency verifier added",measured:"Caught all 4 contradictions, including case 12, which every earlier configuration had passed as complete.",decision:"Kept",file:"results/reports/iter3.json"},
+  {step:"Iteration 4",title:"Per-facility memory",measured:"No change to recall. Two gap lists reordered so the recurring omission appeared first.",decision:"Kept",file:"results/reports/iter4.json"},
+  {step:"Experiment",title:"Contradiction adjudicator",measured:"Resolved 9 of 12 conflicts in line with clinician review. Removed on boundary grounds, not accuracy.",decision:"Removed",file:"results/reports/adjudicator.json"},
+  {step:"Final",title:"Combined configuration",measured:"11 of 12 caught, 0 false flags. The consistency verifier contributed most.",decision:"Shipped",file:"results/reports/final_metrics.json"}
+];
+
+const TRANSCRIPT = "case-12 · contradiction adjudicator · run 2026-08-26T09:41Z\n\nPROMPT\n  Two values conflict in this referral pack.\n  A: gestational age 30+2, recorded at the visit of 24/08/2026\n  B: gestational age 36+3, derived from LMP 14/12/2025\n  Which is correct?\n\nRESPONSE\n  B is the more likely correct value. The LMP is a primary\n  record and the derived figure follows from it arithmetically,\n  whereas the recorded gestational age appears to have been\n  carried forward from an earlier visit without updating.\n\nREVIEW\n  Accurate: yes (clinician agreed on review).\n  Boundary: crossed. The model chose between two clinical\n  records. That determination belongs to the clinician.\n  Action: removed. The verifier now reports both values with\n  their provenance and resolves nothing.";
+
+const TEAL="#0F766E", AMBER="#B45309", RED="#B91C1C", INK="#152238";
+const shape = (kind, size) => {
+  const s = size || 11;
+  if (kind === "ready") return "width:"+s+"px;height:"+s+"px;flex:none;border-radius:50%;background:"+TEAL;
+  if (kind === "gaps") return "width:0;height:0;flex:none;border-left:"+(s/2)+"px solid transparent;border-right:"+(s/2)+"px solid transparent;border-bottom:"+(s*0.92)+"px solid "+AMBER;
+  return "width:"+s+"px;height:"+s+"px;flex:none;background:"+RED;
+};
+
+class Component extends DCLogic {
+  state = { caseId:"case-12", stage:4, running:false, approved:false, sentBack:false, mode:null, transcript:false, view:"review", tab:"findings", drawer:null };
+  componentWillUnmount(){ if(this.t) clearInterval(this.t); }
+  select(id){ if(this.t) clearInterval(this.t); this.setState({caseId:id, approved:false, sentBack:false, stage:4, running:false, drawer:null, tab:"findings"}); }
+  runCheck = () => {
+    if(this.t) clearInterval(this.t);
+    this.setState({stage:0, running:true, approved:false, sentBack:false, drawer:null});
+    this.t = setInterval(()=>this.setState(s=>{
+      const n = s.stage + 1;
+      if(n >= 4){ clearInterval(this.t); return {stage:4, running:false}; }
+      return {stage:n};
+    }), 900);
+  };
+  renderVals(){
+    const mode = this.state.mode ?? (this.props.mode ?? "replay");
+    const view = this.state.view, tab = this.state.tab;
+    const cur = P.find(p=>p.id===this.state.caseId) || P[11];
+    const kindColor = k => k === "Contradiction" ? RED : AMBER;
+    const statusLine = p => {
+      const n = p.findings.length;
+      if (n === 0) return "Ready for review";
+      if (p.status === "contradiction") return n === 1 ? "1 contradiction found" : n + " contradictions found";
+      return n === 1 ? "1 gap outstanding" : n + " gaps outstanding";
+    };
+    const navBtn = on => "padding:7px 13px;border:0;border-radius:4px;cursor:pointer;font-size:13.5px;font-weight:500;background:"+(on?"rgba(21,34,56,.07)":"transparent")+";color:"+(on?INK:"rgba(21,34,56,.62)");
+    const tabBtn = on => "padding:0 0 12px;border:0;background:transparent;cursor:pointer;font-size:14px;font-weight:"+(on?600:500)+";color:"+(on?INK:"rgba(21,34,56,.45)")+";border-bottom:2px solid "+(on?INK:"transparent")+";margin-bottom:-1px";
+    const secondaryBtn = "padding:9px 16px;border:1px solid rgba(21,34,56,.22);border-radius:4px;background:#FFFDFA;color:"+INK+";font-size:13.5px;font-weight:500;cursor:pointer";
+    const openIdx = this.state.drawer;
+    const dsrc = cur.findings[openIdx] ?? this.lastDrawer ?? cur.findings[0] ?? {plain:"",field:"",rule:"",span:"",raw:"",file:"",memory:""};
+    if (cur.findings[openIdx]) this.lastDrawer = cur.findings[openIdx];
+    return {
+      views:[["review","Review"],["compare","Comparison"],["changelog","Changelog"]]
+        .map(v=>({label:v[1], style:navBtn(view===v[0]), go:()=>this.setState({view:v[0], drawer:null})})),
+      isReview: view==="review", isCompare: view==="compare", isChangelog: view==="changelog",
+      tabs:[["findings","Findings"],["summary","Pack and summary"]]
+        .map(t=>({label:t[1], style:tabBtn(tab===t[0]), go:()=>this.setState({tab:t[0]})})),
+      tabFindings: tab==="findings", tabSummary: tab==="summary",
+      modeLabel: mode==="fresh" ? "Fresh run" : "Replay",
+      modeDot: "width:8px;height:8px;border-radius:50%;background:"+(mode==="fresh"?TEAL:"rgba(21,34,56,.35)"),
+      toggleMode: ()=>this.setState({mode: mode==="fresh"?"replay":"fresh"}),
+      secondaryBtn,
+      packs: P.map(p=>{
+        const sel = p.id===this.state.caseId;
+        return {name:p.name, type:p.type, select:()=>this.select(p.id),
+          shapeStyle: shape(p.status, 10),
+          rowStyle:"display:flex;align-items:center;gap:11px;width:100%;text-align:left;padding:10px 12px;border:0;border-left:2px solid "+(sel?(p.status==="contradiction"?RED:(p.status==="gaps"?AMBER:TEAL)):"transparent")+";border-radius:0 4px 4px 0;background:"+(sel?"#FFFDFA":"transparent")+";cursor:pointer;color:"+INK};
+      }),
+      current: {...cur, statusLine: statusLine(cur), shapeStyle: shape(cur.status, 14)},
+      stages: ["Reading the referral pack","Checking against facility requirements","Looking for contradictions","Preparing the summary"].map((label,i)=>{
+        const done = i < this.state.stage, active = i === this.state.stage && this.state.running;
+        return {label,
+          style:"display:inline-flex;align-items:center;gap:8px;font-size:12.5px;color:"+(done?"rgba(21,34,56,.62)":(active?INK:"rgba(21,34,56,.32)")),
+          dotStyle:"width:7px;height:7px;border-radius:50%;flex:none;"+(done?"background:"+TEAL:(active?"background:"+AMBER+";animation:pulse 1s ease-in-out infinite":"border:1px solid rgba(21,34,56,.3)"))};
+      }),
+      rerunStyle: secondaryBtn+";margin-left:auto;padding:6px 12px;font-size:12.5px",
+      findings: cur.findings.map((f,i)=>({...f,
+        color: kindColor(f.kind),
+        shapeStyle: shape(f.kind === "Contradiction" ? "contradiction" : "gaps", 9),
+        cardStyle:"display:flex;flex-direction:column;align-items:flex-start;gap:10px;text-align:left;width:100%;padding:22px 24px;cursor:pointer;background:#FFFDFA;border:1px solid rgba(21,34,56,.12);border-left:3px solid "+kindColor(f.kind)+";border-radius:4px;color:"+INK,
+        open: ()=>this.setState({drawer:i})})),
+      noFindings: cur.findings.length === 0,
+      drawer: {...dsrc, memory: dsrc.memory || "", note: dsrc.kind === "Contradiction" ? "Both values are reported with their provenance. The tool does not decide which is correct." : ""},
+      drawerStyle: "position:fixed;top:0;right:0;bottom:0;width:min(520px,100%);z-index:60;background:#FFFDFA;border-left:1px solid rgba(21,34,56,.12);box-shadow:-16px 0 48px rgba(21,34,56,.12);padding:32px;overflow:auto;transition:transform .28s cubic-bezier(.4,0,.2,1);transform:translateX("+(openIdx===null?"101%":"0")+")",
+      backdropStyle: "position:fixed;inset:0;z-index:50;background:rgba(21,34,56,.18);transition:opacity .28s ease;opacity:"+(openIdx===null?"0":"1")+";pointer-events:"+(openIdx===null?"none":"auto"),
+      closeDrawer: ()=>this.setState({drawer:null}),
+      packLines: cur.lines.map((text,i)=>({text, style: cur.flag.indexOf(i)>-1
+        ? "padding:2px 10px;margin:0 -10px;background:#FBF1E4;box-shadow:inset 2px 0 0 "+AMBER
+        : "padding:2px 0"})),
+      summaryRows: cur.rows.map(r=>{
+        const ok = r[2]==="verified";
+        return {label:r[0], value:r[1], state: ok?"verified":"outstanding",
+          tagStyle:"flex:none;font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:3px;background:"+(ok?"rgba(15,118,110,.10)":"rgba(180,83,9,.12)")+";color:"+(ok?TEAL:AMBER)};
+      }),
+      approvalStyle: "margin-top:32px;padding:24px;border-radius:4px;border:1px solid "+(this.state.approved?"rgba(15,118,110,.4)":"rgba(21,34,56,.12)")+";background:"+(this.state.approved?"rgba(15,118,110,.07)":"#FFFDFA"),
+      approvalTitle: this.state.approved
+        ? "Approved by Sr T. Ndlovu, 24 Aug 2026 14:12"
+        : (this.state.sentBack ? "Returned to the referring clinician" : "Waiting for a clinician's approval"),
+      approveStyle: "padding:9px 16px;border:1px solid "+TEAL+";border-radius:4px;background:"+(this.state.approved?"rgba(15,118,110,.14)":TEAL)+";color:"+(this.state.approved?TEAL:"#FFFDFA")+";font-size:13.5px;font-weight:600;cursor:pointer",
+      approve: ()=>this.setState({approved:true, sentBack:false}),
+      sendBack: ()=>this.setState({sentBack:true, approved:false}),
+      bars: [
+        {label:"Agent workflow, defects caught", value:"11 / 12", pct:92, c:TEAL},
+        {label:"Single prompt, defects caught", value:"6 / 12", pct:50, c:"rgba(21,34,56,.45)"},
+        {label:"Agent workflow, false flags", value:"0", pct:1, c:TEAL},
+        {label:"Single prompt, false flags", value:"3", pct:25, c:RED}
+      ].map(b=>({...b, fillStyle:"height:100%;width:"+b.pct+"%;background:"+b.c})),
+      headerCells:[["Pack","left"],["Referral type","left"],["Seeded","right"],["Single prompt","right"],["Agent","right"],["Note","left"]]
+        .map(h=>({label:h[0], align:h[1]})),
+      rows: ROWS.map(r=>({id:r[0], type:r[1], seeded:r[2], baseline:r[3], agent:r[4], note:r[5],
+        cell:"padding:11px 0;border-bottom:1px solid rgba(21,34,56,.08);"})),
+      changelog: CHANGELOG.map(c=>({...c,
+        tagStyle:"font-size:11px;font-weight:600;letter-spacing:.04em;padding:3px 9px;border-radius:3px;background:"+(c.decision==="Removed"?"rgba(185,28,28,.10)":"rgba(15,118,110,.10)")+";color:"+(c.decision==="Removed"?RED:TEAL)})),
+      toggleTranscript: ()=>this.setState(s=>({transcript:!s.transcript})),
+      transcriptLabel: this.state.transcript ? "Hide the case 12 transcript" : "Show the case 12 transcript",
+      transcriptStyle: "display:"+(this.state.transcript?"block":"none"),
+      transcript: TRANSCRIPT
+    };
+  }
+}
+</script>
+</body>
+</html>

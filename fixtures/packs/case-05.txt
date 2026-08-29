@@ -1,0 +1,18 @@
+Kibera Clinic  --  antenatal referral
+
+A. Mwangi,  36y     PID 5514
+LMP  20/11/2025
+EDD  12/08/2026
+GA   38+1  (14/08/26)
+G4 P3    prev: 2016 SVD term, 2019 LSCS term, 2022 LSCS term
+
+Hb 11.0 (10/08/26)     Blood gp O pos
+HIV neg (05/01/26)     RPR neg (05/01/26)
+BP 120/78 (14/08/26)
+
+Allergies: penicillin
+Meds: folic acid
+
+Reason: growth scan follow-up, previous large-for-dates baby
+Referred by Sr J. Otieno, Kibera Clinic, 14/08/2026
+To: Referral Hospital -- Radiology

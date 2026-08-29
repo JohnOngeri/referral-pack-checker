@@ -1,0 +1,21 @@
+ANC CARD  --  N. Chirwa,  33     PID 7714
+Area 25 Clinic
+
+LMP 12/03/2026   EDD 17/12/2026   GA 21+5 (11/08/26)
+G4 P2
+
+Obstetric history:
+  2017  SVD term
+  2019  SVD term
+  2023  SVD term
+
+Hb 11.6 (08/08/26)    Blood gp A pos
+HIV neg (20/03/26)    RPR neg (20/03/26)
+BP 114/72 (11/08/26)
+
+Allergies: nil
+Meds: folic acid, ferrous sulphate
+
+Reason: growth scan
+Referred by: Sr C. Mbewe, Area 25 Clinic, 11/08/2026
+To: Central Hospital -- Radiology

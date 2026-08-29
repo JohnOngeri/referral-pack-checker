@@ -1,0 +1,28 @@
+{
+  "id": "case-07",
+  "referralType": "hypertension_review",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-07-d1",
+      "field": "haemoglobin",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.no_future_dates",
+      "summary": "The haemoglobin sample is dated 18 September 2026, which is after the date the referral was written, 18 August 2026.",
+      "sourceSpan": "Hb 8.9   sample date 18/09/2026",
+      "conflictingValues": {
+        "sample_date": "2026-09-18",
+        "referral_date": "2026-08-18",
+        "days_after": 31
+      },
+      "correctResolution": "The referring clinician corrects the sample date to the true date it was taken. The tool does not assume which date is right.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "haemoglobin", "expect": "present", "note": "value 8.9, date 2026-09-18 as written" },
+    { "field": "referralDate", "expect": "present", "note": "2026-08-18" }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "id": "case-08",
+  "referralType": "routine_ultrasound",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-08-d1",
+      "field": "parity",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.parity_matches_obstetric_history",
+      "summary": "Parity is recorded as 2. The obstetric history lists three previous term births.",
+      "sourceSpan": "G4 P2 / Obstetric history: 2017 SVD term; 2019 SVD term; 2023 SVD term",
+      "conflictingValues": {
+        "recorded_parity": 2,
+        "history_births_24w_plus": 3
+      },
+      "correctResolution": "The referring clinician reconciles the parity with the obstetric history and corrects the entry that is wrong. The tool does not decide which is correct.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "parity", "expect": "present", "note": "2" },
+    { "field": "previousObstetricHistory", "expect": "present", "note": "three term births" }
+  ]
+}

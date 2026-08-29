@@ -1,0 +1,17 @@
+ANC  --  S. Banda,  27     PID 3388
+Chelstone PHC
+
+LMP 10/01/2026    EDD 17/10/2026    GA 31+6  (21/08/26)
+G1 P0
+
+Hb 9.4  (15/08/26)     MCV 68
+HIV neg (20/01/26)     RPR neg (20/01/26)
+Blood gp A neg
+
+BP 118/76 (20/08/26)
+Meds: ferrous sulphate 200mg bd, folic acid 5mg
+Allergies: nil known
+
+Reason: microcytic anaemia for review, ? IV iron
+Ref: Sr M. Phiri, Chelstone PHC, 21/08/2026
+To: District Hospital -- Obstetric Day Unit

@@ -1,0 +1,19 @@
+ANC  --  L. Adebayo,  24     PID 8830
+Ikeja Health Post
+
+LMP 15/02/2026    EDD 22/11/2026    GA 24+3 (05/08/26)
+G1 P0
+
+Hb:  --
+MCV 71    ferritin low  (01/08/26)
+HIV neg 20/03/26     VDRL neg 20/03/26
+Blood gp B pos
+
+Meds: ferrous sulphate 200mg bd, folic acid 5mg
+Allergies: nil
+
+BP 108/70 (05/08/26)
+
+Reason: anaemia, for review and consideration of IV iron
+Referred by Sr F. Balogun, Ikeja Health Post, 05/08/2026
+To: General Hospital -- Obstetric Day Unit

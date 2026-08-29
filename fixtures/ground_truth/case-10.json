@@ -1,0 +1,13 @@
+{
+  "id": "case-10",
+  "referralType": "hypertension_review",
+  "isControl": true,
+  "noFindingsExpected": true,
+  "defects": [],
+  "extractionExpectations": [
+    { "field": "bloodPressure", "expect": "present" },
+    { "field": "urineProtein", "expect": "present" },
+    { "field": "haemoglobin", "expect": "present" }
+  ],
+  "note": "Control pack. Complete and internally consistent. Any finding raised against this pack is a scored false flag."
+}

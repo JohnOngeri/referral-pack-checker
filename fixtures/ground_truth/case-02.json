@@ -1,0 +1,23 @@
+{
+  "id": "case-02",
+  "referralType": "hypertension_review",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-02-d1",
+      "field": "haemoglobin",
+      "type": "stale",
+      "category": "requirements",
+      "rule": "requirements.hypertension_review.haemoglobin.max_age_days",
+      "summary": "The haemoglobin result was taken on 14 March 2026, about 22 weeks before the referral. This referral type requires a result from the last 8 weeks.",
+      "sourceSpan": "Hb 10.9    taken 14/03/26",
+      "correctResolution": "A current haemoglobin is taken and added to the pack before the woman travels.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "haemoglobin", "expect": "present", "note": "value 10.9, date 2026-03-14" },
+    { "field": "bloodPressure", "expect": "present" }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "id": "case-09",
+  "referralType": "elective_caesarean",
+  "isControl": false,
+  "noFindingsExpected": true,
+  "defects": [],
+  "extractionExpectations": [
+    { "field": "bloodGroup", "expect": "present", "note": "written only in the margin note '// grp B+ , lab 12/12/25'. A naive extraction misses it and would wrongly flag it absent." },
+    { "field": "rhesus", "expect": "present", "note": "positive, from the margin note and 'Rh pos' on the HIV line" }
+  ],
+  "note": "The pack is complete and consistent. Its purpose is to test that the workflow finds a value in an unexpected location rather than reporting it missing. A blood-group finding here is a scored false flag."
+}

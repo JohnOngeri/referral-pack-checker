@@ -1,0 +1,34 @@
+{
+  "type": "elective_caesarean",
+  "label": "Elective caesarean booking",
+  "note": "Illustrative requirement set authored for this project, structured after the kind of booking checklist a theatre list coordinator works from. A real deployment would load the receiving facility's own documented requirements.",
+  "fields": [
+    { "field": "patientId", "label": "Patient identifier", "requirement": "mandatory" },
+    { "field": "ageYears", "label": "Age", "requirement": "mandatory" },
+    { "field": "lmp", "label": "Last menstrual period", "requirement": "mandatory" },
+    { "field": "gestationalAge", "label": "Gestational age", "requirement": "mandatory" },
+    { "field": "edd", "label": "Estimated delivery date", "requirement": "mandatory" },
+    { "field": "gravidity", "label": "Gravidity", "requirement": "mandatory" },
+    { "field": "parity", "label": "Parity", "requirement": "mandatory" },
+    { "field": "bloodGroup", "label": "Blood group", "requirement": "mandatory" },
+    { "field": "rhesus", "label": "Rhesus status", "requirement": "mandatory" },
+    { "field": "haemoglobin", "label": "Haemoglobin", "requirement": "mandatory", "maxAgeDays": 56 },
+    { "field": "hivScreen", "label": "HIV screening status", "requirement": "mandatory", "maxAgeDays": 365 },
+    { "field": "syphilisScreen", "label": "Syphilis screening status", "requirement": "mandatory", "maxAgeDays": 365 },
+    { "field": "previousObstetricHistory", "label": "Previous obstetric history", "requirement": "mandatory" },
+    { "field": "reasonForReferral", "label": "Reason for referral", "requirement": "mandatory" },
+    { "field": "referringFacility", "label": "Referring facility", "requirement": "mandatory" },
+    { "field": "referringClinician", "label": "Referring clinician", "requirement": "mandatory" },
+    { "field": "referralDate", "label": "Referral date", "requirement": "mandatory" },
+    { "field": "receivingFacility", "label": "Receiving facility", "requirement": "mandatory" },
+    {
+      "field": "antiD",
+      "label": "Anti-D immunoglobulin record",
+      "requirement": "conditional",
+      "condition": {
+        "description": "Required when the rhesus status is recorded as negative.",
+        "key": "rhesus_negative"
+      }
+    }
+  ]
+}

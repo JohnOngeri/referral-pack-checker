@@ -1,0 +1,28 @@
+{
+  "id": "case-11",
+  "referralType": "anaemia_review",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-11-d1",
+      "field": "syphilisScreen",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.no_date_before_lmp",
+      "summary": "The syphilis screening result is dated 20 December 2025, which is before the recorded last menstrual period of 8 January 2026.",
+      "sourceSpan": "RPR neg (20/12/25) / LMP 08/01/2026",
+      "conflictingValues": {
+        "screen_date": "2025-12-20",
+        "lmp": "2026-01-08",
+        "days_before": 19
+      },
+      "correctResolution": "The referring clinician checks whether the screening date or the last menstrual period was transcribed wrongly and corrects it. The tool does not assume which is right.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "syphilisScreen", "expect": "present", "note": "negative, date 2025-12-20" },
+    { "field": "lmp", "expect": "present", "note": "2026-01-08" }
+  ]
+}

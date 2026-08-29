@@ -1,0 +1,23 @@
+{
+  "id": "case-06",
+  "referralType": "anaemia_review",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-06-d1",
+      "field": "antiD",
+      "type": "conditional",
+      "category": "requirements",
+      "rule": "requirements.anaemia_review.antiD",
+      "summary": "The rhesus status is recorded as negative, and no anti-D immunoglobulin record is in the pack. This referral type requires that record when the rhesus status is negative.",
+      "sourceSpan": "Blood gp A neg",
+      "correctResolution": "The referring clinician adds the anti-D administration record, or notes that it is not yet due, before the woman travels.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "rhesus", "expect": "present", "note": "negative, from 'Blood gp A neg'" },
+    { "field": "antiD", "expect": "absent" }
+  ]
+}

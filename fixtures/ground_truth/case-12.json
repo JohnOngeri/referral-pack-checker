@@ -1,0 +1,50 @@
+{
+  "id": "case-12",
+  "referralType": "elective_caesarean",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "isHardCase": true,
+  "defects": [
+    {
+      "id": "case-12-d1",
+      "field": "gestationalAge",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.ga_matches_lmp",
+      "summary": "Gestational age is recorded as 30 weeks 2 days at the visit of 24 August 2026. The recorded last menstrual period of 14 December 2025 gives 36 weeks 1 day on that date.",
+      "sourceSpan": "LMP 14/12/2025 / GA 30+2 (recorded at visit 24/08/26)",
+      "conflictingValues": {
+        "recorded_ga_days": 212,
+        "derived_ga_days": 253,
+        "delta_days": 41
+      },
+      "correctResolution": "The referring clinician confirms the last menstrual period and the dating scan and corrects whichever entry is wrong. The tool does not decide which is correct.",
+      "discoveredDuringEvaluation": false
+    },
+    {
+      "id": "case-12-d2",
+      "field": "edd",
+      "type": "contradiction",
+      "category": "consistency",
+      "rule": "consistency.edd_matches_lmp",
+      "summary": "The estimated delivery date is recorded as 31 October 2026. The recorded last menstrual period of 14 December 2025 gives 20 September 2026. The recorded date follows the recorded gestational age, not the LMP.",
+      "sourceSpan": "LMP 14/12/2025 / EDD 31/10/2026",
+      "conflictingValues": {
+        "recorded_edd": "2026-10-31",
+        "derived_edd": "2026-09-20",
+        "delta_days": 41
+      },
+      "correctResolution": "The referring clinician confirms the dating and corrects the estimated delivery date to match the agreed last menstrual period or scan. The tool does not decide which is correct.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "lmp", "expect": "present", "note": "2025-12-14" },
+    { "field": "gestationalAge", "expect": "present", "note": "30+2, assessedOn 2026-08-24" },
+    { "field": "edd", "expect": "present", "note": "2026-10-31" },
+    { "field": "bloodGroup", "expect": "present" },
+    { "field": "haemoglobin", "expect": "present" },
+    { "field": "parity", "expect": "present", "note": "2, consistent with two births in history" }
+  ],
+  "note": "Every mandatory field is present and current. A completeness-only check passes this pack. The centrepiece of the demonstration: every box ticked, and the record still does not agree with itself."
+}

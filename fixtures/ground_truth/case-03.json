@@ -1,0 +1,22 @@
+{
+  "id": "case-03",
+  "referralType": "anaemia_review",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-03-d1",
+      "field": "haemoglobin",
+      "type": "placeholder",
+      "category": "consistency",
+      "rule": "consistency.present_field_holds_real_value | requirements.anaemia_review.haemoglobin",
+      "summary": "The haemoglobin field holds a dash rather than a value. An anaemia review needs the current haemoglobin.",
+      "sourceSpan": "Hb:  --",
+      "correctResolution": "The current haemoglobin is entered, or a fresh sample is taken and the result added.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "haemoglobin", "expect": "absent", "note": "label present, value is a dash; must be marked absent, not guessed" }
+  ]
+}

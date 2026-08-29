@@ -1,0 +1,29 @@
+{
+  "type": "routine_ultrasound",
+  "label": "Routine ultrasound referral",
+  "note": "Illustrative requirement set authored for this project, structured after the kind of checklist a radiology booking desk works from. A real deployment would load the receiving facility's own documented requirements.",
+  "fields": [
+    { "field": "patientId", "label": "Patient identifier", "requirement": "mandatory" },
+    { "field": "ageYears", "label": "Age", "requirement": "mandatory" },
+    { "field": "lmp", "label": "Last menstrual period", "requirement": "mandatory" },
+    { "field": "gestationalAge", "label": "Gestational age", "requirement": "mandatory" },
+    { "field": "edd", "label": "Estimated delivery date", "requirement": "mandatory" },
+    { "field": "gravidity", "label": "Gravidity", "requirement": "mandatory" },
+    { "field": "parity", "label": "Parity", "requirement": "mandatory" },
+    { "field": "reasonForReferral", "label": "Reason for referral", "requirement": "mandatory" },
+    { "field": "referringFacility", "label": "Referring facility", "requirement": "mandatory" },
+    { "field": "referringClinician", "label": "Referring clinician", "requirement": "mandatory" },
+    { "field": "referralDate", "label": "Referral date", "requirement": "mandatory" },
+    { "field": "receivingFacility", "label": "Receiving facility", "requirement": "mandatory" },
+    { "field": "receivingDepartment", "label": "Receiving department", "requirement": "mandatory" },
+    {
+      "field": "bloodGroup",
+      "label": "Blood group",
+      "requirement": "conditional",
+      "condition": {
+        "description": "Required when the stated reason for referral mentions bleeding or a placental concern.",
+        "key": "reason_mentions_bleeding_or_placenta"
+      }
+    }
+  ]
+}

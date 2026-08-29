@@ -1,0 +1,23 @@
+{
+  "id": "case-01",
+  "referralType": "elective_caesarean",
+  "isControl": false,
+  "noFindingsExpected": false,
+  "defects": [
+    {
+      "id": "case-01-d1",
+      "field": "bloodGroup",
+      "type": "missing",
+      "category": "requirements",
+      "rule": "requirements.elective_caesarean.bloodGroup",
+      "summary": "The ABO blood group is not recorded anywhere in the pack. The receiving facility requires it for a caesarean booking.",
+      "sourceSpan": "Blood gp:",
+      "correctResolution": "The referring clinician transcribes the ABO group from the antenatal record, or arranges a group and screen before the woman travels.",
+      "discoveredDuringEvaluation": false
+    }
+  ],
+  "extractionExpectations": [
+    { "field": "rhesus", "expect": "present", "note": "recorded as 'Rh D pos' on the HIV line, not on a dedicated blood group line" },
+    { "field": "gestationalAge", "expect": "present" }
+  ]
+}
