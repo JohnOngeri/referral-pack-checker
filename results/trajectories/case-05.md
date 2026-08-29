@@ -1,5 +1,5 @@
 # Trajectory — case-05 (routine_ultrasound)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T11:06:23.929Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T12:11:15.790Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------

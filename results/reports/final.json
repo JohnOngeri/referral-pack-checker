@@ -3,7 +3,7 @@
   "label": "Final — combined configuration",
   "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T11:06:23.893Z",
+  "ranAt": "2026-08-29T12:11:15.762Z",
   "perCase": [
     {
       "caseId": "case-01",

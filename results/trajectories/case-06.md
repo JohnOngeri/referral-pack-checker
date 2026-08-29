@@ -1,5 +1,5 @@
 # Trajectory — case-06 (anaemia_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T11:06:23.930Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T12:11:15.791Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------

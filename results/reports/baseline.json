@@ -3,7 +3,7 @@
   "label": "Baseline — one prompt, whole job",
   "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T11:06:23.840Z",
+  "ranAt": "2026-08-29T12:11:15.712Z",
   "perCase": [
     {
       "caseId": "case-01",

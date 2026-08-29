@@ -86,6 +86,12 @@ async function cmdEval() {
 /** Standalone report: regenerate every derived artifact from the committed model
  * calls, so analysis-code changes take effect without a new evaluation. No new
  * API calls in replay mode. */
+async function cmdMemoryDemo() {
+  const { writeMemoryDemo } = await import("./memory/demo");
+  const out = writeMemoryDemo();
+  console.log(`Memory mechanism demo written -> ${path.relative(process.cwd(), out)}`);
+}
+
 async function cmdReport() {
   const provider = makeProvider(resolveMode());
   for (const id of ITERATION_ORDER) {
@@ -142,6 +148,7 @@ async function main() {
     else if (cmd === "solve") await cmdSolve();
     else if (cmd === "eval") await cmdEval();
     else if (cmd === "report") await cmdReport();
+    else if (cmd === "memory-demo") await cmdMemoryDemo();
     else {
       console.log(
         "Commands:\n" +
@@ -150,6 +157,7 @@ async function main() {
           "  solve                             run the agent workflow over all cases\n" +
           "  eval                              run every configuration + variance + adjudicator, build reports\n" +
           "  report                            rebuild metrics / changelog / dashboard data from committed reports\n" +
+          "  memory-demo                       write the per-facility memory mechanism demo (deterministic, no model)\n" +
           "\nFlags: --mode fresh|replay   --no-variance   --no-adjudicator\n" +
           `\nCurrent: ${hasApiKey() ? "API key found (fresh available)" : "no API key (replay only)"}, ${PATHS.reports}`,
       );

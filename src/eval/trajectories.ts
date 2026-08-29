@@ -7,6 +7,9 @@ import { loadMemory } from "../memory";
 import { parseBaseline } from "../baseline";
 import type { ModelProvider } from "../provider";
 import { runExtractor } from "../agents/extractor";
+import { clinicalLanguageIssues, type SummaryOutput } from "../agents/summary-schema";
+import { SUMMARISER_SYSTEM } from "../agents/prompts";
+import { writeMemoryDemo } from "../memory/demo";
 
 /**
  * Supplementary readable trajectories the per-case files do not already cover:
@@ -85,8 +88,94 @@ export async function writeExtraTrajectories(provider: ModelProvider): Promise<v
   ];
   fs.writeFileSync(path.join(PATHS.trajectories, "memory.md"), M.join("\n"));
 
-  // ── Retry loop demonstration ─────────────────────────────────────────────
+  // ── Retry loop demonstration (extraction) ────────────────────────────────
   await writeRetryDemo(provider);
+
+  // ── Retry loop demonstration (summariser clinical-language guard) ─────────
+  writeSummariserRetryDemo();
+
+  // ── Per-facility memory mechanism, in isolation ──────────────────────────
+  writeMemoryDemo();
+}
+
+/**
+ * The summariser retries when its draft uses language that reads as a clinical
+ * assessment. No committed run tripped this guard, so this exercises the exact
+ * validator (`clinicalLanguageIssues`) the summariser uses on a constructed
+ * draft, and shows the follow-up message the summariser builds for the retry
+ * (verbatim from src/agents/summariser.ts). Deterministic, no model call.
+ */
+function writeSummariserRetryDemo(): void {
+  const bad: SummaryOutput = {
+    headline:
+      "Referral for anaemia review. The haemoglobin result of 8.1 is concerning and abnormal; the pack is otherwise complete.",
+    summaryRows: [
+      { label: "Haemoglobin", value: "8.1 g/dL — abnormal, taken 2 weeks ago", state: "verified" },
+      { label: "Blood group", value: "O positive", state: "verified" },
+    ],
+    gapList: ["Haemoglobin is severe and needs an urgent repeat before the pack is sent."],
+    beforeYouSend: ["Repeat the haemoglobin — the current value is dangerously low."],
+  };
+  const issues = clinicalLanguageIssues(bad);
+
+  const good: SummaryOutput = {
+    headline:
+      "Referral for anaemia review. The haemoglobin result was recorded 2 weeks ago; this referral type needs a result from the last 8 weeks.",
+    summaryRows: [
+      { label: "Haemoglobin", value: "8.1 g/dL, recorded 14 days ago", state: "outstanding" },
+      { label: "Blood group", value: "O positive", state: "verified" },
+    ],
+    gapList: ["Haemoglobin was taken 14 days ago; this referral type needs a result from the last 8 weeks."],
+    beforeYouSend: ["Add a haemoglobin result from within the last 8 weeks."],
+  };
+  const issuesAfter = clinicalLanguageIssues(good);
+
+  const problem = `The summary used language that reads as a clinical assessment:\n${issues
+    .map((c) => `- ${c}`)
+    .join("\n")}`;
+  const followup = `${problem}\n\nRewrite. Report only presence, currency and consistency. Call record_referral_summary again.`;
+
+  const L = [
+    "# Trajectory — summariser retry (clinical-language guard)",
+    "",
+    "The summariser is a model call, but its output passes through a deterministic",
+    "guard (`clinicalLanguageIssues` in `src/agents/summary-schema.ts`). If the draft",
+    "characterises any value as normal / abnormal / concerning / severe / urgent etc.,",
+    "the attempt is rejected and the summariser retries with the specific offending",
+    "phrases attached, up to 3 attempts.",
+    "",
+    "No pack in the committed evaluation tripped this guard. This is the guard run",
+    "against a constructed draft, so the retry path is visible.",
+    "",
+    "## Instruction (summariser system prompt, rule 4)",
+    "```",
+    SUMMARISER_SYSTEM.split("\n").filter((l) => /Never say a value is normal/.test(l)).join("\n") ||
+      "Report presence, currency and consistency only. Never say a value is normal, abnormal, low, high, concerning, reassuring, mild or severe.",
+    "```",
+    "",
+    "## Attempt 1 — rejected",
+    "Draft headline:",
+    `> ${bad.headline}`,
+    "",
+    `Guard result: ${issues.length} issue(s)`,
+    ...issues.map((c) => `  - ${c}`),
+    "",
+    "## Follow-up appended to the next request (verbatim)",
+    "```",
+    followup,
+    "```",
+    "",
+    "## Attempt 2 — accepted",
+    "Draft headline:",
+    `> ${good.headline}`,
+    "",
+    `Guard result: ${issuesAfter.length} issue(s) — accepted.`,
+    "",
+    "The gap list now states currency and presence only: \"taken 14 days ago; needs a",
+    "result from the last 8 weeks\", not \"severe\" or \"urgent\".",
+    "",
+  ];
+  fs.writeFileSync(path.join(PATHS.trajectories, "summariser-retry-example.md"), L.join("\n"));
 }
 
 /**

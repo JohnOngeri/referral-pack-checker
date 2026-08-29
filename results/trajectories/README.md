@@ -29,8 +29,10 @@ Readable top-to-bottom traces of each run.
 - [case-11.md](case-11.md)
 - [case-12.checks.md](case-12.checks.md)
 - [case-12.md](case-12.md)
+- [memory-demo.md](memory-demo.md)
 - [memory.md](memory.md)
 - [retry-example.md](retry-example.md)
+- [summariser-retry-example.md](summariser-retry-example.md)
 
 Each `case-NN.md` covers, for that pack: the extraction (with attempts), the
 deterministic requirement check, the deterministic consistency check, the

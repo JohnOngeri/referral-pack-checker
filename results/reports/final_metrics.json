@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-08-29T11:06:23.921Z",
+  "generatedAt": "2026-08-29T12:11:15.781Z",
   "mode": "fresh",
   "model": "gemini-3.1-flash-lite",
   "headline": {
@@ -161,6 +161,18 @@
   ],
   "humanReviewTime": {
     "measured": false,
-    "note": "Not measured. Omitted rather than estimated. To add it: time yourself reviewing three packs by hand and three tool-assisted, then write results/reports/human_review_time.json."
+    "note": "Not measured; an estimate beside measured detection numbers would mislead. A computed review-burden proxy ships in the reviewerLoad block. To add the real number, follow docs/human-review-time.md and write results/reports/human_review_time.json."
+  },
+  "reviewerLoad": {
+    "agent": {
+      "findingsPerPack": 0.83,
+      "spuriousSharePct": 0,
+      "controlPacksLeftClean": "2 of 2"
+    },
+    "baseline": {
+      "findingsPerPack": 3.58,
+      "spuriousSharePct": 79.1,
+      "controlPacksLeftClean": "0 of 2"
+    }
   }
 }

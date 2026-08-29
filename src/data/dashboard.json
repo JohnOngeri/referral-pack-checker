@@ -1,9 +1,9 @@
 {
-  "generatedAt": "2026-08-29T11:06:23.951Z",
+  "generatedAt": "2026-08-29T12:11:15.813Z",
   "metrics": {
     "mode": "fresh",
     "model": "gemini-3.1-flash-lite",
-    "generatedAt": "2026-08-29T11:06:23.921Z",
+    "generatedAt": "2026-08-29T12:11:15.781Z",
     "headline": {
       "agentCaught": 10,
       "baselineCaught": 9,
@@ -150,7 +150,7 @@
     ],
     "humanReviewTime": {
       "measured": false,
-      "note": "Not measured. Omitted rather than estimated. To add it: time yourself reviewing three packs by hand and three tool-assisted, then write results/reports/human_review_time.json."
+      "note": "Not measured; an estimate beside measured detection numbers would mislead. A computed review-burden proxy ships in the reviewerLoad block. To add the real number, follow docs/human-review-time.md and write results/reports/human_review_time.json."
     }
   },
   "cases": [
@@ -164,7 +164,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.924Z",
+      "ranAt": "2026-08-29T12:11:15.785Z",
       "packLines": [
         "ANC CARD  --  M. Dlamini,  29y     PID 4471-22",
         "Ext 4 Clinic",
@@ -312,7 +312,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 22 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -324,7 +324,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 2
         }
       ],
       "checkpoint": {
@@ -344,7 +344,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.926Z",
+      "ranAt": "2026-08-29T12:11:15.787Z",
       "packLines": [
         "Antenatal referral  --  Sithole PHC",
         "",
@@ -522,7 +522,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.927Z",
+      "ranAt": "2026-08-29T12:11:15.788Z",
       "packLines": [
         "ANC  --  L. Adebayo,  24     PID 8830",
         "Ikeja Health Post",
@@ -666,7 +666,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",
@@ -698,7 +698,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.928Z",
+      "ranAt": "2026-08-29T12:11:15.789Z",
       "packLines": [
         "ANC CARD  --  R. Pillay,  31     PID 1902-14",
         "Chatsworth Clinic",
@@ -803,7 +803,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 14 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",
@@ -835,7 +835,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.929Z",
+      "ranAt": "2026-08-29T12:11:15.790Z",
       "packLines": [
         "Kibera Clinic  --  antenatal referral",
         "",
@@ -974,7 +974,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -994,7 +994,7 @@
       "statusLine": "1 gap outstanding",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.930Z",
+      "ranAt": "2026-08-29T12:11:15.791Z",
       "packLines": [
         "ANC  --  S. Banda,  27     PID 3388",
         "Chelstone PHC",
@@ -1151,7 +1151,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1171,7 +1171,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.931Z",
+      "ranAt": "2026-08-29T12:11:15.792Z",
       "packLines": [
         "Ruaraka Clinic",
         "Antenatal referral -- hypertension",
@@ -1333,7 +1333,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 0
+          "ms": 1
         }
       ],
       "checkpoint": {
@@ -1353,7 +1353,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.932Z",
+      "ranAt": "2026-08-29T12:11:15.793Z",
       "packLines": [
         "ANC CARD  --  N. Chirwa,  33     PID 7714",
         "Area 25 Clinic",
@@ -1515,7 +1515,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.934Z",
+      "ranAt": "2026-08-29T12:11:15.794Z",
       "packLines": [
         "ANC  --  B. Osei,  30     PID 9126",
         "Madina Clinic",
@@ -1656,7 +1656,7 @@
           "key": "summary",
           "label": "Preparing the summary",
           "detail": "model call, verified fields only, 1 attempt",
-          "ms": 1
+          "ms": 0
         }
       ],
       "checkpoint": {
@@ -1676,7 +1676,7 @@
       "statusLine": "Ready for review",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.935Z",
+      "ranAt": "2026-08-29T12:11:15.795Z",
       "packLines": [
         "Kisumu West Clinic  --  antenatal referral",
         "",
@@ -1836,7 +1836,7 @@
       "statusLine": "1 contradiction found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.936Z",
+      "ranAt": "2026-08-29T12:11:15.796Z",
       "packLines": [
         "ANC  --  D. Mahlangu,  26     PID 2287",
         "Tembisa Clinic",
@@ -1982,7 +1982,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 21 field rules",
-          "ms": 1
+          "ms": 0
         },
         {
           "key": "contradictions",
@@ -2014,7 +2014,7 @@
       "statusLine": "2 contradictions found",
       "mode": "replay",
       "model": "gemini-3.1-flash-lite",
-      "ranAt": "2026-08-29T11:06:23.937Z",
+      "ranAt": "2026-08-29T12:11:15.798Z",
       "packLines": [
         "ANC CARD  --  J. Sibanda,  31y     PID 1188-05",
         "Mzilikazi Clinic",
@@ -2182,7 +2182,7 @@
           "key": "requirements",
           "label": "Checking against facility requirements",
           "detail": "deterministic, 22 field rules",
-          "ms": 0
+          "ms": 1
         },
         {
           "key": "contradictions",

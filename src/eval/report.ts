@@ -69,6 +69,35 @@ export interface FinalMetrics {
     note: string;
   }>;
   humanReviewTime: { measured: boolean; note: string; data?: unknown };
+  /**
+   * Review-burden proxy for the (unmeasured) wall-clock review time: how many
+   * findings a reviewer must read per pack and how many of those are spurious.
+   * Computed from the committed findings, not a stopwatch. See
+   * docs/human-review-time.md.
+   */
+  reviewerLoad: {
+    agent: ReviewerLoad;
+    baseline: ReviewerLoad;
+  };
+}
+
+interface ReviewerLoad {
+  findingsPerPack: number;
+  spuriousSharePct: number;
+  controlPacksLeftClean: string;
+}
+
+function reviewerLoadFor(report: ConfigReport, gts: ReturnType<typeof loadGroundTruth>[]): ReviewerLoad {
+  const byId = new Map(gts.map((g) => [g.id, g]));
+  const totalFindings = report.perCase.reduce((s, p) => s + p.findings.length, 0);
+  const totalFalse = report.perCase.reduce((s, p) => s + p.falseFlags, 0);
+  const controls = report.perCase.filter((p) => byId.get(p.caseId)?.isControl);
+  const controlsClean = controls.filter((p) => p.findings.length === 0).length;
+  return {
+    findingsPerPack: Number((totalFindings / report.perCase.length).toFixed(2)),
+    spuriousSharePct: totalFindings ? Number(((totalFalse / totalFindings) * 100).toFixed(1)) : 0,
+    controlPacksLeftClean: `${controlsClean} of ${controls.length}`,
+  };
 }
 
 export function buildFinalMetrics(): FinalMetrics {
@@ -111,7 +140,9 @@ export function buildFinalMetrics(): FinalMetrics {
     : {
         measured: false,
         note:
-          "Not measured. Omitted rather than estimated. To add it: time yourself reviewing three packs by hand and three tool-assisted, then write results/reports/human_review_time.json.",
+          "Not measured; an estimate beside measured detection numbers would mislead. " +
+          "A computed review-burden proxy ships in the reviewerLoad block. To add the real number, " +
+          "follow docs/human-review-time.md and write results/reports/human_review_time.json.",
       };
 
   const seeded = final.aggregate.seededDefects;
@@ -160,6 +191,10 @@ export function buildFinalMetrics(): FinalMetrics {
     },
     perCase,
     humanReviewTime: hrt,
+    reviewerLoad: {
+      agent: reviewerLoadFor(final, gts),
+      baseline: reviewerLoadFor(baseline, gts),
+    },
   };
 
   fs.writeFileSync(
@@ -198,6 +233,41 @@ export function buildChangelog(): string {
   );
   L.push("");
 
+  // ── Summary table, in the hackathon brief's STAGE / WHAT / EVIDENCE / DECISION shape ──
+  const recall = (r: ConfigReport | null) =>
+    r ? `${r.aggregate.caught}/${r.aggregate.seededDefects} caught, ${r.aggregate.falseFlags} FF, contradictions ${r.aggregate.contradictionsCaught}/${r.aggregate.contradictionsSeeded}` : "—";
+  const tried: Record<string, string> = {
+    baseline: "One end-to-end model call: raw pack + requirement set in, findings + summary out. Reasonable first thing to try.",
+    iter1: "Moved extraction to a schema-constrained call with a provenance span on every field; absence became a first-class value. Tried because a free-text pass invents the shape of values it never found.",
+    iter2: "Moved the requirement comparison out of the model and into deterministic code, after Iteration 1 called a 4–6-day-old haemoglobin \"stale\" on three packs.",
+    iter3: "Added a deterministic consistency verifier (six calendar/arithmetic rules), after noticing every earlier config passed case-12 — which contradicts itself — as complete.",
+    iter4: "Added a per-facility recurring-omission memory that reorders the gap list, to surface fields a facility habitually drops.",
+    final: "Combined the changes that were kept.",
+  };
+  const learning: Record<string, string> = {
+    baseline: "Reference point. Recall looks acceptable; precision does not (34 false flags, 5 on controls).",
+    iter1: "Kept. Invented values 0 from here on. Recall unchanged — the model check still misses contradictions and mis-does date arithmetic.",
+    iter2: "Kept. False flags 5 -> 0; hallucinated staleness gone. A recency rule is a date subtraction, not a model's guess.",
+    iter3: "Kept. Recall 40% -> 100%; contradictions 0/6 -> 6/6. The single change that mattered most, and the only one that catches case-12.",
+    iter4: "Kept. No effect on recall in this set — the twelve packs are twelve different facilities, so there is no repeat history to act on. Mechanism shown separately in results/trajectories/memory-demo.md.",
+    final: "Shipped. Meets every target in docs/evaluation-plan.md.",
+  };
+  L.push("| Stage | What you tried and why | Evidence | Decision / Learning |");
+  L.push("|---|---|---|---|");
+  for (const id of ITERATION_ORDER) {
+    const r = readJson<ConfigReport>(`${id}.json`);
+    const label = r ? r.label.replace(/\s*—.*$/, "") : id;
+    L.push(`| ${label} | ${tried[id] ?? ""} | \`results/reports/${id}.json\` — ${recall(r)} | ${learning[id] ?? ""} |`);
+  }
+  if (adj) {
+    L.push(
+      `| Removed: contradiction adjudicator | A model call was given both conflicting values and asked which was correct. | \`results/reports/adjudicator.json\` — agreed with the consistent value ${adj.agreementRate} decided cases | Removed. Choosing between two entries in a medical record is the clinician's call; a correct guess is still an unauthorised one. |`,
+    );
+  }
+  L.push("");
+  L.push("Full detail for each stage follows.");
+  L.push("");
+
   for (const id of ITERATION_ORDER) {
     const r = readJson<ConfigReport>(`${id}.json`);
     if (!r) {
@@ -230,6 +300,9 @@ export function buildChangelog(): string {
       const i3 = readJson<ConfigReport>("iter3.json");
       L.push(
         `- **Measured effect**: recall unchanged (${i3 ? i3.aggregate.caught : "—"} to ${r.aggregate.caught}). Memory does not find new defects; it reorders the gap list so a field a facility has repeatedly omitted appears first. Reported here whichever direction it went — it did not change what was caught.`,
+      );
+      L.push(
+        `- **Why it is inert in this evaluation**: the twelve packs are sent by twelve different facilities, so no facility has a second pack for the store to have learned from. The reorder behaviour is demonstrated in isolation in \`results/trajectories/memory-demo.md\` (three packs from one facility, deterministic). Kept because a real deployment sees the same facility repeatedly; a judge should read it as a design choice with a shown mechanism, not a measured gain.`,
       );
     }
     if (id === "iter2" && variance) {

@@ -32,14 +32,20 @@ committed under `results/raw/`, so the run replays offline.
 | False flags on the two control packs | **0** | 5 |
 | Contradictions caught (of 6) | **6** | 5 |
 | Invented values (value with no source, or where ground truth says absent) | **0** | not measured¹ |
+| Findings a reviewer must read, per pack | **0.8** | 3.6 |
+| Of those, spurious (must be dismissed) | **0%** | 79% |
 | Cost per pack | $0.0014 | $0.0003 |
 
 ¹ The single prompt has no structured extraction step, so "invented values" is not
 directly comparable; its equivalent failure shows up as the 34 false flags, many of
 which are contradictions it computed wrongly in its head.
 
-Human review time is **not** reported — it was not measured, and an estimate next to
-measured numbers would be misleading. `REPRODUCTION.md` explains how to add it.
+**Human review time (wall clock) is not reported** — it was not measured, and an
+estimate next to measured numbers would mislead. The two "findings a reviewer must
+read" rows are a computed review-burden proxy (`reviewerLoad` in
+`final_metrics.json`); [docs/human-review-time.md](docs/human-review-time.md) gives a
+stopwatch protocol to produce the real figure. What a good result looks like was
+defined up front in [docs/evaluation-plan.md](docs/evaluation-plan.md).
 
 ## What the workflow does
 
@@ -75,9 +81,12 @@ referral pack text
 ```
 
 Per-facility memory: a local JSON store of which fields a referring facility has
-repeatedly left out. When a facility has a track record on a field, that field is
-surfaced first in the gap list, as a prompt to check. It never pre-fills a value and
-never asserts anything about the current pack.
+repeatedly left out. When a facility has a track record on a field (≥ 2 packs seen,
+field missing in ≥ 2 of them), that field is surfaced first in the gap list, as a
+prompt to check. It never pre-fills a value and never asserts anything about the
+current pack. In the twelve-pack evaluation each facility appears once, so memory has
+no history to act on and does not change what is caught — the changelog says so, and
+`npm run memory-demo` shows the mechanism on three packs from one facility.
 
 ### Why extraction is a model call and checking is deterministic
 
@@ -107,8 +116,9 @@ check into code took false flags from 5 to 0.
 | `fixtures/requirements/` | four requirement sets (illustrative) |
 | `fixtures/ground_truth/` | one file per case, written before any model was run |
 | `results/raw/` | committed model requests and responses |
-| `results/trajectories/` | readable per-stage traces, one per pack |
+| `results/trajectories/` | readable per-stage traces, one per pack, + baseline, memory, memory-demo, extraction/summariser retry |
 | `results/reports/` | metrics tables |
+| `docs/` | evaluation plan (pre-registered), human-review-time protocol, dashboard screenshot |
 
 ## Replay vs fresh
 
@@ -154,7 +164,9 @@ npm run dev                         # dashboard at localhost:3000
 ```
 
 - [CHANGELOG_IMPROVEMENT.md](CHANGELOG_IMPROVEMENT.md) — every iteration, each linked to its evidence file
-- [results/trajectories/](results/trajectories/) — readable traces
+- [docs/evaluation-plan.md](docs/evaluation-plan.md) — what a good result was defined to be, before the run
+- [docs/human-review-time.md](docs/human-review-time.md) — the review-burden proxy and a protocol for the real figure
+- [results/trajectories/](results/trajectories/) — readable traces, one per pack, plus baseline, memory, both retry loops
 - [VIDEO_SCRIPT.md](VIDEO_SCRIPT.md) — the five-minute walkthrough
 
 ## Main failure mode

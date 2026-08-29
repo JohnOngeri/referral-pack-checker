@@ -3,7 +3,7 @@
   "label": "Iteration 2 — requirement checking moved to deterministic code",
   "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T11:06:23.873Z",
+  "ranAt": "2026-08-29T12:11:15.743Z",
   "perCase": [
     {
       "caseId": "case-01",

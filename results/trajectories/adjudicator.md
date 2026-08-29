@@ -1,6 +1,6 @@
 # Removed experiment — contradiction adjudicator
 
-Mode: replay   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T11:06:23.915Z
+Mode: replay   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T12:11:15.775Z
 
 Agreement with the internally consistent value: 1 of 3
 

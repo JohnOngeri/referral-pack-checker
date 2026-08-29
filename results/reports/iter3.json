@@ -3,7 +3,7 @@
   "label": "Iteration 3 — consistency verifier added",
   "mode": "replay",
   "model": "gemini-3.1-flash-lite",
-  "ranAt": "2026-08-29T11:06:23.879Z",
+  "ranAt": "2026-08-29T12:11:15.748Z",
   "perCase": [
     {
       "caseId": "case-01",

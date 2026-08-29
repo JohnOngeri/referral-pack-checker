@@ -3,8 +3,9 @@
 Shot-by-shot. Timings are cumulative. Narration is what you say; on-screen is what
 you do. Open on the dashboard, never a terminal.
 
-Any term is explained where it first appears. Numbers in `<angle brackets>` are read
-from `results/reports/final_metrics.json` — fill them in before recording.
+Any term is explained where it first appears. The numbers below are filled in from
+the committed `results/reports/final_metrics.json` (fresh run, `gemini-3.1-flash-lite`).
+If you re-run the evaluation, re-check them against that file before recording.
 
 ---
 
@@ -55,8 +56,9 @@ back to that."
 pack, here's what the hospital needs, tell me what's wrong and write me a summary.
 
 We built exactly that as a baseline and ran it over twelve packs. It caught
-`<baseline.caught>` of the `<seededDefects>` problems we'd planted. `<baseline.falseFlags>`
-times it raised something against a pack that was actually fine.
+9 of the 10 problems we'd planted. 34 times it raised something against a pack
+that was actually fine — five of those against the two packs that had nothing
+wrong at all.
 
 Now look at the last row — case 12." **Scroll to case-12 row.**
 "Every mandatory field on that pack is filled in. Nothing is missing. A checker that
@@ -72,8 +74,7 @@ record doesn't agree with itself, and that's the case I want to show you."
 **Narration + actions:**
 
 1. **(0:00 of this section)** "This is our workflow. Same pack, same requirements."
-   Point at the headline: "`<agent.caught>` of `<seededDefects>` caught,
-   `<agent.falseFlags>` false flags."
+   Point at the headline: "10 of 10 caught, 0 false flags."
 
 2. **Click "Re-run check".** The four stages light up one at a time as each finishes:
    "Reading the referral pack" — that's a model call, it turns the messy card text
@@ -111,9 +112,9 @@ record doesn't agree with itself, and that's the case I want to show you."
 "Received on the left, corrected summary on the right, the two problem lines marked.
 One sentence each on what didn't add up.
 
-Across all twelve packs: the single prompt caught `<baseline.caught>`. This workflow
-caught `<agent.caught>`, with `<agent.falseFlags>` false alarms against the packs
-that were fine. That number comes straight out of a committed results file — it's
+Across all twelve packs: the single prompt caught 9. This workflow caught 10, with
+0 false alarms against the packs that were fine. That number comes straight out of a
+committed results file — it's
 not typed into the page."
 
 ---
@@ -124,17 +125,18 @@ not typed into the page."
 
 **Narration:**
 "We built this in steps and measured each one. Structured extraction cut invented
-values to `<agent.inventedValues>`. Moving the requirement check from the model into
-plain code took run-to-run variation to `<variance.deterministicMeanStdev>`. The
+values to 0. Moving the requirement check from the model into plain code took
+run-to-run variation in the finding count to 0 and cut false flags from 5 to 0. The
 change that mattered most was adding the contradiction check — it's the only thing
 that caught case 12, which every earlier version had passed as complete.
 
 **Scroll to the red "Removed" box. Click "Show the case 12 transcript".**
 And one thing we built, measured, and then deleted: a model call that looks at two
-conflicting values and picks one. It agreed with the internally consistent value
-`<adjudicator.agreementRate>` times. We removed it anyway. Choosing between two
-values written in a medical record is a decision for the clinician. A correct guess
-is still a guess she didn't ask for.
+conflicting values and picks one. It agreed with the internally consistent value in
+1 of the 3 cases where it committed to an answer — and declined to answer on the
+other 2. We removed it anyway. Choosing between two values written in a medical
+record is a decision for the clinician. A correct guess is still a guess they
+didn't ask for.
 
 That's the whole idea: the checks that must never drift are plain code. The model is
 spent on the messy reading step, where it actually helps."

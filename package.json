@@ -12,6 +12,7 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "check": "tsx src/cli.ts check",
+    "memory-demo": "tsx src/cli.ts memory-demo",
     "baseline": "tsx src/cli.ts baseline",
     "solve": "tsx src/cli.ts solve",
     "eval": "tsx src/cli.ts eval",

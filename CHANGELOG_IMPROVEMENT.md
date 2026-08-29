@@ -2,6 +2,18 @@
 
 Every number below is copied from a committed file under `results/reports/` or `results/raw/`. Each entry was written after the run it describes, not before.
 
+| Stage | What you tried and why | Evidence | Decision / Learning |
+|---|---|---|---|
+| Baseline | One end-to-end model call: raw pack + requirement set in, findings + summary out. Reasonable first thing to try. | `results/reports/baseline.json` — 9/10 caught, 34 FF, contradictions 5/6 | Reference point. Recall looks acceptable; precision does not (34 false flags, 5 on controls). |
+| Iteration 1 | Moved extraction to a schema-constrained call with a provenance span on every field; absence became a first-class value. Tried because a free-text pass invents the shape of values it never found. | `results/reports/iter1.json` — 4/10 caught, 5 FF, contradictions 1/6 | Kept. Invented values 0 from here on. Recall unchanged — the model check still misses contradictions and mis-does date arithmetic. |
+| Iteration 2 | Moved the requirement comparison out of the model and into deterministic code, after Iteration 1 called a 4–6-day-old haemoglobin "stale" on three packs. | `results/reports/iter2.json` — 4/10 caught, 0 FF, contradictions 0/6 | Kept. False flags 5 -> 0; hallucinated staleness gone. A recency rule is a date subtraction, not a model's guess. |
+| Iteration 3 | Added a deterministic consistency verifier (six calendar/arithmetic rules), after noticing every earlier config passed case-12 — which contradicts itself — as complete. | `results/reports/iter3.json` — 10/10 caught, 0 FF, contradictions 6/6 | Kept. Recall 40% -> 100%; contradictions 0/6 -> 6/6. The single change that mattered most, and the only one that catches case-12. |
+| Iteration 4 | Added a per-facility recurring-omission memory that reorders the gap list, to surface fields a facility habitually drops. | `results/reports/iter4.json` — 10/10 caught, 0 FF, contradictions 6/6 | Kept. No effect on recall in this set — the twelve packs are twelve different facilities, so there is no repeat history to act on. Mechanism shown separately in results/trajectories/memory-demo.md. |
+| Final | Combined the changes that were kept. | `results/reports/final.json` — 10/10 caught, 0 FF, contradictions 6/6 | Shipped. Meets every target in docs/evaluation-plan.md. |
+| Removed: contradiction adjudicator | A model call was given both conflicting values and asked which was correct. | `results/reports/adjudicator.json` — agreed with the consistent value 1 of 3 decided cases | Removed. Choosing between two entries in a medical record is the clinician's call; a correct guess is still an unauthorised one. |
+
+Full detail for each stage follows.
+
 ## Baseline — one prompt, whole job
 
 - **Measured**: caught 9 of 10 seeded defects (recall 90%); 34 false flag(s), 5 on control packs; contradictions 5/6.
@@ -42,6 +54,7 @@ Every number below is copied from a committed file under `results/reports/` or `
 - **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): 0.
 - **Provenance correctness**: 100% of extracted spans are exact substrings of the pack text.
 - **Measured effect**: recall unchanged (10 to 10). Memory does not find new defects; it reorders the gap list so a field a facility has repeatedly omitted appears first. Reported here whichever direction it went — it did not change what was caught.
+- **Why it is inert in this evaluation**: the twelve packs are sent by twelve different facilities, so no facility has a second pack for the store to have learned from. The reorder behaviour is demonstrated in isolation in `results/trajectories/memory-demo.md` (three packs from one facility, deterministic). Kept because a real deployment sees the same facility repeatedly; a judge should read it as a design choice with a shown mechanism, not a measured gain.
 - **Evidence**: `results/reports/iter4.json`
 - **Decision**: kept.
 

@@ -1,5 +1,5 @@
 # Trajectory — case-10 (hypertension_review)
-Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T11:06:23.935Z
+Mode: REPLAY   Model: gemini-3.1-flash-lite   Ran: 2026-08-29T12:11:15.795Z
 REPLAY RUN — model outputs read from committed files, no API call made.
 
 ------------------------------------------------------------------------
