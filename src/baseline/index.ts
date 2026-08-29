@@ -19,6 +19,7 @@ export interface BaselineRun {
   text: string;
   parsedFindings: BaselineFinding[];
   parseNote: string;
+  unparseable: boolean;
   costUsd: number;
 }
 
@@ -26,6 +27,13 @@ export interface BaselineFinding {
   /** Best-effort field key the scorer can match. */
   field: string | null;
   line: string;
+}
+
+export interface BaselineParseOutcome {
+  findings: BaselineFinding[];
+  note: string;
+  /** True when the response could not be parsed into findings (truncated, or no findings section). */
+  unparseable: boolean;
 }
 
 export async function runBaseline(provider: ModelProvider, caseId: string): Promise<BaselineRun> {
@@ -51,10 +59,11 @@ ${packText}`;
 
   const res = await provider.completeText(
     { phase: "baseline", caseId, label: "baseline", attempt: 1 },
-    { system: BASELINE_SYSTEM, user, maxTokens: 3000 },
+    { system: BASELINE_SYSTEM, user, maxTokens: 16000 },
   );
 
-  const { findings, note } = parseBaseline(res.text);
+  const parsed = parseBaseline(res.text, res.stopReason);
+  const { findings, note } = parsed;
   const p = priceFor(provider.model);
   const cost =
     provider.mode === "fresh"
@@ -69,6 +78,7 @@ ${packText}`;
     text: res.text,
     parsedFindings: findings,
     parseNote: note,
+    unparseable: parsed.unparseable,
     costUsd: Number(cost.toFixed(4)),
   };
 }
@@ -92,33 +102,47 @@ const FIELD_HINTS: Array<[RegExp, string]> = [
 
 /**
  * Heuristic parser for the baseline's free-form output. Deliberately simple.
- * If a FINDINGS section cannot be located, that is reported.
+ *
+ * The baseline is a single end-to-end prompt with no structured-output contract.
+ * When the response is truncated, or has no locatable FINDINGS section, that is a
+ * real property of the baseline and is reported as `unparseable` — not turned
+ * into findings by scraping the model's working notes.
  */
-export function parseBaseline(text: string): { findings: BaselineFinding[]; note: string } {
-  const lines = text.split("\n");
-  const startIdx = lines.findIndex((l) => /^\s*#{0,3}\s*findings\b/i.test(l) || /^findings[:\s]/i.test(l));
-  let region: string[];
-  let note: string;
-  if (startIdx === -1) {
-    // No labelled section — fall back to scanning the whole text, and say so.
-    region = lines;
-    note = "No FINDINGS section found in the baseline output; scanned the full response instead.";
-  } else {
-    const endIdx = lines.findIndex(
-      (l, i) => i > startIdx && /^\s*#{0,3}\s*(summary|before you send)\b/i.test(l),
-    );
-    region = lines.slice(startIdx + 1, endIdx === -1 ? undefined : endIdx);
-    note = "Parsed the FINDINGS section.";
+export function parseBaseline(text: string, stopReason: string | null): BaselineParseOutcome {
+  if (stopReason && /max_tokens/i.test(stopReason)) {
+    return {
+      findings: [],
+      note: "Response truncated (hit the output limit before finishing). Unparseable.",
+      unparseable: true,
+    };
   }
+
+  const lines = text.split("\n");
+  const startIdx = lines.findIndex((l) => /^[\s*#>_-]*findings\b/i.test(l.trim()));
+  if (startIdx === -1) {
+    return {
+      findings: [],
+      note: "No FINDINGS section in the response. Unparseable.",
+      unparseable: true,
+    };
+  }
+
+  const endIdx = lines.findIndex(
+    (l, i) => i > startIdx && /^[\s*#>_-]*(summary|before you send|corrected)\b/i.test(l.trim()),
+  );
+  const region = lines.slice(startIdx + 1, endIdx === -1 ? undefined : endIdx);
 
   const findings: BaselineFinding[] = [];
   for (const raw of region) {
-    const l = raw.trim().replace(/^[-*\d.)\s]+/, "").trim();
+    const l = raw.trim().replace(/^[-*\d.)\s]+/, "").replace(/\*\*/g, "").trim();
     if (l.length < 8) continue;
-    if (/^(none|no (issues|gaps|findings|contradictions)|all (fields|requirements))/i.test(l)) continue;
-    if (/^(summary|before you send)/i.test(l)) break;
+    if (/^(none|no (issues|gaps|findings|contradictions|missing|stale)|all (fields|requirements|present)|nothing)/i.test(l)) continue;
     const field = FIELD_HINTS.find(([re]) => re.test(l))?.[1] ?? null;
     findings.push({ field, line: l.slice(0, 240) });
   }
-  return { findings, note };
+  return {
+    findings,
+    note: `Parsed ${findings.length} finding line(s) from the FINDINGS section.`,
+    unparseable: false,
+  };
 }

@@ -1,0 +1,79 @@
+/*
+  Referral Pack Checker — visual system.
+  Calm, high-trust clinical operations. Colour encodes status and nothing else.
+*/
+:root {
+  --canvas: #faf8f5;
+  --surface: #fffdfa;
+  --ink: #152238;
+  --ink-62: rgba(21, 34, 56, 0.62);
+  --ink-45: rgba(21, 34, 56, 0.45);
+  --ink-32: rgba(21, 34, 56, 0.32);
+  --ink-12: rgba(21, 34, 56, 0.12);
+  --ink-08: rgba(21, 34, 56, 0.08);
+
+  --teal: #0f766e;
+  --teal-tint: rgba(15, 118, 110, 0.1);
+  --amber: #b45309;
+  --amber-tint: rgba(180, 83, 9, 0.12);
+  --red: #b91c1c;
+  --red-tint: rgba(185, 28, 28, 0.1);
+
+  --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--canvas);
+}
+
+body {
+  font-family: Archivo, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  color: var(--ink);
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+}
+
+a {
+  color: var(--teal);
+  text-underline-offset: 3px;
+}
+a:hover {
+  color: #0b5a54;
+}
+
+button {
+  font-family: inherit;
+}
+
+::selection {
+  background: rgba(15, 118, 110, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid var(--teal);
+  outline-offset: 2px;
+}
+
+@keyframes rpc-pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

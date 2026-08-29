@@ -34,6 +34,7 @@ export interface ConfigReport {
   aggregate: ReturnType<typeof aggregate>;
   inventedValuesTotal: number | null;
   provenanceCorrectness: number | null;
+  unparseableCount: number | null;
   costUsd: number;
   notes: string[];
 }
@@ -42,6 +43,7 @@ interface CaseOutcome {
   findings: Finding[];
   extractionScore: ExtractionScore | null;
   cost: number;
+  unparseable: boolean;
 }
 
 async function outcomeForConfig(
@@ -66,7 +68,7 @@ async function outcomeForConfig(
       raw: f.line,
       evidenceFile: "",
     }));
-    return { findings, extractionScore: null, cost: b.costUsd };
+    return { findings, extractionScore: null, cost: b.costUsd, unparseable: b.unparseable };
   }
 
   const ex = await runExtractor(provider, caseId, packText);
@@ -114,7 +116,7 @@ async function outcomeForConfig(
       .sort((a, b) => (b.memoryNote ? 1 : 0) - (a.memoryNote ? 1 : 0));
   }
 
-  return { findings, extractionScore, cost: extractCost + modelCheckCost };
+  return { findings, extractionScore, cost: extractCost + modelCheckCost, unparseable: false };
 }
 
 /** Prime the memory store from a deterministic pass so repeat omissions have history. */
@@ -145,10 +147,12 @@ export async function runConfig(provider: ModelProvider, configId: string): Prom
   const perCase: ConfigReport["perCase"] = [];
   const extraction: ExtractionScore[] = [];
   let cost = 0;
+  let unparseable = 0;
 
   for (let i = 0; i < ids.length; i++) {
-    const { findings, extractionScore, cost: c } = await outcomeForConfig(provider, config, ids[i]);
+    const { findings, extractionScore, cost: c, unparseable: u } = await outcomeForConfig(provider, config, ids[i]);
     cost += c;
+    if (u) unparseable += 1;
     if (extractionScore) extraction.push(extractionScore);
 
     const score =
@@ -179,6 +183,7 @@ export async function runConfig(provider: ModelProvider, configId: string): Prom
     aggregate: aggregate(perCase, gts),
     inventedValuesTotal: extraction.length ? extraction.reduce((s, e) => s + e.inventedValues, 0) : null,
     provenanceCorrectness: provTotal ? Number(((provOk / provTotal) * 100).toFixed(1)) : null,
+    unparseableCount: config.kind === "baseline" ? unparseable : null,
     costUsd: Number(cost.toFixed(4)),
     notes: [],
   };

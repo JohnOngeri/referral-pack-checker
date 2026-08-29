@@ -5,7 +5,17 @@ import { allCaseIds, loadGroundTruth, loadManifest } from "../lib/fixtures";
 import type { ConfigReport } from "./run";
 import type { VarianceReport } from "./variance";
 import type { AdjudicatorResult } from "../agents/adjudicator";
-import { ITERATION_ORDER } from "./configs";
+import { ITERATION_ORDER, ITERATION_ORDER as ITER } from "./configs";
+import type { PipelineResult } from "../agents/pipeline";
+import { REFERRAL_TYPE_LABEL } from "../domain/types";
+import { SAFETY_LINE } from "../domain/checkpoint";
+import type {
+  ChangelogEntry,
+  DashboardCase,
+  DashboardData,
+  DashboardFinding,
+  PackStatus,
+} from "../ui/data";
 
 function readJson<T>(name: string): T | null {
   const p = path.join(PATHS.reports, name);
@@ -160,8 +170,14 @@ export function buildChangelog(): string {
     L.push(`## ${r.label}`);
     L.push("");
     L.push(`- **Measured**: caught ${r.aggregate.caught} of ${r.aggregate.seededDefects} seeded defects (recall ${r.aggregate.recallPct}%); ${r.aggregate.falseFlags} false flag(s), ${r.aggregate.falseFlagsOnControls} on control packs; contradictions ${r.aggregate.contradictionsCaught}/${r.aggregate.contradictionsSeeded}.`);
+    if (r.unparseableCount) {
+      L.push(`- **Unparseable responses**: ${r.unparseableCount} of ${r.perCase.length} (truncated, or no locatable findings section).`);
+    }
     if (r.inventedValuesTotal !== null) {
       L.push(`- **Invented values** (value present but not traceable to the source text, or present where ground truth says absent): ${r.inventedValuesTotal}.`);
+    }
+    if (r.provenanceCorrectness !== null && r.provenanceCorrectness !== undefined) {
+      L.push(`- **Provenance correctness**: ${r.provenanceCorrectness}% of extracted spans are exact substrings of the pack text.`);
     }
     if (id === "iter2" && variance) {
       L.push(
@@ -203,16 +219,169 @@ export function buildChangelog(): string {
   return L.join("\n");
 }
 
+function statusOf(r: PipelineResult): PackStatus {
+  if (r.checks.findings.some((f) => f.kind === "contradiction")) return "contradiction";
+  if (r.checks.findings.length > 0) return "gaps";
+  return "ready";
+}
+
+function statusLine(r: PipelineResult): string {
+  const n = r.checks.findings.length;
+  if (n === 0) return "Ready for review";
+  const c = r.checks.findings.filter((f) => f.kind === "contradiction").length;
+  if (c > 0) return c === 1 ? "1 contradiction found" : `${c} contradictions found`;
+  return n === 1 ? "1 gap outstanding" : `${n} gaps outstanding`;
+}
+
+function toDashboardCase(r: PipelineResult, receivingFacility: string): DashboardCase {
+  const packLines = r.packText.replace(/\n+$/, "").split("\n");
+  const findings: DashboardFinding[] = r.checks.findings.map((f) => ({
+    kind: f.kind,
+    field: f.field,
+    plain: f.plain,
+    rule: f.rule,
+    sourceSpan: f.provenance?.quote ?? null,
+    extraSpans: (f.extraProvenance ?? []).map((p) => p.quote),
+    raw: f.raw,
+    evidenceFile: f.evidenceFile,
+    memoryNote: f.memoryNote,
+    note: f.note,
+  }));
+  const flagged = new Set<number>();
+  for (const f of r.checks.findings) {
+    for (const q of [f.provenance?.quote, ...(f.extraProvenance ?? []).map((p) => p.quote)]) {
+      if (!q) continue;
+      const idx = packLines.findIndex((l) => l.toLowerCase().includes(q.toLowerCase().split("\n")[0].trim()));
+      if (idx >= 0) flagged.add(idx + 1);
+    }
+  }
+  return {
+    id: r.caseId,
+    patient: r.patient,
+    referralType: r.referralType,
+    referralLabel: REFERRAL_TYPE_LABEL[r.referralType],
+    receivingFacility,
+    status: statusOf(r),
+    statusLine: statusLine(r),
+    mode: r.mode,
+    model: r.model,
+    ranAt: r.ranAt,
+    packLines,
+    flaggedLines: [...flagged].sort((a, b) => a - b),
+    findings,
+    summary: {
+      headline: r.summary.summary.headline,
+      rows: r.summary.summary.summaryRows,
+      gapList: r.summary.summary.gapList,
+      beforeYouSend: r.summary.summary.beforeYouSend,
+    },
+    stages: r.stages.map((s) => ({
+      key: s.key,
+      label: s.label,
+      detail: s.detail,
+      ms: Math.max(0, new Date(s.finishedAt).getTime() - new Date(s.startedAt).getTime()),
+    })),
+    checkpoint: { state: r.review.state, safetyLine: SAFETY_LINE },
+    extractionAttempts: r.extraction.attempts.length,
+    summaryAttempts: r.summary.attempts.length,
+  };
+}
+
+export function changelogEntries(): ChangelogEntry[] {
+  const out: ChangelogEntry[] = [];
+  for (const id of ITER) {
+    const r = readJson<ConfigReport>(`${id}.json`);
+    if (!r) continue;
+    const a = r.aggregate;
+    let measured = `${a.caught} of ${a.seededDefects} seeded defects caught, ${a.falseFlags} false flag(s).`;
+    if (r.unparseableCount !== null && r.unparseableCount !== undefined && r.unparseableCount > 0) {
+      measured += ` ${r.unparseableCount} response(s) unparseable.`;
+    }
+    if (r.inventedValuesTotal !== null) measured += ` Invented values: ${r.inventedValuesTotal}.`;
+    if (id === "iter2") {
+      const v = readJson<{ modelMeanStdev: number; deterministicMeanStdev: number }>("iter2_variance.json");
+      if (v) measured += ` Run-to-run finding-count stdev: model ${v.modelMeanStdev}, deterministic ${v.deterministicMeanStdev}.`;
+    }
+    if (id === "iter3") measured += ` Contradictions caught: ${a.contradictionsCaught}/${a.contradictionsSeeded}.`;
+    if (id === "final") measured += ` Cost per pack: $${(r.costUsd / r.perCase.length).toFixed(4)}.`;
+    out.push({
+      step: id === "baseline" ? "Baseline" : id === "final" ? "Final" : `Iteration ${id.replace("iter", "")}`,
+      title: r.label.replace(/^.*—\s*/, ""),
+      measured,
+      decision: id === "baseline" ? "Reference" : id === "final" ? "Shipped" : "Kept",
+      evidenceFile: `results/reports/${id}.json`,
+    });
+  }
+  return out;
+}
+
 export function writeDashboardData(): void {
-  const metrics = readJson<FinalMetrics>("final_metrics.json");
+  const fm = readJson<FinalMetrics>("final_metrics.json");
   fs.mkdirSync(PATHS.data, { recursive: true });
+  const manifest = loadManifest();
   const casesDir = path.join(PATHS.reports, "cases");
-  const cases = fs.existsSync(casesDir)
-    ? fs.readdirSync(casesDir).filter((f) => f.endsWith(".json")).map((f) => JSON.parse(fs.readFileSync(path.join(casesDir, f), "utf8")))
+  const cases: DashboardCase[] = fs.existsSync(casesDir)
+    ? fs
+        .readdirSync(casesDir)
+        .filter((f) => f.endsWith(".json"))
+        .map((f) => {
+          const r = JSON.parse(fs.readFileSync(path.join(casesDir, f), "utf8")) as PipelineResult;
+          const m = manifest.find((c) => c.id === r.caseId);
+          return toDashboardCase(r, m ? `${m.receivingFacility} — ${m.receivingDepartment}` : "");
+        })
+        .sort((a, b) => a.id.localeCompare(b.id))
     : [];
-  fs.writeFileSync(
-    path.join(PATHS.data, "dashboard.json"),
-    JSON.stringify({ metrics, cases, generatedAt: new Date().toISOString() }, null, 2) + "\n",
-    "utf8",
+
+  const adj = readJson<AdjudicatorResult>("adjudicator.json");
+  const variance = readJson<{ modelMeanStdev: number; deterministicMeanStdev: number; runs: number }>(
+    "iter2_variance.json",
   );
+  const adjMd = fs.existsSync(path.join(PATHS.trajectories, "adjudicator.md"))
+    ? fs.readFileSync(path.join(PATHS.trajectories, "adjudicator.md"), "utf8")
+    : "";
+  const case12Block = adjMd.split(/^## /m).find((s) => s.startsWith("case-12")) ?? "";
+
+  const data: DashboardData = {
+    generatedAt: new Date().toISOString(),
+    metrics: fm
+      ? {
+          mode: fm.mode as "fresh" | "replay",
+          model: fm.model,
+          generatedAt: fm.generatedAt,
+          headline: fm.headline,
+          agent: {
+            recallPct: fm.agent.recallPct,
+            falseFlags: fm.agent.falseFlags,
+            falseFlagsOnControls: fm.agent.falseFlagsOnControls,
+            inventedValues: fm.agent.inventedValues,
+            costPerPackUsd: fm.agent.costPerPackUsd,
+            contradictionsCaught: fm.contradictionDetection.agentCaught,
+            contradictionsSeeded: fm.contradictionDetection.seeded,
+          },
+          baseline: {
+            recallPct: fm.baseline.recallPct,
+            falseFlags: fm.baseline.falseFlags,
+            costPerPackUsd: fm.baseline.costPerPackUsd,
+            contradictionsCaught: fm.contradictionDetection.baselineCaught,
+          },
+          perCase: fm.perCase,
+          humanReviewTime: { measured: fm.humanReviewTime.measured, note: fm.humanReviewTime.note },
+        }
+      : null,
+    cases,
+    changelog: changelogEntries(),
+    adjudicator: adj
+      ? {
+          agreementRate: adj.agreementRate,
+          boundaryAssessment: adj.boundaryAssessment,
+          case12Transcript: case12Block ? `## ${case12Block}` : "Run the evaluation to capture the transcript.",
+          transcriptFile: "results/trajectories/adjudicator.md",
+        }
+      : null,
+    variance: variance
+      ? { modelMeanStdev: variance.modelMeanStdev, deterministicMeanStdev: variance.deterministicMeanStdev, runs: variance.runs }
+      : null,
+  };
+
+  fs.writeFileSync(path.join(PATHS.data, "dashboard.json"), JSON.stringify(data, null, 2) + "\n", "utf8");
 }

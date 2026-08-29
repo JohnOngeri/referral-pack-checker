@@ -40,7 +40,33 @@ function numberLines(text: string): string {
  * with the validation errors attached, up to three attempts. Every attempt is
  * recorded under results/raw/.
  */
+/**
+ * In-process cache. Extraction is deterministic for a given pack + model, so a
+ * single `npm run eval` process calls the model once per pack and every
+ * configuration reuses that result. The committed raw file is written once.
+ * Cleared between processes; set RPC_NO_EXTRACT_CACHE=1 to disable.
+ */
+const extractCache = new Map<string, ExtractionResult>();
+
+export function clearExtractCache(): void {
+  extractCache.clear();
+}
+
 export async function runExtractor(
+  provider: ModelProvider,
+  caseId: string,
+  packText: string,
+): Promise<ExtractionResult> {
+  const cacheKey = `${provider.mode}:${provider.model}:${caseId}`;
+  if (!process.env.RPC_NO_EXTRACT_CACHE && extractCache.has(cacheKey)) {
+    return extractCache.get(cacheKey)!;
+  }
+  const result = await runExtractorUncached(provider, caseId, packText);
+  if (!process.env.RPC_NO_EXTRACT_CACHE) extractCache.set(cacheKey, result);
+  return result;
+}
+
+async function runExtractorUncached(
   provider: ModelProvider,
   caseId: string,
   packText: string,
@@ -53,7 +79,7 @@ export async function runExtractor(
   for (let attempt = 1; attempt <= MAX_EXTRACT_ATTEMPTS; attempt++) {
     const res = await provider.parseStructured(
       { phase: "extract", caseId, label: "extract", attempt },
-      { system: EXTRACTOR_SYSTEM, user, followups, maxTokens: 8000 },
+      { system: EXTRACTOR_SYSTEM, user, followups, maxTokens: 16000 },
       ExtractionSchema,
     );
 
